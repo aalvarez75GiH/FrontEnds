@@ -873,6 +873,15 @@ html {
       height: 8rem;
     }
   }
+
+  /* ******************************************** */
+  .video{
+    width: 600px;
+    height: 400px;
+    background-color: red;  
+  }
+  /* ******************************************** */
+
   .Perfil__img-placeholder {
     border-radius: 9999px;
     width: 4rem;
@@ -1069,7 +1078,27 @@ html {
     color: #cc1f1a;
     border-radius: 0.25rem;
   }
+  .NiceMessage_Container {
+    border-width: 1px;
+    position: fixed;
+    z-index: 50;
+    background-color: #fcebea;
+    border-color: green;
+    margin-top: 4rem;
+    width: 100%;
+    color: green;
+    border-radius: 0.25rem;
+  }
   .Error__inner {
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 50rem;
+    margin-right: auto;
+    left: 50%;
+  }
+  .Nice__inner {
     -webkit-align-items: center;
     align-items: center;
     padding: 0.5rem;
@@ -1088,6 +1117,14 @@ html {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .Nice__button {
+    display: -webkit-flex;
+    display: flex;
+    margin-left: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   [data-reach-dialog-content] {
     padding: 1.5rem;
     border-radius: 0.25rem;
