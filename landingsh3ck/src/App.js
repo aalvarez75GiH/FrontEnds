@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
-import NavBar from './components/navBar'
 import Main from './components/main'
 import axios from 'axios'
 import Section4 from './views/section4'
 import Error from './components/error'
 import NiceMessage from './components/niceMessage'
+import NavBar from './components/NavBar'
+import VideoJS from './components/video'
 
 
 const App = () =>  {
+    const playerRef = React.useRef(null);
 
     const [ error, setError ] = useState(null)
     const [ infoSent, setInfoSent ] = useState(null)
     
-
     const showError = ( message ) => {
         setError(message)
     }
@@ -24,6 +25,22 @@ const App = () =>  {
         setInfoSent(null)
     }
   
+ 
+
+      const handlePlayerReady = (player) => {
+        playerRef.current = player;
+    
+        // you can handle player events here
+        player.on('waiting', () => {
+          console.log('player is waiting');
+        });
+    
+        player.on('dispose', () => {
+          console.log('player will dispose');
+        });
+      };
+    
+
 
     const handlingSubmitUser = async(fullName, email) => {
             try {
@@ -43,20 +60,15 @@ const App = () =>  {
         
     return (
         <React.Fragment>
-            <NavBar />
+            <NavBar/>
             <NiceMessage message={ infoSent } hideMessage={ hideMessage }/>
             <Error message={ error } hideError={hideError} />
-            <Main center>
-                <div className="video">
-                <video
-                className="video"  
-                controls />
-                <source src="../public/Videos/sh3ck-1080p-210923.mp4" type="video/mp4"/>
-                {/* <video src=".././content/sh3ck-1080p-210923.mp4"></video> */}
+            <div className="container">
+                <div className="video-container">
+                    <VideoJS/>
                 </div>
-               <Section4  
-               handlingSubmitUser={ handlingSubmitUser }/>
-            </Main>
+                   
+            </div>
         </React.Fragment>
     ) 
 
