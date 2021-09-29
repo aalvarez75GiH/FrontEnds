@@ -4,8 +4,9 @@ import { Link } from 'react-scroll'
 const NavBar = () => {
     return (
         <div className="NavBar">
-            {/* <ul className="NavBar__links"> */}
+            <ul className="NavBar__links">
             <Link
+            className="NavBar__link"
             activeClass="active"
             to="section-2"
             spy={true}
@@ -15,6 +16,7 @@ const NavBar = () => {
              ¿Quieres saber más?   
             </Link>
             <Link
+            className="NavBar__link"
             activeClass="active"
             to="section-3"
             spy={true}
@@ -24,6 +26,7 @@ const NavBar = () => {
              ¿Como funciona?   
             </Link>
             <Link
+            className="NavBar__link"
             activeClass="active"
             to="section-4"
             spy={true}
@@ -33,7 +36,7 @@ const NavBar = () => {
              ¿Quieres ser parte?   
             </Link>
                 
-            {/* </ul> */}
+            </ul>
         </div>
     )
 }
