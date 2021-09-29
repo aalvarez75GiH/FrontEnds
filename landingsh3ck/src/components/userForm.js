@@ -23,32 +23,33 @@ const UserForm = ({ handlingSubmitUser }) => {
     }
     
     return (
-        <div>
-            <form 
-            onSubmit={(e)=> handlingSubmit(e)}
-            >
-                <input
-                    onChange={ (e) => onHandlingName(e)} 
-                    type="text" 
-                    placeholder="Nombre completo"
-                    required
-                    value={fullName}
-                    className="Form__field"
-                    />
-                     <input
-                    onChange={ (e) => onHandlingEmail(e)} 
-                    type="text" 
-                    placeholder="Correo electrónico"
-                    required
-                    value={email}
-                    className="Form__field"
-                    />
-                    <button
-                    className="Form__submit"
-                    onClick={(e) => handlingSubmit(e) } 
-                    type="submit">Enviar</button>  
-            </form>
-        </div>
+        <form className="form-1"  
+        onSubmit={(e)=> handlingSubmit(e)}
+        >
+            <input
+                onChange={ (e) => onHandlingName(e)} 
+                type="text" 
+                placeholder="Nombre completo"
+                required
+                value={fullName}
+                
+                />
+                 <input
+                onChange={ (e) => onHandlingEmail(e)} 
+                type="text" 
+                placeholder="Correo electrónico"
+                required
+                value={email}
+                
+                />
+                <button
+                
+                onClick={(e) => handlingSubmit(e) } 
+                type="submit">Enviar</button>  
+        </form>
+        
+        
+        
     )
 }
 

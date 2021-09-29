@@ -5,7 +5,7 @@ import Section4 from './views/section4'
 import Error from './components/error'
 import NiceMessage from './components/niceMessage'
 import NavBar from './components/NavBar'
-import VideoJS from './components/video'
+import Section1 from './views/section1'
 
 
 const App = () =>  {
@@ -24,8 +24,6 @@ const App = () =>  {
     const hideMessage = () => {
         setInfoSent(null)
     }
-  
- 
 
       const handlePlayerReady = (player) => {
         playerRef.current = player;
@@ -63,12 +61,7 @@ const App = () =>  {
             <NavBar/>
             <NiceMessage message={ infoSent } hideMessage={ hideMessage }/>
             <Error message={ error } hideError={hideError} />
-            <div className="container">
-                <div className="video-container">
-                    <VideoJS/>
-                </div>
-                   
-            </div>
+            <Section1/>            
         </React.Fragment>
     ) 
 
