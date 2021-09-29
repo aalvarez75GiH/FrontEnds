@@ -20,6 +20,8 @@ const UserForm = ({ handlingSubmitUser }) => {
     const handlingSubmit = (e) => {
         e.preventDefault()
         handlingSubmitUser(fullName, email)
+        setFullName('')
+        setEmail('')
     }
     
     return (

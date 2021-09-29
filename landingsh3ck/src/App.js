@@ -6,6 +6,9 @@ import Error from './components/error'
 import NiceMessage from './components/niceMessage'
 import NavBar from './components/NavBar'
 import Section1 from './views/section1'
+import Section2 from './views/section2'
+import Section3 from './views/section3'
+import Separator from './components/separator'
 
 
 const App = () =>  {
@@ -61,7 +64,23 @@ const App = () =>  {
             <NavBar/>
             <NiceMessage message={ infoSent } hideMessage={ hideMessage }/>
             <Error message={ error } hideError={hideError} />
-            <Section1/>            
+            <Section1 handlingSubmitUser={handlingSubmitUser} />
+            <Separator 
+            buttonCaption='¿Quieres saber más?' 
+            background_color='#000000'
+            button_bkgColor='#000000'
+            button_caption_color='#ffffff'
+            button_border_color={`2px solid ${'white'}`}
+            />
+            <Section2/>
+            <Separator 
+            buttonCaption='Como funciona' 
+            background_color='#fffd82'
+            button_bkgColor='#fffd82'
+            button_caption_color='#000000'
+            button_border_color={`2px solid ${'black'}`}
+            />
+            <Section3/>            
         </React.Fragment>
     ) 
 

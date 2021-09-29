@@ -9,8 +9,11 @@ const Section1 = ({ handlingSubmitUser }) => {
                 <VideoJS/>
             </div>
             <div className="section-1_form">
-                <UserForm handlingSubmitUser={ handlingSubmitUser }/>
-            </div>    
+                <UserForm
+                className="section-1_form__form" 
+                handlingSubmitUser={ handlingSubmitUser }/>
+            </div>
+            {/* <button className="section_button">¿Quieres saber mas?</button>     */}
         </div>
         
     )

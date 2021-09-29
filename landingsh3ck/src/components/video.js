@@ -1,6 +1,6 @@
 import React from 'react'
 import VideoPlayer from 'react-video-js-player'
-import video from '../test/sh3ck-1080p-210923.mp4'
+import video from '../Videos/sh3ck-1080p-210928.mp4'
 
 const VideoJS = () => {
     const videoSrc = video
