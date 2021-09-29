@@ -1,16 +1,9 @@
 import React from 'react'
-import UserForm from '../components/userForm'
 
-const Section4 = ({ handlingSubmitUser }) => {
+const Section4 = () => {
     return(
-        <div className="Signup">
-            <div className="FormContainer">
-                <div>
-                 <UserForm 
-                  handlingSubmitUser={ handlingSubmitUser }
-                  />    
-                </div>
-            </div>
+        <div className="section-4">
+            
         </div>
     )
 }

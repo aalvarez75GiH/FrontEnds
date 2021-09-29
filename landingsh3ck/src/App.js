@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Main from './components/main'
 import axios from 'axios'
-import Section4 from './views/section4'
 import Error from './components/error'
 import NiceMessage from './components/niceMessage'
 import NavBar from './components/NavBar'
@@ -9,6 +8,7 @@ import Welcome from './views/welcome'
 import Section1 from './views/section1'
 import Section2 from './views/section2'
 import Section3 from './views/section3'
+import Section4 from './views/section4'
 import Separator from './components/separator'
 
 
@@ -82,7 +82,22 @@ const App = () =>  {
             button_caption_color='#0C0920'
             button_border_color={`2px solid ${'black'}`}
             />
-            <Section3/>            
+            <Section3/>
+            <Separator 
+            buttonCaption='¿Quieres ser parte?' 
+            background_color='#FF810A'
+            button_bkgColor='#FF810A'
+            button_caption_color='#ffffff'
+            button_border_color={`2px solid ${'white'}`}
+            />
+            <Section4/>
+            <Separator 
+            buttonCaption='Notificame' 
+            background_color='black'
+            button_bkgColor='black'
+            button_caption_color='#ffffff'
+            button_border_color={`2px solid ${'white'}`}
+            />
         </React.Fragment>
     ) 
 

@@ -308,12 +308,17 @@ background-color: #cc1f1a;
 
 .section-2 {
 width: 100%;
-height: 100vh;
+height: 73vh;
 background-color: #FAD570;
 }
 
 .section-3 {
   width: 100%;
-  height: 100vh;
+  height: 73vh;
   background-color: #FF810A;
+}
+.section-4 {
+  width: 100%;
+  height: 73vh;
+  background-color: #000000;
 }
