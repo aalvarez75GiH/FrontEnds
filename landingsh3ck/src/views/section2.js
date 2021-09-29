@@ -1,11 +1,22 @@
 import React from 'react'
-import UserForm from '../components/userForm'
+import Separator from '../components/separator'
 
-const Section2 = () => {
+const Section2 = ({ nextSection}) => {
     return(
-        <div className="section-2">
+        <React.Fragment>
+            <div className="section-2" id="section-2">
             
-        </div>
+            </div>
+            <Separator
+            buttonCaption='Como funciona' 
+            background_color='#FAD570'
+            button_bkgColor='#FAD570'
+            button_caption_color='#0C0920'
+            button_border_color={`2px solid ${'black'}`}
+            nextSection={nextSection}
+            />
+        </React.Fragment>
+        
     )
 }
 

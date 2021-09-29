@@ -66,30 +66,10 @@ const App = () =>  {
             <NiceMessage message={ infoSent } hideMessage={ hideMessage }/>
             <Error message={ error } hideError={hideError} />
             {/* <Welcome/> */}
-            <Section1 handlingSubmitUser={handlingSubmitUser} />
-            <Separator 
-            buttonCaption='¿Quieres saber más?' 
-            background_color='#0C0920'
-            button_bkgColor='#0C0920'
-            button_caption_color='#ffffff'
-            button_border_color={`2px solid ${'white'}`}
-            />
-            <Section2/>
-            <Separator 
-            buttonCaption='Como funciona' 
-            background_color='#FAD570'
-            button_bkgColor='#FAD570'
-            button_caption_color='#0C0920'
-            button_border_color={`2px solid ${'black'}`}
-            />
-            <Section3/>
-            <Separator 
-            buttonCaption='¿Quieres ser parte?' 
-            background_color='#FF810A'
-            button_bkgColor='#FF810A'
-            button_caption_color='#ffffff'
-            button_border_color={`2px solid ${'white'}`}
-            />
+            <Section1 handlingSubmitUser={handlingSubmitUser} nextSection='section-2'  />
+            <Section2 nextSection='section-3'/>
+            <Section3 nextSection='section-4'/>
+            
             <Section4/>
             <Separator 
             buttonCaption='Notificame' 
