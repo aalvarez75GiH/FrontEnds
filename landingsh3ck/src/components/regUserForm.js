@@ -4,11 +4,12 @@ const RegUserForm = ({ handlingSubmitRegUser }) => {
     
     
     const [ regUser,setRegUser ] = useState({
-        fullName:'',
+        fullName: '',
         email:'',
         password:'',
         phoneNumber:''
     })
+
     
     const onHandlingInputChange = (e) => {
         e.preventDefault()
@@ -24,7 +25,15 @@ const RegUserForm = ({ handlingSubmitRegUser }) => {
         e.preventDefault()
         try {
             console.log('here is the magic...')
-            await handlingSubmitRegUser(regUser)    
+            await handlingSubmitRegUser(regUser)
+            setRegUser({
+                fullName: '',
+                email:'',
+                password:'',
+                phoneNumber:'',
+            })
+
+
         } catch (error) {
             console.log(error)
         }
@@ -43,7 +52,7 @@ const RegUserForm = ({ handlingSubmitRegUser }) => {
             value={regUser.fullName}
             
             />
-             <input
+            <input
             onChange={ (e) => onHandlingInputChange(e)} 
             name="email"
             type="text" 
@@ -52,16 +61,16 @@ const RegUserForm = ({ handlingSubmitRegUser }) => {
             value={regUser.email}
             
             />
-             <input
+            <input
             onChange={ (e) => onHandlingInputChange(e)} 
             name="phoneNumber"
             type="text" 
             placeholder="Introduce número telefónico"
             required
-            value={regUser.phoneNumer}
+            value={regUser.phoneNumber}
             
             />
-             <input
+            <input
             onChange={ (e) => onHandlingInputChange(e)} 
             name="password"
             type="text" 

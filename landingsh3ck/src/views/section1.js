@@ -8,10 +8,10 @@ import Separator from '../components/separator'
 const Section1 = ({ handlingSubmitUser, nextSection  }) => {
     return (
         <React.Fragment>
-            <div className="section-1">
-                <div className="section-1__video">
-                    <VideoJS/>
-                </div>
+        <div className="section-1">
+            <div className="section-1__video">
+                <VideoJS/>
+            </div>
             <div className="section-1_form">
                 <UserForm
                 className="section-1_form__form" 
