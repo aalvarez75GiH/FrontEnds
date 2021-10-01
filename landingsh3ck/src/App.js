@@ -83,13 +83,13 @@ const App = () =>  {
             <Section2 nextSection='section-3'/>
             <Section3 nextSection='section-4'/>
             <Section4 handlingSubmitRegUser={handlingSubmitRegUser}/>
-            <Separator 
+            {/* <Separator 
             buttonCaption='Notificame' 
             background_color='black'
             button_bkgColor='black'
             button_caption_color='#ffffff'
             button_border_color={`2px solid ${'white'}`}
-            />
+            /> */}
         </React.Fragment>
     ) 
 

@@ -43,6 +43,12 @@ const RegUserForm = ({ handlingSubmitRegUser }) => {
         <form className="form-4"  
         onSubmit={(e)=> handlingSubmit(e)}
         >
+            <div className="form4-title">
+                <h3 className="form4-title__title">
+                    Regístrate con nosotros
+                </h3>
+            </div>
+            
             <input
             onChange={ (e) => onHandlingInputChange(e)} 
             name="fullName"
