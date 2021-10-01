@@ -1,6 +1,6 @@
 import React from 'react'
 import VideoJS from '../components/video'
-import UserForm from '../components/userForm'
+import InterestedUserForm from '../components/interestedUserForm'
 import Separator from '../components/separator'
 
 
@@ -13,7 +13,7 @@ const Section1 = ({ handlingSubmitUser, nextSection  }) => {
                 <VideoJS/>
             </div>
             <div className="section-1_form">
-                <UserForm
+                <InterestedUserForm
                 className="section-1_form__form" 
                 handlingSubmitUser={ handlingSubmitUser }/>
             </div>

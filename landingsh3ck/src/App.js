@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import Main from './components/main'
 import axios from 'axios'
 import Error from './components/error'
 import NiceMessage from './components/niceMessage'
 import NavBar from './components/NavBar'
-import Welcome from './views/welcome'
 import Section1 from './views/section1'
 import Section2 from './views/section2'
 import Section3 from './views/section3'
 import Section4 from './views/section4'
-import Separator from './components/separator'
 
 
 const App = () =>  {
@@ -17,8 +14,8 @@ const App = () =>  {
 
     const [ error, setError ] = useState(null)
     const [ infoSent, setInfoSent ] = useState(null)
-    const url_users = "http://localhost:5000/api/users"
-    const url_regUsers = "http://localhost:5000/api/register"
+    const url_users = "http://localhost:5000/api/interestedUsers"
+    const url_regUsers = "http://localhost:5000/api/users"
     
     
     const showError = ( message ) => {

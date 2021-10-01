@@ -1,11 +1,11 @@
 import React from 'react'
-import RegUserForm from '../components/regUserForm'
+import UserForm from '../components/userForm'
 
 const Section4 = ({ handlingSubmitRegUser }) => {
     return(
         <div className="section-4">
             <div className="section-4_form">
-                <RegUserForm
+                <UserForm
                 className="section-4_form__form" 
                 handlingSubmitRegUser={ handlingSubmitRegUser }/>
             </div>

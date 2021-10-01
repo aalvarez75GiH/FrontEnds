@@ -43,15 +43,3 @@ const NavBar = () => {
 
 export default NavBar
 
-{/* <li className="NavBar__link">
-                ¿Quieres saber más?
-                </li> */}
-                {/* <li className="NavBar__link">
-                Como funciona
-                </li>
-                <li className="NavBar__link">
-                ¿Quieres ser parte?
-                </li>
-                <li className="NavBar__link">
-                Notifícame
-                </li> */}
