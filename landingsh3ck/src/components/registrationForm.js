@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const UserForm = ({ handlingSubmitRegUser }) => {
+const RegistrationForm = ({ handlingSubmitRegUser }) => {
     
     
     const [ user, setUser ] = useState({
@@ -97,4 +97,4 @@ const UserForm = ({ handlingSubmitRegUser }) => {
     )
 }
 
-export default UserForm
+export default RegistrationForm

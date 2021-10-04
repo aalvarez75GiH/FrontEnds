@@ -16,7 +16,7 @@ const App = () =>  {
     const [ infoSent, setInfoSent ] = useState(null)
     const url_users = "http://localhost:5000/api/interestedUsers"
     const url_regUsers = "http://localhost:5000/api/users"
-    
+    const url_loginUsers = "http://localhost:5000/api/users/login"
     
     const showError = ( message ) => {
         setError(message)
@@ -29,21 +29,8 @@ const App = () =>  {
         setInfoSent(null)
     }
 
-      const handlePlayerReady = (player) => {
-        playerRef.current = player;
+ 
     
-        // you can handle player events here
-        player.on('waiting', () => {
-          console.log('player is waiting');
-        });
-    
-        player.on('dispose', () => {
-          console.log('player will dispose');
-        });
-      };
-    
-
-
     const handlingSubmitUser = async(fullName, email) => {
       try {
       const response = await axios.post(url_users, {
@@ -70,23 +57,29 @@ const App = () =>  {
     }
     
 
+    const handlingLoginUser = async(user) => {
+      try {
+        const { data } = await axios.post(url_loginUsers, user)
+        console.log(data.token)
+        localStorage.setItem('SH3CK_TOKEN', data.token) 
+       } catch (error) {
+         console.error(error.response.data)
+         showError(error.response.data)
+       }
+    }
+
     return (
         <React.Fragment>
             <NavBar/>
             <NiceMessage message={ infoSent } hideMessage={ hideMessage }/>
             <Error message={ error } hideError={hideError} />
-            {/* <Welcome/> */}
             <Section1 handlingSubmitUser={handlingSubmitUser} nextSection='section-2'  />
             <Section2 nextSection='section-3'/>
             <Section3 nextSection='section-4'/>
-            <Section4 handlingSubmitRegUser={handlingSubmitRegUser}/>
-            {/* <Separator 
-            buttonCaption='Notificame' 
-            background_color='black'
-            button_bkgColor='black'
-            button_caption_color='#ffffff'
-            button_border_color={`2px solid ${'white'}`}
-            /> */}
+            <Section4 
+            handlingSubmitRegUser={handlingSubmitRegUser}
+            handlingLoginUser={handlingLoginUser}
+            />
         </React.Fragment>
     ) 
 
