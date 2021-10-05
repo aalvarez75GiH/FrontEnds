@@ -11,13 +11,15 @@ import {
     NavBtn  
 } from './navBarElements'
 import { FaBars } from 'react-icons/fa'
-const NavBar = () => {
+const NavBar = ({ toggleSideBar }) => {
     return (
        <React.Fragment>
            <Nav>
                <NavBarContainer>
                    <NavLogo to="/">dolla</NavLogo>
-                   <MobileIcon>
+                   <MobileIcon
+                   onClick={(e) => toggleSideBar(e) }
+                   >
                        <FaBars/>
                    </MobileIcon>
                 <NavMenu>
