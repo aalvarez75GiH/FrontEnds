@@ -11,7 +11,6 @@ import {
     NavBtn  
 } from './navBarElements'
 import { FaBars } from 'react-icons/fa'
-
 const NavBar = () => {
     return (
        <React.Fragment>
