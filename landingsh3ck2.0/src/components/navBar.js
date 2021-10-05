@@ -1,30 +1,33 @@
 import React from 'react'
+import { FaBars } from 'react-icons/fa'
+import { Link as LinkR } from 'react-router-dom'
+import { Link as LinkS } from 'react-scroll'
 
 const NavBar = () => {
     return (
         <>
             <nav className="nav" >
                 <div className="navBarContainer">
-                    <a href="/" className="navLogo">dolla</a>
+                    <LinkR to="/" className="navLogo">sh3ck</LinkR>
                     <div className="mobileIcon">
-                        {/* <FaBars/> */}
+                        <FaBars/>
                     </div>
                     <ul className="navMenu"> 
                         <li className="navItem">
-                            <a href="about" className="navLinks" >About</a>
+                            <LinkS to="about" className="navLinks" >¿Quieres saber más?</LinkS>
                         </li>
                         <li className="navItem">
-                            <a href="discover" className="navLinks" >Discover</a>
+                            <LinkS to="discover" className="navLinks" >¿Como funciona?</LinkS>
                         </li>
                         <li className="navItem">
-                        <a href="services" className="navLinks" >Services</a>
+                        <LinkS to="services" className="navLinks" >¿Quiéres ser parte?</LinkS>
                         </li>
-                        <li className="navItem">
-                        <a href="signup" className="navLinks" >Sign up</a>
-                        </li>
+                        {/* <li className="navItem">
+                        <LinkS to="signup" className="navLinks" >Sign up</LinkS>
+                        </li> */}
                     </ul>
                     <nav className="navBtn">
-                        <a href="/signin" className="navBtnLink">Sign in</a>
+                        <LinkR to="/signin" className="navBtnLink">Inicio de Sesión</LinkR>
                     </nav>
                 </div>
             </nav>
