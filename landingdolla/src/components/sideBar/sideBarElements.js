@@ -18,10 +18,6 @@ export const SideBarContainer = styled.aside`
     opacity: ${({ isOpen }) => (isOpen ? '100' : '0') };
     top: ${({ isOpen }) => (isOpen ? '0' : '-100') };
 ` 
-export const CloseIcon = styled(FaTimes)`
-    color: #ffffff;
-
-`
 
 export const Icon = styled.div`
     position: absolute;
@@ -32,6 +28,9 @@ export const Icon = styled.div`
     cursor: pointer;
     outline: none;
 
+`
+export const CloseIcon = styled(FaTimes)`
+    color: #ffffff;
 `
 
 export const SideBarWrapper = styled.div`
