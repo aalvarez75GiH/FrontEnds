@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    /* font-size: 62.50%; */
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  .nav {
+      background-color: #000000;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+
+  .navBarContainer {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      z-index: 1;
+      width: 100%;
+      padding: 0 24px;
+      max-width: 1100px;
+
   }
+  
+  .navLogo {
+    color:#ffffff;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+   
+  .mobileIcon {
+      display: none;
+
+  }
+
+  .navMenu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      text-align: center;
+      margin-right: -22px;
+  }
+
+  .navItem {
+      height: 80px;
+  }
+
+  .navLinks {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 1rem;
+      height: 100%;
+      cursor: pointer;
+  }
+  
+  .navLinks.active {
+      border-bottom: 3px solid #01bf71;
+  }
+
+  .navBtn {
+      display: flex;
+      align-items: center;
+  }
+
+  .navBtnLink {
+      border-radius: 50px;
+      background-color: #01bf71;
+      white-space: nowrap;
+      padding: 10px 22px;
+      color: #010606;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+  }
+
+  .navBtnLink:hover {   
+    transition: all 0.2s ease-in-out;
+    background-color: #ffffff;
+    color: #010606;
+  }
+
+  /* <nav className="nav" >
+  <div className="navBarContainer">
+      <a href="/" className="navLogo">dolla</a>
+      <div className="mobileIcon"></div>
+      <ul className="navMenu"> 
+          <li className="navItem">
+              <a href="about" className="navLinks" >About</a>
+          </li>
+          <li className="navItem">
+              <a href="discover" className="navLinks" >Discover</a>
+          </li>
+          <li className="navItem">
+          <a href="services" className="navLinks" >Services</a>
+          </li>
+          <li className="navItem">
+          <a href="signup" className="navLinks" >Sign up</a>
+          </li>
+      </ul>
+      <nav className="navBtn">
+          <a href="/signin" className="navBtnLink">Sign in</a>
+      </nav>
+  </div>
+</nav> */
+
+@media screen and (max-width:960px){
+    .nav {
+        transition: 0.8s all ease;       
+    }
+}
+
+@media screen and (max-width:768px) {
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+    .navMenu {
+        display: none;
+    } 
+    .navBtn {
+        display: none;
+    }
 }
