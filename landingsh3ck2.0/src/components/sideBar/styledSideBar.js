@@ -1,5 +1,4 @@
 import React from 'react'
-import SideBar from './sideBar'
 import {
     SideBarContainer,
     SideBarIcon,
@@ -12,21 +11,31 @@ import {
 
 } from '../sideBar/styledSideBarElements.js'
 
-const StyledSideBar = () => {
+const StyledSideBar = ({ isOpen, toggleSideBar }) => {
     return (
-        <SideBarContainer>
-            <SideBarIcon>
+        <SideBarContainer
+        isOpen={ isOpen }
+        >
+            <SideBarIcon
+            onClick={ toggleSideBar }
+            >
                 <CloseIcon/>
             </SideBarIcon>
             <SideBarWrapper>
                 <SideBarMenu>
-                    <SideBarLink>
+                    <SideBarLink
+                    onClick={ toggleSideBar }
+                    >
                         ¿Quieres saber más?
                     </SideBarLink>
-                    <SideBarLink>
+                    <SideBarLink
+                    onClick={ toggleSideBar }
+                    >
                         ¿Como funciona?
                     </SideBarLink>
-                    <SideBarLink>
+                    <SideBarLink
+                    onClick={ toggleSideBar }
+                    >
                         ¿Quiéres ser parte?
                     </SideBarLink>
                 </SideBarMenu>
@@ -44,34 +53,3 @@ const StyledSideBar = () => {
 
 export default StyledSideBar
 
-
-{/* <aside className="sideBarContainer">
-        <div className="sideBarIcon">
-            <FaTimes
-            className="closeIcon"
-            />
-        </div>
-    <div className="sideBarWrapper">
-        <ul className="sideBarMenu">
-            <LinkS to="about" className="sideBarLink" >
-                ¿Quieres saber más?
-            </LinkS>
-            <LinkS to="discover" className="sideBarLink" >
-                ¿Como funciona?
-            </LinkS>
-            <LinkS to="services" className="sideBarLink" >
-                ¿Quiéres ser parte?
-            </LinkS>
-        </ul>
-        <div className="sideBtnWrap">
-            <LinkR
-            className="sideBarRoute" 
-            to="/signin">
-                Sign in
-            </LinkR>
-        </div>
-
-</div>
-
-
-</aside> */}

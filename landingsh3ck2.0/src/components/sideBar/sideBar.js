@@ -6,13 +6,7 @@ import { Link as LinkS } from 'react-scroll'
 const SideBar = ({ toggleSideBar, isOpen }) => {
     return (
         <aside
-        className={`${isOpen ? "sideBarContainerOpen" : "sideBarContainer" }`} 
-        //className="sideBarContainer"
-        // style={{
-        //     opacity: `${isOpen ? '100%' : '0'}`,
-        //     top:`${isOpen ? '0' : '-100%'}` ,
-        // }}
-        >
+        className={`${isOpen ? "sideBarContainerOpen" : "sideBarContainer" }`}>
             <div 
             className="sideBarIcon"
             onClick={ toggleSideBar }
@@ -21,13 +15,22 @@ const SideBar = ({ toggleSideBar, isOpen }) => {
             </div>
             <div className="sideBarWrapper">
                 <ul className="sideBarMenu">
-                    <LinkS to="about" className="sideBarLink" >
+                    <LinkS
+                    onClick={ toggleSideBar }
+                    to="about" 
+                    className="sideBarLink" >
                         ¿Quieres saber más?
                     </LinkS>
-                    <LinkS to="discover" className="sideBarLink" >
+                    <LinkS 
+                    onClick={ toggleSideBar }
+                    to="discover" 
+                    className="sideBarLink" >
                         ¿Como funciona?
                     </LinkS>
-                    <LinkS to="services" className="sideBarLink" >
+                    <LinkS 
+                    onClick={ toggleSideBar }
+                    to="services" 
+                    className="sideBarLink" >
                         ¿Quiéres ser parte?
                     </LinkS>
                 </ul>
