@@ -135,16 +135,22 @@
     align-items: center;
     left: 0;
     transition: 0.3s ease-in-out;
-    /* top: -100%; */
-    /* opacity: 0%; */
-    /* opacity: ${({ isOpen })=> (isOpen ? '100' : '0')}; */
-    /* top: ${({ isOpen }) => (isOpen ? '0' : '-100') }; */
+    top: -100%;
+    opacity:0%;
 }
 
-.sideBarContainer.isOpen {
-    opacity: 0%;
-    top: 0;
+.sideBarContainerOpen {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #0C0920;
+    display: grid;
+    align-items: center;
+    left: 0;
     transition: 0.3s ease-in-out;
+    top: 0%;
+    opacity: 100%;
 }
 
 .sideBarIcon {
@@ -214,16 +220,6 @@
     background-color: #FAD570;
     color: #0C0920;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3,13 +3,21 @@ import { FaTimes } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 
-const SideBar = () => {
+const SideBar = ({ toggleSideBar, isOpen }) => {
     return (
-        <aside className="sideBarContainer">
-            <div className="sideBarIcon">
-                <FaTimes
-                className="closeIcon"
-                />
+        <aside
+        className={`${isOpen ? "sideBarContainerOpen" : "sideBarContainer" }`} 
+        //className="sideBarContainer"
+        // style={{
+        //     opacity: `${isOpen ? '100%' : '0'}`,
+        //     top:`${isOpen ? '0' : '-100%'}` ,
+        // }}
+        >
+            <div 
+            className="sideBarIcon"
+            onClick={ toggleSideBar }
+            >
+                <FaTimes className="closeIcon"/>
             </div>
             <div className="sideBarWrapper">
                 <ul className="sideBarMenu">
@@ -27,7 +35,7 @@ const SideBar = () => {
                     <LinkR
                     className="sideBarRoute" 
                     to="/signin">
-                        Sign in
+                        Haz Login
                     </LinkR>
                 </div>
 

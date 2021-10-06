@@ -3,13 +3,16 @@ import { FaBars } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 
-const NavBar = () => {
+const NavBar = ({ toggleSideBar }) => {
+
     return (
         <>
             <nav className="nav" >
                 <div className="navBarContainer">
                     <LinkR to="/" className="navLogo">sh3ck</LinkR>
-                    <div className="mobileIcon">
+                    <div 
+                    onClick={ toggleSideBar }
+                    className="mobileIcon">
                         <FaBars/>
                     </div>
                     <ul className="navMenu"> 
