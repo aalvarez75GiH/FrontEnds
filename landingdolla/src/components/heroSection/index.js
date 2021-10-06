@@ -10,7 +10,7 @@ import {
     ArrowForward,
     ArrowRight
 } from './heroElements'
-import { Button } from '../buttonElements'
+import { Button } from '../buttons/buttonElements'
 import Video from '../../videos/video.mp4'
 
 const HeroSection = () => {
