@@ -7,10 +7,10 @@ import {
     HeroH1,
     HeroP,
     HeroBtnWrapper,
-    Button,
     ArrowForward,
     ArrowRight
 } from './heroElements'
+import { Button } from '../buttonElements'
 import Video from '../../videos/video.mp4'
 
 const HeroSection = () => {
@@ -35,11 +35,15 @@ const HeroSection = () => {
             </HeroBg>
             <HeroContent>
                 <HeroH1>Virtual Banking Made Easy</HeroH1>
+                <HeroH1>Stylish Portfolio</HeroH1>
                 <HeroP>Sign up for a new account today and receive
                       $250 in credit towards your next payment.  
                 </HeroP>
                 <HeroBtnWrapper>
                     <Button
+                    // big={ true }
+                    primary={ true }
+                    dark ={ true }
                     onMouseEnter={ onHover }
                     onMouseLeave={ onHover }
                     to="/signup">
