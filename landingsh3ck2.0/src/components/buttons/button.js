@@ -14,7 +14,7 @@ const Button = ({ primary, big, fontBig, dark }) => {
     return (
         <button className="button" 
             style={{  
-            // backgroundColor: `${ primary ? '#01BF71' : '#010606' }`,
+            // backgroundColor: `${ primary ? '#FAD570' : '#010606' }`,
             backgroundColor: `${ hover  ? '#ffffff' : primary }`,
             color:`${ dark ? '#010606' : '#ffffff'}`,
             padding: `${ big ? '14px 48px' : '12px 30px' }` ,
@@ -25,17 +25,7 @@ const Button = ({ primary, big, fontBig, dark }) => {
             >
             <LinkS to="/" >
                 {/* Get Started { hover ? <ArrowForward/> : <ArrowRight/> } */}
-                Get Started { hover ? 
-                <MdKeyboardArrowRight
-                className="arrowRight"
-                /> : 
-                <MdArrowForward
-                className="arrowForward"
-                />
-               
-                }
-
-                
+                Ver video 
             </LinkS>
                 {/* Get Started */}
             
