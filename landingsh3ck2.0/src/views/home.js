@@ -22,7 +22,7 @@ const Home = () => {
             <SideBar isOpen={isOpen} toggleSideBar={ toggleSideBar }/>
             <NavBar 
             toggleSideBar={ toggleSideBar } 
-            username={'arnoldo'} 
+            username={'hola, arnoldo'} 
             login={ login }
             onLogin={ onLogin }
             />

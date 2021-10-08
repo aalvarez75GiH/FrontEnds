@@ -2,6 +2,7 @@ import React from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
+import { FaRegUser } from 'react-icons/fa'
 
 const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
     if (login){
@@ -34,7 +35,8 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                     className="navBtn">
                         <LinkR 
                         to="/signin" 
-                        className="navBtnLink">{username}</LinkR>
+                        className="navBtnLink">{username}
+                        </LinkR>
                     </div>
                 </div>
             </nav>
@@ -70,7 +72,10 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                         <nav 
                         onClick={ onLogin }
                         className="navBtn">
-                            <LinkR to="/signin" className="navBtnLink">Inicio de Sesión</LinkR>
+                            <LinkR to="/signin" className="navBtnLink">
+                                <FaRegUser className="userIcon"/>
+                                Inicio de Sesión
+                            </LinkR>
                         </nav>
                     </div>
                 </nav>

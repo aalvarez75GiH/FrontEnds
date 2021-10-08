@@ -22,12 +22,12 @@
 
   .navBarContainer {
       display: flex;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       height: 80px;
       z-index: 1;
       width: 100%;
       padding: 0 24px;
-      max-width: 1100px;
+      /* max-width: 1100px; */
 
   }
   
@@ -38,7 +38,7 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-left: 24px;
+    margin-left: 70px;
     font-weight: bold;
     text-decoration: none;
   }
@@ -53,7 +53,8 @@
       align-items: center;
       list-style: none;
       text-align: center;
-      margin-right: -22px;
+      /* margin-right: -22px; */
+      margin-left: 45%;
   }
 
   .navItem {
@@ -77,6 +78,11 @@
   .navBtn {
       display: flex;
       align-items: center;
+      margin-left: 4%;
+  }
+
+  .navBtn:hover .userIcon {
+      color: #010606
   }
 
   .navBtnLink {
@@ -90,6 +96,10 @@
       border: 2px solid #ffffff;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 200px;
   }
 
   .navBtnLink:hover {   
@@ -98,6 +108,12 @@
     color: #0C0920;
     border: none;
   }
+
+  .userIcon {
+      color: #ffffff;
+      font-size: 16px;
+  }
+  
 
 /**************** Media Queries NavBar ********************************/
 @media screen and (max-width:960px){
