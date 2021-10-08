@@ -12,6 +12,7 @@ import {
 } from '../sideBar/styledSideBarElements.js'
 
 const StyledSideBar = ({ isOpen, toggleSideBar }) => {
+    
     return (
         <SideBarContainer
         isOpen={ isOpen }

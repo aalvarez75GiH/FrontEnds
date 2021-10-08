@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import Video from '../../videos/video.mp4'
 import Button from '../buttons/button'
 import Image from '../../images/pexels-andrea-piacquadio-3928268.jpg'
+
+
+
 const HeroSection = () => {
-
-
 
     return (
         <div className="heroContainer">

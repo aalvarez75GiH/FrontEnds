@@ -13,12 +13,14 @@ import {
 } from './styledNavBarElements'
 
 
-const StyledNavBar = () => {
+const StyledNavBar = ({ toggleSideBar }) => {
     return (
         <Nav>
             <NavBarContainer>
                 <NavLogo to="/">Sh3ch</NavLogo>
-                <MobileIcon>
+                <MobileIcon
+                onClick={ toggleSideBar }
+                >
                     <FaBars/>
                 </MobileIcon>
                 <NavMenu>
