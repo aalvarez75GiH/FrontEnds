@@ -38,26 +38,3 @@ const StyledHeroSection = () => {
 }
 
 export default StyledHeroSection
-
-
-//  <div className="heroContainer">
-//     <div className="heroBG">
-//        <img
-//           className="imageBG"
-//           alt="this is a test"
-//           src={Image}/> 
-//      </div>
-//      <div className="heroContent">
-//         <h1 className="heroH1">La nueva forma de comprar sin miedo</h1>
-//         <h1 className="heroH1">por internet</h
-//         <div className="heroBtnWrapper">
-//             <Button 
-//             primary={ '#FAD570' }
-//             dark={ true }
-//             big={ true }
-//             fontBig = { true }
-//             >
-//             </Button>
-//         </div>
-//      </div>
-// </div>

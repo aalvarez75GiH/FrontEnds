@@ -13,8 +13,11 @@ import {
 } from './styledNavBarElements'
 
 
-const StyledNavBar = ({ toggleSideBar }) => {
-    return (
+const StyledNavBar = ({ toggleSideBar, username, onLogin, login }) => {
+    
+    if (login){
+        return(
+        <>
         <Nav>
             <NavBarContainer>
                 <NavLogo to="/">Sh3ch</NavLogo>
@@ -24,27 +27,70 @@ const StyledNavBar = ({ toggleSideBar }) => {
                     <FaBars/>
                 </MobileIcon>
                 <NavMenu>
-                    <NavItem>
-                        <NavLinks to="/mas">¿Quieres saber más?</NavLinks>
+                    <NavItem
+                    onClick={ onLogin }
+                    >
+                        <NavLinks to="mas">¿Quieres saber más?</NavLinks>
                 
                     </NavItem>
                     <NavItem>
-                        <NavLinks to="/funciona">Como funciona</NavLinks>
+                        <NavLinks to="funciona">Como funciona</NavLinks>
                 
                     </NavItem>
                     <NavItem>
-                        <NavLinks to="/serparte">¿Quieres ser parte?</NavLinks>
+                        <NavLinks to="serparte">¿Quieres ser parte?</NavLinks>
                     </NavItem>
                     
                 </NavMenu>
-                <NavBtn>
-                    <NavBtnLink to="/signin">Inicio de Sesión</NavBtnLink>
+                <NavBtn
+                onClick={ onLogin }
+                >
+                    <NavBtnLink to="/">{ username }</NavBtnLink>
                 </NavBtn>
             </NavBarContainer>
 
         </Nav>
-    )
-
+        </>
+        )
+    }else{
+        return (
+            <>
+            <Nav>
+                <NavBarContainer>
+                    <NavLogo to="/">Sh3ch</NavLogo>
+                    <MobileIcon
+                    onClick={ toggleSideBar }
+                    >
+                        <FaBars/>
+                    </MobileIcon>
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks to="mas">¿Quieres saber más?</NavLinks>
+                    
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks to="funciona">Como funciona</NavLinks>
+                    
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks to="serparte">¿Quieres ser parte?</NavLinks>
+                        </NavItem>
+                        
+                    </NavMenu>
+                    <NavBtn
+                    onClick={ onLogin }
+                    >
+                        <NavBtnLink
+                        to="/" 
+                        >Inicio de Sesión</NavBtnLink>
+                        
+                    </NavBtn>
+                </NavBarContainer>
+    
+            </Nav>
+            </>
+            )
+        }
 }
 
 export default StyledNavBar

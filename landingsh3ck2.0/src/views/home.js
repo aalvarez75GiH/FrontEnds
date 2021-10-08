@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-// import NavBar from '../components/navBar/navBar'
-// import StyledNavBar from '../components/navBar/styledNavbar'
+import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import StyledSideBar from '../components/sideBar/styledSideBar'
 import HeroSection from '../components/heroSection/heroSection'
@@ -17,23 +16,27 @@ const Home = () => {
         setIsOpen(!isOpen)
         
     } 
-    const onLogin = () => {
+    const onLogin = (e) => {
+        e.preventDefault()
         setLogin(!login)
-        console.log(login)
     }
     return (
         <>
-            <StyledSideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
-            <StyledNavBar toggleSideBar={ toggleSideBar }/>
-            <StyledHeroSection/>
-            {/* <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/> */}
-            {/* <NavBar 
-            toggleSideBar={ toggleSideBar } 
-            username={'hola, arnoldo'} 
+            {/* <StyledSideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
+            <StyledNavBar
             login={ login }
             onLogin={ onLogin }
-            /> */}
-            {/* <HeroSection/> */}
+            username={'hola, arnoldo'} 
+            toggleSideBar={ toggleSideBar }/>
+            <StyledHeroSection/> */}
+            <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
+            <NavBar 
+            toggleSideBar={ toggleSideBar }  
+            username={'hola, arnoldo'}
+            login={ login }
+            onLogin={ onLogin }
+            /> 
+            <HeroSection/>
         </>
     )
 }

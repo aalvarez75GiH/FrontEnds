@@ -80,7 +80,7 @@ height: 100%;
 cursor: pointer;
 `
 
-export const NavBtn = styled.nav`
+export const NavBtn = styled.div`
 display: flex;
 align-items: center;
 
@@ -103,9 +103,9 @@ transition: all 0.2s ease-in-out;
 text-decoration: none;
 border: 2px solid #ffffff;
 
-&:hover{
+/* &:hover{
     color: #0C0920;
     background-color: #FAD570;
     border:none;
-}
+} */
 ` 

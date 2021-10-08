@@ -14,24 +14,14 @@ const HeroSection = () => {
                    className="imageBG"
                    alt="this is a test"
                    src={Image}/> 
-                   {/* <video
-                   autoPlay
-                   loop
-                   muted
-                   type='video/mp4' 
-                   className="VideoBG"
-                   src={Video}/>  */}
              </div>
              <div className="heroContent">
                 <h1 className="heroH1">La nueva forma de comprar sin miedo</h1>
                 <h1 className="heroH1">por internet</h1>
-                {/* <p className="heroP">
-                    Haz click si quieres saber de que trata...
-                </p> */}
                 <div className="heroBtnWrapper">
                     <Button 
-                    primary={ '#FAD570' }
-                    dark={ true }
+                    btnBG={ '#FAD570' }
+                    fontColor={ true }
                     big={ true }
                     fontBig = { true }
                     >
