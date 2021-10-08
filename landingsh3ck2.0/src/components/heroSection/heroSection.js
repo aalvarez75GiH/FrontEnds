@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="heroContainer">
              <div className="heroBG">
                 <img
-                   className="VideoBG"
+                   className="imageBG"
                    alt="this is a test"
                    src={Image}/> 
                    {/* <video

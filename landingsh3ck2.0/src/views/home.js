@@ -7,16 +7,25 @@ import HeroSection from '../components/heroSection/heroSection'
 const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
+    const [ login, setLogin ] =useState(false)
     
-    const toggleSideBar = (e) => {
+    const toggleSideBar = () => {
         setIsOpen(!isOpen)
         console.log('this is toggle...')
     } 
-    
+    const onLogin = () => {
+        setLogin(!login)
+        console.log(login)
+    }
     return (
         <>
             <SideBar isOpen={isOpen} toggleSideBar={ toggleSideBar }/>
-            <NavBar toggleSideBar={ toggleSideBar }/>
+            <NavBar 
+            toggleSideBar={ toggleSideBar } 
+            username={'arnoldo'} 
+            login={ login }
+            onLogin={ onLogin }
+            />
             <HeroSection/>
         </>
     )
