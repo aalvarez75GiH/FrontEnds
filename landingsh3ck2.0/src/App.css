@@ -21,15 +21,23 @@
   }
 
   .navBarContainer {
-      display: flex;
-      /* justify-content: space-between; */
-      height: 80px;
-      z-index: 1;
-      width: 100%;
-      padding: 0 24px;
-      /* max-width: 1100px; */
+    display: flex;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+  } 
 
-  }
+  /* .navBarContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+    max-width: 1100px;
+    
+  } */
   
   .navLogo {
     color:#ffffff;
@@ -38,7 +46,7 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-left: 70px;
+    margin-left: 2%; /* this was 70px before */
     font-weight: bold;
     text-decoration: none;
   }
@@ -53,8 +61,10 @@
       align-items: center;
       list-style: none;
       text-align: center;
-      /* margin-right: -22px; */
-      margin-left: 45%;
+      margin-right: -22px;
+      position: absolute;
+      left: 38%;
+
   }
 
   .navItem {
@@ -76,9 +86,10 @@
   }
 
   .navBtn {
-      display: flex;
-      align-items: center;
-      margin-left: 4%;
+      position: absolute;
+      left: 80%;
+      top: 20%;
+      
   }
 
   .navBtn:hover .userIcon {
@@ -99,7 +110,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      width: 200px;
+      width: 200px; 
   }
 
   .navBtnLink:hover {   
@@ -109,37 +120,13 @@
     border: none;
   }
 
-  .userIcon {
+  /* .userIcon {
       color: #ffffff;
       font-size: 16px;
-  }
+  } */
   
 
 /**************** Media Queries NavBar ********************************/
-@media screen and (max-width:960px){
-    .nav {
-        transition: 0.8s all ease;       
-    }
-}
-
-@media screen and (max-width:768px) {
-    .mobileIcon {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-    }
-    .navMenu {
-        display: none;
-    } 
-    .navBtn {
-        display: none;
-    }
-}
 
 /*************** SideBar ****************************** */
 
@@ -243,12 +230,7 @@
 
 /**************** Media Queries SideBar ********************************/
 
-@media screen and (max-width: 480px){
-    .sideBarMenu {
-        grid-template-rows: repeat(6, 60px);
-    }
-    
-}
+
 
 /*************** heroSection ****************************** */
 .heroContainer {
@@ -289,7 +271,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 875px;
+    /* margin-left: 875px; */
 
 }
 
@@ -347,7 +329,86 @@
 
 /**************** Media Queries heroSection ********************************/
 
-@media screen and (max-width: 768px){
+
+
+
+/* *************** Media Queries ***********************/
+
+@media screen and (max-width: 1270px){
+    .navMenu{
+        left: 33%;
+    }
+
+    .heroContent{
+        left: 20%;
+        top: 55%;
+    }
+    .heroH1{
+        font-size: 4rem;
+    }
+    .heroBtnWrapper {
+        margin-left: 28%;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .navMenu{
+        left: 30%;
+    }
+    
+}
+@media screen and (max-width: 1030px){
+    .navMenu{
+        left: 21%;
+    }
+    .navBtn {
+        left: 78%;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .nav {
+        transition: 0.8s all ease;       
+    }
+    
+    .navMenu{
+        left: 20%;
+    }
+    .navBtn {
+        left: 76%; 
+    }
+  
+}
+
+@media screen and (max-width: 898px){
+    .nav {
+        transition: 0.8s all ease;       
+    }
+    
+    .navMenu{
+        left: 15%;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+    .navMenu {
+        display: none;
+    } 
+    .navBtn {
+        display: none;
+    }
+
     .heroH1{
         font-size: 40px;
     }
@@ -358,10 +419,20 @@
 }
 
 @media screen and (max-width: 480px){
+    .sideBarMenu {
+        grid-template-rows: repeat(6, 60px);
+    }
+
     .heroH1{
         font-size: 32px;
     }
     .heroP {
         font-size: 18px;
     }
+    
 }
+
+
+
+
+
