@@ -18,7 +18,8 @@ transition: all 0ms.2s ease-in-out;
 
 &:hover {
     transition: all 0.1s ease-in-out;
-    background-color: ${({ primary })=> primary ? '#ffffff' : '#01BF71'};
+    background-color: ${({ primary })=> primary ? '#000000' : '#01BF71'};
+    color: ${({ primary })=> primary ? '#ffffff' : '#010606' }
 }
 
 `

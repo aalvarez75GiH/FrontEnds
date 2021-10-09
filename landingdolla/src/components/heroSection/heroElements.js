@@ -88,12 +88,6 @@ flex-direction: column;
 align-items: center;
 
 `
-
-export const Button = styled.button `
-
-
-`
-
 export const ArrowForward = styled(MdArrowForward) `
 margin-left: 8px;
 font-size: 20px;
