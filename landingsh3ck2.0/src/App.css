@@ -253,13 +253,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    left: 44%;
+    top: 25%;
     /* margin-left: 875px; */
 
 }
 
 .heroH1 {
     color: #000000;
-    font-size: 60px;
+    font-size: 3rem;
     text-align: center;
     margin-left: 260px;
 }
@@ -309,7 +311,67 @@
 
 
 
-/* *************** Media Queries ***********************/
+/* *************** Responsive design ***********************/
+/* ********  Desktop Responsive Design ******************* */
+
+@media (max-width:1920px) and (min-width:1536px){
+    
+    .navMenu{
+        left: 50%;
+    }
+    .navBtn {
+        left: 87%;
+    }
+    .heroContent{
+        left: 50%;
+        top: 30%;
+        width: 45%;
+    }
+    .heroH1{
+        font-size: 4rem;
+    }
+ 
+}
+
+
+
+@media (max-width:1536px) and (min-width:1366px){
+    
+    .navMenu{
+        left: 45%;
+    }
+    .navBtn {
+        left: 85%;
+    }
+    .heroContent{
+        left: 45%;
+        top: 30%;
+        width: 60%;
+    }
+    .heroH1{
+        font-size: 3.5rem;
+    }
+ 
+}
+
+@media (max-width:1366px) and (min-width:1280px){
+    
+    .navMenu{
+        left: 40%;
+    }
+    .navBtn {
+        left: 80%;
+    }
+    .heroContent{
+        left: 43%;
+        top: 30%;
+        width: 60%;
+    }
+    .heroH1{
+        font-size: 3rem;
+    }
+ 
+}
 
 
 @media (max-width:1280px) and (min-width:1098px){
@@ -318,66 +380,42 @@
     }
 
     .heroContent{
-        left: 20%;
-        top: 55%;
+        left: 47%;
+        top: 30%;
     }
     .heroH1{
-        font-size: 4rem;
+        font-size: 2.5rem;
     }
-    .heroBtnWrapper {
-        margin-left: 28%;
-    }
+ 
 }
 
-@media (max-width:1098px) and (min-width: 900px){
+/* ********  Tablets Responsive Design ******************* */
+
+@media (max-width:1098px) and (min-width: 768px){
     .navMenu{
         left: 21%;
     }
     .navBtn {
         left: 78%;
     }
-}
-
-
-
-@media (max-width:900px) and (min-width: 836px){
-    .nav {
-        transition: 0.8s all ease;       
+    .heroContent{
+        left: 40%;
+        top: 32%;
     }
-    
-    .navMenu{
-        left: 15%;
-    }
-    .navBtn {
-        left: 80%; 
-    }
-
-    .navBtnLink {
-        width: 150px;
+    .heroH1{
+        font-size: 40px;
     }
 }
 
-@media (max-width:836px) and (min-width: 768px){
-  
-    .navMenu{
-        left: 15%;
-    }
-    .navBtn {
-        left: 80%; 
-    }
-    .navBtnLink {
-        width: 150px;
-    }
 
-}
-@media (max-width:768px) and (min-width: 480px){
+@media (max-width:768px) and (min-width: 560px){
     .navMenu {
         display: none;
     } 
     .navBtn {
         display: none;
     }
-
+   
     .mobileIcon {
         display: block;
         position: absolute;
@@ -388,22 +426,78 @@
         cursor: pointer;
         color: #ffffff;
     }
+    .heroContainer{
+        height: 450px;
+    }
+    .heroContent{
+        left: 9%;
+        top: 65%;
+    }
+    .heroH1{
+        font-size: 2.6rem;
+    }
 
 }
 
-/* @media screen and (max-width: 480px){
-    .sideBarMenu {
-        grid-template-rows: repeat(6, 60px);
+@media (max-width:560px) and (min-width: 480px){
+    .navMenu {
+        display: none;
+    } 
+    .navBtn {
+        display: none;
+    }
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+   
+    .heroContent{
+        left: 0%;
+        top: 2%;
+    }
+    .heroH1{
+        font-size: 2.3rem;
     }
 
+
+}
+
+@media screen and (max-width:480px){
+    .heroContainer {
+        height: 580px;
+    }
+    .navMenu {
+        display: none;
+    } 
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+    .navBtn {
+        display: none;
+    }
+   
+    .heroContent{
+        left: 0%;
+        top: 2%;
+    }
     .heroH1{
-        font-size: 32px;
+        font-size: 2.3rem;
     }
-    .heroP {
-        font-size: 18px;
-    }
-    
-} */
+}
+
 
 
 
