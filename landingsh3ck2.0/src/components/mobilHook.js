@@ -5,7 +5,7 @@ const useMobilDetect = () => {
 const [ itsMobil, setItsMobil ] = useState(null)
 
     useEffect(()=> {
-        const mql = window.matchMedia('(min-width: 560px)')
+        const mql = window.matchMedia('(min-width: 769px)')
         mql.addEventListener("change", () => {
             if (mql.matches){
                 setItsMobil(false)
@@ -13,14 +13,9 @@ const [ itsMobil, setItsMobil ] = useState(null)
                 setItsMobil(true)
             }
         })
-
-            
-    //     return ()=> {
-    //         removeEventListener("change")  
-    // }
     },[])
 
     return itsMobil
 }
 
-export default useMobilDetect
+ export default useMobilDetect

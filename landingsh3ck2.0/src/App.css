@@ -216,7 +216,7 @@
 
 /*************** heroSection ****************************** */
 .heroContainer {
-    background-color: #0c0c0c;
+    background-color: #FAD570;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -398,6 +398,16 @@
     .navBtn {
         left: 78%;
     }
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
     .heroContent{
         left: 40%;
         top: 32%;
@@ -427,6 +437,7 @@
         color: #ffffff;
     }
     .heroContainer{
+        padding: 0;
         height: 450px;
     }
     .heroContent{
@@ -436,7 +447,51 @@
     .heroH1{
         font-size: 2.6rem;
     }
+    
+    .heroContainerMobil {
+        background-color: #FAD570;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 800px;
+    }
+    .heroContentMobil {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:baseline;
+        width: 100%;
+        background-color: #ffffff;
+        height: 30%;
 
+    }
+    .heroH1Mobil {
+        font-size: 3rem;
+        font-family: 'Blinker', sans-serif;
+        font-weight: 700;
+        margin-left: 20px;
+    }
+    .heroPMobil {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    .heroBGMobil {
+        width: 100%;
+        background-color: red;
+        height: 70%;
+    }
+
+    .heroBtnWrapperMobil {
+        margin-left: 2%;
+    }
+
+ 
+    
+    
+
+   
 }
 
 @media (max-width:560px) and (min-width: 480px){
