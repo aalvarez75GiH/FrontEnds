@@ -344,7 +344,7 @@
         left: 85%;
     }
     .heroContent{
-        left: 45%;
+        left: 40%;
         top: 30%;
         width: 60%;
     }
@@ -362,11 +362,6 @@
     .navBtn {
         left: 80%;
     }
-    .heroContent{
-        left: 43%;
-        top: 30%;
-        width: 60%;
-    }
     .heroH1{
         font-size: 3rem;
     }
@@ -380,11 +375,11 @@
     }
 
     .heroContent{
-        left: 47%;
+        left: 37%;
         top: 30%;
     }
     .heroH1{
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
  
 }
@@ -392,11 +387,12 @@
 /* ********  Tablets Responsive Design ******************* */
 
 @media (max-width:1098px) and (min-width: 768px){
-    .navMenu{
-        left: 21%;
-    }
+    
+    .navMenu {
+        display: none;
+    } 
     .navBtn {
-        left: 78%;
+        display: none;
     }
     .mobileIcon {
         display: block;
@@ -408,9 +404,16 @@
         cursor: pointer;
         color: #ffffff;
     }
+    /* .navMenu{
+        left: 21%;
+    }
+    .navBtn {
+        left: 78%;
+    } */
+    
     .heroContent{
-        left: 40%;
-        top: 32%;
+        left: 33%;
+        top: 40%;
     }
     .heroH1{
         font-size: 40px;
@@ -436,18 +439,7 @@
         cursor: pointer;
         color: #ffffff;
     }
-    .heroContainer{
-        padding: 0;
-        height: 450px;
-    }
-    .heroContent{
-        left: 9%;
-        top: 65%;
-    }
-    .heroH1{
-        font-size: 2.6rem;
-    }
-    
+ 
     .heroContainerMobil {
         background-color: #FAD570;
         display: flex;
@@ -487,13 +479,9 @@
         margin-left: 2%;
     }
 
- 
-    
-    
 
-   
 }
-
+/* ********  Phones Responsive Design ******************* */
 @media (max-width:560px) and (min-width: 480px){
     .navMenu {
         display: none;
@@ -512,24 +500,50 @@
         color: #ffffff;
     }
    
-    .heroContent{
-        left: 0%;
-        top: 2%;
+    .heroContainerMobil {
+        height: 645px;
     }
-    .heroH1{
-        font-size: 2.3rem;
+    .heroContentMobil {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:baseline;
+        width: 100%;
+        background-color: #ffffff;
+        height: 32%;
+        font-family: 'Blinker', sans-serif;
+    }
+    .heroH1Mobil {
+        font-size: 2.6rem;
+        font-family: inherit;
+        margin-left: 20px;
+    }
+    .heroPMobil {
+        font-size: 20px;
+        margin-left: 20px;
+        font-family: inherit;
+    }
+
+    .heroBGMobil {
+        width: 100%;
+        background-color: red;
+        height: 70%;
+    }
+
+    .heroBtnWrapperMobil {
+        margin-left: 2%;
     }
 
 
 }
 
-@media screen and (max-width:480px){
-    .heroContainer {
-        height: 580px;
-    }
+@media (max-width:480px) and (min-width: 414px){
     .navMenu {
         display: none;
     } 
+    .navBtn {
+        display: none;
+    }
     .mobileIcon {
         display: block;
         position: absolute;
@@ -540,18 +554,96 @@
         cursor: pointer;
         color: #ffffff;
     }
+   
+    .heroContainerMobil {
+        height: 645px;
+    }
+    .heroContentMobil {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:baseline;
+        width: 100%;
+        background-color: #ffffff;
+        height: 32%;
+        font-family: 'Blinker', sans-serif;
+    }
+    .heroH1Mobil {
+        font-size: 1.9rem;
+        font-family: inherit;
+        margin-left: 20px;
+    }
+    .heroPMobil {
+        font-size: 1rem;
+        margin-left: 20px;
+        font-family: inherit;
+    }
+
+    .heroBGMobil {
+        width: 100%;
+        background-color: red;
+        height: 70%;
+    }
+
+    .heroBtnWrapperMobil {
+        margin-left: 2%;
+    }
+}
+
+@media (max-width:414px) and (min-width: 360px){
+    .navMenu {
+        display: none;
+    } 
     .navBtn {
         display: none;
     }
-   
-    .heroContent{
-        left: 0%;
-        top: 2%;
+    .mobileIcon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
     }
-    .heroH1{
-        font-size: 2.3rem;
+   
+    .heroContainerMobil {
+        height: 645px;
+    }
+    .heroContentMobil {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:baseline;
+        width: 100%;
+        background-color: #ffffff;
+        height: 32%;
+        font-family: 'Blinker', sans-serif;
+    }
+    .heroH1Mobil {
+        font-size: 1.9rem;
+        font-family: inherit;
+        margin-left: 20px;
+    }
+    .heroPMobil {
+        font-size: 1rem;
+        margin-left: 20px;
+        font-family: inherit;
+    }
+
+    .heroBGMobil {
+        width: 100%;
+        background-color: red;
+        height: 70%;
+    }
+
+    .heroBtnWrapperMobil {
+        margin-left: 2%;
     }
 }
+
+
 
 
 
