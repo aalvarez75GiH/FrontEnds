@@ -22,21 +22,21 @@ const Home = () => {
     }
     return (
         <>
-            {/* <StyledSideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
+            <StyledSideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
             <StyledNavBar
             login={ login }
             onLogin={ onLogin }
             username={'hola, arnoldo'} 
             toggleSideBar={ toggleSideBar }/>
-            <StyledHeroSection/> */}
-            <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
+            <StyledHeroSection/>
+            {/* <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
             <NavBar 
             toggleSideBar={ toggleSideBar }  
             username={'hola, arnoldo'}
             login={ login }
             onLogin={ onLogin }
             /> 
-            <HeroSection/>
+            <HeroSection/> */}
         </>
     )
 }
