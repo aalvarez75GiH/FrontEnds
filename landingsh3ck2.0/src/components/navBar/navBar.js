@@ -18,13 +18,13 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                     </div>
                     <ul className="navMenu"> 
                         <li className="navItem">
-                            <LinkS to="about" className="navLinks" >¿Quieres saber más?</LinkS>
+                            <LinkS to="about" className="navLinks" >Notifícame</LinkS>
                         </li>
                         <li className="navItem">
-                            <LinkS to="discover" className="navLinks" >¿Como funciona?</LinkS>
+                            <LinkS to="discover" className="navLinks" >Regí</LinkS>
                         </li>
                         <li className="navItem">
-                        <LinkS to="services" className="navLinks" >¿Quiéres ser parte?</LinkS>
+                        <LinkS to="services" className="navLinks" >Chequéa</LinkS>
                         </li>
                         {/* <li className="navItem">
                         <LinkS to="signup" className="navLinks" >Sign up</LinkS>
@@ -57,13 +57,13 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                         </div>
                         <ul className="navMenu"> 
                             <li className="navItem">
-                                <LinkS to="about" className="navLinks" >¿Quieres saber más?</LinkS>
+                                <LinkS to="about" className="navLinks" >Notifícame</LinkS>
                             </li>
                             <li className="navItem">
-                                <LinkS to="discover" className="navLinks" >¿Como funciona?</LinkS>
+                                <LinkS to="discover" className="navLinks" >Regístrate</LinkS>
                             </li>
                             <li className="navItem">
-                            <LinkS to="services" className="navLinks" >¿Quiéres ser parte?</LinkS>
+                                <LinkS to="services" className="navLinks" >Chequéa</LinkS>
                             </li>
                             {/* <li className="navItem">
                             <LinkS to="signup" className="navLinks" >Sign up</LinkS>

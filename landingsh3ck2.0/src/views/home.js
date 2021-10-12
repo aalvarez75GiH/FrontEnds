@@ -7,13 +7,19 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import { infoObjectOne } from '../components/videoSection/data'
-import VideoSection2 from '../components/videoSection/videoSection_2'
-import VideoSection3 from '../components/videoSection/videoSection_3'
+import useMobilDetection from '../utils/mobilDetection'
+import useMobilDetect from '../utils/mobilHook'
+import NavBarMobil from '../components/navBar/navBarMobil'
+
+
 
 const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ login, setLogin ] =useState(false)
+    const mobil = useMobilDetect()
+    const mobil2 = useMobilDetection()
+    
     
     const toggleSideBar = () => {
         console.log('this is toggle...')
@@ -34,12 +40,21 @@ const Home = () => {
             toggleSideBar={ toggleSideBar }/>
             <StyledHeroSection/> */}
             <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
-            <NavBar 
+            { mobil2.screenWidth <= 1098 || mobil ?  
+                <NavBarMobil 
+                toggleSideBar={ toggleSideBar }  
+                username={'hola, arnoldo'}
+                login={ login }
+                onLogin={ onLogin }
+            /> : <NavBar 
             toggleSideBar={ toggleSideBar }  
             username={'hola, arnoldo'}
             login={ login }
             onLogin={ onLogin }
-            /> 
+        />
+            }
+
+             
             <HeroSection/>
             <VideoSection {...infoObjectOne}/>
             
