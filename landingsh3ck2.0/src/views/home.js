@@ -7,6 +7,7 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import { infoObjectOne } from '../components/videoSection/data'
+import VideoSection2 from '../components/videoSection/videoSection_2'
 
 
 const Home = () => {
@@ -40,7 +41,8 @@ const Home = () => {
             onLogin={ onLogin }
             /> 
             <HeroSection/>
-            <VideoSection {...infoObjectOne}/>
+            {/* <VideoSection {...infoObjectOne}/> */}
+            <VideoSection2/>
         </>
     )
 }
