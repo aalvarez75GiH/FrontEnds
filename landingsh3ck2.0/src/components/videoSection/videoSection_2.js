@@ -24,54 +24,21 @@ const VideoSection2 = ({
     console.log(mobil)
 
     return (
-        <div 
-        className="infoContainer"
-        style={{ 
-            backgroundColor:`${lightBg ? '#ffffff': '#010606'}`  
-        }}
-        >
-            <div className="infoWrapper">
+        <div className="infoContainer">
+        
+            <div className="grid">
+                <div className="title">
+                    <h1>HEY HOW ARDE YOU?</h1>
+
+                </div>
+                <div className="video">
+                    <div className="square">square
+
+                    </div>
                 
-                    <div className="column1">
-                        {/* <div className="textWrapper">
-                            <p
-                            style={{
-                                color: `${ lightText ? '#FF810A' : darkText }`
-                            }} 
-                            className="topLine">{ topLine }</p>
-                            <h1
-                            style={{
-                                color: `${ lightText ? '#FFFFFF' : darkText }`
-                            }} 
-                            className="heading">{headLine}</h1>
-                            <p 
-                            style={{
-                                color: `${ lightText ? '#FFFFFF' : darkText }`
-                            }}
-                            className="subTitle">{description}</p>
-                            <div className="btnWrap">
-                                <Button
-                                btnBG={ '#FAD570' }
-                                fontColor={ true }
-                                big={ true }
-                                fontBig = { false }
-                                >
-                                    { buttonLabel }
-                                </Button>
-                            </div>
-                        </div> */}
-
-                    </div>
-                    <div className="column2">
-                        {/* <div className="videoWrap">
-                            <VideoJS/>
-                          
-                        </div> */}
-
-                    </div>
-                    
-
+                </div>    
             </div>
+            
 
         </div>
     )

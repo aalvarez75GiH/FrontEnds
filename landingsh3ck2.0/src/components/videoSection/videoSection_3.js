@@ -5,7 +5,7 @@ import useMobilDetect from '../../utils/mobilHook'
 import VideoJS from '../../components/video'
 // import { Button2 } from '../buttons/button2'
 
-const VideoSection = ({
+const VideoSection3 = ({
     lightBg,
     id,
     imgStart,
@@ -65,6 +65,7 @@ const VideoSection = ({
                     </div>
                     <div className="video">
                         <VideoJS/>
+                            {/* <img src={imgSrc} alt={alt} /> */}
                     </div>
                     
 
@@ -76,56 +77,4 @@ const VideoSection = ({
     )
 }
 
-export default VideoSection
-
-
-
-{/* <>
-<InfoContainer
-id={ id }
-lightBg={ lightBg }
->
-    <InfoWrapper>
-        <InfoRow
-        imgStart={imgStart}
-        >
-            <Column1>
-                <TextWrapper>
-                    <TopLine 
-                    >{topLine}</TopLine>
-                    <Heading lightText={lightText}>{headLine}</Heading>
-                    <Subtitle
-                    darkText={darkText}
-                    >{description}</Subtitle>
-                    <BtnWrap>
-                        <Button
-                        smooth={ true }
-                        duration={ 500 }
-                        spy={ true }
-                        exact={ true }
-                        offset={ -80 }
-                        primary={ primary ? 1 : 0}
-                        dark = { dark ? 1 : 0}
-                        dark2 = { dark2 ? 1 : 0 }
-
-
-                        to="home">{buttonLabel}</Button>
-                    </BtnWrap>
-                </TextWrapper>
-            </Column1>
-            <Column2>
-                <ImgWrap>
-                    <Img src={imgSrc} alt={alt}/> 
-                </ImgWrap>
-            
-            </Column2>
-        </InfoRow>
-
-    </InfoWrapper>
-
-</InfoContainer>  
-</> */}
-
-
-
-
+export default VideoSection3

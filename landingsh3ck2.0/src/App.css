@@ -125,7 +125,7 @@
     display: grid;
     align-items: center;
     left: 0;
-    transition: 0.3s ease-in-out;
+    transition: 0.6s ease-in-out;
     top: -100%;
     opacity:0%;
 }
@@ -139,7 +139,7 @@
     display: grid;
     align-items: center;
     left: 0;
-    transition: 0.3s ease-in-out;
+    transition: 0.6s ease-in-out;
     top: 0%;
     opacity: 100%;
 }
@@ -307,44 +307,53 @@
 /*************** VideoSection ****************************** */
 .infoContainer {
     color:#ffffff;
+    margin-top: 3%;
     /* background: ${({ lightBg })=> (lightBg ? '#f9f9f9' : '#010606')} ; */
 }
 
 
-.infoWrapper {
-    display: grid;
-    z-index:1;
-    height: 860px;
-    width: 100%;
-    max-width: 1100px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 24px;
-    justify-content: center;
-}
+/******************************************  */
+
 
 .infoRow {
     display: grid;
-    grid-auto-columns: minmax(auto, 1fr);
+    width: 100%;
+    height: 850px;
+    grid-template: 400px 400px / 40% 60%;
+    grid-template-areas: "title video video";
+    gap: 5px;
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    grid-template-areas: 'col1 col2';
+}
+.video {
+    grid-area: "video";
+    /* background-color: #FF810A; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.column1 {
-    margin-bottom: 15px;
-    padding: 0 15px;
-    grid-area: 'col1';
-}
-.column2 {
-    margin-bottom: 15px;
-    padding: 0 15px;
-    grid-area: 'col2';
+.square {
+    width: 600px;
+    height: 400px;
+    background-color: #0C0920;
+    margin-left: 20%;
+    margin-top: 13%;
 }
 
+
+/*****************************************  */
 .textWrapper {
     max-width: 540px;
     padding-top: 0;
     padding-bottom: 60px;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 .topLine {
@@ -359,7 +368,7 @@
 
 .heading {
     margin-bottom: 24px;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 1.1;
     font-weight: 600;
     /* color: ${({ lightText })=> (lightText ? '#f7f8fa' : '#010606')}; */
@@ -379,46 +388,13 @@
     justify-content: flex-start;
 }
 
-.videoWrap {
-    max-width: 555px;
-    height: 100%;
-
-    /* width: 60%;
-    height: 85%;
-    background-color: #cc1f1a;
-    margin-left: 5rem;
-    margin-top: 5rem;
-    border-radius: 15px; */
-}
-
-/* .section-1__video {
-    width: 60%;
-    height: 85%;
-    background-color: #cc1f1a;
-    margin-left: 5rem;
-    margin-top: 5rem;
-    border-radius: 15px;
-} */
-
-/* .videoPlayer {
-  width:100%;
-  height: 100%;
-  background-color: #2EC4B6;
-  border-color: 8px solid black;
-  border-radius: 15px;
-} */
-
-.videoWrap img {
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding-right: 0;
-}
 
 .videoPlayer {
-    width: 130%;
+    width: 85%;
     margin: 0 0 10px 0;
     padding-right: 0;
-    height: 363px;
+    height: 100%;
+    background-color: #ffffff;
 }
 
 
@@ -479,13 +455,6 @@
     .heroH1{
         font-size: 3rem;
     }
-
-    .videoPlayer {
-        width: 120%;
-        margin: 0 0 10px 0;
-        padding-right: 0;
-        height: 335px;
-    }
 }
 
 
@@ -500,12 +469,6 @@
     }
     .heroH1{
         font-size: 3rem;
-    }
-    .videoPlayer {
-        width: 109%;
-        margin: 0 0 10px 0;
-        padding-right: 0;
-        height: 305px;
     }
 }
 
@@ -573,22 +536,43 @@
         height: 70%;
     }
 
-    .infoContainer{
+    /* .infoContainer{
         padding: 50px 0;
-    }
+    } */
+    
     .infoRowMobil {
         display: grid;
-        grid-auto-columns: minmax(auto, 1fr);
-        align-items: center;
-        grid-template-areas: ''col1''col2'';
+        width: 100%;
+        height: 850px;
+        grid-template: 400px 550px / 100%;
+        grid-template-areas: "title" 
+                            "video" ;
+        gap: 5px;
+        
     }
+
+    .textWrapper {
+        margin-top: 2%;
+        margin-left: 15%;
+    }
+
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .video {
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .videoPlayer {
         width: 143%;
-        margin: 0 0 10px 0;
         padding-right: 0;
         height: 434px;
+        
     }
-    
+
 
 }
 
@@ -646,26 +630,37 @@
         background-color: red;
         height: 70%;
     }
-
-    .infoContainer{
-        padding: 50px 0;
-    }
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
-
-    .infoContainer{
-        padding: 100px 0;
+    
+    .infoRowMobil {
+        display: grid;
+        width: 100%;
+        height: 850px;
+        grid-template: 400px 550px / 100%;
+        grid-template-areas: "title" 
+                            "video" ;
+        gap: 5px;
+        
     }
+    
+    .textWrapper {
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
 
     .videoPlayer {
-        width: 93%;
-        margin: 0 0 10px 0;
+        width: 100%;
         padding-right: 0;
-        height: 282px;
+        height: 400px;
     }
 
-    
 
 }
 /* ********  Phones Responsive Design ******************* */
@@ -716,19 +711,37 @@
         background-color: red;
         height: 70%;
     }
-    .infoContainer{
-        padding: 50px 0;
-    }
+    
 
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
     
+    .infoRowMobil {
+        display: grid;
+        width: 100%;
+        height: 850px;
+        grid-template: 450px 275px / 100%;
+        grid-template-areas: "title" 
+                            "video" ;
+        gap: 5px;
+        
+    }
+    
+    .textWrapper {
+        margin-top: 15%;
+        margin-left: 5%;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .videoPlayer {
-        width: 81%;
-        margin: 0 0 10px 0;
+        width: 85%;
         padding-right: 0;
-        height: 220px;
+        height: 265px;
     }
 
 }
@@ -780,21 +793,36 @@
         background-color: red;
         height: 70%;
     }
-    .infoContainer{
-        padding: 50px 0;
-    }
+  
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
 
-    .heading {
-        font-size: 32px;
+    .infoRowMobil {
+        display: grid;
+        width: 100%;
+        height: 850px;
+        grid-template: 450px 275px / 100%;
+        grid-template-areas: "title" 
+                            "video" ;
+        gap: 5px;
+        
     }
+    
+    .textWrapper {
+        margin-top: 15%;
+        margin-left: 3%;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .videoPlayer {
-        width: 84%;
-        margin: 0 0 10px 0;
+        width: 100%;
         padding-right: 0;
-        height: 190px;
+        height: 265px;
     }
 }
 
@@ -849,11 +877,21 @@
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
+    
+    .textWrapper {
+        margin-top: 15%;
+        margin-left: 3%;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .videoPlayer {
-        width: 103%;
-        margin: 0 0 10px 0;
+        width: 98%;
         padding-right: 0;
-        height: 195px;
+        height: 265px;
     }
 }
 
