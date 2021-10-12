@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link as LinkS } from 'react-scroll'
 
+
 const Button = ({ btnBG, big, fontBig, fontColor }) => {
     
     const [ hover, setHover ] = useState(false)
@@ -13,7 +14,7 @@ const Button = ({ btnBG, big, fontBig, fontColor }) => {
     return (
         <button className="button" 
             style={{  
-            backgroundColor: `${ hover  ? '#ffffff' : btnBG }`,
+            backgroundColor: `${ hover  ? '#FF810A' : btnBG }`,
             color:`${ fontColor ? '#010606' : '#ffffff'}`,
             padding: `${ big ? '14px 48px' : '12px 30px' }` ,
             fontSize: `${ fontBig ? '20px' : '18px' }`,

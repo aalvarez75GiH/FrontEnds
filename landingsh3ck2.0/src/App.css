@@ -304,10 +304,123 @@
     font-size: 20px;
 }
 
-/* .button:hover{
-    transition: all 0.1s ease-in-out;
-    background: #ffffff;
+/*************** VideoSection ****************************** */
+.infoContainer {
+    color:#ffffff;
+    /* background: ${({ lightBg })=> (lightBg ? '#f9f9f9' : '#010606')} ; */
+}
+
+
+.infoWrapper {
+    display: grid;
+    z-index:1;
+    height: 860px;
+    width: 100%;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 24px;
+    justify-content: center;
+}
+
+.infoRow {
+    display: grid;
+    grid-auto-columns: minmax(auto, 1fr);
+    align-items: center;
+    grid-template-areas: 'col1 col2';
+}
+
+.column1 {
+    margin-bottom: 15px;
+    padding: 0 15px;
+    grid-area: 'col1';
+}
+.column2 {
+    margin-bottom: 15px;
+    padding: 0 15px;
+    grid-area: 'col2';
+}
+
+.textWrapper {
+    max-width: 540px;
+    padding-top: 0;
+    padding-bottom: 60px;
+}
+
+.topLine {
+    color: #01bf71;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.heading {
+    margin-bottom: 24px;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 600;
+    /* color: ${({ lightText })=> (lightText ? '#f7f8fa' : '#010606')}; */
+    color: #010606 ;
+}
+.subTitle {
+    max-width: 440px;
+    margin-bottom: 35px;
+    font-size: 18px;
+    line-height: 24px;
+    /* color: ${({ darkText })=> (darkText ? '#010606' : '#ffffff')};  */
+    color: #010606
+}
+
+.btnWrap {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.videoWrap {
+    max-width: 555px;
+    height: 100%;
+
+    /* width: 60%;
+    height: 85%;
+    background-color: #cc1f1a;
+    margin-left: 5rem;
+    margin-top: 5rem;
+    border-radius: 15px; */
+}
+
+/* .section-1__video {
+    width: 60%;
+    height: 85%;
+    background-color: #cc1f1a;
+    margin-left: 5rem;
+    margin-top: 5rem;
+    border-radius: 15px;
 } */
+
+/* .videoPlayer {
+  width:100%;
+  height: 100%;
+  background-color: #2EC4B6;
+  border-color: 8px solid black;
+  border-radius: 15px;
+} */
+
+.videoWrap img {
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding-right: 0;
+}
+
+.videoPlayer {
+    width: 130%;
+    margin: 0 0 10px 0;
+    padding-right: 0;
+    height: 363px;
+}
+
 
 
 
@@ -404,12 +517,6 @@
         cursor: pointer;
         color: #ffffff;
     }
-    /* .navMenu{
-        left: 21%;
-    }
-    .navBtn {
-        left: 78%;
-    } */
     
     .heroContent{
         left: 33%;
@@ -418,6 +525,7 @@
     .heroH1{
         font-size: 40px;
     }
+
 }
 
 
@@ -479,6 +587,16 @@
         margin-left: 2%;
     }
 
+    .infoContainer{
+        padding: 100px 0;
+    }
+
+    .infoRowMobil {
+        display: grid;
+        grid-auto-columns: minmax(auto, 1fr);
+        align-items: center;
+        grid-template-areas: ''col1''col2'';
+    }
 
 }
 /* ********  Phones Responsive Design ******************* */
@@ -587,6 +705,10 @@
 
     .heroBtnWrapperMobil {
         margin-left: 2%;
+    }
+
+    .heading {
+        font-size: 32px;
     }
 }
 
