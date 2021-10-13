@@ -22,13 +22,13 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                 </div>
                 <div className="navMenuButtonsContainer">
                     <div className="navMenuButton1">
-                        {/* <LinkS to="about" className="navLinksMobil" >Notifícame</LinkS> */}
+                        
                     </div>
                     <div className="navMenuButton2">
-                        {/* <LinkS to="about" className="navLinksMobil" >Regístrate</LinkS> */}
+                  
                     </div>
                     <div className="navMenuButtons3">
-                        {/* <LinkS to="about" className="navLinksMobil" >Chequea un producto</LinkS> */}
+                  
                     </div>
                     
                 </div>
@@ -55,10 +55,9 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                             </div>
                             Notificame
                         </LinkS>
-                        {/* <LinkS to="about" className="navLinksMobil" >Notifícame</LinkS> */}
+                        
                     </div>
                     <div className="navMenuButton">
-                        {/* <LinkS to="about" className="navLinksMobil" >Regístrate</LinkS> */}
                         <LinkS to="about" className="navLinksMobil" >
                         <div className="iconMobilContainer">
                                 <FaUserPlus className="faIcon"/>
@@ -67,7 +66,6 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                         </LinkS>
                     </div>
                     <div className="navMenuButton">
-                        {/* <LinkS to="about" className="navLinksMobil" >Chequea un producto</LinkS> */}
                         <LinkS to="about" className="navLinksMobil" >
                         <div className="iconMobilContainer">
                                 <IoMdCart className="faIcon"/>

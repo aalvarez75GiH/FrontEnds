@@ -1,9 +1,7 @@
-import React, { useState, useEffect  } from 'react'
-// import Video from '../../videos/video.mp4'
+import React   from 'react'
 import Button from '../buttons/button'
 import useMobilDetect from '../../utils/mobilHook'
 import useMobilDetection from '../../utils/mobilDetection'
-// import Image_1 from '../../images/pexels-andrea-piacquadio-3928268.jpg'
 import Image_2 from '../../images/pexels-chica-triste-medium.jpg'
 
 
