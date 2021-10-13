@@ -577,18 +577,34 @@
     
     }
  
+   
     .mobileIconMobil {
         display: block;
         position: absolute;
-        top: 0;
+        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
         margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
     }
-    
+
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
+    }
+
     
     .navMenuButtonsContainer {
         display: grid;
@@ -622,9 +638,7 @@
         align-items: center;
         margin-bottom: 20px;
     }
-    .faIcon {
-        font-size: 18px;
-    }
+    
     .heroContent{
         left: 33%;
         top: 40%;
@@ -714,18 +728,7 @@
         display: none;
     }
    
-    .mobileIconMobil {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        margin-top: 5px;
-    }
-
+ 
     .navMobil {
         background-color: #ffffff;
         height: 179px;
@@ -734,6 +737,32 @@
         top: 0;
         z-index: 10;
     
+    }
+    
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        /* top: 0; */
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
+    }
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
     }
 
     .navMenuButtonsContainer {
@@ -769,9 +798,7 @@
         align-items: center;
         margin-bottom: 20px;
     }
-    .faIcon {
-        font-size: 18px;
-    }
+   
     
  
     .heroContainerMobil {
@@ -851,17 +878,7 @@
         display: none;
     }
 
-    .mobileIconMobil {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        margin-top: 5px;
-    }
+    
 
     .navMobil {
         background-color: #ffffff;
@@ -871,6 +888,33 @@
         top: 0;
         z-index: 10;
     
+    }
+
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        /* top: 0; */
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
+    }
+
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
     }
 
     .navMenuButtonsContainer {
@@ -982,18 +1026,7 @@
     .navBtnMobil {
         display: none;
     }
-    .mobileIconMobil {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        margin-top: 5px;
-    }
-
+   
     .navMobil {
         background-color: #ffffff;
         height: 220px;
@@ -1002,6 +1035,33 @@
         top: 0;
         z-index: 10;
     
+    }
+
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        /* top: 0; */
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
+    }
+
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
     }
 
     .navMenuButtonsContainer {
@@ -1112,46 +1172,6 @@
         display: none;
     }
 
-    .mobileIconMobil {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        margin-top: 5px;
-    }
-
-    /* This is neccessary just if we want to  
-    show Bars icon and login icon */
-    
-    /* .navLogoMobil {
-        color:#ffffff;
-        cursor: pointer;
-        font-size: 1.5rem;
-        align-items: center;
-        font-weight: bold;
-        text-decoration: none;
-      } */
-       
-    /* .mobileIconMobil {
-        
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        width: 66px;
-        left: 95%;
-        
-    } 
-    
-    */
 
     .navMobil {
         background-color: #ffffff;
@@ -1161,6 +1181,33 @@
         top: 0;
         z-index: 10;
     
+    }
+
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        /* top: 0; */
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
+    }
+
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
     }
 
     .navMenuButtonsContainer {
@@ -1258,25 +1305,13 @@
     }
 }
 
-@media (max-width:360px) and (min-width: 320px){
+@media (max-width: 360px) and (min-width: 320px){
   
     .navMenuMobil {
         display: none;
     } 
     .navBtnMobil {
         display: none;
-    }
-
-    .mobileIconMobil {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #ffffff;
-        margin-top: 5px;
     }
 
     .navMobil {
@@ -1287,6 +1322,33 @@
         top: 0;
         z-index: 10;
     
+    }
+
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        /* top: 0; */
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 5px;
+        width: 103px ;
+        left: 95%;
+        top: 7px;
+        height: 28px;
+
+    }
+
+    .faUserIcon {
+        position: absolute;
+        left: 15px;
+
+    }
+    .faBarsIcon {
+        position: absolute;
+        left: 67%;
     }
 
     .navMenuButtonsContainer {
@@ -1369,6 +1431,10 @@
     .title {
         display: flex;
         justify-content: flex-start;
+    }
+
+    .heading {
+        font-size: 1.6rem;
     }
 
     .videoPlayer {

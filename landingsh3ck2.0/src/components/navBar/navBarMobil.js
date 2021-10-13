@@ -3,6 +3,7 @@ import { FaBars,FaSign, FaUserPlus, FaRegUser } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
+import { BiUser, BiUserCheck } from 'react-icons/bi'
 
 
 const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
@@ -15,7 +16,8 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                     <div 
                     onClick={ toggleSideBar }
                     className="mobileIconMobil">
-                        <FaRegUser/>
+                        <BiUserCheck className="faUserIcon"/>
+                        <FaBars className="faBarsIcon"/>
                     </div>
                 </div>
                 <div className="navMenuButtonsContainer">
@@ -43,6 +45,7 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                     onClick={ toggleSideBar }
                     className="mobileIconMobil">
                         {/* <FaRegUser className="faIcon"/> */}
+                        <BiUser className="faUserIcon" />
                         <FaBars className="faBarsIcon"/>
                     </div>
                 </div>
