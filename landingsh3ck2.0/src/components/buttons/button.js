@@ -12,7 +12,7 @@ const Button = ({ btnBG, big, fontBig, fontColor, buttonLabel }) => {
     }
 
     return (
-        <button className="button" 
+        <LinkS className="button" 
             style={{  
             backgroundColor: `${ hover  ? '#FF810A' : btnBG }`,
             color:`${ fontColor ? '#010606' : '#ffffff'}`,
@@ -22,14 +22,28 @@ const Button = ({ btnBG, big, fontBig, fontColor, buttonLabel }) => {
             onMouseEnter={ handlingHover }
             onMouseLeave={ handlingHover }
             >
-            <LinkS to="/" >
-                 { buttonLabel }
-                {/* Ver Video */}
-            </LinkS>
-                {/* Get Started */}
-            
-        </button>       
+                { buttonLabel }    
+        </LinkS>       
     )
+
+    // return (
+    //     <button className="button" 
+    //         style={{  
+    //         backgroundColor: `${ hover  ? '#FF810A' : btnBG }`,
+    //         color:`${ fontColor ? '#010606' : '#ffffff'}`,
+    //         padding: `${ big ? '14px 48px' : '12px 30px' }` ,
+    //         fontSize: `${ fontBig ? '20px' : '18px' }`,
+    //         }}
+    //         onMouseEnter={ handlingHover }
+    //         onMouseLeave={ handlingHover }
+    //         >
+    //         <LinkS to="howItWorksSection" >
+    //              { buttonLabel }   
+    //         </LinkS>
+                
+            
+    //     </button>       
+    // )
 }
 
 export default Button

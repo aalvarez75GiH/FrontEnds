@@ -51,10 +51,12 @@ const VideoSection = ({
                                 fontColor={ true }
                                 big={ true }
                                 fontBig = { false }
-                                buttonLabel={ buttonLabel }
+                                buttonLabel='Como funciona'
+                                to="howItWorksSection"
                                 >
-                                    {/* { buttonLabel } */}
+                                    Como funciona
                                 </Button>
+                                
                             </div>
                         </div>
 

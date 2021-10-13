@@ -1,8 +1,7 @@
 import React from 'react'
-import { FaBars } from 'react-icons/fa'
+import { FaBars,FaSign, FaUserPlus, FaRegUser } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
-import { FaSign, FaUserPlus } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
 
 
@@ -16,7 +15,7 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                     <div 
                     onClick={ toggleSideBar }
                     className="mobileIconMobil">
-                        <FaBars/>
+                        <FaRegUser/>
                     </div>
                 </div>
                 <div className="navMenuButtonsContainer">
@@ -43,7 +42,8 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                     <div 
                     onClick={ toggleSideBar }
                     className="mobileIconMobil">
-                        <FaBars/>
+                        {/* <FaRegUser className="faIcon"/> */}
+                        <FaBars className="faBarsIcon"/>
                     </div>
                 </div>
                 <div className="navMenuButtonsContainer">

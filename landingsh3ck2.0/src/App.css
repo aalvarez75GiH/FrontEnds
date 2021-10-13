@@ -586,6 +586,7 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
     
     
@@ -722,6 +723,7 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
 
     .navMobil {
@@ -858,6 +860,7 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
 
     .navMobil {
@@ -988,6 +991,7 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
 
     .navMobil {
@@ -1117,7 +1121,37 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
+
+    /* This is neccessary just if we want to  
+    show Bars icon and login icon */
+    
+    /* .navLogoMobil {
+        color:#ffffff;
+        cursor: pointer;
+        font-size: 1.5rem;
+        align-items: center;
+        font-weight: bold;
+        text-decoration: none;
+      } */
+       
+    /* .mobileIconMobil {
+        
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+        width: 66px;
+        left: 95%;
+        
+    } 
+    
+    */
 
     .navMobil {
         background-color: #ffffff;
@@ -1161,11 +1195,16 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 20px;
+    
     }
 
     .faIcon {
-        font-size: 22px;
+        font-size: 20px;
     }
+    /* .faBarsIcon {
+        margin-left: 20px;
+        font-size: 22px;
+    } */
     
      
     .heroContainerMobil {
@@ -1237,6 +1276,7 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+        margin-top: 5px;
     }
 
     .navMobil {

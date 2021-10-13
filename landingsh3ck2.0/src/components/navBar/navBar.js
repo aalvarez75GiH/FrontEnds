@@ -11,11 +11,6 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
             <nav className="nav" >
                 <div className="navBarContainer">
                     <LinkR to="/" className="navLogo">sh3ck</LinkR>
-                    <div 
-                    onClick={ toggleSideBar }
-                    className="mobileIcon">
-                        <FaBars/>
-                    </div>
                     <ul className="navMenu"> 
                         <li className="navItem">
                             <LinkS to="about" className="navLinks" >Notifícame</LinkS>
@@ -47,11 +42,6 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                 <nav className="nav" >
                     <div className="navBarContainer">
                         <LinkR to="/" className="navLogo">sh3ck</LinkR>
-                        <div 
-                        onClick={ toggleSideBar }
-                        className="mobileIcon">
-                            <FaBars/>
-                        </div>
                         <ul className="navMenu"> 
                             <li className="navItem">
                                 <LinkS to="about" className="navLinks" >Notifícame</LinkS>
@@ -62,9 +52,6 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                             <li className="navItem">
                                 <LinkS to="services" className="navLinks" >Chequéa</LinkS>
                             </li>
-                            {/* <li className="navItem">
-                            <LinkS to="signup" className="navLinks" >Sign up</LinkS>
-                            </li> */}
                         </ul>
                         <nav 
                         onClick={ onLogin }

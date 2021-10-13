@@ -23,7 +23,7 @@ console.log(mobil2.screenWidth)
                             fontColor={ true }
                             big={ true }
                             fontBig = { true }
-                            buttonLabel= {buttonLabel}
+                            buttonLabel= 'Ver Video'
                             >
                             </Button>
                         </div>
@@ -61,6 +61,7 @@ console.log(mobil2.screenWidth)
                             big={ true }
                             fontBig = { true }
                             buttonLabel= {buttonLabel}
+                            to="videoSection"
                             >
                             </Button>
                         </div>
