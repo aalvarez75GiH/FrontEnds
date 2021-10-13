@@ -7,7 +7,7 @@ import useMobilDetection from '../../utils/mobilDetection'
 import Image_2 from '../../images/pexels-chica-triste-medium.jpg'
 
 
-const HeroSection = () => {
+const HeroSection = ({ buttonLabel}) => {
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
 
@@ -25,6 +25,7 @@ console.log(mobil2.screenWidth)
                             fontColor={ true }
                             big={ true }
                             fontBig = { true }
+                            buttonLabel= {buttonLabel}
                             >
                             </Button>
                         </div>
@@ -61,6 +62,7 @@ console.log(mobil2.screenWidth)
                             fontColor={ true }
                             big={ true }
                             fontBig = { true }
+                            buttonLabel= {buttonLabel}
                             >
                             </Button>
                         </div>

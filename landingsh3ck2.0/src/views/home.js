@@ -53,9 +53,7 @@ const Home = () => {
             onLogin={ onLogin }
         />
             }
-
-             
-            <HeroSection/>
+            <HeroSection {...infoObjectOne} />
             <VideoSection {...infoObjectOne}/>
             
         </>

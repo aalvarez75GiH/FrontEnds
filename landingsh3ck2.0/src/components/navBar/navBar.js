@@ -21,14 +21,11 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                             <LinkS to="about" className="navLinks" >Notifícame</LinkS>
                         </li>
                         <li className="navItem">
-                            <LinkS to="discover" className="navLinks" >Regí</LinkS>
+                            <LinkS to="discover" className="navLinks" >Regístrate</LinkS>
                         </li>
                         <li className="navItem">
                         <LinkS to="services" className="navLinks" >Chequéa</LinkS>
                         </li>
-                        {/* <li className="navItem">
-                        <LinkS to="signup" className="navLinks" >Sign up</LinkS>
-                        </li> */}
                     </ul>
                     <div
                     onClick={ onLogin }

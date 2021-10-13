@@ -52,7 +52,7 @@
       text-align: center;
       margin-right: -22px;
       position: absolute;
-      left: 38%;
+      left: 55%;
 
   }
 
@@ -109,28 +109,11 @@
     border: none;
   }
 
-  /* .userIcon {
-      color: #ffffff;
-      font-size: 16px;
-  } */
-  
-
   /* *********************NavBarMobil ************ */
-  .navMobil {
-    background-color: red;
-    height: 200px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 
-}
 
 .navBarContainerMobil {
-    background-color: #01bf71;
+    background-color: #010606;
     display: flex;
     height: 80px;
     z-index: 1;
@@ -145,33 +128,14 @@
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  margin-left: 2%; /* this was 70px before */
+  margin-left: 2%; 
   font-weight: bold;
   text-decoration: none;
 }
  
-.mobileIconMobil {
-    display: none;
-
-}
-
-.navMenuMobil {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-    margin-right: -22px;
-    position: absolute;
-    left: 38%;
-
-}
-
-.navItemMobil {
-    height: 80px;
-}
 
 .navLinksMobil {
-    color: #ffffff;
+    color: #010606;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -180,22 +144,22 @@
     cursor: pointer;
 }
 
-.navLinksMobil.active {
+/* .navLinksMobil.active {
     border-bottom: 3px solid #01bf71;
-}
+} */
 
-.navBtnMobil {
+/* .navBtnMobil {
     position: absolute;
     left: 80%;
     top: 10%;
     
-}
+} */
 
-.navBtnMobil:hover .userIconMobil {
+/* .navBtnMobil:hover .userIconMobil {
     color: #010606
-}
+} */
 
-.navBtnLinkMobil {
+/* .navBtnLinkMobil {
     border-radius: 50px;
     background-color: #010606;
     white-space: nowrap;
@@ -210,14 +174,14 @@
     flex-direction: row;
     justify-content: space-around;
     width: 200px; 
-}
+} */
 
-.navBtnLinkMobil:hover {   
+/* .navBtnLinkMobil:hover {   
   transition: all 0.2s ease-in-out;
   background-color: #FAD570;
   color: #0C0920;
   border: none;
-}
+} */
 
 
 
@@ -513,7 +477,7 @@
 @media (max-width:1920px) and (min-width:1536px){
     
     .navMenu{
-        left: 50%;
+        left: 60%;
     }
     .navBtn {
         left: 87%;
@@ -539,7 +503,7 @@
 @media (max-width:1536px) and (min-width:1366px){
     
     .navMenu{
-        left: 45%;
+        left: 55%;
     }
     .navBtn {
         left: 85%;
@@ -566,7 +530,7 @@
 @media (max-width:1366px) and (min-width:1280px){
     
     .navMenu{
-        left: 40%;
+        left: 50%;
     }
     .navBtn {
         left: 80%;
@@ -585,7 +549,7 @@
 
 @media (max-width:1280px) and (min-width:1098px){
     .navMenu{
-        left: 33%;
+        left: 50%;
     }
     .navMobil{
         left: 33%;
@@ -604,20 +568,15 @@
 
 @media (max-width:1098px) and (min-width: 768px){
     .navMobil {
-        background-color: red;
-        height: 200px;
+        background-color: #ffffff;
+        height: 179px;
         font-size: 1rem;
         position: sticky;
         top: 0;
         z-index: 10;
     
     }
-    .navMenuMobil {
-        display: none;
-    } 
-    .navBtnMobil {
-        display: none;
-    }
+ 
     .mobileIconMobil {
         display: block;
         position: absolute;
@@ -630,16 +589,6 @@
     }
     
     
-    /* .navMenuButtonsContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 50%;
-        margin-top: 1% ;
-        background-color: #0C0920;
-    } */
-
     .navMenuButtonsContainer {
         display: grid;
         gap: 10px;
@@ -648,13 +597,32 @@
         width: 100%;
         height: 50%;
         margin-top: 1% ;
-        background-color: #0C0920;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
     }
     .navMenuButton {
         grid-area: "naMenuButton1";
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .faIcon {
+        font-size: 18px;
     }
     .heroContent{
         left: 33%;
@@ -755,6 +723,54 @@
         cursor: pointer;
         color: #ffffff;
     }
+
+    .navMobil {
+        background-color: #ffffff;
+        height: 179px;
+        font-size: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    
+    }
+
+    .navMenuButtonsContainer {
+        display: grid;
+        gap: 10px;
+        grid-template: 100% / repeat(3, 1fr); 
+        grid-template-areas: "navMenuButton navMenuButton navMenuButton";   
+        width: 100%;
+        height: 50%;
+        margin-top: 1% ;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
+    }
+    .navMenuButton {
+        grid-area: "naMenuButton1";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .faIcon {
+        font-size: 18px;
+    }
+    
  
     .heroContainerMobil {
         background-color: #FAD570;
@@ -832,6 +848,7 @@
     .navBtnMobil {
         display: none;
     }
+
     .mobileIconMobil {
         display: block;
         position: absolute;
@@ -841,6 +858,53 @@
         font-size: 1.8rem;
         cursor: pointer;
         color: #ffffff;
+    }
+
+    .navMobil {
+        background-color: #ffffff;
+        height: 220px;
+        font-size: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    
+    }
+
+    .navMenuButtonsContainer {
+        display: grid;
+        gap: 10px;
+        grid-template: 100% / repeat(3, 20%); 
+        grid-template-areas: "navMenuButton navMenuButton navMenuButton";   
+        width: 100%;
+        height: 62%;
+        margin-top: 1% ;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
+    }
+    .navMenuButton {
+        grid-area: "naMenuButton1";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 5%;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .faIcon {
+        font-size: 18px;
     }
    
     .heroContainerMobil {
@@ -925,7 +989,54 @@
         cursor: pointer;
         color: #ffffff;
     }
-   
+
+    .navMobil {
+        background-color: #ffffff;
+        height: 220px;
+        font-size: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    
+    }
+
+    .navMenuButtonsContainer {
+        display: grid;
+        gap: 10px;
+        grid-template: 100% / repeat(3, 25%); 
+        grid-template-areas: "navMenuButton navMenuButton navMenuButton";   
+        width: 100%;
+        height: 62%;
+        margin-top: 1% ;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
+    }
+    .navMenuButton {
+        grid-area: "naMenuButton1";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 5%;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .faIcon {
+        font-size: 18px;
+    }
     .heroContainerMobil {
         height: 645px;
     }
@@ -996,6 +1107,7 @@
     .navBtnMobil {
         display: none;
     }
+
     .mobileIconMobil {
         display: block;
         position: absolute;
@@ -1006,7 +1118,56 @@
         cursor: pointer;
         color: #ffffff;
     }
-   
+
+    .navMobil {
+        background-color: #ffffff;
+        height: 220px;
+        font-size: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    
+    }
+
+    .navMenuButtonsContainer {
+        display: grid;
+        gap: 10px;
+        grid-template: 100% / repeat(3, 25%); 
+        grid-template-areas: "navMenuButton navMenuButton navMenuButton";   
+        width: 100%;
+        height: 62%;
+        margin-top: 1% ;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
+    }
+    .navMenuButton {
+        grid-area: "naMenuButton1";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 5%;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .faIcon {
+        font-size: 22px;
+    }
+    
+     
     .heroContainerMobil {
         height: 645px;
     }
@@ -1027,6 +1188,125 @@
     }
     .heroPMobil {
         font-size: 1rem;
+        margin-left: 20px;
+        font-family: inherit;
+    }
+
+    .heroBGMobil {
+        width: 100%;
+        background-color: red;
+        height: 70%;
+    }
+
+    .heroBtnWrapperMobil {
+        margin-left: 2%;
+    }
+    
+    .textWrapper {
+        margin-top: 15%;
+        margin-left: 3%;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .videoPlayer {
+        width: 98%;
+        padding-right: 0;
+        height: 265px;
+    }
+}
+
+@media (max-width:360px) and (min-width: 320px){
+  
+    .navMenuMobil {
+        display: none;
+    } 
+    .navBtnMobil {
+        display: none;
+    }
+
+    .mobileIconMobil {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .navMobil {
+        background-color: #ffffff;
+        height: 220px;
+        font-size: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    
+    }
+
+    .navMenuButtonsContainer {
+        display: grid;
+        gap: 10px;
+        grid-template: 100% / repeat(3, 25%); 
+        grid-template-areas: "navMenuButton navMenuButton navMenuButton";   
+        width: 100%;
+        height: 62%;
+        margin-top: 1% ;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeedec;
+    }
+    .navMenuButton {
+        grid-area: "naMenuButton1";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navLinksMobil {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .navLinksMobil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 5%;
+    }
+
+    .iconMobilContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+     
+    .heroContainerMobil {
+        height: 645px;
+    }
+    .heroContentMobil {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items:baseline;
+        width: 100%;
+        background-color: #ffffff;
+        height: 32%;
+        font-family: 'Blinker', sans-serif;
+    }
+    .heroH1Mobil {
+        font-size: 1.6rem;
+        font-family: inherit;
+        margin-left: 20px;
+    }
+    .heroPMobil {
+        font-size: 0.9rem;
         margin-left: 20px;
         font-family: inherit;
     }

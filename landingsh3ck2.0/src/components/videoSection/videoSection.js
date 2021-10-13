@@ -56,8 +56,9 @@ const VideoSection = ({
                                 fontColor={ true }
                                 big={ true }
                                 fontBig = { false }
+                                buttonLabel={ buttonLabel }
                                 >
-                                    { buttonLabel }
+                                    {/* { buttonLabel } */}
                                 </Button>
                             </div>
                         </div>

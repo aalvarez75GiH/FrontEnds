@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link as LinkS } from 'react-scroll'
 
 
-const Button = ({ btnBG, big, fontBig, fontColor }) => {
+const Button = ({ btnBG, big, fontBig, fontColor, buttonLabel }) => {
     
     const [ hover, setHover ] = useState(false)
     
@@ -23,8 +23,8 @@ const Button = ({ btnBG, big, fontBig, fontColor }) => {
             onMouseLeave={ handlingHover }
             >
             <LinkS to="/" >
-                {/* Get Started { hover ? <ArrowForward/> : <ArrowRight/> } */}
-                Ver video 
+                 { buttonLabel }
+                {/* Ver Video */}
             </LinkS>
                 {/* Get Started */}
             

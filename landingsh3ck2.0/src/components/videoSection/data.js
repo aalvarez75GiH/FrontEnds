@@ -12,5 +12,5 @@ export const infoObjectOne = {
     imgSrc: image,
     alt: 'Car', 
     darkText: '#010606', 
-    buttonLabel: 'Comiénza Ya!' 
+    buttonLabel: 'Ver Video' 
 }
