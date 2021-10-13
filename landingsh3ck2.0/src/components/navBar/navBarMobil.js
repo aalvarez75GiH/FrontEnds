@@ -2,10 +2,9 @@ import React from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
-import { FaRegUser, FaSign, FaUserPlus } from 'react-icons/fa'
+import { FaSign, FaUserPlus } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
 
-import { FiUserPlus } from 'react-icons/fi'
 
 const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
     if (login){
