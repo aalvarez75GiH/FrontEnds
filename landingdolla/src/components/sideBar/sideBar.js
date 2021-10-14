@@ -21,20 +21,46 @@ const Sidebar = ({ isOpen, toggleSideBar }) => {
             </Icon>
             <SideBarWrapper>
                 <SideBarMenu>
-                    <SideBarLink 
+                    <SideBarLink
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500} 
                     onClick={toggleSideBar}
                     to="about">
                         About
                     </SideBarLink>
-                    <SideBarLink 
+                    <SideBarLink
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500} 
                     onClick={toggleSideBar}
                     to="discover">
                         Discover
                     </SideBarLink>
-                    <SideBarLink 
+                    <SideBarLink
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500} 
                     onClick={toggleSideBar}
                     to="services">
                         Services
+                    </SideBarLink>
+                    <SideBarLink
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500}
+                    onClick={toggleSideBar}
+                    to="team"
+                    >
+                        Teams
                     </SideBarLink>
                     <SideBarLink 
                     onClick={toggleSideBar}
