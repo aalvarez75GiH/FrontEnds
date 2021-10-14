@@ -13,7 +13,8 @@ const VideoSection = ({
     darkText,
     description,
     buttonLabel,
-    videoSrc 
+    videoSrc,
+    linkedTo 
 }) => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection() 
@@ -54,9 +55,9 @@ const VideoSection = ({
                                 big={ true }
                                 fontBig = { false }
                                 buttonLabel={ buttonLabel }
-                                to="howItWorksSection"
+                                linkedTo={linkedTo}
+                                offSet={-170}
                                 >
-                                    Como funciona
                                 </Button>
                                 
                             </div>

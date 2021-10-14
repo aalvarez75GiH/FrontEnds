@@ -25,5 +25,6 @@ export const infoVideo = {
     videoSrc: video,
     darkText: '#010606', 
     buttonLabel: 'Como funciona',
-    linkedTo: 'howItWorks' 
+    linkedTo: 'hiwSection' 
 }
+

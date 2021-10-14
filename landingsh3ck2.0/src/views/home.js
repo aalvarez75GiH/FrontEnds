@@ -6,7 +6,9 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledNavBar from '../components/navBar/styledNavbar'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
+import HiwSection from '../components/hiwSection/hiwSection'
 import { infoHero, infoVideo } from '../utils/data'
+import { infoHiW  } from '../components/hiwSection/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
@@ -55,6 +57,7 @@ const Home = () => {
             }
             <HeroSection {...infoHero} />
             <VideoSection {...infoVideo}/>
+            <HiwSection {...infoHiW}/>
         </>
     )
 }
