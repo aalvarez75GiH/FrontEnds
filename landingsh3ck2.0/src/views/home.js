@@ -6,7 +6,7 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledNavBar from '../components/navBar/styledNavbar'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
-import { infoObjectOne } from '../components/videoSection/data'
+import { infoHero, infoVideo } from '../utils/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
@@ -53,8 +53,8 @@ const Home = () => {
             onLogin={ onLogin }
         />
             }
-            <HeroSection {...infoObjectOne} />
-            <VideoSection {...infoObjectOne}/>
+            <HeroSection {...infoHero} />
+            <VideoSection {...infoVideo}/>
             
         </>
     )

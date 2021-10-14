@@ -51,7 +51,7 @@ const VideoSection = ({
                                 fontColor={ true }
                                 big={ true }
                                 fontBig = { false }
-                                buttonLabel='Como funciona'
+                                buttonLabel={ buttonLabel }
                                 to="howItWorksSection"
                                 >
                                     Como funciona
