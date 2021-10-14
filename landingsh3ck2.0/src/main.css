@@ -560,12 +560,7 @@
     .infoContainer{
         padding: 50px 0;
     }
-    /* .infoRowMobil {
-        display: grid;
-        grid-auto-columns: minmax(auto, 1fr);
-        align-items: center;
-        grid-template-areas: ''col1''col2'';
-    } */
+    
     .videoPlayer {
         width: 143%;
         margin: 0 0 10px 0;
