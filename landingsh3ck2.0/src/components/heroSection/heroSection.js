@@ -5,7 +5,7 @@ import useMobilDetection from '../../utils/mobilDetection'
 import Image_2 from '../../images/pexels-chica-triste-medium.jpg'
 
 
-const HeroSection = ({ buttonLabel}) => {
+const HeroSection = ({ buttonLabel, linkedTo }) => {
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
 
@@ -23,7 +23,9 @@ console.log(mobil2.screenWidth)
                             fontColor={ true }
                             big={ true }
                             fontBig = { true }
-                            buttonLabel= 'Ver Video'
+                            buttonLabel= {buttonLabel}
+                            linkedTo={linkedTo}
+                            offSet={-170}
                             >
                             </Button>
                         </div>
@@ -61,7 +63,8 @@ console.log(mobil2.screenWidth)
                             big={ true }
                             fontBig = { true }
                             buttonLabel= {buttonLabel}
-                            to="videoSection"
+                            linkedTo={linkedTo}
+                            offSet={-200}
                             >
                             </Button>
                         </div>

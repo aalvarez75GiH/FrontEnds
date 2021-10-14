@@ -55,7 +55,6 @@ const Home = () => {
             }
             <HeroSection {...infoHero} />
             <VideoSection {...infoVideo}/>
-            
         </>
     )
 }

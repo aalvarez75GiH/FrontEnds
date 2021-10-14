@@ -5,6 +5,7 @@ import useMobilDetect from '../../utils/mobilHook'
 import VideoJS from '../../components/video'
 
 const VideoSection = ({
+    id,
     lightBg,
     topLine,
     lightText,
@@ -22,6 +23,7 @@ const VideoSection = ({
     return (
         <div 
         className="infoContainer"
+        id={id}
         style={{ 
             backgroundColor:`${lightBg ? '#ffffff': '#010606'}`  
         }}
