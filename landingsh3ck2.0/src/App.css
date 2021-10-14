@@ -465,7 +465,7 @@
 .hiwContainer {
     max-width: 100%;
     height: 800px;
-    background-color: #eeedec;
+    background-color: #ffffff;
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: center; */
@@ -500,7 +500,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: #FAD570;
+    background-color: #eeedec;
     max-height: 390px;
     padding: 30px;
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -594,6 +594,16 @@
     .heroH1{
         font-size: 3rem;
     }
+    .hiwWrapper {
+        /* max-width: 1000px; */
+        /* margin-top: 5%; */
+        /* margin: 0 auto; */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr  ;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
+    }
 }
 
 
@@ -612,6 +622,17 @@
     .heroH1{
         font-size: 3rem;
     }
+    .hiwWrapper {
+        /* max-width: 1000px; */
+        /* margin-top: 5%; */
+        /* margin: 0 auto; */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr  ;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
+    }
+    
     
 }
 
@@ -769,6 +790,17 @@
         
     }
 
+    .hiwWrapper {
+        /* max-width: 1000px; */
+        /* margin-top: 5%; */
+        /* margin: 0 auto; */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr  ;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
+    }
+
 
 }
 
@@ -892,6 +924,11 @@
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
+
+    .infoContainer {
+        height: 1000px;
+    }
+
     
     .infoRowMobil {
         display: grid;
@@ -920,6 +957,16 @@
         height: 400px;
     }
 
+    .hiwWrapper {
+        /* max-width: 1000px; */
+        /* margin-top: 5%; */
+        /* margin: 0 auto; */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
+    }
 
 }
 /* ********  Phones Responsive Design ******************* */
@@ -1042,6 +1089,11 @@
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
+
+    .infoContainer {
+        height: 820px;
+    }
+
     
     .infoRowMobil {
         display: grid;
@@ -1068,6 +1120,17 @@
         width: 85%;
         padding-right: 0;
         height: 265px;
+    }
+
+    .hiwWrapper {
+        /* max-width: 1000px; */
+        /* margin-top: 5%; */
+        /* margin: 0 auto; */
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
     }
 
 }
@@ -1155,9 +1218,7 @@
     .faIcon {
         font-size: 18px;
     }
-    .heroContainerMobil {
-        height: 645px;
-    }
+ 
     .heroContentMobil {
         display: flex;
         justify-content: space-evenly;
@@ -1189,6 +1250,11 @@
         margin-left: 2%;
     }
 
+    .infoContainer {
+        height: 820px;
+    }
+
+
     .infoRowMobil {
         display: grid;
         width: 100%;
@@ -1214,6 +1280,14 @@
         width: 100%;
         padding-right: 0;
         height: 265px;
+    }
+
+    .hiwWrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
     }
 }
 
@@ -1341,6 +1415,10 @@
     .heroBtnWrapperMobil {
         margin-left: 2%;
     }
+
+    .infoContainer {
+        height: 820px;
+    }
     
     .textWrapper {
         margin-top: 15%;
@@ -1356,6 +1434,14 @@
         width: 98%;
         padding-right: 0;
         height: 265px;
+    }
+
+    .hiwWrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 0 27px;
     }
 }
 
