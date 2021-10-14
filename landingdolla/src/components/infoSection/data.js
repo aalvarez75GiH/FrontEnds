@@ -42,6 +42,15 @@ export const homeObjThree = {
     lightBg: true,
     lightText: false,
     LightTextDesc: false,
+    dark: false,
+    primary: false,
+    darkText: true 
+}
+export const homeObjFour = {
+    id: 'team',
+    lightBg: true,
+    lightText: false,
+    LightTextDesc: false,
     topLine:'Join our team',
     headLine:'Creating an account is extremely easy',
     description: 'Get everything set up and ready in under 10 minutes. All you need to do is add your information and you are ready to go',
