@@ -22,13 +22,28 @@ const NavBarMobil = ({ toggleSideBar, username, login, onLogin }) => {
                 </div>
                 <div className="navMenuButtonsContainer">
                     <div className="navMenuButton1">
-                        
+                        <LinkS to="about" className="navLinksMobil" >
+                            <div className="iconMobilContainer">
+                                <FaSign className="faIcon"/>
+                            </div>
+                            Notificame
+                        </LinkS>
                     </div>
                     <div className="navMenuButton2">
-                  
+                        <LinkS to="about" className="navLinksMobil" >
+                            <div className="iconMobilContainer">
+                                    <FaUserPlus className="faIcon"/>
+                            </div>
+                            Registrate
+                        </LinkS>
                     </div>
                     <div className="navMenuButtons3">
-                  
+                        <LinkS to="about" className="navLinksMobil" >
+                            <div className="iconMobilContainer">
+                                    <IoMdCart className="faIcon"/>
+                            </div>
+                            Chequéa
+                        </LinkS>
                     </div>
                     
                 </div>
