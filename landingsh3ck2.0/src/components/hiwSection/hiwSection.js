@@ -26,9 +26,9 @@ const HiwSection = ({
                             <img src={imgSrc1} alt={alt1} className="hiwImg" />
                         </div>
                         <div className="hiwInfo">
-                            <h2 className="hiwInfoH2">1.</h2>
-                            <p className="hiwinfoP">
-                            Escoge la ciudad donde se encuentra el producto que quieres chequear...
+                            <div className="hiwInfoH2">1</div>
+                            <p className="hiwInfoP">
+                            Escoge la ciudad donde se encuentra el producto 
                             </p>
 
                         </div>
@@ -38,9 +38,9 @@ const HiwSection = ({
                             <img src={imgSrc2} alt={alt2} className="hiwImg" />
                         </div>
                         <div className="hiwInfo">
-                            <h2 className="hiwInfoH2">2.</h2>
-                            <p className="hiwinfoP">
-                            Escoge la ciudad donde se encuentra el producto que quieres chequear...
+                            <div className="hiwInfoH2">2</div>
+                            <p className="hiwInfoP">
+                                Especifica el tipo de producto y en que tiempo lo necesitas 
                             </p>
 
                         </div>
@@ -50,9 +50,9 @@ const HiwSection = ({
                             <img src={imgSrc3} alt={alt3} className="hiwImg" />
                         </div>
                         <div className="hiwInfo">
-                            <h2 className="hiwInfoH2">3.</h2>
-                            <p className="hiwinfoP">
-                            Escoge la ciudad donde se encuentra el producto que quieres chequear...
+                            <div className="hiwInfoH2">3</div>
+                            <p className="hiwInfoP">
+                            Escoge el chequeador que más te guste y que se adapte mejor a ti
                             </p>
 
                         </div>
@@ -62,9 +62,9 @@ const HiwSection = ({
                             <img src={imgSrc4} alt={alt4} className="hiwImg" />
                         </div>
                         <div className="hiwInfo">
-                            <h2 className="hiwInfoH2">4.</h2>
-                            <p className="hiwinfoP">
-                            Escoge la ciudad donde se encuentra el producto que quieres chequear...
+                            <div className="hiwInfoH2">4</div>
+                            <p className="hiwInfoP">
+                            Completa tu orden, ofrece los datos del vendedor del producto
                             </p>
 
                         </div>
@@ -74,9 +74,9 @@ const HiwSection = ({
                             <img src={imgSrc5} alt={alt5} className="hiwImg" />
                         </div>
                         <div className="hiwInfo">
-                            <h2 className="hiwInfoH2">5.</h2>
-                            <p className="hiwinfoP">
-                            Escoge la ciudad donde se encuentra el producto que quieres chequear...
+                            <div className="hiwInfoH2">5</div>
+                            <p className="hiwInfoP">
+                            El chequeador hará el chequeo y te contacta para darte los detalles 
                             </p>
 
                         </div>
