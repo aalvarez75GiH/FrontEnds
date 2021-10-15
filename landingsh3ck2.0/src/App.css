@@ -584,8 +584,6 @@
 
     .hiwWrapper {
         max-width: 100%; 
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 19% 19% 19% 19% 19%;
         align-items: center;
@@ -623,8 +621,6 @@
     }
     .hiwWrapper {
         max-width: 100%; 
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 19% 19% 19% 19% 19%;
         align-items: center;
@@ -656,8 +652,6 @@
     }
     .hiwWrapper {
         max-width: 100%; 
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 19% 19% 19% 19% 19%;
         align-items: center;
@@ -687,8 +681,6 @@
     }
     .hiwWrapper {
         max-width: 100%; 
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 19% 19% 19% 19% 19%;
         align-items: center;
@@ -716,7 +708,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -862,8 +853,6 @@
         height: 100%;
     }
     .hiwWrapper {
-        /* max-width: 1000px; */
-        /* margin-top: 5%; */
         margin: 5% auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -899,7 +888,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -1032,9 +1020,6 @@
     }
 
     .hiwWrapper {
-        /* max-width: 1000px; */
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 1fr;
         align-items: center;
@@ -1072,7 +1057,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -1205,9 +1189,6 @@
     }
 
     .hiwWrapper {
-        /* max-width: 1000px; */
-        /* margin-top: 5%; */
-        /* margin: 0 auto; */
         display: grid;
         grid-template-columns: 1fr;
         align-items: center;
@@ -1243,7 +1224,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -1410,7 +1390,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
@@ -1472,15 +1451,11 @@
     .faIcon {
         font-size: 20px;
     }
-    /* .faBarsIcon {
-        margin-left: 20px;
-        font-size: 22px;
-    } */
-    
      
     .heroContainerMobil {
         height: 645px;
     }
+
     .heroContentMobil {
         display: flex;
         justify-content: space-evenly;
@@ -1577,7 +1552,6 @@
     .mobileIconMobil {
         display: block;
         position: absolute;
-        /* top: 0; */
         right: 0;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
