@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../buttons/button'
 
 const HiwSection = ({ 
     id,
@@ -11,7 +12,8 @@ const HiwSection = ({
     alt2,
     alt3,
     alt4,
-    alt5
+    alt5, 
+    buttonLabel
 
 }) => {
     return (
@@ -84,6 +86,20 @@ const HiwSection = ({
 
 
                 </div>
+                <div className="hiwBtnWrap">
+                    <Button
+                    btnBG={ '#FAD570' }
+                    fontColor={ true }
+                    big={ true }
+                    fontBig = { false }
+                    buttonLabel={ buttonLabel }
+                    // linkedTo={linkedTo}
+                    offSet={-170}
+                    >
+                    </Button>
+                </div>
+
+
             
             </div>
         </>

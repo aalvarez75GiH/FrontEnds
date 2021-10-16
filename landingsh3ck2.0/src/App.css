@@ -481,11 +481,6 @@
     max-width: 100%;
     height: 800px;
     background-color: #ffffff;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* background-color: #FAD570; */
 }
 
 .hiwH1 {
@@ -553,6 +548,14 @@
 .hiwInfoP {
     font-size: 18px;
     text-align: center;
+}
+
+.hiwBtnWrap {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-left: 284px;
 }
     
 
@@ -625,6 +628,10 @@
     .infoWrapper {
         height: 100%;
     }
+
+    .videoBtnWrap {
+        margin-top: 1%;
+    }
     .hiwWrapper {
         max-width: 100%; 
         display: grid;
@@ -632,6 +639,9 @@
         align-items: center;
         gap: 16px;
         padding: 0 20px;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
  
 }
@@ -656,6 +666,9 @@
     .infoWrapper {
         height: 100%;
     }
+    .videoBtnWrap {
+        margin-top: 2%;
+    }
     .hiwWrapper {
         max-width: 100%; 
         display: grid;
@@ -663,6 +676,9 @@
         align-items: center;
         gap: 16px;
         padding: 0 45px;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 }
 
@@ -685,6 +701,7 @@
     .infoWrapper {
         height: 100%;
     }
+ 
     .hiwWrapper {
         max-width: 100%; 
         display: grid;
@@ -692,6 +709,9 @@
         align-items: center;
         gap: 16px;
         padding: 0 45px;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
     
     
@@ -775,9 +795,7 @@
         left: 33%;
         top: 40%;
     }
-    /* .heroH1{
-        font-size: 40px;
-    } */
+ 
 
     .heroContainerMobil {
         background-color: #FAD570;
@@ -851,9 +869,10 @@
         
     }
 
-    .btnWrap {
-        margin-top: 45px;
+    .videoBtnWrap {
+        margin-top: 3%;
     }
+
     .hiwContainer {
         height: 100%;
     }
@@ -864,6 +883,9 @@
         align-items: center;
         gap: 16px;
         padding: 0 27px;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 
 
@@ -1020,8 +1042,12 @@
         height: 400px;
     }
 
-    .btnWrap {
-        margin-top: 45px;
+    .videoBtnWrap {
+        margin-top: 5%;
+    }
+    
+    .hiwContainer {
+        height: 100%;
     }
 
     .hiwWrapper {
@@ -1040,6 +1066,9 @@
         transform:none;
         transition: none;
         cursor: pointer;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 
 }
@@ -1195,8 +1224,12 @@
         height: 265px;
     }
 
-    .btnWrap {
-        margin-top: 45px;
+    .videoBtnWrap {
+        margin-top: 7%;
+    }
+
+    .hiwContainer {
+        height: 100%;
     }
 
     .hiwWrapper {
@@ -1215,6 +1248,9 @@
         transform:none;
         transition: none;
         cursor: pointer;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 
 }
@@ -1368,10 +1404,14 @@
         height: 265px;
     }
 
-    .btnWrap {
-        margin-top: 45px;
+    .videoBtnWrap {
+        margin-top: 7%;
     }
-
+    
+    .hiwContainer {
+        height: 100%;
+    }
+    
     .hiwWrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -1379,13 +1419,19 @@
         gap: 16px;
         padding: 0 27px;
     }
+    
     .hiwCard {
         max-width: 100%;
     }
+    
     .hiwCard:hover {
         transform:none;
         transition: none;
         cursor: pointer;
+    }
+
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 }
 
@@ -1543,6 +1589,10 @@
         margin-top: 45px;
     }
 
+    .hiwContainer {
+        height: 100%;
+    }
+
     .hiwWrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -1554,6 +1604,9 @@
         transform:none;
         transition: none;
         cursor: pointer;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 }
 
@@ -1711,6 +1764,11 @@
     .btnWrap {
         margin-top: 30px;
     }
+
+    .hiwContainer {
+        height: 100%;
+    }
+
     .hiwWrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -1722,6 +1780,9 @@
         transform:none;
         transition: none;
         cursor: pointer;
+    }
+    .hiwBtnWrap {
+        margin-left: 3%;
     }
 }
 

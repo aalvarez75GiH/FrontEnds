@@ -64,7 +64,7 @@ const VideoSection = ({
                     </div>
                     <div className="video">
                         <VideoJS videoSrc={videoSrc}/>
-                        <div className="btnWrap">
+                        <div className="videoBtnWrap">
                                     <Button
                                     btnBG={ '#FAD570' }
                                     fontColor={ true }
@@ -72,10 +72,10 @@ const VideoSection = ({
                                     fontBig = { false }
                                     buttonLabel={ buttonLabel }
                                     linkedTo={linkedTo}
-                                    offSet={-170}
+                                    offSet={-212}
                                     >
                                     </Button>
-                            </div>
+                        </div>
                     </div>
                     
                     

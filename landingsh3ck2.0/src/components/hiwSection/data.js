@@ -17,5 +17,6 @@ export const infoHiW = {
     alt4:'finaliza oreden',
     alt5:'video en tiempo real', 
     buttonLabel: 'Como funciona',
-    linkedTo: 'howIkcjd' 
+    linkedTo: 'howIkcjd',
+    buttonLabel:'¿Quieres comenzar?' 
 }
