@@ -31,11 +31,11 @@ export const infoVideo = {
 export const infoData = {
     id:'dataSection',
     lightBg: true,
-    lightText: false,
+    lightText: true,
     LightTextDesc: true,
     topLine:'¿Estas listo para comenzar?',
-    headLine:'Para comunicarte con nosotros solo déjanos algunos de tus datos...',
-    description: 'Pronto nuestra aplicaión móvil estará disponible a nivel nacional. ¿Quieres saber cuándo? mas adelánte podrás enviarnos tus datos y te avisaremos',
+    headLine:'Nuestra App móvil estará lista prónto, mientras tanto...',
+    description: 'Estamos trabajando duro para llevarte la mejor experiencia móvil, aún asi puedes comunicarte con nosotros, dejarnos tus datos para informarte cuando esté activa o chequear un producto desde ya...',
     darkText: '#010606', 
     buttonLabel: 'Como funciona',
     linkedTo: 'hiwSection' 

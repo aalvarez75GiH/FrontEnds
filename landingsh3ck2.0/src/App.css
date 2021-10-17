@@ -533,7 +533,7 @@
 .dataWrapper {
     width: 100%;
     height: 100%;
-    background-color: #01bf71;
+    background-color: #ffffff;
     height: 100%;
 }
 
@@ -552,7 +552,19 @@
     justify-content: center;
     align-items: center;
     grid-area: "text";
+    background-color: #010606;
+    
 }
+.dataTextWrapper {
+    width: 85%;
+}
+.h1Data {
+    margin-bottom: 24px;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
 .dataFormWrapper {
     grid-area: "data";
     display: flex;
@@ -561,29 +573,82 @@
     align-items: center;
 }
 
-
-/* .infoRow {
-    display: grid;
-    width: 100%;
-    height: 850px;
-    grid-template: 530px / 40% 60%;
-    grid-template-areas: "title video video";
-    gap: 5px;
+.optionsWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    height: 10%;
+    background-color: #eeeeee;
+    color: #010606;
 }
-
-
-.title {
+.notifyMe {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    height: 70px;
+    border-right: 2px solid black;
+    background-color: #c2c2c2;
+
 }
-.video {
-    grid-area: "video";
+.checkAProduct {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    height: 70px;
+}
+
+.titleWrapper {
+    height: 20%;
+}
+
+.formDescription {
+    color: #010606;
+}
+
+.form-1 {
+    display: flex;
     flex-direction: column;
-} */
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    background-color: #ffffff;
+    width: 70%;
+    /* border: 1px solid #eeeeee; */
+}
+
+.formTitle {
+    color: #010606;
+    height: 50%;
+    margin-top: 5%;
+}
+
+.form-1 input {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-style: none;
+    font-size: 1rem;
+    padding-left: 5%;
+}
+
+.form-1 button {
+    height: 20%;
+    width: 80%;
+    /* border-radius: 40px; */
+    /* border: 2px solid white; */
+    color: #010606;
+    background-color: #FAD570;
+    margin-top: 10px;
+    border-style: none;
+    font-size: 1.4rem;
+}
+
 
 
 /* *************** Responsive design ***********************/

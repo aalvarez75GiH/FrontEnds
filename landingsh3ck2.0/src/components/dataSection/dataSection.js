@@ -1,4 +1,5 @@
 import React from 'react'
+import InterestedUserForm from './interestedUsersForm'
 
 const DataSection = ({
     lightText,
@@ -12,17 +13,17 @@ const DataSection = ({
             <div className="dataWrapper">
                 <div className="dataRow">
                     <div className="dataText">
-                        <div className="textWrapper">
+                        <div className="dataTextWrapper">
                         <p
                             style={{
-                                color: `${ lightText ? '#FF810A' : darkText }`
+                                color: `${ lightText ? '#FAD570' : darkText }`
                             }} 
                             className="topLine">{ topLine }</p>
                             <h1
                             style={{
                                 color: `${ lightText ? '#FFFFFF' : darkText }`
                             }} 
-                            className="heading">{headLine}</h1>
+                            className="h1Data">{headLine}</h1>
                             <p 
                             style={{
                                 color: `${ lightText ? '#FFFFFF' : darkText }`
@@ -33,7 +34,28 @@ const DataSection = ({
                     </div>
                     
                     <div className="dataFormWrapper">
+                        <div className="optionsWrapper">
+                            <div className="notifyMe">
+                                <p>Solo notificame</p>
 
+                            </div>
+                            <div className="checkAProduct">
+                                <p>Quiero chequear un Producto </p>
+                            </div>
+
+                        </div>
+                        <div className="titleWrapper">
+                            <div className="formTitle">
+                                <h1 className="title">¿Quieres saber más de nosotros? </h1>
+                            </div>
+                            <div className="formDescription">
+                                <p>Al darnos estos datos podremos enviarte más información</p>
+                            </div>
+
+                        </div>
+                       
+                        <InterestedUserForm/>
+                    
                     </div>
                 </div>
                 
