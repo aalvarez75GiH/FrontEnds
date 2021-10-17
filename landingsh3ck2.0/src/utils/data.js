@@ -28,3 +28,16 @@ export const infoVideo = {
     linkedTo: 'hiwSection' 
 }
 
+export const infoData = {
+    id:'dataSection',
+    lightBg: true,
+    lightText: false,
+    LightTextDesc: true,
+    topLine:'¿Estas listo para comenzar?',
+    headLine:'Para comunicarte con nosotros solo déjanos algunos de tus datos...',
+    description: 'Pronto nuestra aplicaión móvil estará disponible a nivel nacional. ¿Quieres saber cuándo? mas adelánte podrás enviarnos tus datos y te avisaremos',
+    darkText: '#010606', 
+    buttonLabel: 'Como funciona',
+    linkedTo: 'hiwSection' 
+}
+

@@ -260,13 +260,12 @@
 
 /*************** heroSection ****************************** */
 .heroContainer {
-    background-color: #FAD570;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 30px;
-    height: 848px;
-    /* position: relative; */
+    height: 990px;
     z-index: 1;
 }
 
@@ -352,19 +351,9 @@
 .infoContainer {
     color:#ffffff;
     margin-top: 3%;
-    height: 550px;
-    /* height: 500px; */
+    height: 650px;
     border-bottom: 2px solid #eeedec;
 }
-
-/* .infoRow {
-    display: grid;
-    width: 100%;
-    height: 850px;
-    grid-template: 400px 400px / 40% 60%;
-    grid-template-areas: "title video video";
-    gap: 5px;
-} */
 
 .infoWrapper {
     height: 100%;
@@ -373,8 +362,8 @@
 .infoRow {
     display: grid;
     width: 100%;
-    height: 850px;
-    grid-template: 530px / 40% 60%;
+    height: 650px;
+    grid-template: 600px / 40% 60%;
     grid-template-areas: "title video video";
     gap: 5px;
 }
@@ -434,9 +423,13 @@
     color: #010606
 }
 
-.btnWrap {
+/* .btnWrap {
     display: flex;
     justify-content: flex-start;
+} */
+
+.videoBtnWrap {
+    margin-top: 4%;
 }
 
 
@@ -526,9 +519,71 @@
     align-items: center; 
     margin-left: 284px;
 }
+
+/* *********** DataSection ******************************* */
+
+.dataContainer {
+    background-color: #010606;
+    color:#ffffff;
+    height: 700px;
+    border-bottom: 2px solid #eeedec;
     
+}
+
+.dataWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #01bf71;
+    height: 100%;
+}
+
+.dataRow {
+    display: grid;
+    grid-template: 700px / 50% 50%;
+    grid-template-areas: "text data data";
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+}
+
+.dataText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: "text";
+}
+.dataFormWrapper {
+    grid-area: "data";
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 
+/* .infoRow {
+    display: grid;
+    width: 100%;
+    height: 850px;
+    grid-template: 530px / 40% 60%;
+    grid-template-areas: "title video video";
+    gap: 5px;
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video {
+    grid-area: "video";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
 
 
 /* *************** Responsive design ***********************/
@@ -567,6 +622,10 @@
         align-items: center;
         gap: 16px;
         padding: 0 40px;
+    }
+    
+    .hiwBtnWrap {
+        margin-top: 70px;
     }
     
 }
@@ -611,6 +670,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 70px;
     }
  
 }
@@ -647,6 +707,7 @@
         padding: 0 45px;
     }
     .hiwBtnWrap {
+        margin-top: 100px;
         margin-left: 3%;
     }
 }
@@ -681,6 +742,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 100px;
     }
     
     
@@ -843,7 +905,7 @@
     }
 
     .hiwContainer {
-        height: 100%;
+        height: 1600px;
     }
     .hiwWrapper {
         margin: 5% auto;
@@ -855,6 +917,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 100px;
     }
 
 
@@ -1016,7 +1079,7 @@
     }
     
     .hiwContainer {
-        height: 100%;
+        height: 2300px;
     }
 
     .hiwWrapper {
@@ -1038,6 +1101,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 50px;
     }
 
 }
@@ -1198,7 +1262,7 @@
     }
 
     .hiwContainer {
-        height: 100%;
+        height: 2300px;
     }
 
     .hiwWrapper {
@@ -1220,6 +1284,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 50px;
     }
 
 }
@@ -1378,7 +1443,7 @@
     }
     
     .hiwContainer {
-        height: 100%;
+        height: 2300px;
     }
     
     .hiwWrapper {
@@ -1401,6 +1466,7 @@
 
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 70px;
     }
 }
 
@@ -1559,7 +1625,7 @@
     }
 
     .hiwContainer {
-        height: 100%;
+        height: 2300px;
     }
 
     .hiwWrapper {
@@ -1576,6 +1642,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 50px;
     }
 }
 
@@ -1735,7 +1802,7 @@
     }
 
     .hiwContainer {
-        height: 100%;
+        height: 2300px;
     }
 
     .hiwWrapper {
@@ -1752,6 +1819,7 @@
     }
     .hiwBtnWrap {
         margin-left: 3%;
+        margin-top: 50px;
     }
 }
 

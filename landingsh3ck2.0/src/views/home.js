@@ -7,12 +7,12 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
-import { infoHero, infoVideo } from '../utils/data'
+import { infoHero, infoVideo, infoData } from '../utils/data'
 import { infoHiW  } from '../components/hiwSection/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
-
+import DataSection from '../components/dataSection/dataSection'
 
 
 const Home = () => {
@@ -34,13 +34,6 @@ const Home = () => {
     }
     return (
         <>
-            {/* <StyledSideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
-            <StyledNavBar
-            login={ login }
-            onLogin={ onLogin }
-            username={'hola, arnoldo'} 
-            toggleSideBar={ toggleSideBar }/>
-            <StyledHeroSection/> */}
             <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 
@@ -58,6 +51,7 @@ const Home = () => {
             <HeroSection {...infoHero} />
             <VideoSection {...infoVideo}/>
             <HiwSection {...infoHiW}/>
+            <DataSection {...infoData}/>
         </>
     )
 }
