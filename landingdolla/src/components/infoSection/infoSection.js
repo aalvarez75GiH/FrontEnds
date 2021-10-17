@@ -56,7 +56,7 @@ const InfoSection = ({
                                 dark2 = {dark2 ? 1 : 0}
 
 
-                                to="home">{buttonLabel}</Button>
+                                to="services">{buttonLabel}</Button>
                             </BtnWrap>
                         </TextWrapper>
                     </Column1>
