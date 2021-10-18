@@ -625,8 +625,30 @@
     height: 50%;
     margin-top: 5%;
 }
+/* **************************************** */
+/* .form-1 input {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-style: none;
+    font-size: 1rem;
+    padding-left: 5%;
+} */
 
-.form-1 input {
+.form1InputFullName {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-style: none;
+    font-size: 1rem;
+    padding-left: 5%;
+    
+}
+.form1InputEmail {
     height: 20%;
     width: 80%;
     margin-bottom: 1rem;
@@ -636,6 +658,51 @@
     font-size: 1rem;
     padding-left: 5%;
 }
+.form1InputCity {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-style: none;
+    font-size: 1rem;
+    padding-left: 5%;
+}
+
+.form1InputFullNameError {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    font-size: 1rem;
+    padding-left: 5%;
+    border: 2px solid #ef476f;
+}
+
+.form1InputEmailError{
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    font-size: 1rem;
+    padding-left: 5%;
+    border: 2px solid #ef476f;
+}
+
+.form1InputCityError {
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    font-size: 1rem;
+    padding-left: 5%;
+    border: 2px solid #ef476f;
+}
+
+/* ******************************************** */
 
 .form-1 button {
     height: 20%;

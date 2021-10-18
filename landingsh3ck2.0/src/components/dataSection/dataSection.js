@@ -7,8 +7,15 @@ const DataSection = ({
     headLine,
     description,
     darkText,
-    handlingSubmitInterestedUser
+    handlingSubmitInterestedUser,
+    fullNameError,
+    emailError,
+    cityError, 
+    // registeredUser
 }) => {
+    console.log(fullNameError)
+    console.log(emailError)
+    console.log(cityError)
     return (
         <div className="dataContainer">
             <div className="dataWrapper">
@@ -57,6 +64,10 @@ const DataSection = ({
                        
                         <InterestedUserForm
                         handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                        fullNameError={fullNameError}
+                        emailError={emailError}
+                        cityError={cityError}
+                        // registeredUser={registeredUser}
                         />
                     
                     </div>

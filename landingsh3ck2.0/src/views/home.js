@@ -14,13 +14,20 @@ import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import DataSection from '../components/dataSection/dataSection'
+let array = []
 
 
 const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ login, setLogin ] = useState(false)
-    const [ error, setError ] = useState(null) 
+    const [ error, setError ] = useState(null)
+    const [registeredUser, setRegisteredUser] = useState(false)
+    
+    const [ fullNameError, setFullNameError ] = useState(false)
+    const [ emailError, setEmailError ] = useState(false)
+    const [ cityError, setCityError ] = useState(false)
+
     const url_users = "http://localhost:5000/api/interestedUsers"
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
@@ -33,17 +40,38 @@ const Home = () => {
             const response = await axios.post(url_users, interestedUser)
             if (response.status === 201){
                 console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
+                return response.status
+                // setRegisteredUser(true)
             }
             
             }catch(error) {
-                if(error.response.data === 'Errors at the request: ["fullName" is not allowed to be empty]'){
-                    console.log('Debes colocar tu nombre completo...')
-                }else{
-                    console.error(error.response.data)
-                    showError(error.response.data)
+                if (error.response.status === 400){
+                    setRegisteredUser(false)
+                    const responseErrors = error.response.data
+                    console.log(responseErrors)
+                    array = responseErrors
+                    console.log(array)
+                    const test = array.map((x) => {
+                        if (x.message === "\"fullName\" is not allowed to be empty"){
+                            setFullNameError(true)
+                        }
+                        if (x.message === "\"email\" is not allowed to be empty"){
+                            setEmailError(true)
+                            
+                        }
+                        if (x.message === "\"city\" is not allowed to be empty"){
+                            setCityError(true)
+                            
+                        }
+                    })
                 }
+                console.error(error.response.data)
+                showError(error.response.data)
+                
             }
     }
+
+
 
     const showError = (message) => {
         setError(message)
@@ -59,7 +87,13 @@ const Home = () => {
         e.preventDefault()
         setLogin(!login)
     }
+
+    console.log(fullNameError)
+    console.log(emailError)
+    console.log(cityError)
+
     return (
+  
         <>
             <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
             { mobil2.screenWidth <= 1098 || mobil ?  
@@ -82,6 +116,10 @@ const Home = () => {
             {...infoData} 
             showError={showError}
             handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+            fullNameError={fullNameError}
+            emailError={emailError}
+            cityError={cityError}
+            // registeredUser={registeredUser}
             />
         </>
     )
