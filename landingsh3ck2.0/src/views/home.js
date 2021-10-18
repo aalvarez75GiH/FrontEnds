@@ -28,21 +28,20 @@ const Home = () => {
 
 
 
-    const handlingSubmitInterestedUser = async(fullName, email, city) => {
+    const handlingSubmitInterestedUser = async(interestedUser) => {
         try {
-            const response = await axios.post(url_users, {
-                fullName, 
-                email,
-                city
-            })
+            const response = await axios.post(url_users, interestedUser)
             if (response.status === 201){
                 console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
             }
-            // console.log(response.data)
-            // setInfoSent()
+            
             }catch(error) {
-              console.error(error.response.data)
-              showError(error.response.data)
+                if(error.response.data === 'Errors at the request: ["fullName" is not allowed to be empty]'){
+                    console.log('Debes colocar tu nombre completo...')
+                }else{
+                    console.error(error.response.data)
+                    showError(error.response.data)
+                }
             }
     }
 

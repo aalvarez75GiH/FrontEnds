@@ -3,62 +3,65 @@ import React, { useState } from 'react'
 
 const InterestedUsersForm = ({ handlingSubmitInterestedUser }) => {
     
-    const [fullName, setFullName] = useState('')
-    const [email, setEmail] = useState('')
-    const [city, setCity ] = useState('')
 
-    const onHandlingName = (e) => {
-        setFullName(e.target.value)
-        console.log(fullName)
+    const [ interestedUser , setInterestedUser ] = useState({
+        fullName: '',
+        email: '',
+        city: ''   
+    })
 
+    const handlingInputChange = (e) => {
+        setInterestedUser({
+            ...interestedUser, [e.target.name]: e.target.value
+        })
+        console.log(interestedUser)
     }
 
-    const onHandlingEmail = (e) => {
-        setEmail(e.target.value)
-        console.log(email)
 
-    }
 
-    const onHandlingCity = (e) => {
-        setCity(e.target.value)
-        console.log(city)
-    }
-
-    const handlingSubmit = (e) => {
+    const handlingSubmit = async(e) => {
         e.preventDefault()
-        handlingSubmitInterestedUser(fullName, email, city)
-        setFullName('')
-        setEmail('')
-        setCity('')
+        await handlingSubmitInterestedUser(interestedUser)
+        setInterestedUser({
+            fullName: '',
+            email: '',
+            city: ''
+        })
     }
     
     return (
         <>
-                <form className="form-1"  
+        <form className="form-1"  
         onSubmit={(e)=> handlingSubmit(e)}
         >
             <input
-                onChange={ (e) => onHandlingName(e)} 
-                type="text" 
+                onChange={ (e) => handlingInputChange(e)} 
+                type="text"
+                autoComplete="off"
+                name="fullName" 
                 placeholder="Nombre completo"
                 required
-                value={fullName}
+                value={interestedUser.fullName}
                 
                 />
                  <input
-                onChange={ (e) => onHandlingEmail(e)} 
-                type="text" 
+                onChange={ (e) => handlingInputChange(e)} 
+                type="text"
+                autoComplete="off"
+                name="email" 
                 placeholder="Correo electrónico"
                 required
-                value={email}
+                value={interestedUser.email}
                 
                 />
                   <input
-                onChange={ (e) => onHandlingCity(e)} 
-                type="text" 
+                onChange={ (e) => handlingInputChange(e)} 
+                type="text"
+                autoComplete="off"
+                name="city" 
                 placeholder="Ciudad"
                 required
-                value={city}
+                value={interestedUser.city}
                 
                 />
                 <button
