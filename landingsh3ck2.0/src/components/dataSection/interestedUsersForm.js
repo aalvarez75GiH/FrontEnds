@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react'
 
-const InterestedUsersForm = ({ handlingSubmitUser }) => {
+const InterestedUsersForm = ({ handlingSubmitInterestedUser }) => {
     
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
+    const [city, setCity ] = useState('')
 
     const onHandlingName = (e) => {
         setFullName(e.target.value)
@@ -18,11 +19,17 @@ const InterestedUsersForm = ({ handlingSubmitUser }) => {
 
     }
 
+    const onHandlingCity = (e) => {
+        setCity(e.target.value)
+        console.log(city)
+    }
+
     const handlingSubmit = (e) => {
         e.preventDefault()
-        handlingSubmitUser(fullName, email)
+        handlingSubmitInterestedUser(fullName, email, city)
         setFullName('')
         setEmail('')
+        setCity('')
     }
     
     return (
@@ -47,11 +54,11 @@ const InterestedUsersForm = ({ handlingSubmitUser }) => {
                 
                 />
                   <input
-                onChange={ (e) => onHandlingEmail(e)} 
+                onChange={ (e) => onHandlingCity(e)} 
                 type="text" 
                 placeholder="Ciudad"
                 required
-                // value={city}
+                value={city}
                 
                 />
                 <button

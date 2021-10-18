@@ -6,7 +6,8 @@ const DataSection = ({
     topLine,
     headLine,
     description,
-    darkText
+    darkText,
+    handlingSubmitInterestedUser
 }) => {
     return (
         <div className="dataContainer">
@@ -54,7 +55,9 @@ const DataSection = ({
 
                         </div>
                        
-                        <InterestedUserForm/>
+                        <InterestedUserForm
+                        handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                        />
                     
                     </div>
                 </div>

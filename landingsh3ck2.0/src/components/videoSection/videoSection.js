@@ -48,18 +48,6 @@ const VideoSection = ({
                                 color: `${ lightText ? '#FFFFFF' : darkText }`
                             }}
                             className="subTitle">{description}</p>
-                            {/* <div className="btnWrap">
-                                    <Button
-                                    btnBG={ '#FAD570' }
-                                    fontColor={ true }
-                                    big={ true }
-                                    fontBig = { false }
-                                    buttonLabel={ buttonLabel }
-                                    linkedTo={linkedTo}
-                                    offSet={-170}
-                                    >
-                                    </Button>
-                            </div> */}
                         </div>  
                     </div>
                     <div className="video">
