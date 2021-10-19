@@ -589,7 +589,7 @@
     align-items: center;
     width: 50%;
     height: 70px;
-    border-right: 2px solid black;
+    /* border-right: 2px solid black; */
     background-color: #c2c2c2;
 
 }
@@ -602,7 +602,11 @@
 }
 
 .titleWrapper {
-    height: 20%;
+    height: 25%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
 }
 
 .formDescription {
@@ -617,7 +621,6 @@
     height: 50%;
     background-color: #ffffff;
     width: 70%;
-    /* border: 1px solid #eeeeee; */
 }
 
 .formTitle {
@@ -625,53 +628,11 @@
     height: 50%;
     margin-top: 5%;
 }
-/* **************************************** */
-/* .custom-field {
-    position: relative;
-    font-size: 14px;
-    padding-top: 20px;
-    margin-bottom: 5px;
-
-}
-    
-.custom-field input {
-    height: 20%;
-    width: 80%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1rem;
-    padding-left: 5%;
-    outline: none;
-}
-
-.custom-field input:valid + .fullNameSpan,
-.custom-field input:focus + .fullNameSpan {
-    top: 10px;
-    font-size: 10px;
-    color: #222222;
-    transition: 
-        top 0.3s ease,
-        font-size 0.3s ease,
-        color 0.3s ease;
-} 
-
-.fullNameSpan {
-    position: absolute;
-    left: 12px;
-    color:#010606;
-    top: calc(50% + 10px);
-    transform: translateY(-50%);
-    color:#aaaaaa
-} */
-
-/* ******************************************* */
 
 
 .form1InputFullName {
-    height: 20%;
-    width: 80%;
+    height: 19%;
+    width: 100%;
     margin-bottom: 1rem;
     padding: 10px;
     background-color: #eeeeee;
@@ -695,8 +656,8 @@
 }
 
 .form1InputEmail {
-    height: 20%;
-    width: 80%;
+    height: 19%;
+    width: 100%;
     margin-bottom: 1rem;
     padding: 10px;
     background-color: #eeeeee;
@@ -723,8 +684,8 @@
 
 
 .form1InputCity {
-    height: 20%;
-    width: 80%;
+    height: 19%;
+    width: 100%;
     margin-bottom: 1rem;
     padding: 10px;
     background-color: #eeeeee;
@@ -788,10 +749,8 @@
 /* ******************************************** */
 
 .form-1 button {
-    height: 20%;
-    width: 80%;
-    /* border-radius: 40px; */
-    /* border: 2px solid white; */
+    height: 19%;
+    width: 100%;
     color: #010606;
     background-color: #FAD570;
     margin-top: 10px;
