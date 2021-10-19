@@ -23,51 +23,24 @@ const Home = () => {
     const [ login, setLogin ] = useState(false)
     const [ error, setError ] = useState(null)
     const [ loadingUser, setLoadingUser ] = useState(false)
-    
-    
-    const [ errorFlags, setErrorFlags ] = useState({
-        fullNameError: false,
-        emailError: false,
-        cityError: false
-    })
-
     const [ fullNameError, setFullNameError ] = useState(false)
     const [ emailError, setEmailError ] = useState(false)
     const [ cityError, setCityError ] = useState(false)
+    const [ errorData, setErrorData ] = useState(null)
 
     const url_users = "http://localhost:5000/api/interestedUsers"
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
     
-    // const initializeErrors = () => {
-    //     setErrorFlags({
-    //         fullNameError: false,
-    //         emailError: false,
-    //         cityError: false
-    //     })
-    // }
-
-   
 
     const toggleFullNameError = () => {
         setFullNameError(false)
-        // setErrorFlags({
-        //     fullNameError: false
-        // })
     } 
     const toggleEmailError = () => {
         setEmailError(false)
-        // setErrorFlags({
-        //     emailError: false
-        // })
-        
     } 
     const toggleCityError = () => {
         setCityError(false)
-        // setErrorFlags({
-        //     cityError: false
-        // })
-        
     } 
 
     const handlingSubmitInterestedUser = async(interestedUser) => {
@@ -80,43 +53,35 @@ const Home = () => {
                     setLoadingUser(false)
                     console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                     return response.status
-                }  
+                } 
             }catch(error) {
+                console.log(error.response)
                 if (error.response.status === 400){
+                    setErrorData(error.response.data)
                     setLoadingUser(false)
                     console.log(error.response.data)
-                    const responseErrors = error.response.data
                     
-                    console.log(responseErrors)
-                    array = responseErrors
-                    console.log(array)
-                    const test = array.map((x) => {
-                        if (x.message === "\"fullName\" is not allowed to be empty"){
-                            setFullNameError(true)
-                            // setErrorFlags({
-                            //     fullNameError: true
-                            // })
-                        }
-                        if (x.message === "\"email\" is not allowed to be empty"){
-                            setEmailError(true)
-                            // setErrorFlags({
-                            //     emailError: true
-                            // })
-                        }
-                        if (x.message === "\"city\" is not allowed to be empty"){
-                            setCityError(true)
-                            // setErrorFlags({
-                            //     cityError: true
-                            // })
-                        }
-                        if (x.message === "\"email\" must be a valid email"){
-                            setEmailError(true)
-                            // setErrorFlags({
-                            //     emailError: true
-                            // })
-                            
-                        }
-                    })
+                    return error.response.data
+                    // array = responseErrors
+                    // console.log(array)
+                    // const test = array.map((x) => {
+                    //     if (x.message === "\"fullName\" is not allowed to be empty"){
+                    //         console.log('pasa por fullNameError')
+                    //         setFullNameError(true)
+                    //     }
+                    //     if (x.message === "\"email\" is not allowed to be empty"){
+                    //         console.log('pasa por emailError')
+                    //         setEmailError(true)
+                    //     }
+                    //     if (x.message === "\"city\" is not allowed to be empty"){
+                    //         console.log('pasa por cityError')
+                    //         setCityError(true)
+                    //     }
+                    //     if (x.message === "\"email\" must be a valid email"){
+                    //         console.log('pasa por emailError 2')
+                    //         setEmailError(true)
+                    //     }
+                    // })
                 }
                 console.error(error.response.data)
                 showError(error.response.data)
@@ -125,8 +90,6 @@ const Home = () => {
         },3000)
         
     }
-
-
 
     const showError = (message) => {
         setError(message)
@@ -143,9 +106,9 @@ const Home = () => {
         setLogin(!login)
     }
 
-    console.log(fullNameError)
-    console.log(emailError)
-    console.log(cityError)
+    // console.log(fullNameError)
+    // console.log(emailError)
+    // console.log(cityError)
 
     return (
   
@@ -174,12 +137,11 @@ const Home = () => {
             fullNameError={fullNameError}
             emailError={emailError}
             cityError={cityError}
-            // errorFlags={errorFlags}
             toggleFullNameError={toggleFullNameError}
             toggleEmailError={toggleEmailError}
             toggleCityError={toggleCityError}
             loadingUser={loadingUser}
-            // initializeErrors={initializeErrors}
+            errorData={errorData}
             />
         </>
     )

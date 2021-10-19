@@ -15,9 +15,9 @@ const DataSection = ({
     toggleFullNameError,
     toggleEmailError,
     toggleCityError,
-    loadingUser
-    // errorFlags,
-    // initializeErrors
+    loadingUser,
+    flag, 
+    errorData
 }) => {
     // console.log(fullNameError)
     // console.log(emailError)
@@ -106,11 +106,11 @@ const DataSection = ({
                         fullNameError={fullNameError}
                         emailError={emailError}
                         cityError={cityError}
-                        // errorFlags={errorFlags}
                         toggleFullNameError={toggleFullNameError}
                         toggleEmailError={toggleEmailError}
                         toggleCityError={toggleCityError}
-                        // initializeErrors={initializeErrors}
+                        flag={flag}
+                        errorData={errorData}
                         />
                     
                     </div>
