@@ -16,12 +16,16 @@ const InterestedUsersForm = ({
     // console.log(fullNameError)
     // console.log(emailError)
     // console.log(cityError)
+    let array = []
 
     const [ interestedUser , setInterestedUser ] = useState({
         fullName: '',
         email: '',
         city: ''   
     })
+    // const [ fullNameError, setFullNameError ] = useState(false)
+    // const [ emailError, setEmailError ] = useState(false)
+    // const [ cityError, setCityError ] = useState(false)
 
     
     const handlingInputChange = (e) => {
@@ -30,12 +34,26 @@ const InterestedUsersForm = ({
         })
         console.log(interestedUser)
     }
-
+    
+    // const toggleFullNameError = () => {
+    //     setFullNameError(false)
+        
+    // } 
+    // const toggleEmailError = () => {
+    //     setEmailError(false)
+        
+        
+    // } 
+    // const toggleCityError = () => {
+    //     setCityError(false)
+        
+        
+    // } 
 
 
     const handlingSubmit = async(e) => {
         e.preventDefault()
-        const response = await handlingSubmitInterestedUser(interestedUser)
+        const response  = await handlingSubmitInterestedUser(interestedUser)
         console.log(response)
         if (response === 201){
             setInterestedUser({
@@ -44,6 +62,32 @@ const InterestedUsersForm = ({
                 city: ''
             })
         }
+        console.log(response)
+        // console.log(response)
+        // const responseErrors = response
+        // console.log(responseErrors)
+        // array = responseErrors
+        // console.log(array)
+        // const test = array.map((x) => {
+        //     if (x.message === "\"fullName\" is not allowed to be empty"){
+        //         setFullNameError(true)
+                
+        //     }
+        //     if (x.message === "\"email\" is not allowed to be empty"){
+        //         setEmailError(true)
+                
+        //     }
+        //     if (x.message === "\"city\" is not allowed to be empty"){
+        //         setCityError(true)
+                
+        //     }
+        //     if (x.message === "\"email\" must be a valid email"){
+        //         setEmailError(true)
+                
+                
+        //     }
+        // })
+        
     }
 
     

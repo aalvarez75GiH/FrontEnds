@@ -75,16 +75,18 @@ const Home = () => {
         setTimeout(async()=> {
             try {
                 const response = await axios.post(url_users, interestedUser)
+                console.log(response)
                 if (response.status === 201){
                     setLoadingUser(false)
                     console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                     return response.status
-                }
-                
+                }  
             }catch(error) {
                 if (error.response.status === 400){
                     setLoadingUser(false)
+                    console.log(error.response.data)
                     const responseErrors = error.response.data
+                    
                     console.log(responseErrors)
                     array = responseErrors
                     console.log(array)
