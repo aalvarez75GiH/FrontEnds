@@ -626,16 +626,48 @@
     margin-top: 5%;
 }
 /* **************************************** */
-/* .form-1 input {
-    height: 20%;
-    width: 80%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1rem;
-    padding-left: 5%;
+/* .custom-field {
+    position: relative;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 5px;
+
+}
+
+.custom-field input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    outline: none;
+}
+
+.custom-field input:valid + .fullNameSpan,
+.custom-field input:focus + .fullNameSpan {
+    top: 10px;
+    font-size: 10px;
+    color: #222222;
+    transition: 
+        top 0.3s ease,
+        font-size 0.3s ease,
+        color 0.3s ease;
+} 
+
+.fullNameSpan {
+    position: absolute;
+    left: 12px;
+    color:#010606;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color:#aaaaaa
 } */
+
+/* ******************************************* */
 
 .form1InputFullName {
     height: 20%;
@@ -646,8 +678,20 @@
     border-style: none;
     font-size: 1rem;
     padding-left: 5%;
+    outline: none;
     
 }
+
+
+/* .form1InputFullName:focus::placeholder{
+    color: transparent;
+
+}
+.form1InputFullName::placeholder {
+    color: #adb5bd;
+    transition: color 0.3s ease
+} */
+
 .form1InputEmail {
     height: 20%;
     width: 80%;
@@ -657,7 +701,17 @@
     border-style: none;
     font-size: 1rem;
     padding-left: 5%;
+    outline: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
+
+.form1InputEmail::placeholder {
+    color: #adb5bd
+}
+
 .form1InputCity {
     height: 20%;
     width: 80%;
@@ -669,6 +723,10 @@
     padding-left: 5%;
 }
 
+.form1InputCity::placeholder {
+    color: #adb5bd
+}
+
 .form1InputFullNameError {
     height: 20%;
     width: 80%;
@@ -677,7 +735,12 @@
     background-color: #eeeeee;
     font-size: 1rem;
     padding-left: 5%;
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
     border: 2px solid #ef476f;
+    outline: none;
+    
 }
 
 .form1InputEmailError{

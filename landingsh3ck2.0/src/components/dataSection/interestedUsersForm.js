@@ -61,20 +61,30 @@ const InterestedUsersForm = ({
         <form className="form-1"  
         onSubmit={(e)=> handlingSubmit(e)}
         >
+            {/* <label className="custom-field">
+                <input
+                onChange={ (e) => handlingInputChange(e)} 
+                type="text"
+                autoComplete="off"
+                name="fullName" 
+                required
+                value={interestedUser.fullName}
+                
+                />
+                <span className="fullNameSpan">Nombre completo</span>
+            </label> */}
+            
             <input
-            // className="form1InputFullName"
-            className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
-            onChange={ (e) => handlingInputChange(e)} 
-            type="text"
-            autoComplete="off"
-            name="fullName" 
-            placeholder="Nombre completo"
-            required
-            value={interestedUser.fullName}
-            // value={`${fullNameError ? '' : interestedUser.fullName}`}
+                className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
+                onChange={ (e) => handlingInputChange(e)} 
+                type="text"
+                autoComplete="off"
+                name="fullName" 
+                placeholder="Nombre completo"
+                required
+                value={interestedUser.fullName}
             />
             <input
-            // className="form1InputEmail"
             className={`${emailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
             onChange={ (e) => handlingInputChange(e)} 
             type="text"
@@ -86,7 +96,6 @@ const InterestedUsersForm = ({
                 
             />
             <input
-            // className="form1InputCity"
             className={`${cityError ? 'form1InputCityError' : 'form1InputCity'}`}
             onChange={ (e) => handlingInputChange(e)} 
             type="text"
