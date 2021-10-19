@@ -1,36 +1,24 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 const InterestedUsersForm = ({ 
     handlingSubmitInterestedUser,
     fullNameError,
     emailError,
     cityError,
-    // registeredUser
+    toggleFullNameError,
+    toggleEmailError,
+    toggleCityError
 }) => {
     console.log(fullNameError)
     console.log(emailError)
     console.log(cityError)
-    // console.log(registeredUser)
 
     const [ interestedUser , setInterestedUser ] = useState({
         fullName: '',
         email: '',
         city: ''   
     })
-
-    // useEffect(() => {
-    //   if (registeredUser){
-    //     setInterestedUser({
-    //         fullName: '',
-    //         email: '',
-    //         city: ''
-    //     })
-    //   }else{
-    //       console.log('here we go')
-    //   }      
-    // }, [])
-   
 
     const handlingInputChange = (e) => {
         setInterestedUser({
@@ -54,39 +42,28 @@ const InterestedUsersForm = ({
         }
     }
         
-    
-    
+
     return (
         <>
         <form className="form-1"  
         onSubmit={(e)=> handlingSubmit(e)}
         >
-            {/* <label className="custom-field">
-                <input
-                onChange={ (e) => handlingInputChange(e)} 
-                type="text"
-                autoComplete="off"
-                name="fullName" 
-                required
-                value={interestedUser.fullName}
-                
-                />
-                <span className="fullNameSpan">Nombre completo</span>
-            </label> */}
             
             <input
-                className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
-                onChange={ (e) => handlingInputChange(e)} 
-                type="text"
-                autoComplete="off"
-                name="fullName" 
-                placeholder="Nombre completo"
-                required
-                value={interestedUser.fullName}
+            className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
+            onChange={ (e) => handlingInputChange(e)} 
+            onFocus={toggleFullNameError}
+            type="text"
+            autoComplete="off"
+            name="fullName" 
+            placeholder="Nombre completo"
+            required
+            value={interestedUser.fullName}
             />
             <input
             className={`${emailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
             onChange={ (e) => handlingInputChange(e)} 
+            onFocus={toggleEmailError}
             type="text"
             autoComplete="off"
             name="email" 
@@ -97,7 +74,8 @@ const InterestedUsersForm = ({
             />
             <input
             className={`${cityError ? 'form1InputCityError' : 'form1InputCity'}`}
-            onChange={ (e) => handlingInputChange(e)} 
+            onChange={ (e) => handlingInputChange(e)}
+            onFocus={toggleCityError} 
             type="text"
             autoComplete="off"
             name="city" 

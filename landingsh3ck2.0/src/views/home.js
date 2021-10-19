@@ -22,7 +22,7 @@ const Home = () => {
     const [ isOpen, setIsOpen ] = useState(false)
     const [ login, setLogin ] = useState(false)
     const [ error, setError ] = useState(null)
-    const [registeredUser, setRegisteredUser] = useState(false)
+    
     
     const [ fullNameError, setFullNameError ] = useState(false)
     const [ emailError, setEmailError ] = useState(false)
@@ -32,7 +32,15 @@ const Home = () => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
     
-
+    const toggleFullNameError = () => {
+        setFullNameError(false)
+    } 
+    const toggleEmailError = () => {
+        setEmailError(false)
+    } 
+    const toggleCityError = () => {
+        setCityError(false)
+    } 
 
 
     const handlingSubmitInterestedUser = async(interestedUser) => {
@@ -46,7 +54,6 @@ const Home = () => {
             
             }catch(error) {
                 if (error.response.status === 400){
-                    setRegisteredUser(false)
                     const responseErrors = error.response.data
                     console.log(responseErrors)
                     array = responseErrors
@@ -61,6 +68,10 @@ const Home = () => {
                         }
                         if (x.message === "\"city\" is not allowed to be empty"){
                             setCityError(true)
+                            
+                        }
+                        if (x.message === "\"email\" must be a valid email"){
+                            setEmailError(true)
                             
                         }
                     })
@@ -119,7 +130,9 @@ const Home = () => {
             fullNameError={fullNameError}
             emailError={emailError}
             cityError={cityError}
-            // registeredUser={registeredUser}
+            toggleFullNameError={toggleFullNameError}
+            toggleEmailError={toggleEmailError}
+            toggleCityError={toggleCityError}
             />
         </>
     )
