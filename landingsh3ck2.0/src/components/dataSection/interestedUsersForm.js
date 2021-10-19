@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 
+
 const InterestedUsersForm = ({ 
     handlingSubmitInterestedUser,
     fullNameError,
@@ -22,6 +23,7 @@ const InterestedUsersForm = ({
         city: ''   
     })
 
+    
     const handlingInputChange = (e) => {
         setInterestedUser({
             ...interestedUser, [e.target.name]: e.target.value
@@ -43,8 +45,8 @@ const InterestedUsersForm = ({
             })
         }
     }
-        
 
+    
     return (
         <>
         <form className="form-1"  

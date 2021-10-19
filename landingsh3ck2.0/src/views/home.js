@@ -22,6 +22,8 @@ const Home = () => {
     const [ isOpen, setIsOpen ] = useState(false)
     const [ login, setLogin ] = useState(false)
     const [ error, setError ] = useState(null)
+    const [ loadingUser, setLoadingUser ] = useState(false)
+    
     
     const [ errorFlags, setErrorFlags ] = useState({
         fullNameError: false,
@@ -44,6 +46,9 @@ const Home = () => {
     //         cityError: false
     //     })
     // }
+
+   
+
     const toggleFullNameError = () => {
         setFullNameError(false)
         // setErrorFlags({
@@ -65,17 +70,20 @@ const Home = () => {
         
     } 
 
-
     const handlingSubmitInterestedUser = async(interestedUser) => {
-        try {
-            const response = await axios.post(url_users, interestedUser)
-            if (response.status === 201){
-                console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
-                return response.status
-            }
-            
+        setLoadingUser(true)
+        setTimeout(async()=> {
+            try {
+                const response = await axios.post(url_users, interestedUser)
+                if (response.status === 201){
+                    setLoadingUser(false)
+                    console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
+                    return response.status
+                }
+                
             }catch(error) {
                 if (error.response.status === 400){
+                    setLoadingUser(false)
                     const responseErrors = error.response.data
                     console.log(responseErrors)
                     array = responseErrors
@@ -110,8 +118,10 @@ const Home = () => {
                 }
                 console.error(error.response.data)
                 showError(error.response.data)
-                
+                    
             }
+        },3000)
+        
     }
 
 
@@ -166,6 +176,7 @@ const Home = () => {
             toggleFullNameError={toggleFullNameError}
             toggleEmailError={toggleEmailError}
             toggleCityError={toggleCityError}
+            loadingUser={loadingUser}
             // initializeErrors={initializeErrors}
             />
         </>
