@@ -13,11 +13,13 @@ const DataSection = ({
     cityError, 
     toggleFullNameError,
     toggleEmailError,
-    toggleCityError
+    toggleCityError,
+    // errorFlags,
+    // initializeErrors
 }) => {
-    console.log(fullNameError)
-    console.log(emailError)
-    console.log(cityError)
+    // console.log(fullNameError)
+    // console.log(emailError)
+    // console.log(cityError)
     return (
         <div className="dataContainer">
             <div className="dataWrapper">
@@ -69,9 +71,11 @@ const DataSection = ({
                         fullNameError={fullNameError}
                         emailError={emailError}
                         cityError={cityError}
+                        // errorFlags={errorFlags}
                         toggleFullNameError={toggleFullNameError}
                         toggleEmailError={toggleEmailError}
                         toggleCityError={toggleCityError}
+                        // initializeErrors={initializeErrors}
                         />
                     
                     </div>

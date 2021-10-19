@@ -8,11 +8,13 @@ const InterestedUsersForm = ({
     cityError,
     toggleFullNameError,
     toggleEmailError,
-    toggleCityError
+    toggleCityError,
+    // errorFlags,
+    // initializeErrors
 }) => {
-    console.log(fullNameError)
-    console.log(emailError)
-    console.log(cityError)
+    // console.log(fullNameError)
+    // console.log(emailError)
+    // console.log(cityError)
 
     const [ interestedUser , setInterestedUser ] = useState({
         fullName: '',
@@ -53,6 +55,7 @@ const InterestedUsersForm = ({
             className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
             onChange={ (e) => handlingInputChange(e)} 
             onFocus={toggleFullNameError}
+            // onFocus={initializeErrors}
             type="text"
             autoComplete="off"
             name="fullName" 
@@ -64,6 +67,7 @@ const InterestedUsersForm = ({
             className={`${emailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
             onChange={ (e) => handlingInputChange(e)} 
             onFocus={toggleEmailError}
+            // onFocus={initializeErrors}
             type="text"
             autoComplete="off"
             name="email" 
@@ -76,6 +80,7 @@ const InterestedUsersForm = ({
             className={`${cityError ? 'form1InputCityError' : 'form1InputCity'}`}
             onChange={ (e) => handlingInputChange(e)}
             onFocus={toggleCityError} 
+            // onFocus={initializeErrors}
             type="text"
             autoComplete="off"
             name="city" 

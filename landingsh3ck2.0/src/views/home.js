@@ -23,7 +23,12 @@ const Home = () => {
     const [ login, setLogin ] = useState(false)
     const [ error, setError ] = useState(null)
     
-    
+    const [ errorFlags, setErrorFlags ] = useState({
+        fullNameError: false,
+        emailError: false,
+        cityError: false
+    })
+
     const [ fullNameError, setFullNameError ] = useState(false)
     const [ emailError, setEmailError ] = useState(false)
     const [ cityError, setCityError ] = useState(false)
@@ -32,14 +37,32 @@ const Home = () => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
     
+    // const initializeErrors = () => {
+    //     setErrorFlags({
+    //         fullNameError: false,
+    //         emailError: false,
+    //         cityError: false
+    //     })
+    // }
     const toggleFullNameError = () => {
         setFullNameError(false)
+        // setErrorFlags({
+        //     fullNameError: false
+        // })
     } 
     const toggleEmailError = () => {
         setEmailError(false)
+        // setErrorFlags({
+        //     emailError: false
+        // })
+        
     } 
     const toggleCityError = () => {
         setCityError(false)
+        // setErrorFlags({
+        //     cityError: false
+        // })
+        
     } 
 
 
@@ -49,7 +72,6 @@ const Home = () => {
             if (response.status === 201){
                 console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                 return response.status
-                // setRegisteredUser(true)
             }
             
             }catch(error) {
@@ -61,17 +83,27 @@ const Home = () => {
                     const test = array.map((x) => {
                         if (x.message === "\"fullName\" is not allowed to be empty"){
                             setFullNameError(true)
+                            // setErrorFlags({
+                            //     fullNameError: true
+                            // })
                         }
                         if (x.message === "\"email\" is not allowed to be empty"){
                             setEmailError(true)
-                            
+                            // setErrorFlags({
+                            //     emailError: true
+                            // })
                         }
                         if (x.message === "\"city\" is not allowed to be empty"){
                             setCityError(true)
-                            
+                            // setErrorFlags({
+                            //     cityError: true
+                            // })
                         }
                         if (x.message === "\"email\" must be a valid email"){
                             setEmailError(true)
+                            // setErrorFlags({
+                            //     emailError: true
+                            // })
                             
                         }
                     })
@@ -130,9 +162,11 @@ const Home = () => {
             fullNameError={fullNameError}
             emailError={emailError}
             cityError={cityError}
+            // errorFlags={errorFlags}
             toggleFullNameError={toggleFullNameError}
             toggleEmailError={toggleEmailError}
             toggleCityError={toggleCityError}
+            // initializeErrors={initializeErrors}
             />
         </>
     )
