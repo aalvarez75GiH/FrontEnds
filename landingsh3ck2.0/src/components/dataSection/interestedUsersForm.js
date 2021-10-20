@@ -1,117 +1,54 @@
 
-import React, { useState } from 'react'
-let array = []
-let flagFullNameError = false
-let flagEmailError = false
-let flagCityError = false
+import React, { useState, useEffect } from 'react'
+let persistentData = []
+
 
 const InterestedUsersForm = ({ 
     handlingSubmitInterestedUser,
-    // fullNameError,
-    // emailError,
-    // cityError,
     toggleFullNameError,
     toggleEmailError,
     toggleCityError,
-    flag,
-    errorData
+    errorsObject
 }) => {
-    // console.log(fullNameError)
-    // console.log(emailError)
-    // console.log(cityError)
-    
-
-    console.log(errorData)
+  
+    console.log(errorsObject)
+  
 
     const [ interestedUser , setInterestedUser ] = useState({
         fullName: '',
         email: '',
         city: ''   
     })
-    
 
-    
+    useEffect(()=>{
+        console.log(persistentData)
+        const persistingInfo = () => {
+            console.log(persistentData[1])
+            document.getElementById('fullName').value = persistentData[0]
+            document.getElementById('email').value = persistentData[1]
+            document.getElementById('city').value = persistentData[2]
+        }
+        persistingInfo()
+        
+    },[])
+
+
     const handlingInputChange = (e) => {
         setInterestedUser({
             ...interestedUser, [e.target.name]: e.target.value
         })
-        console.log(interestedUser)
-    }
-    
-    const handlingSubmit = async(e) => {
-        
-         try {
-            const response  = await handlingSubmitInterestedUser(interestedUser)       
-            console.log(response.status)
-            if (response.status === 201){
-                setInterestedUser({
-                    fullName: '',
-                    email: '',
-                    city: ''
-                })
-            }
-         } catch (error) {
-            
-            array = errorData
-            const test = await array.map((x) => {
-                 return(
-                    console.log(x.message)
-                )
-                
-                // if (x.message === "\"fullName\" is not allowed to be empty"){
-                //     console.log('pasa por el nuevo fullNameError')
-                //     flagFullNameError = true
-                // }
-                // if (x.message === "\"email\" is not allowed to be empty"){
-                //     console.log('pasa por el nuevo emailError')
-                //     flagEmailError = true
-                // }
-                // if (x.message === "\"city\" is not allowed to be empty"){
-                //     console.log('pasa por el nuevo cityError')
-                //     flagCityError = true
-                // }
-                // if (x.message === "\"email\" must be a valid email"){
-                //     console.log('pasa por emailError 2')
-                //     flagEmailError = true
-                // }
-            })    
-         }
-        
-        
-        // const response  = await handlingSubmitInterestedUser(interestedUser)
-        // console.log(response)
-        // if (response === 201){
-        //     setInterestedUser({
-        //         fullName: '',
-        //         email: '',
-        //         city: ''
-        //     })
-        // }
-        // array = errorData
-        // const test = array.map((x) => {
-        //     console.log(x.message)
-        //     if (x.message === "\"fullName\" is not allowed to be empty"){
-        //         console.log('pasa por el nuevo fullNameError')
-        //         flagFullNameError = true
-        //     }
-        //     if (x.message === "\"email\" is not allowed to be empty"){
-        //         console.log('pasa por el nuevo emailError')
-        //         flagEmailError = true
-        //     }
-        //     if (x.message === "\"city\" is not allowed to be empty"){
-        //         console.log('pasa por el nuevo cityError')
-        //         flagCityError = true
-        //     }
-        //     if (x.message === "\"email\" must be a valid email"){
-        //         console.log('pasa por emailError 2')
-        //         flagEmailError = true
-        //     }
-        // })
-       
-        
     }
 
-    
+  
+
+
+    const handlingSubmit = async(e) => {
+        persistentData.push(interestedUser.fullName, interestedUser.email, interestedUser.city)
+        const response  = await handlingSubmitInterestedUser(interestedUser)       
+        console.log( response )
+        console.log(persistentData)
+    }
+
     return (
         <>
         <form className="form-1"  
@@ -119,8 +56,8 @@ const InterestedUsersForm = ({
         >
             
             <input
-            // className={`${fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
-            className={`${flagFullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
+            id="fullName" 
+            className={`${errorsObject.fullNameError ? 'form1InputFullNameError' : 'form1InputFullName'}`}
             onChange={ (e) => handlingInputChange(e)} 
             onFocus={toggleFullNameError}
             type="text"
@@ -131,8 +68,8 @@ const InterestedUsersForm = ({
             value={interestedUser.fullName}
             />
             <input
-            // className={`${emailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
-            className={`${flagEmailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
+            id="email"
+            className={`${errorsObject.emailError ? 'form1InputEmailError' : 'form1InputEmail'}`}
             onChange={ (e) => handlingInputChange(e)} 
             onFocus={toggleEmailError}
             type="text"
@@ -141,11 +78,10 @@ const InterestedUsersForm = ({
             placeholder="Correo electrónico"
             required
             value={interestedUser.email}
-                
             />
             <input
-            // className={`${cityError ? 'form1InputCityError' : 'form1InputCity'}`}
-            className={`${flagCityError ? 'form1InputCityError' : 'form1InputCity'}`}
+            id="city"
+            className={`${errorsObject.cityError ? 'form1InputCityError' : 'form1InputCity'}`}
             onChange={ (e) => handlingInputChange(e)} 
             onFocus={toggleCityError}
             type="text"
@@ -154,7 +90,6 @@ const InterestedUsersForm = ({
             placeholder="Ciudad"
             required
             value={interestedUser.city}
-            
             />
             <button
             onClick={(e) => handlingSubmit(e) } 

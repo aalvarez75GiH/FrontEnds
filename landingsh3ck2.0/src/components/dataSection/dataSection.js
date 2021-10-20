@@ -9,19 +9,14 @@ const DataSection = ({
     description,
     darkText,
     handlingSubmitInterestedUser,
-    fullNameError,
-    emailError,
-    cityError, 
     toggleFullNameError,
     toggleEmailError,
     toggleCityError,
     loadingUser,
-    flag, 
-    errorData
+    errorsObject
+    
 }) => {
-    // console.log(fullNameError)
-    // console.log(emailError)
-    // console.log(cityError)
+    
     if (loadingUser){
         return (
             <div className="dataContainer">
@@ -103,14 +98,10 @@ const DataSection = ({
                        
                         <InterestedUserForm
                         handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                        fullNameError={fullNameError}
-                        emailError={emailError}
-                        cityError={cityError}
                         toggleFullNameError={toggleFullNameError}
                         toggleEmailError={toggleEmailError}
                         toggleCityError={toggleCityError}
-                        flag={flag}
-                        errorData={errorData}
+                        errorsObject={errorsObject}
                         />
                     
                     </div>
