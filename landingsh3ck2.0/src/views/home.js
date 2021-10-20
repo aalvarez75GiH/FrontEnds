@@ -14,87 +14,87 @@ import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import DataSection from '../components/dataSection/dataSection'
-const errorsObject = {
-    fullNameError: false,
-    emailError: false,
-    cityError: false
-}
+// const errorsObject = {
+//     fullNameError: false,
+//     emailError: false,
+//     cityError: false
+// }
 
 const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ login, setLogin ] = useState(false)
-    const [ error, setError ] = useState(null)
-    const [ loadingUser, setLoadingUser ] = useState(false)
-    const [ toggling, setToggling ] = useState(false)
+    // const [ error, setError ] = useState(null)
+    // const [ loadingUser, setLoadingUser ] = useState(false)
+    // const [ toggling, setToggling ] = useState(false)
     
    
-    const url_users = "http://localhost:5000/api/interestedUsers"
+    // const url_users = "http://localhost:5000/api/interestedUsers"
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
     
 
-    const toggleFullNameError = () => {
-        errorsObject.fullNameError = false
-        console.log(errorsObject)
-        setToggling(!toggling)
+    // const toggleFullNameError = () => {
+    //     errorsObject.fullNameError = false
+    //     console.log(errorsObject)
+    //     setToggling(!toggling)
         
-    } 
-    const toggleEmailError = () => {
-        errorsObject.emailError = false
-        console.log(errorsObject)
-        setToggling(!toggling)
-    } 
-    const toggleCityError = () => {
-        errorsObject.cityError = false
-        console.log(errorsObject)
-        setToggling(!toggling)
-    } 
+    // } 
+    // const toggleEmailError = () => {
+    //     errorsObject.emailError = false
+    //     console.log(errorsObject)
+    //     setToggling(!toggling)
+    // } 
+    // const toggleCityError = () => {
+    //     errorsObject.cityError = false
+    //     console.log(errorsObject)
+    //     setToggling(!toggling)
+    // } 
 
-    const handlingSubmitInterestedUser = async(interestedUser) => {
-        setLoadingUser(true)
-        setTimeout(async()=> {
-            try {
-                const { status } = await axios.post(url_users, interestedUser)
-                console.log(status)
-                if (status === 201){
-                    setLoadingUser(false)
-                    console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
-                    // return response
-                } 
-            }catch(error) {
-                console.log(error.response)
-                const gettingData = () => {
-                    const whatever = error.response.data.map((error) => {
-                        if (error.message === "\"fullName\" is not allowed to be empty"){
-                            console.log('pasa por fullNameError')
-                            errorsObject.fullNameError = true
-                        }
-                        if (error.message === "\"email\" is not allowed to be empty"){
-                            console.log('pasa por fullNameError')
-                            errorsObject.emailError = true
-                        }
-                        if (error.message === "\"city\" is not allowed to be empty"){
-                            console.log('pasa por fullNameError')
-                            errorsObject.cityError = true
-                        }
-                    })
-                }
-                gettingData()
-                console.log(errorsObject)
-                showError(error.response.data)
-                setLoadingUser(false)    
-            }
+    // const handlingSubmitInterestedUser = async(interestedUser) => {
+    //     setLoadingUser(true)
+    //     setTimeout(async()=> {
+    //         try {
+    //             const { status } = await axios.post(url_users, interestedUser)
+    //             console.log(status)
+    //             if (status === 201){
+    //                 setLoadingUser(false)
+    //                 console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
+                   
+    //             } 
+    //         }catch(error) {
+    //             console.log(error.response)
+    //             const gettingData = () => {
+    //                 const whatever = error.response.data.map((error) => {
+    //                     if (error.message === "\"fullName\" is not allowed to be empty"){
+    //                         console.log('pasa por fullNameError')
+    //                         errorsObject.fullNameError = true
+    //                     }
+    //                     if (error.message === "\"email\" is not allowed to be empty"){
+    //                         console.log('pasa por fullNameError')
+    //                         errorsObject.emailError = true
+    //                     }
+    //                     if (error.message === "\"city\" is not allowed to be empty"){
+    //                         console.log('pasa por fullNameError')
+    //                         errorsObject.cityError = true
+    //                     }
+    //                 })
+    //             }
+    //             gettingData()
+    //             console.log(errorsObject)
+    //             showError(error.response.data)
+    //             setLoadingUser(false)    
+    //         }
             
-        },3000)
+    //     },3000)
         
-    }
+    // }
 
     
-    const showError = (message) => {
-        setError(message)
-        console.log(error)
-    }
+    // const showError = (message) => {
+    //     setError(message)
+    //     console.log(error)
+    // }
 
     const toggleSideBar = () => {
         console.log('this is toggle...')
@@ -128,13 +128,13 @@ const Home = () => {
             <HiwSection {...infoHiW}/>
             <DataSection 
             {...infoData} 
-            showError={showError}
-            handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-            toggleFullNameError={toggleFullNameError}
-            toggleEmailError={toggleEmailError}
-            toggleCityError={toggleCityError}
-            loadingUser={loadingUser}
-            errorsObject={errorsObject}
+            // showError={showError}
+            // handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+            // toggleFullNameError={toggleFullNameError}
+            // toggleEmailError={toggleEmailError}
+            // toggleCityError={toggleCityError}
+            // loadingUser={loadingUser}
+            // errorsObject={errorsObject}
             />
         </>
     )

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-let persistentData = []
+let persistentData = ["","",""]
 
 
 const InterestedUsersForm = ({ 
@@ -43,9 +43,16 @@ const InterestedUsersForm = ({
 
 
     const handlingSubmit = async(e) => {
+        persistentData.splice(0,3)
         persistentData.push(interestedUser.fullName, interestedUser.email, interestedUser.city)
         const response  = await handlingSubmitInterestedUser(interestedUser)       
-        console.log( response )
+        console.log(response)
+        // persistentData = [ "", "", ""]
+        setInterestedUser({
+            fullName: '',
+            email: '',
+            city: ''
+        })
         console.log(persistentData)
     }
 
