@@ -111,9 +111,6 @@ export const AccountBox = () => {
         setTimeout(()=> {
             setIsExpanded(false)
         },expandingTransition.duration * 1000 - 1500)
-        // setTimeout(()=> {
-        //     setIsExpanded(false)
-        // },1000)
         
     } 
 
@@ -137,7 +134,7 @@ export const AccountBox = () => {
 
 
     return (
-        <AccountContext.Provider value={contextValue}>
+         <AccountContext.Provider value={contextValue}>
             <BoxContainer>
                 <TopContainer>
                     <BackDrop
@@ -160,12 +157,12 @@ export const AccountBox = () => {
                     }
                 </TopContainer>
                 <InnerContainer>
-                    {active === 'SignIn' && <LoginForm/>  }
-                    {active === 'SignUp' && <SignUpForm/>  }
+                    {active === 'SignIn' && <LoginForm />  }
+                    {active === 'SignUp' && <SignUpForm />  }
                 </InnerContainer>
 
             </BoxContainer>
-        </AccountContext.Provider>
+         </AccountContext.Provider>
 
         
     )
