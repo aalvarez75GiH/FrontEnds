@@ -41,6 +41,7 @@ export const Input = styled.input`
     height: 42px;
     width: 100%;
     border: 1px solid rgba(200,200,200, 0.3);
+    /* border: ${({ errors })=> (errors ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )')}; */
     padding: 0px 10px;
     border-bottom: 1.4px solid transparent;
     transition: all 200ms ease-in-out ;
@@ -90,6 +91,7 @@ export const FieldError =styled.span`
     color: #b32e2e;
     font-size: 11px;
     min-height: 18px;
+    border-top: 1px solid rgba(200,200,200, 0.3) ;
 
 `
 

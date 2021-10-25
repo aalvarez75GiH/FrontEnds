@@ -61,6 +61,7 @@ const SignUpForm = () => {
                     value={formik.values.fullName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
+                    // errors = {formik.errors.fullName}
                     />
                         <FieldError>
                             {formik.touched.fullName && formik.errors.fullName ? formik.errors.fullName : ""}
