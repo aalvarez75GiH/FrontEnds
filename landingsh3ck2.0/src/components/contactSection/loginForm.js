@@ -5,23 +5,21 @@ import * as yup from 'yup'
 
 
 const validationSchema = yup.object({
-    fullName: yup.string().min(3).max(100).required('Debes colocar tu nombre completo'),
     email: yup.string().email('Por favor introduce una dirección de email válida').required(),
-    city: yup.string().min(3, 'Por favor introduce la ciudad').max(100, 'Por favor introduce la ciudad').required(),   
+    password: yup.string().min(6).max(200).required(),   
 })
 
 
-const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
+const LoginForm = ({ handlingSubmitLoginUser }) => {
 
     const onSubmit = (values) => {
-        handlingSubmitInterestedUser(values)
+        handlingSubmitLoginUser(values)
     }
 
     const formik = useFormik({
         initialValues: {
-            fullName: "",
             email: "",
-            city: ""
+            password: ""
         },
         validateOnBlur: true,
         onSubmit,
@@ -37,18 +35,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
             <form 
             onSubmit={formik.handleSubmit}
             className="formContainer">
-                <input
-                className="input"
-                name="fullName"
-                placeholder="Nombre completo" 
-                type="text" 
-                value={formik.values.fullName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                style={{
-                    borderBottom: `${formik.touched.fullName && formik.errors.fullName ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
-                }}
-                />
+                
                 <input
                 className="input"
                 name="email"
@@ -63,10 +50,10 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 />
                 <input
                 className="input"
-                name="city"
-                placeholder="Ciudad" 
-                type="text" 
-                value={formik.values.city}
+                name="password"
+                placeholder="Contraseña" 
+                type="password" 
+                value={formik.values.password}
                 onChange={formik.handleChange}                
                 onBlur={formik.handleBlur}
                 style={{
@@ -82,4 +69,4 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
     )
 }
 
-export default InterestedUserForm
+export default LoginForm
