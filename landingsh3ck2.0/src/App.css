@@ -573,46 +573,6 @@
     align-items: center;
 }
 
-.optionsWrapper {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
-    width: 70%;
-    height: 10%;
-    background-color: #eeeeee;
-    color: #010606;
-}
-.notifyMe {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 70px;
-    /* border-right: 2px solid black; */
-    background-color: #c2c2c2;
-
-}
-.checkAProduct {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 70px;
-}
-
-.titleWrapper {
-    height: 25%;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-}
-
-.formDescription {
-    color: #010606;
-}
-
 .form-1 {
     display: flex;
     flex-direction: column;
@@ -756,6 +716,143 @@
     font-size: 1.4rem;
 }
 
+
+/* *************** contactSection ***********************/  
+
+.contactContainer {
+    width: 100%;
+    height: 700px;
+    background-color: red;
+}
+
+.contactWrapper {
+    /* display: flex; */
+    width: 100%;
+    height: 700px;
+    background-color: #010606;
+    justify-content: space-between;
+}
+
+.contactInfo {
+    position: absolute;
+    z-index: 10;
+    width: 50%;
+    height: 700px;
+    background-color: #010606;
+}
+
+.effectTest {
+    width: 300px;
+    height: 300px;
+    background-color: #ef476f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.effectTest button {
+    width: 100px;
+    height: 70px;
+    background-color: #01bf71;
+    border: none;
+    border-radius: 15px;
+}
+
+.contactForms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: #ffffff;
+    
+}
+
+
+
+.optionsWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    height: 10%;
+    background-color: #eeeeee;
+    color: #010606;
+}
+.notifyMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 70px;
+    border-right: 2px solid black;
+    background-color: #c2c2c2;
+
+}
+
+.checkAProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 70px;
+}
+
+.titleWrapper {
+    height: 25%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.formDescription {
+    color: #010606;
+}
+
+.boxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    background-color: #ffffff;
+    width: 70%;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    height: 100%;
+
+}
+.input {
+    height: 19%;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-style: none;
+    font-size: 1rem;
+    padding-left: 5%;
+    outline: none;
+}
+
+.formContainer button {
+    height: 19%;
+    width: 100%;
+    color: #010606;
+    background-color: #FAD570;
+    margin-top: 10px;
+    border-style: none;
+    font-size: 1.4rem;
+}
+
 .loadingDataFormWrapper {
     grid-area: "data";
     display: flex;
@@ -763,6 +860,8 @@
     flex-direction: column;
     align-items: center;
     background-color: #e0e0e0;
+    width: 100%;
+    height: 100%;
 }
 .Loading {
     margin: 0 auto;
@@ -809,8 +908,7 @@
     }
   }
 
-
-
+ 
 
 /* *************** Responsive design ***********************/
 /* ********  Desktop Responsive Design ******************* */
@@ -1329,6 +1427,26 @@
         margin-left: 3%;
         margin-top: 50px;
     }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 700px;
+    }
+
+    .contactInfo {
+        position: unset;
+        width: 100%;
+
+    }
+    .contactForms {
+        position: unset;
+        width: 100%;
+    }
+
+    
 
 }
 /* ********  Phones Responsive Design ******************* */
