@@ -6,7 +6,7 @@ import OptionsForms from './optionsForms'
 import RegisterForm from './registerForm'
 import LoginForm from './loginForm'
 import axios from 'axios'
-
+import FormHeader from './formHeader'
 
 
 const ContactSection = ({
@@ -15,54 +15,72 @@ const ContactSection = ({
     headLine,
     description,
     darkText,
+    loggedIn,
+    handlingSubmitLoginUser,
+
 }) => {
    
     const [ expansion, setExpansion ] = useState(false)
     const [ upLoadingUser, setUpLoadingUser ] = useState(false)
-    const [ active , setActive ] = useState('interested')  
+    const [ active , setActive ] = useState('interested') 
+    const [ regView, setRegView ] = useState(false) 
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
-    
-    const toggleBackDrop = () => {
-        setExpansion(true)
-        setTimeout(()=>{
-            setExpansion(false)
-        },expandingTransition.duration * 1000 - 1500)
-    }
+    const url_userLogin = "http://localhost:5000/api/users/login"
+    console.log(loggedIn)
+    // const toggleBackDrop = () => {
+    //     setExpansion(true)
+    //     setTimeout(()=>{
+    //         setExpansion(false)
+    //     },expandingTransition.duration * 1000 - 1500)
+    // }
 
     const switchToCheck = () => {
-        toggleBackDrop()
-        setTimeout(()=> {
+        // toggleBackDrop()
+        // setTimeout(()=> {
             setActive('check')
-        },400)
+            setRegView(false)
+        // },400)
         
     }
 
     const switchToSignIn = () => {
-        toggleBackDrop()
+        // toggleBackDrop()
         // console.log('just notifying...')
-        setTimeout(()=> {
+        // setTimeout(()=> {
             setActive('interested')
-        },400)
+        // },400)
         
     }
 
-    const backDropVariants = {
-        expanded: {
-            width: '100%',
-            height: '700px',
-        },
-        collapsed: {
-            width: '50%',
-            height: '700px'
-        }
+    // const backDropVariants = {
+    //     expanded: {
+    //         width: '100%',
+    //         height: '700px',
+    //     },
+    //     collapsed: {
+    //         width: '50%',
+    //         height: '700px'
+    //     }
+    // }
+
+    // const expandingTransition = {
+    //     type: "spring",
+    //     duration: 2,
+    //     stiffness: 50
+    // }
+
+    const toggleRegView = () => {
+        setRegView(true)
     }
 
-    const expandingTransition = {
-        type: "spring",
-        duration: 2,
-        stiffness: 50
-    }
+    const handlingLoginUser = (values) => {
+        setUpLoadingUser(true)
+        setTimeout(async() => {
+            handlingSubmitLoginUser(values)
+            setUpLoadingUser(false)
+        },2000)
+    } 
 
     const handlingSubmitInterestedUser = (interestedUser) => {
         setUpLoadingUser(true)
@@ -85,12 +103,13 @@ const ContactSection = ({
     const handlingSubmitUser = (user) => {
         // console.log('i am submitUser...')
         setUpLoadingUser(true)
-        setTimeout(async()=> {
+         setTimeout(async()=> {
             try {
                 const response = await axios.post(url_users, user)
                     console.log(response)
                     if (response.status === 201){
                         setUpLoadingUser(false)
+                        setRegView(false)
                         console.log('Gracias por registrarte')
                         return response.status
                     }
@@ -108,9 +127,9 @@ const ContactSection = ({
                 <div className="contactWrapper">
                     <motion.div 
                     className="contactInfo"
-                    variants={backDropVariants}
-                    animate={expansion ? 'expanded' : 'collapsed'}
-                    transition={expandingTransition}
+                    // variants={backDropVariants}
+                    // animate={expansion ? 'expanded' : 'collapsed'}
+                    // transition={expandingTransition}
                     >
     
                     </motion.div>
@@ -128,9 +147,9 @@ const ContactSection = ({
             <div className="contactWrapper">
                 <motion.div 
                 className="contactInfo"
-                variants={backDropVariants}
-                animate={expansion ? 'expanded' : 'collapsed'}
-                transition={expandingTransition}
+                // variants={backDropVariants}
+                // animate={expansion ? 'expanded' : 'collapsed'}
+                // transition={expandingTransition}
                 >
 
                 </motion.div>
@@ -140,32 +159,44 @@ const ContactSection = ({
                     switchToSignIn={switchToSignIn}
                     switchToCheck={switchToCheck}
                     />
-                    { active === 'interested' ? 
-                    <div className="titleWrapper">
-                        <div className="formTitle">
-                            <h1 className="title">¿Quieres saber más de nosotros? </h1>
-                        </div>
-                        <div className="formDescription">
-                            <p>Al darnos estos datos podremos enviarte más información</p>
-                        </div>
-                    </div>
-                    :
-                    <div 
-                    className="titleWrapper"
-                    style={{ height: '13%'}}
-                    >
-                        <div className="formTitle">
-                            <h1 className="title">Regístrate con nosotros </h1>
-                        </div>
-                    </div>
-                    }
+                    <FormHeader
+                    active = {active}
+                    loggedIn={loggedIn}
+                    regView={regView}
+                    />
+                
                     
-                    { active === 'interested' ? 
+                    { active === 'interested' && loggedIn ? 
+                     <InterestedUsersForm 
+                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                     />
+                     :
+                     null
+                    }
+                    { active === 'interested' && loggedIn === false ? 
+                     <InterestedUsersForm 
+                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                     />
+                     :
+                     null
+                    }
+                    { active === 'check' && loggedIn  ? 
                     <InterestedUsersForm
                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
                     />
                     :
-                    <RegisterForm handlingSubmitUser={handlingSubmitUser}/>
+                    null
+                    }
+                    { active === 'check' && loggedIn === false  ? 
+                    <LoginForm
+                    regView={regView}
+                    toggleRegView={toggleRegView}
+                    handlingSubmitUser={handlingSubmitUser}
+                    handlingLoginUser={handlingLoginUser}
+                    />
+                    :
+                    null
+                    // <RegisterForm handlingSubmitUser={handlingSubmitUser}/>
                     }
                 </div>
                 

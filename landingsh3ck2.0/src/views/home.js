@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 // import StyledSideBar from '../components/sideBar/styledSideBar'
@@ -19,12 +20,58 @@ import ContactSection from '../components/contactSection/contactSection'
 const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
-    const [ login, setLogin ] = useState(false)
+    const [ loggedIn, setLoggedIn ] = useState(false)
+    const [currentUser, setCurrentUser ] = useState('')
+    
     
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
+    const url_userLogin = "http://localhost:5000/api/users/login"
     
+    useEffect(() => {
+        const getToken = async() => {
+            const token = localStorage.getItem('SH3CK_TOKEN')
+            if (token){
+                const response = await axios.get('http://localhost:5000/api/users/me', {
+                    headers:{
+                        // 'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}` 
+                    } 
+                })
+                console.log(response.data)
+                setCurrentUser(response.data)
+                return setLoggedIn(true)
+            }
+            setLoggedIn(false)
+        }   
+        getToken()
 
+    },[])
+
+    const handlingSubmitLoginUser = async(user) => {
+            try {
+                const { data } = await axios.post(url_userLogin, user)
+                console.log(data)
+                localStorage.setItem('SH3CK_TOKEN', data.token)
+                // ******************************************
+                const response = await axios.get('http://localhost:5000/api/users/me', {
+                    headers:{
+                        // 'Content-Type': 'application/json',
+                        Authorization: `Bearer ${data.token}` 
+                    } 
+                })
+                console.log(response.data)
+                setCurrentUser(response.data)
+                // ********************************************
+                setLoggedIn(true) 
+                console.log('Usuaurio encontrado y hace login')    
+            } catch (error) {
+                console.log(error)
+            }
+        
+    }
+
+  
     
     const toggleSideBar = () => {
         console.log('this is toggle...')
@@ -33,7 +80,7 @@ const Home = () => {
     } 
     const onLogin = (e) => {
         e.preventDefault()
-        setLogin(!login)
+        setLoggedIn(loggedIn)
     }
 
     
@@ -43,20 +90,24 @@ const Home = () => {
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 
                 toggleSideBar={ toggleSideBar }  
-                username={'hola, arnoldo'}
-                login={ login }
+                username={currentUser}
+                login={ loggedIn }
                 onLogin={ onLogin }
             /> : <NavBar 
             toggleSideBar={ toggleSideBar }  
-            username={'hola, arnoldo'}
-            login={ login }
+            username={currentUser}
+            login={ loggedIn }
             onLogin={ onLogin }
         />
             }
             <HeroSection {...infoHero} />
             <VideoSection {...infoVideo}/>
             <HiwSection {...infoHiW}/>
-            <ContactSection {...infoData}/>
+            <ContactSection 
+            {...infoData} 
+            loggedIn={loggedIn}
+            handlingSubmitLoginUser={ handlingSubmitLoginUser}
+            />
             {/* <DataSection {...infoData} /> */}
         </>
     )

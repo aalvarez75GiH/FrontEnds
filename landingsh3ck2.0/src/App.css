@@ -852,7 +852,15 @@
     border-style: none;
     font-size: 1.4rem;
 }
-
+.formContainer .regButton{
+    height: 19%;
+    width: 100%;
+    color: #ffffff;
+    background-color: #FF810A;
+    margin-top: 10px;
+    border-style: none;
+    font-size: 1.4rem;
+}
 .loadingDataFormWrapper {
     grid-area: "data";
     display: flex;

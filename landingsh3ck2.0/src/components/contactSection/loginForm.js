@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
+import RegisterForm from './registerForm'
 
 
 
@@ -10,10 +11,19 @@ const validationSchema = yup.object({
 })
 
 
-const LoginForm = ({ handlingSubmitLoginUser }) => {
+const LoginForm = ({ 
+    // handlingSubmitLoginUser, 
+    handlingLoginUser,
+    regView, 
+    toggleRegView,
+    handlingSubmitUser
 
-    const onSubmit = (values) => {
-        handlingSubmitLoginUser(values)
+
+}) => {
+
+    const onSubmit = async(values) => {
+        // handlingSubmitLoginUser(values)
+        handlingLoginUser(values)
     }
 
     const formik = useFormik({
@@ -29,6 +39,15 @@ const LoginForm = ({ handlingSubmitLoginUser }) => {
 
     // console.log(formik.values)
     console.log(formik.errors)
+
+
+    if (regView){
+        return(
+            <RegisterForm 
+            handlingSubmitUser={handlingSubmitUser}
+            />
+        )
+    }
 
     return (
         <div className="boxContainer">
@@ -63,6 +82,11 @@ const LoginForm = ({ handlingSubmitLoginUser }) => {
                 <button
                 type="submit"
                 >Enviar</button>
+                <button
+                onClick={toggleRegView}
+                className="regButton"
+                type="submit"
+                >¿No tienes una cuenta? Regístrate</button>
             </form>
 
         </div>
