@@ -13,7 +13,8 @@ const HiwSection = ({
     alt3,
     alt4,
     alt5, 
-    buttonLabel
+    buttonLabel,
+    linkedTo
 
 }) => {
     return (
@@ -93,7 +94,7 @@ const HiwSection = ({
                     big={ true }
                     fontBig = { false }
                     buttonLabel={ buttonLabel }
-                    // linkedTo={linkedTo}
+                    linkedTo={linkedTo}
                     offSet={-170}
                     >
                     </Button>

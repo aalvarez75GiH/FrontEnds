@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
-import RegisterForm from './registerForm'
 
 
 
@@ -11,20 +10,15 @@ const validationSchema = yup.object({
 })
 
 
-const LoginForm = ({ 
-    // handlingSubmitLoginUser, 
-    handlingLoginUser,
-    regView, 
-    toggleRegView,
-    handlingSubmitUser,
-    handlingSubmitLoginUser
+const LoginSideBarForm = ({ 
+     handlingSubmitLoginUser
 
 
 }) => {
 
     const onSubmit = async(values) => {
         // handlingSubmitLoginUser(values)
-        handlingLoginUser(values)
+        handlingSubmitLoginUser(values)
     }
 
     const formik = useFormik({
@@ -40,15 +34,6 @@ const LoginForm = ({
 
     // console.log(formik.values)
     console.log(formik.errors)
-
-
-    if (regView){
-        return(
-            <RegisterForm 
-            handlingSubmitUser={handlingSubmitUser}
-            />
-        )
-    }
 
     return (
         <div className="boxContainer">
@@ -83,15 +68,10 @@ const LoginForm = ({
                 <button
                 type="submit"
                 >Enviar</button>
-                <button
-                onClick={toggleRegView}
-                className="regButton"
-                type="submit"
-                >¿No tienes una cuenta? Regístrate</button>
             </form>
 
         </div>
     )
 }
 
-export default LoginForm
+export default LoginSideBarForm

@@ -4,7 +4,14 @@ import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
 
-const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
+const NavBar = ({ 
+    toggleSideBar, 
+    username, 
+    login, 
+    onLogin,
+    toggleLoginSideBar
+
+}) => {
     
     
     const [scrollNav, setScrollNav ] = useState(false)
@@ -56,14 +63,14 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                         className="navLinks" >Chequéa</LinkS>
                         </li>
                     </ul>
-                    <div
-                    onClick={ onLogin }
+                    <nav
+                    onClick={toggleLoginSideBar}
                     className="navBtn">
                         <LinkR 
                         to="/signin" 
                         className="navBtnLink">{username}
                         </LinkR>
-                    </div>
+                    </nav>
                 </div>
             </nav>
         </>
@@ -105,16 +112,16 @@ const NavBar = ({ toggleSideBar, username, login, onLogin }) => {
                             </li>
                         </ul>
                         <nav 
-                        onClick={ onLogin }
                         className="navBtn">
-                            <LinkR 
+                            <LinkS
+                            onClick={toggleLoginSideBar} 
                             style={{
                                 border: `${scrollNav ? '2px solid #ffffff' : 'none'}`
-                            }}
-                            to="/signin" className="navBtnLink">
+                            }} 
+                            className="navBtnLink">
                                 <FaRegUser className="userIcon"/>
                                 Inicio de Sesión
-                            </LinkR>
+                            </LinkS>
                         </nav>
                     </div>
                 </nav>

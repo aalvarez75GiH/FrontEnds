@@ -1,4 +1,9 @@
 import video from '../videos/sh3ck-1080p-210928.mp4'
+import hiwImage1 from '../images/1stStep.png'
+import hiwImage2 from '../images/2ndStep.png'
+import hiwImage3 from '../images/3rdStep.png'
+import hiwImage4 from '../images/4thStep.png'
+import hiwImage5 from '../images/5thStep.png'
 
 export const infoHero = {
     id:'heroSection',
@@ -28,8 +33,24 @@ export const infoVideo = {
     linkedTo: 'hiwSection' 
 }
 
-export const infoData = {
-    id:'dataSection',
+export const infoHIW = {
+    id:'hiwSection',
+    imgSrc1: hiwImage1,
+    imgSrc2: hiwImage2,
+    imgSrc3: hiwImage3,
+    imgSrc4: hiwImage4,
+    imgSrc5: hiwImage5,
+    alt1:' escoge ciudad',
+    alt2:'tipo de producto',
+    alt3:'escoge chequeador',
+    alt4:'finaliza oreden',
+    alt5:'video en tiempo real', 
+    buttonLabel: 'Como funciona',
+    linkedTo: 'contactSection',
+    buttonLabel:'¿Quieres comenzar?'
+}
+export const infoContact = {
+    id:'contactSection',
     lightBg: true,
     lightText: true,
     LightTextDesc: true,
@@ -37,7 +58,6 @@ export const infoData = {
     headLine:'Nuestra App móvil estará lista prónto, mientras tanto...',
     description: 'Estamos trabajando duro para llevarte la mejor experiencia móvil, aún asi puedes comunicarte con nosotros, dejarnos tus datos para informarte cuando esté activa o chequear un producto desde ya...',
     darkText: '#010606', 
-    buttonLabel: 'Como funciona',
     linkedTo: 'hiwSection' 
 }
 

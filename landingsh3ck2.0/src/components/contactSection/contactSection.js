@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import  { motion } from 'framer-motion'
 import InterestedUsersForm from '../contactSection/interestedUserForm'
 import Loading from '../loading'
@@ -10,6 +10,7 @@ import FormHeader from './formHeader'
 
 
 const ContactSection = ({
+    id,
     lightText,
     topLine,
     headLine,
@@ -17,6 +18,7 @@ const ContactSection = ({
     darkText,
     loggedIn,
     handlingSubmitLoginUser,
+    loginFromNavBar
 
 }) => {
    
@@ -26,7 +28,14 @@ const ContactSection = ({
     const [ regView, setRegView ] = useState(false) 
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
-    const url_userLogin = "http://localhost:5000/api/users/login"
+    
+    useEffect(()=> {
+        if (loginFromNavBar){
+            setActive('check')
+            // setRegView(false)
+        }
+    },[])
+    
     console.log(loggedIn)
     // const toggleBackDrop = () => {
     //     setExpansion(true)
@@ -123,7 +132,9 @@ const ContactSection = ({
 
     if (upLoadingUser){
         return (
-            <div className="contactContainer">
+            <div 
+            id={id}
+            className="contactContainer">
                 <div className="contactWrapper">
                     <motion.div 
                     className="contactInfo"
@@ -143,7 +154,9 @@ const ContactSection = ({
         )    
     }
     return (
-        <div className="contactContainer">
+        <div 
+        id={id}
+        className="contactContainer">
             <div className="contactWrapper">
                 <motion.div 
                 className="contactInfo"
