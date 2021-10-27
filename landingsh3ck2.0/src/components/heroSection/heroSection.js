@@ -9,7 +9,7 @@ const HeroSection = ({ buttonLabel, linkedTo }) => {
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
 
-console.log(mobil2.screenWidth)
+// console.log(mobil2.screenWidth)
 
     if (mobil2.screenWidth < 768 || mobil) {
         return ( 

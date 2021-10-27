@@ -18,8 +18,8 @@ const VideoSection = ({
 }) => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection() 
-    console.log(mobil2.screenWidth)
-    console.log(mobil)
+    // console.log(mobil2.screenWidth)
+    // console.log(mobil)
 
     return (
         <div 

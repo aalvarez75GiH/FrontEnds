@@ -33,10 +33,10 @@ const LoginSideBarForm = ({
     })
 
     // console.log(formik.values)
-    console.log(formik.errors)
+    // console.log(formik.errors)
 
     return (
-        <div className="boxContainer">
+        <div className="loginSideBoxContainer">
             <form 
             onSubmit={formik.handleSubmit}
             className="formContainer">

@@ -29,14 +29,8 @@ const ContactSection = ({
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
     
-    useEffect(()=> {
-        if (loginFromNavBar){
-            setActive('check')
-            // setRegView(false)
-        }
-    },[])
     
-    console.log(loggedIn)
+    // console.log(loggedIn)
     // const toggleBackDrop = () => {
     //     setExpansion(true)
     //     setTimeout(()=>{

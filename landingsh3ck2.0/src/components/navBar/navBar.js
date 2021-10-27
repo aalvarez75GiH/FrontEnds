@@ -9,7 +9,9 @@ const NavBar = ({
     username, 
     login, 
     onLogin,
-    toggleLoginSideBar
+    toggleLoginSideBar,
+    toggleLogoutSideBar
+    
 
 }) => {
     
@@ -64,7 +66,7 @@ const NavBar = ({
                         </li>
                     </ul>
                     <nav
-                    onClick={toggleLoginSideBar}
+                    onClick={toggleLogoutSideBar}
                     className="navBtn">
                         <LinkR 
                         to="/signin" 

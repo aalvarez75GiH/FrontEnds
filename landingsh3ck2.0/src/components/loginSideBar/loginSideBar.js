@@ -6,15 +6,54 @@ import { Link as LinkS } from 'react-scroll'
 import LoginSideBarForm from './loginSideBarForm'
 const LoginSideBar = ({ 
     toggleLoginSideBar, 
-    sideBarOpen, 
+    loginSideBarOpen, 
     handlingSubmitLoginUser,
-    loggedIn,
-    handlingSubmitLogOutUser 
+    loggedIn, 
+    loggedOut
 }) => {
-    if (loggedIn){
-       return (
-       <aside
-            className={`${sideBarOpen ? "loginSideBarContainerOpen" : "loginSideBarContainer" }`}>
+    //  if (!loggedIn){
+    //    return (
+    //    <aside
+    //         className={`${loginSideBarOpen ? "loginSideBarContainerOpen" : "loginSideBarContainer" }`}>
+    //             <div className="loginContactForms">
+    //                 <div 
+    //                     className="loginSideBarIcon"
+    //                     onClick={ toggleLoginSideBar }
+    //                 >
+    //                     <FaTimes className="loginCloseIcon"/>
+    //                 </div>
+    //                 <div className="loginSideHeader">
+
+    //                 </div>
+    //                 <h2>Hola, haz iniciado sesión como:</h2>
+    //                     <div className="userInfo">
+    //                         <p>{username}</p>
+                            
+    //                     </div>
+    //                 <div className="loginSideBarTitleWrapperLoggedIn">
+    //                     <div className="loginSideBarFormTitleLoggedIn">
+    //                         <h1 className="loginSideBarTitle">¿Quieres cerrar sesión? </h1>
+    //                     </div>
+    //                     <button 
+    //                     onClick={handlingSubmitLogOutUser}
+    //                     className="closeSessionBtn">
+    //                         Cierra Sesión
+    //                     </button>
+    //                 </div>
+                    
+    //             </div>
+    //     </aside>
+    // ) 
+    // }
+    // else{
+    //     return null
+    // }
+    console.log(loggedIn)
+    console.log(loggedOut)
+    if (loggedOut){
+        return (
+            <aside
+            className={`${loginSideBarOpen ? "loginSideBarContainerOpen" : "loginSideBarContainer" }`}>
                 <div className="loginContactForms">
                     <div 
                         className="loginSideBarIcon"
@@ -22,71 +61,28 @@ const LoginSideBar = ({
                     >
                         <FaTimes className="loginCloseIcon"/>
                     </div>
-                    <div className="loginSideBarTittleWrapperLoggedIn">
-                        <div className="loginSideBarFormTitle">
-                            <h1 className="loginSideBarTitle">Cierra sesión </h1>
-                        </div>
-                        <button 
-                        onClick={handlingSubmitLogOutUser}
-                        className="closeSessionBtn">
-                            Cierra Sesión
-                        </button>
+                    <div className="loginSideHeader">
+    
                     </div>
-                    
-                        {/* <LoginSideBarForm handlingSubmitLoginUser={handlingSubmitLoginUser}/> */}
-                        {/* <LoginForm handlingSubmitLoginUser={handlingSubmitLoginUser}/> */}
+                            <div className="loginSideBarFormTitle">
+                                <h1 className="loginSideBarTitle">Inicia sesión </h1>
+                            </div>
+                            <div className="loginSideBarFormDescription">
+                                <p>Para que podamos chequear productos debes hacer inicio de sesión</p>
+                            </div>
+                        
+                        <LoginSideBarForm handlingSubmitLoginUser={handlingSubmitLoginUser}/>
                 </div>
-
-                {/* <div className="loginSideBarWrapper">
-                    <div className="loginSideBtnWrap">
-                        <LinkR
-                        className="loginSideBarRoute" 
-                        to="/signin">
-                            Haz Login
-                        </LinkR>
-                    </div>
-
-                </div> */}
-        </aside>
-    ) 
+    
+                
+    
+    
+            </aside>
+        )
+    }else{
+        return null
     }
-    return (
-        <aside
-        className={`${sideBarOpen ? "loginSideBarContainerOpen" : "loginSideBarContainer" }`}>
-            <div className="loginContactForms">
-                <div 
-                    className="loginSideBarIcon"
-                    onClick={ toggleLoginSideBar }
-                >
-                    <FaTimes className="loginCloseIcon"/>
-                </div>
-                    <div className="loginSideBarTittleWrapper">
-                        <div className="loginSideBarFormTitle">
-                            <h1 className="loginSideBarTitle">Inicia sesión </h1>
-                        </div>
-                        <div className="loginSideBarFormDescription">
-                            <p>Para que podamos chequear productos debes hacer inicio de sesión</p>
-                        </div>
-                    </div>
-                    
-                    <LoginSideBarForm handlingSubmitLoginUser={handlingSubmitLoginUser}/>
-                    {/* <LoginForm handlingSubmitLoginUser={handlingSubmitLoginUser}/> */}
-            </div>
-
-            {/* <div className="loginSideBarWrapper">
-                <div className="loginSideBtnWrap">
-                    <LinkR
-                    className="loginSideBarRoute" 
-                    to="/signin">
-                        Haz Login
-                    </LinkR>
-                </div>
-
-            </div> */}
-
-
-        </aside>
-    )
+    
 }
 
 export default LoginSideBar
