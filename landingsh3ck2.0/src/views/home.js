@@ -48,6 +48,9 @@ const Home = () => {
                 return setLoggedIn(true)
             }
             setLoggedIn(false)
+            setLoggedOut(true)
+            
+            
         }   
         getToken()
 
@@ -66,8 +69,6 @@ const Home = () => {
                     } 
                 })
                 console.log(response.data)
-                toggleLoginSideBar()
-                // setLoginSideBarOpen(!loginSideBarOpen)
                 setCurrentUser(response.data)
                 setLoggedIn(true)
                 setLoggedOut(false)
@@ -78,43 +79,49 @@ const Home = () => {
         
     }
 
-    const handlingSubmitLogOutUser = () => {
-        localStorage.removeItem('SH3CK_TOKEN')
-        toggleLogoutSideBar()
-        setLoggedOut(true)
-        setLoggedIn(false)
+    const handlingLogin = (user) => {
+        console.log('handling Login...')
+        handlingSubmitLoginUser(user)
+        setLoginSideBarOpen(!loginSideBarOpen)
     }
 
+    const handlingSubmitLogOutUser = () => {
+        localStorage.removeItem('SH3CK_TOKEN')
+        setLogoutSideBarOpen(!logoutSideBarOpen)
+        setLoggedIn(false)
+        setLoggedOut(true)
+        
+    }
+ 
     
     const toggleSideBar = () => {
-        console.log('this is toggle...')
         setIsOpen(!isOpen)
         
     } 
     const toggleLoginSideBar = () => {
-        console.log('this is toggle on LoginSideBar...')
         setLoginSideBarOpen(!loginSideBarOpen)
     }
     const toggleLogoutSideBar = () => {
-        console.log('this is toggle on LogoutSideBar...')
         setLogoutSideBarOpen(!logoutSideBarOpen)
     } 
-    // const onLogin = (e) => {
-    //     e.preventDefault()
-    //     setLoggedIn(loggedIn)
-    // }
 
+  
     
     return (
         <>
+            {/* {!loggedIn && loginSideBarOpen ? */}
             <LoginSideBar
             handlingSubmitLoginUser={handlingSubmitLoginUser} 
             loginSideBarOpen={ loginSideBarOpen } 
             toggleLoginSideBar={ toggleLoginSideBar }
             loggedIn={loggedIn}
             loggedOut={loggedOut}
-            handlingSubmitLogOutUser={handlingSubmitLogOutUser}
+            handlingLogin={handlingLogin}
             />
+            {/* : null */}
+            {/* } */}
+
+            {/* {!loggedOut && logoutSideBarOpen ? */}
             <LogoutSideBar
             logoutSideBarOpen={logoutSideBarOpen}
             toggleLogoutSideBar={toggleLogoutSideBar}
@@ -122,7 +129,12 @@ const Home = () => {
             loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
+           
             />
+            {/* : null */}
+            {/* } */}
+            
+            
             <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 

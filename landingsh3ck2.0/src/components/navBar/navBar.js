@@ -8,7 +8,6 @@ const NavBar = ({
     toggleSideBar, 
     username, 
     login, 
-    onLogin,
     toggleLoginSideBar,
     toggleLogoutSideBar
     

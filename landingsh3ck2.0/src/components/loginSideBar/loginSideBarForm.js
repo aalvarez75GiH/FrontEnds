@@ -11,14 +11,12 @@ const validationSchema = yup.object({
 
 
 const LoginSideBarForm = ({ 
-     handlingSubmitLoginUser
-
-
+    handlingLogin
 }) => {
 
     const onSubmit = async(values) => {
-        // handlingSubmitLoginUser(values)
-        handlingSubmitLoginUser(values)
+        
+        handlingLogin(values)
     }
 
     const formik = useFormik({
