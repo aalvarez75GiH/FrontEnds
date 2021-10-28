@@ -86,11 +86,28 @@
       border-bottom: 3px solid #01bf71;
   }
 
+  .loggedInIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    left: 67%;
+    position: relative;
+    color: #ffffff;
+    font-size: 1.8rem;
+
+  }
+
+  .loggedInUserIcon {
+      font-size: 30px;
+      /* width: 50%;
+      height: 40%; */
+  }
+
   .navBtn {
       position: absolute;
       left: 80%;
       top: 20%;
-      
   }
 
   .navBtn:hover .userIcon {
@@ -1174,6 +1191,11 @@
     .navMenuMobil{
         left: 50%;
     }
+
+    .loggedInIconContainer {
+        left: 70.5%;
+    }
+
     .navBtnMobil {
         left: 87%;
     }
@@ -1254,12 +1276,16 @@
     .navMenu{
         left: 50%;
     }
+    .loggedInIconContainer {
+        left: 62%;
+    }
     .navBtn {
         left: 80%;
     }
     .navMobil{
         left: 40%;
     }
+  
     .navBtnMobil {
         left: 80%;
     }
@@ -1290,6 +1316,9 @@
 @media (max-width:1280px) and (min-width:1098px){
     .navMenu{
         left: 50%;
+    }
+    .loggedInIconContainer {
+        left: 62%;
     }
     .navMobil{
         left: 33%;
