@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { FaBars } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
 
 const NavBar = ({ 
-    toggleSideBar, 
     username, 
     login, 
     toggleLoginSideBar,
@@ -69,7 +67,7 @@ const NavBar = ({
                     className="navBtn">
                         <LinkR 
                         to="/signin" 
-                        className="navBtnLink">{username}
+                        className="navBtnLink">Cerrar sesión
                         </LinkR>
                     </nav>
                 </div>

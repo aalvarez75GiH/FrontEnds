@@ -31,11 +31,12 @@ const LogoutSideBar = ({
                     <div className="logoutSideHeader">
 
                     </div>
-                    <h2>Hola, haz iniciado sesión como:</h2>
-                        <div className="userInfo">
-                            <p>{username}</p>
-                            
-                        </div>
+                    <div className="logoutSideBarFormTitle">
+                        <h1 className="logoutSideBarTitle">Cierra sesión </h1>
+                    </div>
+                    <div className="logoutSideBarFormDescription">
+                        <p>Hola <b>{username}</b>, recuerda que para que podamos chequear productos para ti en el futuro deberás iniciar sesión nuevamente...</p>
+                    </div>
                     <div className="logoutSideBarTitleWrapperLoggedIn">
                         <div className="logoutSideBarFormTitleLoggedIn">
                             <h1 className="logoutSideBarTitle">¿Quieres cerrar sesión? </h1>

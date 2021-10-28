@@ -277,12 +277,11 @@
 .loginSideBarContainerOpen {  /** Open  **/
     position: fixed;
     z-index: 999;
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: #eeeeee;
     display: grid;
     align-items: center;
-    left: 50%;
     right: 0%;
     transition: 0.6s ease-in-out;
     opacity: 100%;
@@ -349,7 +348,7 @@
     align-items: center;
     height: 35%;
     background-color: #ffffff;
-    width: 70%;
+    width: 34%;
     margin-left: 8%;
 }
 
@@ -379,12 +378,11 @@
 .logoutSideBarContainerOpen {
     position: fixed;
     z-index: 999;
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: #eeeeee;
     display: grid;
     align-items: center;
-    left: 50%;
     right: 0%;
     transition: 0.6s ease-in-out;
     opacity: 100%;
@@ -414,6 +412,29 @@
     height: 80px;
     background-color: #010606;
 }
+
+.logoutSideBarFormTitle {
+    display: flex;
+    align-items: center;
+    color: #010606;
+    width: 100%;
+    height: 12%;
+    font-size: 3rem;
+    margin-left: 8%;
+}
+
+.logoutSideBarFormDescription {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    height: 5%;
+    margin-left: 8%;
+    line-height: 25px ;
+}
+.logoutSideBarFormDescription p {
+    width: 100%;
+}
+
 .logoutContactForms h2 {
     margin-left: 8%;
     margin-top: 5%;
@@ -435,12 +456,12 @@
 }
 .logoutSideBarTitleWrapperLoggedIn{
     height: 19%;
-    width: 100%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: baseline;
     margin-left: 8%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 .logoutSideBarFormTitleLoggedIn {
     color: #010606;
