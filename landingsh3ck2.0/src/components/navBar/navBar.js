@@ -64,15 +64,18 @@ const NavBar = ({
                         className="navLinks" >Chequéa</LinkS>
                         </li>
                     </ul>
-                    <div className="loggedInIconContainer"
-                        style={{
-                            color: `${scrollNav ? '#ffffff' : 'transparent'}`
-                        }}
+                    <div 
+                    onClick={toggleLogoutSideBar}
+                    className="loggedInIconContainer"
+                        // style={{
+                        //     color: `${scrollNav ? '#ffffff' : 'transparent'}`
+                        // }}
                     >
-                        <BiUserCheck className="faUserIcon"/>
+                        <BiUserCheck 
+                        className="loggedInUserIcon"/>
                     </div>    
                         
-                    <nav
+                    {/* <nav
                     style={{
                         border: `${ scrollNav ? '2px solid #ffffff' : 'none' }`,
                         borderRadius:`${ scrollNav ? '30px': 'none' }`
@@ -82,10 +85,9 @@ const NavBar = ({
                         <LinkR 
                         to="/signin" 
                         className="navBtnLink">
-                            {/* <BiUserCheck className="faUserIcon"/> */}
                             Cerrar sesión
                         </LinkR>
-                    </nav>
+                    </nav> */}
                 </div>
             </nav>
         </>

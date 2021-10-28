@@ -91,11 +91,20 @@
     justify-content: center;
     align-items: center;
     width: 5%;
-    left: 67%;
+    left: 80%;
     position: relative;
     color: #ffffff;
     font-size: 1.8rem;
+    height: 60%;
+    margin-top: 1%;
+    border-radius: 45px;
+    background-color: #010606;
+    padding-left: 0.5%;
+    
+  }
 
+  .loggedInIconContainer:hover {
+      cursor: pointer;
   }
 
   .loggedInUserIcon {
@@ -136,6 +145,7 @@
     background-color: #FAD570;
     color: #0C0920;
     border: none;
+    cursor: pointer;
   }
 
   /* *********************NavBarMobil ************ */
@@ -1193,7 +1203,8 @@
     }
 
     .loggedInIconContainer {
-        left: 70.5%;
+        left: 80%;
+        color: #ffffff;
     }
 
     .navBtnMobil {
@@ -1235,6 +1246,10 @@
     .navBtn {
         left: 85%;
     }
+    .loggedInIconContainer {
+        left: 80%;
+    }
+
     .navMenuMobil{
         left: 45%;
     }
@@ -1268,7 +1283,7 @@
         margin-left: 3%;
         margin-top: 70px;
     }
- 
+  
 }
 
 @media (max-width:1366px) and (min-width:1280px){
@@ -1277,7 +1292,7 @@
         left: 50%;
     }
     .loggedInIconContainer {
-        left: 62%;
+        left: 80%;
     }
     .navBtn {
         left: 80%;
@@ -1318,7 +1333,7 @@
         left: 50%;
     }
     .loggedInIconContainer {
-        left: 62%;
+        left: 80%;
     }
     .navMobil{
         left: 33%;
