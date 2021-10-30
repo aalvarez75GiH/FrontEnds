@@ -18,6 +18,8 @@ const ContactSection = ({
     // darkText,
     loggedIn,
     handlingSubmitLoginUser,
+    loginResponse,
+    toggleNotificationLogin
     // loginFromNavBar
 
 }) => {
@@ -42,7 +44,14 @@ const ContactSection = ({
         successCode: 201,
         successMessage:`Listo, te hemos registrado. Si deseas chequear un producto solo haz click en Quiero chequear un producto`
     }
+    const responseDataLogin = {
+        errorCode: 400,
+        errorMessage:` No te encontramos en nuestra Base de datos. Verifica tu correo electrónico o contraseña e intenta de nuevo`,
+        successCode: 201,
+        successMessage:`Bienvenido, ¿Te gustaría chequear un producto?`
+    }
     
+    console.log(loginResponse)
     // console.log(loggedIn)
     // const toggleBackDrop = () => {
     //     setExpansion(true)
@@ -201,6 +210,16 @@ const ContactSection = ({
                  toggleNotification={toggleNotification} 
                  response={response}
                  responseData={responseDataRegister}
+                 />    
+                : 
+                null 
+                }
+                {loginResponse ? 
+                 <NotificationBox
+                 toggleNotification={toggleNotification} 
+                 response={loginResponse}
+                 responseData={responseDataLogin}
+                 toggleNotificationLogin={toggleNotificationLogin}
                  />    
                 : 
                 null 

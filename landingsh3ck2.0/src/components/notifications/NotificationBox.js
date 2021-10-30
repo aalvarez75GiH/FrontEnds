@@ -2,10 +2,36 @@ import React from 'react'
 import successImage from '../../images/ok_success_icon.svg'
 import foundImage from '../../images/ok_success_verified_icon.svg'
 
-const NotificationBox = ({ response, responseData, toggleNotification }) => {
+const NotificationBox = ({ 
+    response, 
+    responseData, 
+    toggleNotification,
+    toggleNotificationLogin 
+
+}) => {
     console.log(response)
 
     if (response){
+        if (response.status === 400){
+            return (
+            <div className="notificationContainer">
+                <div className="notificationWrapper">
+                    <img src={foundImage} alt="successImage" />
+                    <div className="notificationName"> 
+                        <span className="notificationSpan">
+                            <b>Hola {''}{response.data}</b>    
+                        </span>    
+                    </div>
+                    <div className="notificationResponse">
+                        {responseData.errorMessage}
+                    </div>
+                    <button className="notificationBtn"
+                    onClick={toggleNotificationLogin}
+                    >Continuar</button>
+                </div>
+            </div>   
+            )
+        }
         if (response.status === 409){
             return (
             <div className="notificationContainer">

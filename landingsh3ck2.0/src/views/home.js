@@ -16,7 +16,6 @@ import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
 import FooterSection from '../components/footerSection/footerSection'
-// import DataSection from '../components/dataSection/dataSection'
 
 
 const Home = () => {
@@ -27,7 +26,7 @@ const Home = () => {
     const [currentUser, setCurrentUser ] = useState('')
     const [ loginSideBarOpen, setLoginSideBarOpen ] = useState(false)
     const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
-   
+    const [ loginResponse, setLoginResponse ] = useState(null)
     
     
     const mobil = useMobilDetect()
@@ -69,6 +68,7 @@ const Home = () => {
                         Authorization: `Bearer ${data.token}` 
                     } 
                 })
+                setLoginResponse(response)
                 console.log(response.data)
                 setCurrentUser(response.data)
                 setLoggedIn(true)
@@ -76,6 +76,7 @@ const Home = () => {
                 console.log('Usuaurio encontrado y hace login')    
             } catch (error) {
                 console.log(error)
+                setLoginResponse(error.response)
             }
         
     }
@@ -105,6 +106,10 @@ const Home = () => {
     const toggleLogoutSideBar = () => {
         setLogoutSideBarOpen(!logoutSideBarOpen)
     } 
+    const toggleNotification = () => {
+        setLoginResponse(null)
+    }
+
 
   
     
@@ -157,6 +162,8 @@ const Home = () => {
             {...infoContact} 
             loggedIn={loggedIn}
             handlingSubmitLoginUser={ handlingSubmitLoginUser}
+            loginResponse={loginResponse}
+            toggleNotificationLogin={toggleNotification}
             />
             <FooterSection/>
             {/* <DataSection {...infoData} /> */}
