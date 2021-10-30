@@ -4,8 +4,7 @@ import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
 import { BiUserCheck } from 'react-icons/bi'
 
-const NavBar = ({ 
-    username, 
+const NavBar = ({  
     login, 
     toggleLoginSideBar,
     toggleLogoutSideBar
@@ -43,25 +42,29 @@ const NavBar = ({
                             <LinkS
                             style={{
                                 color: `${scrollNav ? '#ffffff' : 'transparent'}`
-                            }} 
-                            to="about" 
-                            className="navLinks" >Notifícame</LinkS>
+                            }}  
+                            className="navLinks" 
+                            to="hiwSection"  
+                            activeClass="active"
+                            spy={true}
+                            smooth={true}
+                            offset={-90}
+                            duration={500}
+                            >Como funciona</LinkS>
                         </li>
                         <li className="navItem">
                             <LinkS
                             style={{
                                 color: `${scrollNav ? '#ffffff' : 'transparent'}`
                             }} 
-                            to="discover" 
-                            className="navLinks" >Regístrate</LinkS>
-                        </li>
-                        <li className="navItem">
-                        <LinkS
-                        style={{
-                            color: `${scrollNav ? '#ffffff' : 'transparent'}`
-                        }} 
-                        to="services" 
-                        className="navLinks" >Chequéa</LinkS>
+                            to="contactSection" 
+                            className="navLinks" 
+                            activeClass="active"
+                            spy={true}
+                            smooth={true}
+                            offset={-220}
+                            duration={500}
+                            >Quiero chequear</LinkS>
                         </li>
                     </ul>
                     <div 
@@ -74,20 +77,6 @@ const NavBar = ({
                         <BiUserCheck 
                         className="loggedInUserIcon"/>
                     </div>    
-                        
-                    {/* <nav
-                    style={{
-                        border: `${ scrollNav ? '2px solid #ffffff' : 'none' }`,
-                        borderRadius:`${ scrollNav ? '30px': 'none' }`
-                    }}
-                    onClick={toggleLogoutSideBar}
-                    className="navBtn">
-                        <LinkR 
-                        to="/signin" 
-                        className="navBtnLink">
-                            Cerrar sesión
-                        </LinkR>
-                    </nav> */}
                 </div>
             </nav>
         </>
@@ -109,29 +98,36 @@ const NavBar = ({
                                 style={{
                                     color: `${scrollNav ? '#ffffff' : 'transparent'}`
                                 }}
-                                to="about" 
-                                className="navLinks" >Notifícame</LinkS>
+                                to="hiwSection" 
+                                className="navLinks" 
+                                activeClass="active"
+                                spy={true}
+                                smooth={true}
+                                offset={-90}
+                                duration={500}
+                                >Como funciona
+                                </LinkS>
                             </li>
                             <li className="navItem">
                                 <LinkS 
                                 style={{
                                     color: `${scrollNav ? '#ffffff' : 'transparent'}`
                                 }}
-                                to="discover" 
-                                className="navLinks" >Regístrate</LinkS>
-                            </li>
-                            <li className="navItem">
-                                <LinkS 
-                                style={{
-                                    color: `${scrollNav ? '#ffffff' : 'transparent'}`
-                                }}
-                                to="services" 
-                                className="navLinks" >Chequéa</LinkS>
+                                to="contactSection" 
+                                className="navLinks"  
+                                activeClass="active"
+                                spy={true}
+                                smooth={true}
+                                offset={-220}
+                                duration={500}
+                                
+                                >Quiero Chequear</LinkS>
                             </li>
                         </ul>
                         <nav 
                         className="navBtn">
                             <LinkS
+                            to="loginSession"
                             onClick={toggleLoginSideBar} 
                             style={{
                                 border: `${scrollNav ? '2px solid #ffffff' : 'none'}`

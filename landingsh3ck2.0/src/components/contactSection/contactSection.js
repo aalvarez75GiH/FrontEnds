@@ -1,34 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import  { motion } from 'framer-motion'
 import InterestedUsersForm from '../contactSection/interestedUserForm'
-import Loading from '../loading'
+import LoadingSpinner from '../../utils/loadingSpinner' 
 import OptionsForms from './optionsForms'
-import RegisterForm from './registerForm'
 import LoginForm from './loginForm'
+import NotificationBox from '../notifications/NotificationBox'
 import axios from 'axios'
 import FormHeader from './formHeader'
 
 
 const ContactSection = ({
     id,
-    lightText,
-    topLine,
-    headLine,
-    description,
-    darkText,
+    // lightText,
+    // topLine,
+    // headLine,
+    // description,
+    // darkText,
     loggedIn,
     handlingSubmitLoginUser,
-    loginFromNavBar
+    // loginFromNavBar
 
 }) => {
    
-    const [ expansion, setExpansion ] = useState(false)
     const [ upLoadingUser, setUpLoadingUser ] = useState(false)
     const [ active , setActive ] = useState('interested') 
-    const [ regView, setRegView ] = useState(false) 
+    const [ regView, setRegView ] = useState(false)
+    // const [errorData, setErrorData ] = useState(null) 
+    const [response, setResponse ] = useState(null)
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
-    
+
+    const responseData = {
+        errorCode: 409,
+        errorMessage:`Ya tus datos fueron suministrados anteriormente y nos contenta. Si quieres chequear un producto haz click en Quiero chequear un producto`,
+        successCode: 201,
+        successMessage:`Listo, que bueno que estas interesado. Te estaremos notificando pronto sobre nuestra app`
+    }
+    const responseDataRegister = {
+        errorCode: 409,
+        errorMessage:`Ya te teníamos registrado anteriormente . Si quieres chequear un producto solo inicia sesión y haz click en Quiero chequear un producto`,
+        successCode: 201,
+        successMessage:`Listo, te hemos registrado. Si deseas chequear un producto solo haz click en Quiero chequear un producto`
+    }
     
     // console.log(loggedIn)
     // const toggleBackDrop = () => {
@@ -74,7 +87,12 @@ const ContactSection = ({
     // }
 
     const toggleRegView = () => {
+        setResponse(null)
         setRegView(true)
+    }
+
+    const toggleNotification = () => {
+        setResponse(null)
     }
 
     const handlingLoginUser = (values) => {
@@ -86,31 +104,38 @@ const ContactSection = ({
     } 
 
     const handlingSubmitInterestedUser = (interestedUser) => {
+        
         setUpLoadingUser(true)
         setTimeout(async()=> {
             try {
                 const response = await axios.post(url_interestedUsers, interestedUser)
                     console.log(response)
                     if (response.status === 201){
+                        setResponse(response)
                         setUpLoadingUser(false)
                         console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                         return response.status
                     }
             } catch (error) {
-                console.log(error)
+                console.log(error.response)
+                setUpLoadingUser(false)
+                // setErrorData(error.response)
+                setResponse(error.response)
             }
         },2000)
         
     }
 
+    // console.log(errorData)
+
     const handlingSubmitUser = (user) => {
-        // console.log('i am submitUser...')
         setUpLoadingUser(true)
          setTimeout(async()=> {
             try {
                 const response = await axios.post(url_users, user)
                     console.log(response)
                     if (response.status === 201){
+                        setResponse(response)
                         setUpLoadingUser(false)
                         setRegView(false)
                         console.log('Gracias por registrarte')
@@ -118,6 +143,8 @@ const ContactSection = ({
                     }
             } catch (error) {
                 console.log(error)
+                setUpLoadingUser(false)
+                setResponse(error.response)
             }
         },2000)
     } 
@@ -130,23 +157,21 @@ const ContactSection = ({
             id={id}
             className="contactContainer">
                 <div className="contactWrapper">
-                    <motion.div 
-                    className="contactInfo"
-                    // variants={backDropVariants}
-                    // animate={expansion ? 'expanded' : 'collapsed'}
-                    // transition={expandingTransition}
-                    >
-    
-                    </motion.div>
+                    <motion.div className="contactInfo"></motion.div>
                     <div className="contactForms">
-                        <Loading/>
+                        <LoadingSpinner/>
+                        <OptionsForms/>
+                        <FormHeader/>
+                        { active === 'interested' && loggedIn ? <InterestedUsersForm/>:null}
+                        { active === 'interested' && loggedIn === false ? <InterestedUsersForm/>:null}
+                        { active === 'check' && loggedIn  ? <InterestedUsersForm/>:null}
+                        { active === 'check' && loggedIn === false  ? <LoginForm/>:null}
                     </div>
-                    
                 </div>
-                
             </div>
         )    
     }
+    console.log(active)
     return (
         <div 
         id={id}
@@ -161,6 +186,25 @@ const ContactSection = ({
 
                 </motion.div>
                 <div className="contactForms">
+                {response && active === 'interested' ? 
+                 <NotificationBox
+                 toggleNotification={toggleNotification} 
+                 response={response}
+                 responseData={responseData}
+                 />    
+                : 
+                null 
+                }
+
+                {response && active === 'check' ? 
+                 <NotificationBox
+                 toggleNotification={toggleNotification} 
+                 response={response}
+                 responseData={responseDataRegister}
+                 />    
+                : 
+                null 
+                }
                     <OptionsForms
                     active={active === 'interested' ? 'interested' : 'signUp' } 
                     switchToSignIn={switchToSignIn}
@@ -174,23 +218,46 @@ const ContactSection = ({
                 
                     
                     { active === 'interested' && loggedIn ? 
+                     <>
                      <InterestedUsersForm 
                      handlingSubmitInterestedUser={handlingSubmitInterestedUser}
                      />
+                    {/* <NotificationBox
+                    toggleNotification={toggleNotification} 
+                    response={response}
+                    responseData={responseData}
+                    /> */}
+                     </>
+                     
                      :
                      null
                     }
-                    { active === 'interested' && loggedIn === false ? 
+                    { active === 'interested' && !loggedIn ? 
+                     <>
                      <InterestedUsersForm 
                      handlingSubmitInterestedUser={handlingSubmitInterestedUser}
                      />
+                    {/* <NotificationBox
+                    toggleNotification={toggleNotification}
+                    response={response}
+                    responseData={responseData}
+                    /> */}
+                    </>                     
                      :
                      null
                     }
+                    
                     { active === 'check' && loggedIn  ? 
+                    <>
                     <InterestedUsersForm
                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
                     />
+                    {/* <NotificationBox
+                    toggleNotification={toggleNotification}
+                    response={response}
+                    responseData={responseData}
+                    /> */}
+                    </>
                     :
                     null
                     }
@@ -205,6 +272,15 @@ const ContactSection = ({
                     null
                     // <RegisterForm handlingSubmitUser={handlingSubmitUser}/>
                     }
+
+                    {/* <NotificationBox
+                    response={response}
+                    responseData={responseData}
+                    /> */}
+                    
+                    
+                    
+                     
                 </div>
                 
 

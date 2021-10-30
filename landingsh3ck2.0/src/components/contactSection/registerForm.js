@@ -14,10 +14,10 @@ import * as yup from 'yup'
 // })
 
 const validationSchema = yup.object({
-    fullName: yup.string().min(3).max(100).required('Debes colocar tu nombre completo'),
-    password: yup.string().min(6).max(200).required(),
-    email: yup.string().email('Por favor introduce una dirección de email válida').required(),
-    phoneNumber: yup.string().length(11).required()
+    fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
+    password: yup.string().min(6).max(200).required('No te olvides de colocar tu clave'),
+    email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),
+    phoneNumber: yup.string().length(11).required('No te olvides de colocar tu número de teléfono')
 })
 
 
@@ -52,6 +52,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                 className="input"
                 name="fullName"
                 placeholder="Nombre completo" 
+                autoComplete="on"
                 type="text" 
                 value={formik.values.fullName}
                 onChange={formik.handleChange}
@@ -64,7 +65,8 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                 className="input"
                 name="email"
                 placeholder="Correo electrónico" 
-                type="email" 
+                type="text" 
+                autoComplete="on"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -77,6 +79,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                 name="phoneNumber"
                 placeholder="Teléfono" 
                 type="text" 
+                autoComplete="on"
                 value={formik.values.phoneNumber}
                 onChange={formik.handleChange}                
                 onBlur={formik.handleBlur}
@@ -89,6 +92,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                 name="password"
                 placeholder="Contraseña" 
                 type="password" 
+                autoComplete="on"
                 value={formik.values.password}
                 onChange={formik.handleChange}                
                 onBlur={formik.handleBlur}

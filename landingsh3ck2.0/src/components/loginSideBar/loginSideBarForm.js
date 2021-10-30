@@ -42,6 +42,7 @@ const LoginSideBarForm = ({
                 <input
                 className="input"
                 name="email"
+                autoComplete="on"
                 placeholder="Correo electrónico" 
                 type="email" 
                 value={formik.values.email}
@@ -54,6 +55,7 @@ const LoginSideBarForm = ({
                 <input
                 className="input"
                 name="password"
+                autoComplete="on"
                 placeholder="Contraseña" 
                 type="password" 
                 value={formik.values.password}

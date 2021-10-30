@@ -64,7 +64,7 @@
       text-align: center;
       margin-right: -22px;
       position: absolute;
-      left: 55%;
+      left: 62%;
 
   }
 
@@ -83,7 +83,7 @@
   }
   
   .navLinks.active {
-      border-bottom: 3px solid #01bf71;
+      border-bottom: 3px solid #FAD570;
   }
 
   .loggedInIconContainer {
@@ -852,11 +852,7 @@
     width: 70%;
 }
 
-.formTitle {
-    color: #010606;
-    height: 50%;
-    margin-top: 5%;
-}
+
 
 
 .form1InputFullName {
@@ -990,24 +986,23 @@
 
 .contactContainer {
     width: 100%;
-    height: 700px;
-    background-color: red;
+    height: 1000px;
+    /* background-color: red; */
 }
 
 .contactWrapper {
     /* display: flex; */
     width: 100%;
-    height: 700px;
-    background-color: #010606;
+    height: 1000px;
+    /* background-color: #010606; */
     justify-content: space-between;
 }
 
 .contactInfo {
     position: absolute;
-    z-index: 10;
     width: 50%;
-    height: 700px;
-    background-color: #010606;
+    height: 98.2%;
+    background-color: #FAD570;
 }
 
 .effectTest {
@@ -1050,13 +1045,14 @@
     height: 10%;
     background-color: #eeeeee;
     color: #010606;
+    /* margin-bottom: 30px; */
 }
 .notifyMe {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 70px;
+    height: 100%;
     /* border-right: 2px solid black; */
     
 
@@ -1067,15 +1063,22 @@
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 70px;
+    height: 100%;
 }
 
 .titleWrapper {
-    height: 25%;
+    height: 11%;
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: baseline;
+    margin-bottom: 5%;
+}
+
+.formTitle {
+    color: #010606;
+    height: 56%;
+    margin-top: 5%;
 }
 
 .formDescription {
@@ -1090,6 +1093,7 @@
     height: 50%;
     background-color: #ffffff;
     width: 70%;
+    margin-bottom: 20%;
 }
 
 .formContainer {
@@ -1101,9 +1105,9 @@
 
 }
 .input {
-    height: 19%;
+    height: 15%;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 25px;
     padding: 10px;
     background-color: #eeeeee;
     border-style: none;
@@ -1130,62 +1134,135 @@
     border-style: none;
     font-size: 1.4rem;
 }
-.loadingDataFormWrapper {
-    grid-area: "data";
+
+.notificationBox {
+    width: 70%;
+    height: 100px;
+    border: 1px solid black;
+}
+/***************Loading Spinners ******************  */
+
+/* Spinner 1 */
+
+.loadingSpinnerContainer {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    background-color: #e0e0e0;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  rgba(0,0,0,.8);
+    position: absolute;
 }
-.Loading {
-    margin: 0 auto;
-    width: 70px;
-    text-align: center;
-  }
-  .Loading > div {
-    width: 18px;
-    height: 18px;
-    background-color: #333;
-    border-radius: 100%;
-    display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s ease-in-out infinite both;
-    animation: sk-bouncedelay 1.4s ease-in-out infinite both;
-  }
-  .Loading .Loading__dot-1 {
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
-  }
-  .Loading .Loading__dot-2 {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
-  }
-  @-webkit-keyframes sk-bouncedelay {
-    0%,
-    80%,
-    to {
-      -webkit-transform: scale(0);
-    }
-    40% {
-      -webkit-transform: scale(1);
-    }
-  }
-  @keyframes sk-bouncedelay {
-    0%,
-    80%,
-    to {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    40% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-  }
 
- 
+/* .loadingSpinnerContainer::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.5);
+} */
+
+.circles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    width: 50%;
+    height: 5%;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-right: 10px;
+    margin-top: 2%;
+    animation: circle .5s ease infinite alternate ;
+
+}
+
+.circle_1 {
+    background-color: #FF810A;
+}
+.circle_2 {
+    animation-delay: 0.1s;
+    background-color: #FAD570;
+}
+
+.circle_3 {
+    background-color: #FF810A;
+    animation-delay: 0.2s;
+}
+
+@keyframes circle {
+    to {
+        transform: translateY(-20px);
+    }
+}
+.customText {
+    font-weight: 100;
+    color: #ffffff;
+}
+
+/* ************ Notification Components ********************/
+
+.notificationContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+}
+
+.notificationWrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 80%;
+    height: 60%;
+    margin-top: 20%;
+}
+.notificationWrapper img {
+    width: 30%;
+}
+.notificationName {
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.notificationSpan {
+    font-size: 3rem;
+    /* margin-left: 2%; */
+}
+
+.notificationResponse {
+    margin-bottom: 5%;
+    font-size: 1rem;
+}
+.notificationBtn {
+    width: 35%;
+    height: 10%;
+    background-color: #010606;
+    color: #ffffff;
+    border-style: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+
+}
+
+ /* *************Footer Section ************************* */
+
+ .footerSectionContainer {
+     width: 100%;
+     height: 400px;
+     background-color: #010606;
+ }
 
 /* *************** Responsive design ***********************/
 /* ********  Desktop Responsive Design ******************* */
@@ -1193,7 +1270,7 @@
 @media (max-width:1920px) and (min-width:1536px){
     
     .navMenu{
-        left: 60%;
+        left: 68%;
     }
     .navBtn {
         left: 87%;
@@ -1241,7 +1318,7 @@
 @media (max-width:1536px) and (min-width:1366px){
     
     .navMenu{
-        left: 55%;
+        left: 62%;
     }
     .navBtn {
         left: 85%;
@@ -1289,7 +1366,7 @@
 @media (max-width:1366px) and (min-width:1280px){
     
     .navMenu{
-        left: 50%;
+        left: 57%;
     }
     .loggedInIconContainer {
         left: 80%;
@@ -1330,7 +1407,7 @@
 
 @media (max-width:1280px) and (min-width:1098px){
     .navMenu{
-        left: 50%;
+        left: 53%;
     }
     .loggedInIconContainer {
         left: 80%;

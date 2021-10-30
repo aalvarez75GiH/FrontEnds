@@ -15,6 +15,7 @@ import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
+import FooterSection from '../components/footerSection/footerSection'
 // import DataSection from '../components/dataSection/dataSection'
 
 
@@ -26,7 +27,7 @@ const Home = () => {
     const [currentUser, setCurrentUser ] = useState('')
     const [ loginSideBarOpen, setLoginSideBarOpen ] = useState(false)
     const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
-    
+   
     
     
     const mobil = useMobilDetect()
@@ -111,7 +112,6 @@ const Home = () => {
         <>
             {/* {!loggedIn && loginSideBarOpen ? */}
             <LoginSideBar
-            handlingSubmitLoginUser={handlingSubmitLoginUser} 
             loginSideBarOpen={ loginSideBarOpen } 
             toggleLoginSideBar={ toggleLoginSideBar }
             loggedIn={loggedIn}
@@ -158,6 +158,7 @@ const Home = () => {
             loggedIn={loggedIn}
             handlingSubmitLoginUser={ handlingSubmitLoginUser}
             />
+            <FooterSection/>
             {/* <DataSection {...infoData} /> */}
         </>
     )

@@ -5,9 +5,9 @@ import * as yup from 'yup'
 
 
 const validationSchema = yup.object({
-    fullName: yup.string().min(3).max(100).required('Debes colocar tu nombre completo'),
-    email: yup.string().email('Por favor introduce una dirección de email válida').required(),
-    city: yup.string().min(3, 'Por favor introduce la ciudad').max(100, 'Por favor introduce la ciudad').required(),   
+    fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
+    email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),
+    city: yup.string().min(3, 'Por favor introduce la ciudad').max(100).required('No te olvides de colocar la ciudad donde resides'),   
 })
 
 
@@ -30,7 +30,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
     })
 
     // console.log(formik.values)
-    // console.log(formik.errors)
+    console.log(formik.errors)
 
     return (
         <div className="boxContainer">
@@ -44,6 +44,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 type="text" 
                 value={formik.values.fullName}
                 onChange={formik.handleChange}
+                autoComplete="on"
                 onBlur={formik.handleBlur}
                 style={{
                     borderBottom: `${formik.touched.fullName && formik.errors.fullName ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
@@ -54,6 +55,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 name="email"
                 placeholder="Correo electrónico" 
                 type="email" 
+                autoComplete="on"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -64,6 +66,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 <input
                 className="input"
                 name="city"
+                autoComplete="on"
                 placeholder="Ciudad" 
                 type="text" 
                 value={formik.values.city}

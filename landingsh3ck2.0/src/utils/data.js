@@ -45,7 +45,6 @@ export const infoHIW = {
     alt3:'escoge chequeador',
     alt4:'finaliza oreden',
     alt5:'video en tiempo real', 
-    buttonLabel: 'Como funciona',
     linkedTo: 'contactSection',
     buttonLabel:'¿Quieres comenzar?'
 }

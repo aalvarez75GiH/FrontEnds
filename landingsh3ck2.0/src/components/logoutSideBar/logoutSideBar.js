@@ -1,7 +1,5 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { Link as LinkR } from 'react-router-dom'
-import { Link as LinkS } from 'react-scroll'
 // import LoginForm from '../contactSection/loginForm'
 
 

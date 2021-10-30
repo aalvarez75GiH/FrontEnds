@@ -6,13 +6,12 @@ import RegisterForm from './registerForm'
 
 
 const validationSchema = yup.object({
-    email: yup.string().email('Por favor introduce una dirección de email válida').required(),
-    password: yup.string().min(6).max(200).required(),   
+    email: yup.string().email('Por favor introduce una dirección de correo válida').required('hola, no te olvídes de colocar tu correo electrónico'),
+    password: yup.string().min(6).max(200).required('No te olvides de colocar tu clave'),   
 })
 
 
 const LoginForm = ({ 
-    // handlingSubmitLoginUser, 
     handlingLoginUser,
     regView, 
     toggleRegView,
@@ -23,7 +22,6 @@ const LoginForm = ({
 }) => {
 
     const onSubmit = async(values) => {
-        // handlingSubmitLoginUser(values)
         handlingLoginUser(values)
     }
 
@@ -38,7 +36,6 @@ const LoginForm = ({
 
     })
 
-    // console.log(formik.values)
     console.log(formik.errors)
 
 
@@ -58,6 +55,7 @@ const LoginForm = ({
                 
                 <input
                 className="input"
+                autoComplete="on"
                 name="email"
                 placeholder="Correo electrónico" 
                 type="email" 
@@ -71,6 +69,7 @@ const LoginForm = ({
                 <input
                 className="input"
                 name="password"
+                autoComplete="on"
                 placeholder="Contraseña" 
                 type="password" 
                 value={formik.values.password}

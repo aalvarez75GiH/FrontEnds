@@ -1,9 +1,12 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { Link as LinkR } from 'react-router-dom'
-import { Link as LinkS } from 'react-scroll'
 // import LoginForm from '../contactSection/loginForm'
 import LoginSideBarForm from './loginSideBarForm'
+// import LoadingSpinner from '../../utils/loadingSpinner'
+
+
+
+
 const LoginSideBar = ({ 
     toggleLoginSideBar, 
     loginSideBarOpen, 
