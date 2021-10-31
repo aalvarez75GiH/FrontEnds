@@ -1,6 +1,9 @@
 import React from 'react'
 import successImage from '../../images/ok_success_icon.svg'
 import foundImage from '../../images/ok_success_verified_icon.svg'
+import { FaTimes } from 'react-icons/fa'
+
+
 
 const NotificationBox = ({ 
     response, 
@@ -10,11 +13,15 @@ const NotificationBox = ({
 
 }) => {
     console.log(response)
-
     if (response){
         if (response.status === 400){
             return (
             <div className="notificationContainer">
+                <div 
+                onClick={toggleNotificationLogin}
+                className="closeIconContainer">
+                    <FaTimes/>
+                </div>
                 <div className="notificationWrapper">
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
@@ -35,6 +42,11 @@ const NotificationBox = ({
         if (response.status === 409){
             return (
             <div className="notificationContainer">
+                <div 
+                onClick={toggleNotification}
+                className="closeIconContainer">
+                    <FaTimes/>
+                </div>
                 <div className="notificationWrapper">
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
@@ -55,6 +67,11 @@ const NotificationBox = ({
         if (response.status === 201){
             return (
             <div className="notificationContainer">
+                <div 
+                onClick={toggleNotification}
+                className="closeIconContainer">
+                    <FaTimes/>
+                </div>
                 <div className="notificationWrapper">
                     <img src={successImage} alt="successImage" />
                     <div className="notificationName">

@@ -1220,6 +1220,21 @@
     position: absolute;
 }
 
+.closeIconContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 7%;
+    height: 3%;
+    color: #010606;
+    position: absolute;
+    left: 90%;
+    top: 2%;
+    font-size: 2rem;
+
+
+}
+
 .notificationWrapper {
     display: flex;
     justify-content: flex-start;

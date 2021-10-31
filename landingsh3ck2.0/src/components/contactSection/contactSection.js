@@ -32,7 +32,7 @@ const ContactSection = ({
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
 
-    const responseData = {
+    const responseDataInterested = {
         errorCode: 409,
         errorMessage:`Ya tus datos fueron suministrados anteriormente y nos contenta. Si quieres chequear un producto haz click en Quiero chequear un producto`,
         successCode: 201,
@@ -40,13 +40,13 @@ const ContactSection = ({
     }
     const responseDataRegister = {
         errorCode: 409,
-        errorMessage:`Ya te teníamos registrado anteriormente . Si quieres chequear un producto solo inicia sesión y haz click en Quiero chequear un producto`,
+        errorMessage:`Ya te encuentras registrado con nosotros . Si quieres chequear un producto solo inicia sesión y haz click en Quiero chequear un producto`,
         successCode: 201,
         successMessage:`Listo, te hemos registrado. Si deseas chequear un producto solo haz click en Quiero chequear un producto`
     }
     const responseDataLogin = {
         errorCode: 400,
-        errorMessage:` No te encontramos en nuestra Base de datos. Verifica tu correo electrónico o contraseña e intenta de nuevo`,
+        errorMessage:` No te encontramos en nuestra Base de datos. Pueden ser dos cosas: usuario/contraseña incorrectos o no estas registrado.`,
         successCode: 201,
         successMessage:`Bienvenido, ¿Te gustaría chequear un producto?`
     }
@@ -102,6 +102,7 @@ const ContactSection = ({
 
     const toggleNotification = () => {
         setResponse(null)
+        setRegView(false)
     }
 
     const handlingLoginUser = (values) => {
@@ -199,7 +200,8 @@ const ContactSection = ({
                  <NotificationBox
                  toggleNotification={toggleNotification} 
                  response={response}
-                 responseData={responseData}
+                 responseData={responseDataInterested}
+                 switchToCheck={switchToCheck}
                  />    
                 : 
                 null 
@@ -210,6 +212,7 @@ const ContactSection = ({
                  toggleNotification={toggleNotification} 
                  response={response}
                  responseData={responseDataRegister}
+                 switchToCheck={switchToCheck}
                  />    
                 : 
                 null 
@@ -220,6 +223,7 @@ const ContactSection = ({
                  response={loginResponse}
                  responseData={responseDataLogin}
                  toggleNotificationLogin={toggleNotificationLogin}
+                 switchToCheck={switchToCheck}
                  />    
                 : 
                 null 
