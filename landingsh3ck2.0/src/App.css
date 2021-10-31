@@ -1326,6 +1326,9 @@
     .hiwBtnWrap {
         margin-top: 70px;
     }
+    .formTitle {
+        font-size: 0.9rem;
+    }
     
 }
 
@@ -1375,6 +1378,9 @@
         margin-left: 3%;
         margin-top: 70px;
     }
+    .formTitle {
+        font-size: 0.9rem;
+    }
   
 }
 
@@ -1417,6 +1423,18 @@
         margin-top: 100px;
         margin-left: 3%;
     }
+
+    .notifyMe{
+        font-size: 1rem;
+    }
+    .checkAProduct {
+        font-size: 1rem;
+    }
+
+    .formTitle {
+        font-size: 0.8rem;
+    }
+
 }
 
 
@@ -1454,6 +1472,17 @@
         margin-left: 3%;
         margin-top: 100px;
     }
+    .checkAProduct {
+        font-size: 1rem;
+        padding-left: 10%;
+    }
+    .titleWrapper{
+        margin-bottom: 4%;
+    }
+    .formTitle {
+        font-size: 0.8rem;
+    }
+
     
     
 }
@@ -1630,7 +1659,67 @@
         margin-top: 100px;
     }
 
+    .contactContainer{
+        height: 1400px;
+    }
 
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
+    .contactInfo {
+        position: unset;
+        width: 100%;
+        height: 600px;
+    }
+    .contactForms {
+        width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 55%;
+        margin-top: 5%;
+
+    }
+    .titleWrapper {
+        width: 55%;
+    }
+    .formTitle {
+        font-size: 0.8rem;
+    }
+ 
+    .formDescription {
+        margin-top: 2%;
+    }
+    .boxContainer {
+        width: 55%;
+        margin-bottom: 5%;
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
+    }
+    
+  
 }
 
 
@@ -1822,14 +1911,64 @@
         height: 700px;
     }
 
+    .contactContainer{
+        height: 1400px;
+    }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
     .contactInfo {
         position: unset;
         width: 100%;
-
+        height: 600px;
     }
     .contactForms {
-        position: unset;
         width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 70%;
+    }
+    .titleWrapper {
+        width: 70%;
+    }
+    .formTitle {
+        font-size: 0.8rem;
+    }
+    .formDescription {
+        margin-top: 2%;
+    }
+    .boxContainer {
+        width: 70%;
+        height: 55%;
+        margin-top: 4%;
+        margin-bottom: 0;
+
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
     }
 
     
@@ -2016,6 +2155,67 @@
         margin-left: 3%;
         margin-top: 50px;
     }
+    
+    .contactContainer{
+        height: 1400px;
+    }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
+    .contactInfo {
+        position: unset;
+        width: 100%;
+        height: 600px;
+    }
+    .contactForms {
+        width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 95%;
+    }
+    .titleWrapper {
+        width: 95%;
+    }
+    .formTitle {
+        font-size: 0.8rem;
+    }
+    .formDescription {
+        margin-top: 2%;
+    }
+    .boxContainer {
+        width: 95%;
+        height: 55%;
+        margin-top: 4%;
+        margin-bottom: 0;
+
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
+    }
+
 
 }
 
@@ -2198,6 +2398,65 @@
         margin-left: 3%;
         margin-top: 70px;
     }
+    .contactContainer{
+        height: 1400px;
+    }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
+    .contactInfo {
+        position: unset;
+        width: 100%;
+        height: 600px;
+    }
+    .contactForms {
+        width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 95%;
+    }
+    .titleWrapper {
+        width: 95%;
+    }
+    .formTitle {
+        font-size: 0.7rem;
+    }
+    .formDescription {
+        margin-top: 2%;
+    }
+    .boxContainer {
+        width: 95%;
+        height: 55%;
+        margin-top: 4%;
+        margin-bottom: 0;
+
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
+    }
 }
 
 @media (max-width:414px) and (min-width: 360px){
@@ -2339,6 +2598,9 @@
         margin-top: 15%;
         margin-left: 3%;
     }
+    .formTitle {
+        font-size: 0.6rem;
+    }
     
     .title {
         display: flex;
@@ -2373,6 +2635,69 @@
     .hiwBtnWrap {
         margin-left: 3%;
         margin-top: 50px;
+    }
+    .contactContainer{
+        height: 1400px;
+    }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
+    .contactInfo {
+        position: unset;
+        width: 100%;
+        height: 600px;
+    }
+    .contactForms {
+        width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 95%;
+    }
+    .notifyMe {
+        font-size: 14px;
+    }
+    .checkAProduct {
+        font-size: 14px;
+        width: 60%;
+    }
+    .titleWrapper {
+        width: 95%;
+    }
+    .formDescription {
+        margin-top: 3%;
+    }
+    .boxContainer {
+        width: 95%;
+        height: 55%;
+        margin-top: 4%;
+        margin-bottom: 0;
+
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
     }
 }
 
@@ -2550,6 +2875,62 @@
     .hiwBtnWrap {
         margin-left: 3%;
         margin-top: 50px;
+    }
+    .contactContainer{
+        height: 1400px;
+    }
+
+    .contactWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1400px;
+    }
+    .contactInfo {
+        position: unset;
+        width: 100%;
+        height: 600px;
+    }
+    .contactForms {
+        width: 100%;
+        height: 800px;
+        position: unset;
+        
+        
+    }
+    .optionsWrapper {
+        width: 95%;
+    }
+    .titleWrapper {
+        width: 95%;
+    }
+    .formDescription {
+        margin-top: 2%;
+    }
+    .boxContainer {
+        width: 95%;
+        height: 55%;
+        margin-top: 4%;
+        margin-bottom: 0;
+
+    }
+    .input {
+        height: 115px;
+        margin-bottom: 15px;
+    }
+    .formContainer button {
+        height: 115px;
+        width: 100%;
+        color: #010606;
+        background-color: #FAD570;
+        margin-top: 10px;
+        border-style: none;
+        font-size: 1.4rem;
+    }
+
+    .formContainer .regButton{
+        height: 115px;
+        
     }
 }
 
