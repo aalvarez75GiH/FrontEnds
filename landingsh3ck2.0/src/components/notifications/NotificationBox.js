@@ -5,11 +5,13 @@ import { FaTimes } from 'react-icons/fa'
 
 
 
+
 const NotificationBox = ({ 
     response, 
     responseData, 
     toggleNotification,
-    toggleNotificationLogin 
+    toggleNotificationLogin,
+    switchToCheck 
 
 }) => {
     console.log(response)
@@ -18,7 +20,7 @@ const NotificationBox = ({
             return (
             <div className="notificationContainer">
                 <div 
-                onClick={toggleNotificationLogin}
+                onClick={toggleNotification}
                 className="closeIconContainer">
                     <FaTimes/>
                 </div>
@@ -33,7 +35,7 @@ const NotificationBox = ({
                         {responseData.errorMessage}
                     </div>
                     <button className="notificationBtn"
-                    onClick={toggleNotificationLogin}
+                    onClick={toggleNotification}
                     >Continuar</button>
                 </div>
             </div>   

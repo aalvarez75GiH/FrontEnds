@@ -7,6 +7,7 @@ import LoginForm from './loginForm'
 import NotificationBox from '../notifications/NotificationBox'
 import axios from 'axios'
 import FormHeader from './formHeader'
+import { responseDataInterested, responseDataRegister, responseDataLogin } from '../notifications/notificationData'
 
 
 const ContactSection = ({
@@ -32,24 +33,24 @@ const ContactSection = ({
     const url_interestedUsers = "http://localhost:5000/api/interestedUsers"
     const url_users = "http://localhost:5000/api/users"
 
-    const responseDataInterested = {
-        errorCode: 409,
-        errorMessage:`Ya tus datos fueron suministrados anteriormente y nos contenta. Si quieres chequear un producto haz click en Quiero chequear un producto`,
-        successCode: 201,
-        successMessage:`Listo, que bueno que estas interesado. Te estaremos notificando pronto sobre nuestra app`
-    }
-    const responseDataRegister = {
-        errorCode: 409,
-        errorMessage:`Ya te encuentras registrado con nosotros . Si quieres chequear un producto solo inicia sesión y haz click en Quiero chequear un producto`,
-        successCode: 201,
-        successMessage:`Listo, te hemos registrado. Si deseas chequear un producto solo haz click en Quiero chequear un producto`
-    }
-    const responseDataLogin = {
-        errorCode: 400,
-        errorMessage:` No te encontramos en nuestra Base de datos. Pueden ser dos cosas: usuario/contraseña incorrectos o no estas registrado.`,
-        successCode: 201,
-        successMessage:`Bienvenido, ¿Te gustaría chequear un producto?`
-    }
+    // const responseDataInterested = {
+    //     errorCode: 409,
+    //     errorMessage:`Ya tus datos fueron suministrados anteriormente y nos contenta. Si quieres chequear un producto haz click en Quiero chequear un producto`,
+    //     successCode: 201,
+    //     successMessage:`Listo, que bueno que estas interesado. Te estaremos notificando pronto sobre nuestra app`
+    // }
+    // const responseDataRegister = {
+    //     errorCode: 409,
+    //     errorMessage:`Ya te encuentras registrado con nosotros . Si quieres chequear un producto solo inicia sesión y haz click en Quiero chequear un producto`,
+    //     successCode: 201,
+    //     successMessage:`Listo, te hemos registrado. Si deseas chequear un producto solo haz click en Quiero chequear un producto`
+    // }
+    // const responseDataLogin = {
+    //     errorCode: 400,
+    //     errorMessage:` No te encontramos en nuestra Base de datos. Pueden ser dos cosas: usuario/contraseña incorrectos o no estas registrado.`,
+    //     successCode: 201,
+    //     successMessage:`Bienvenido, ¿Te gustaría chequear un producto?`
+    // }
     
     console.log(loginResponse)
     // console.log(loggedIn)
@@ -159,7 +160,17 @@ const ContactSection = ({
         },2000)
     } 
 
-
+const togglingResponseData = () => {
+    if (response && active === 'interested'){
+        return responseDataInterested
+    }
+    if (response && active === 'check'){
+        return responseDataRegister
+    }
+    if (loginResponse && active === 'check'){
+        return responseDataLogin
+    } 
+}
 
     if (upLoadingUser){
         return (
@@ -196,117 +207,70 @@ const ContactSection = ({
 
                 </motion.div>
                 <div className="contactForms">
-                {response && active === 'interested' ? 
-                 <NotificationBox
-                 toggleNotification={toggleNotification} 
-                 response={response}
-                 responseData={responseDataInterested}
+                 
+                 {response || loginResponse ?
+                <NotificationBox
+                 toggleNotification={response ? toggleNotification : toggleNotificationLogin} 
+                 response={response ? response : loginResponse }
+                 responseData={togglingResponseData()} 
                  switchToCheck={switchToCheck}
-                 />    
-                : 
-                null 
-                }
-
-                {response && active === 'check' ? 
-                 <NotificationBox
-                 toggleNotification={toggleNotification} 
-                 response={response}
-                 responseData={responseDataRegister}
-                 switchToCheck={switchToCheck}
-                 />    
-                : 
-                null 
-                }
-                {loginResponse ? 
-                 <NotificationBox
-                 toggleNotification={toggleNotification} 
-                 response={loginResponse}
-                 responseData={responseDataLogin}
-                 toggleNotificationLogin={toggleNotificationLogin}
-                 switchToCheck={switchToCheck}
-                 />    
-                : 
-                null 
-                }
-                    <OptionsForms
-                    active={active === 'interested' ? 'interested' : 'signUp' } 
-                    switchToSignIn={switchToSignIn}
-                    switchToCheck={switchToCheck}
-                    />
-                    <FormHeader
-                    active = {active}
-                    loggedIn={loggedIn}
-                    regView={regView}
-                    />
+                 />
+                 : null
+                 }
+                 
+                <OptionsForms
+                active={active === 'interested' ? 'interested' : 'signUp' } 
+                switchToSignIn={switchToSignIn}
+                switchToCheck={switchToCheck}
+                />
+                <FormHeader
+                active = {active}
+                loggedIn={loggedIn}
+                regView={regView}
+                />
                 
                     
-                    { active === 'interested' && loggedIn ? 
-                     <>
-                     <InterestedUsersForm 
-                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                     />
-                    {/* <NotificationBox
-                    toggleNotification={toggleNotification} 
-                    response={response}
-                    responseData={responseData}
-                    /> */}
-                     </>
-                     
-                     :
-                     null
-                    }
-                    { active === 'interested' && !loggedIn ? 
-                     <>
-                     <InterestedUsersForm 
-                     handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                     />
-                    {/* <NotificationBox
-                    toggleNotification={toggleNotification}
-                    response={response}
-                    responseData={responseData}
-                    /> */}
-                    </>                     
-                     :
-                     null
-                    }
-                    
-                    { active === 'check' && loggedIn  ? 
-                    <>
-                    <InterestedUsersForm
-                    handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                    />
-                    {/* <NotificationBox
-                    toggleNotification={toggleNotification}
-                    response={response}
-                    responseData={responseData}
-                    /> */}
-                    </>
-                    :
-                    null
-                    }
-                    { active === 'check' && loggedIn === false  ? 
-                    <LoginForm
-                    regView={regView}
-                    toggleRegView={toggleRegView}
-                    handlingSubmitUser={handlingSubmitUser}
-                    handlingLoginUser={handlingLoginUser}
-                    />
-                    :
-                    null
-                    // <RegisterForm handlingSubmitUser={handlingSubmitUser}/>
-                    }
-
-                    {/* <NotificationBox
-                    response={response}
-                    responseData={responseData}
-                    /> */}
-                    
-                    
-                    
-                     
+                { active === 'interested' && loggedIn ? 
+                 <>
+                 <InterestedUsersForm 
+                 handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                 />
+                 </>
+                 
+                 :
+                 null
+                }
+                { active === 'interested' && !loggedIn ? 
+                 <>
+                 <InterestedUsersForm 
+                 handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                 />
+                </>                     
+                 :
+                 null
+                }
+                
+                { active === 'check' && loggedIn  ? 
+                <>
+                <InterestedUsersForm
+                handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                />
+                </>
+                :
+                null
+                }
+                { active === 'check' && loggedIn === false  ? 
+                <LoginForm
+                regView={regView}
+                toggleRegView={toggleRegView}
+                handlingSubmitUser={handlingSubmitUser}
+                handlingLoginUser={handlingLoginUser}
+                />
+                :
+                null
+                }
                 </div>
                 
-
             </div>
             
         </div>
