@@ -283,9 +283,9 @@
     background-color: #FAD570;
     color: #0C0920;
 }
+
 /*************** LoginSideBar ****************************** */
            
-
 /*** Open  ***/
 .loginSideBarContainer {
     position: fixed;
@@ -789,198 +789,6 @@
     margin-left: 284px;
 }
 
-/* *********** DataSection ******************************* */
-
-.dataContainer {
-    background-color: #010606;
-    color:#ffffff;
-    height: 700px;
-    border-bottom: 2px solid #eeedec;
-    
-}
-
-.dataWrapper {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    height: 100%;
-}
-
-.dataRow {
-    display: grid;
-    grid-template: 700px / 50% 50%;
-    grid-template-areas: "text data data";
-    width: 100%;
-    height: 100%;
-    gap: 5px;
-}
-
-.dataText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    grid-area: "text";
-    background-color: #010606;
-    
-}
-.dataTextWrapper {
-    width: 85%;
-}
-.h1Data {
-    margin-bottom: 24px;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    font-weight: 600;
-}
-
-.dataFormWrapper {
-    grid-area: "data";
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    background-color: #ffffff;
-    width: 70%;
-}
-
-
-
-
-.form1InputFullName {
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1rem;
-    padding-left: 5%;
-    outline: none; 
-}
-
-.form1InputFullName::placeholder {
-    color: #adb5bd
-}
-.form1InputFullName:focus::placeholder {
-    color: transparent;
-
-}
-.form1InputFullName::placeholder {
-    color: #adb5bd;
-    transition: color 0.3s ease;
-
-}
-
-.form1InputEmail {
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1rem;
-    padding-left: 5%;
-    outline: none;
-   
-   
-}
-.form1InputEmail::placeholder {
-    color: #adb5bd
-}
-.form1InputEmail:focus::placeholder {
-    color: transparent;
-
-}
-.form1InputEmail::placeholder {
-    color: #adb5bd;
-    transition: color 0.3s ease;
-
-}
-
-
-
-.form1InputCity {
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1rem;
-    padding-left: 5%;
-    outline: none;
-}
-.form1InputCity::placeholder {
-    color: #adb5bd
-}
-.form1InputCity:focus::placeholder {
-    color: transparent;
-
-}
-.form1InputCity::placeholder {
-    color: #adb5bd;
-    transition: color 0.3s ease;
-
-}
-
-.form1InputCity::placeholder {
-    color: #adb5bd
-}
-
-.form1InputFullNameError {
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    font-size: 1rem;
-    padding-left: 5%;
-    border: 2px solid #ef476f;
-    outline: none;
-    
-}
-
-.form1InputEmailError{
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    font-size: 1rem;
-    padding-left: 5%;
-    border: 2px solid #ef476f;
-}
-
-.form1InputCityError {
-    height: 19%;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: #eeeeee;
-    font-size: 1rem;
-    padding-left: 5%;
-    border: 2px solid #ef476f;
-}
-
-.form-1 button {
-    height: 19%;
-    width: 100%;
-    color: #010606;
-    background-color: #FAD570;
-    margin-top: 10px;
-    border-style: none;
-    font-size: 1.4rem;
-}
-
 
 /* *************** contactSection ***********************/  
 
@@ -991,7 +799,7 @@
 }
 
 .contactWrapper {
-    /* display: flex; */
+    display: flex; 
     width: 100%;
     height: 1000px;
     /* background-color: #010606; */
@@ -999,9 +807,8 @@
 }
 
 .contactInfo {
-    position: absolute;
     width: 50%;
-    height: 95.3%;
+    height: 1000px;
     background-color: #FAD570;
 }
 
@@ -1027,7 +834,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 50%;
     width: 50%;
     height: 100%;
     background-color: #ffffff;
@@ -1117,7 +923,7 @@
 }
 
 .formContainer button {
-    height: 19%;
+    height: 115px;
     width: 100%;
     color: #010606;
     background-color: #FAD570;
@@ -1126,7 +932,7 @@
     font-size: 1.4rem;
 }
 .formContainer .regButton{
-    height: 19%;
+    height: 115px;
     width: 100%;
     color: #ffffff;
     background-color: #FF810A;
@@ -1155,16 +961,6 @@
     background-color:  rgba(0,0,0,.8);
     position: absolute;
 }
-
-/* .loadingSpinnerContainer::before {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,.5);
-} */
 
 .circles {
     display: flex;
@@ -1209,7 +1005,7 @@
     color: #ffffff;
 }
 
-/* ************ Notification Components ********************/
+/* ************ Notification Screens ********************/
 
 .notificationContainer {
     display: flex;
@@ -1329,6 +1125,15 @@
     .formTitle {
         font-size: 0.9rem;
     }
+
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
+    }
+    
     
 }
 
@@ -1380,6 +1185,24 @@
     }
     .formTitle {
         font-size: 0.9rem;
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 45%
+    }
+    
+    /* .loginSideBoxContainer { 
+        height: 35%;
+    } */
+    
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
     }
   
 }
@@ -1435,6 +1258,25 @@
         font-size: 0.8rem;
     }
 
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 52%
+    }
+    
+    /* .loginSideBoxContainer { 
+        height: 35%;
+    } */
+    
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
+    }
+
 }
 
 
@@ -1483,6 +1325,24 @@
         font-size: 0.8rem;
     }
 
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 55%
+    }
+    
+    /* .loginSideBoxContainer { 
+        height: 35%;
+    } */
+    
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
+    }
     
     
 }
@@ -1682,12 +1542,12 @@
         
     }
     .optionsWrapper {
-        width: 55%;
+        width: 75%;
         margin-top: 5%;
 
     }
     .titleWrapper {
-        width: 55%;
+        width: 75%;
     }
     .formTitle {
         font-size: 0.8rem;
@@ -1697,7 +1557,7 @@
         margin-top: 2%;
     }
     .boxContainer {
-        width: 55%;
+        width: 75%;
         margin-bottom: 5%;
     }
     .input {
@@ -1717,6 +1577,24 @@
     .formContainer .regButton{
         height: 115px;
         
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 65%
+    }
+    
+    /* .loginSideBoxContainer { 
+        height: 35%;
+    } */
+    
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
     }
     
   
@@ -1934,19 +1812,31 @@
         
     }
     .optionsWrapper {
-        width: 70%;
+        width: 85%;
     }
     .titleWrapper {
-        width: 70%;
+        width: 85%;
+        margin-bottom: 5%;
     }
     .formTitle {
         font-size: 0.8rem;
+        margin-top: 3%;
+    }
+    .title_1 {
+        font-size: 2.4rem;
+
+    }
+    .title_3 {
+        font-size: 2.2rem;
+    }
+    .title_4 {
+        font-size: 4rem;
     }
     .formDescription {
-        margin-top: 2%;
+        margin-top: 6%;
     }
     .boxContainer {
-        width: 70%;
+        width: 85%;
         height: 55%;
         margin-top: 4%;
         margin-bottom: 0;
@@ -1969,6 +1859,25 @@
     .formContainer .regButton{
         height: 115px;
         
+    }
+    
+    .loginSideBarFormDescription p {
+        font-size: 1.3rem;
+    }
+    .loginSideBoxContainer {
+        width: 80%
+    }
+    
+    /* .loginSideBoxContainer { 
+        height: 35%;
+    } */
+    
+    .input {
+        height: 115px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 115px;
     }
 
     
@@ -2179,30 +2088,42 @@
         
     }
     .optionsWrapper {
-        width: 95%;
+        width: 90%;
     }
     .titleWrapper {
-        width: 95%;
+        width: 90%;
+        margin-bottom: 1%;
+        height: 16%;
     }
     .formTitle {
         font-size: 0.8rem;
+    }
+    .title_1 {
+        font-size: 2rem;
+
+    }
+    .title_3 {
+        font-size: 2.2rem;
+    }
+    .title_4 {
+        font-size: 4rem;
     }
     .formDescription {
         margin-top: 2%;
     }
     .boxContainer {
-        width: 95%;
-        height: 55%;
+        width: 90%;
+        height: auto;
         margin-top: 4%;
         margin-bottom: 0;
 
     }
     .input {
-        height: 115px;
+        height: 65px;
         margin-bottom: 15px;
     }
     .formContainer button {
-        height: 115px;
+        height: 65px;
         width: 100%;
         color: #010606;
         background-color: #FAD570;
@@ -2212,10 +2133,32 @@
     }
 
     .formContainer .regButton{
-        height: 115px;
+        height: 65px;
         
     }
 
+    .loginSideBarFormDescription {
+        width: 95%;
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 85%
+    }
+    
+    .loginSideBoxContainer { 
+        height: auto;
+        margin-top: 10%;
+    }
+    
+    .input {
+        height: 85px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 85px;
+    }
 
 }
 
@@ -2398,10 +2341,7 @@
         margin-left: 3%;
         margin-top: 70px;
     }
-    .contactContainer{
-        height: 1400px;
-    }
-
+    
     .contactWrapper {
         display: flex;
         flex-direction: column;
@@ -2420,43 +2360,72 @@
         
         
     }
+
     .optionsWrapper {
         width: 95%;
     }
     .titleWrapper {
-        width: 95%;
+        width: 90%;
+        height: 20%;
+        margin-bottom: 5%;
     }
     .formTitle {
-        font-size: 0.7rem;
+        font-size: 2.2rem;
+    }
+    .title_1 {
+        font-size: 2.4rem;
+
+    }
+    .title_3 {
+        font-size: 2.2rem;
+    }
+    .title_4 {
+        font-size: 4rem;
     }
     .formDescription {
-        margin-top: 2%;
+        font-size: 15px;
+        margin-top: 0;
+    }
+
+    .formDescription p {
+        margin-top: 3%;
+    }
+  
+    .checkAProduct p {
+        width: 65%;
     }
     .boxContainer {
-        width: 95%;
-        height: 55%;
-        margin-top: 4%;
-        margin-bottom: 0;
-
+        width: 90%;
+        height: auto;
+        margin-bottom: 15%;
     }
+    
+    .loginSideBarFormDescription {
+        width: 95%;
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1.5rem;
+    }
+    .loginSideBoxContainer {
+        width: 85%
+    }
+    
+    .loginSideBoxContainer { 
+        height: auto;
+        margin-top: 10%;
+    }
+    
     .input {
-        height: 115px;
-        margin-bottom: 15px;
+        height: 85px;
+        font-size: 1.3rem;
     }
     .formContainer button {
-        height: 115px;
-        width: 100%;
-        color: #010606;
-        background-color: #FAD570;
-        margin-top: 10px;
-        border-style: none;
-        font-size: 1.4rem;
+        height: 85px;
     }
-
-    .formContainer .regButton{
-        height: 115px;
-        
+    .formContainer .regButton {
+        height: 85px;
     }
+   
 }
 
 @media (max-width:414px) and (min-width: 360px){
@@ -2658,47 +2627,88 @@
         
         
     }
+
     .optionsWrapper {
-        width: 95%;
-    }
-    .notifyMe {
-        font-size: 14px;
-    }
-    .checkAProduct {
-        font-size: 14px;
-        width: 60%;
+        width: 90%;
     }
     .titleWrapper {
-        width: 95%;
+        width: 90%;
+        height: 20%;
+        margin-bottom: 5%;
     }
-    .formDescription {
-        margin-top: 3%;
+    
+    .formTitle {
+        display: flex;
+        align-items: center;
     }
-    .boxContainer {
-        width: 95%;
-        height: 55%;
-        margin-top: 4%;
-        margin-bottom: 0;
+    .title_1 {
+        font-size: 1.8rem;
 
     }
+    .title_3 {
+        font-size: 2.2rem;
+    }
+    .title_4 {
+        font-size: 4rem;
+    }
+    .formDescription {
+        font-size: 15px;
+    }
+
+    .formDescription p {
+        margin-top: 3%;
+    }
+  
+    .checkAProduct p {
+        width: 65%;
+    }
+    .boxContainer {
+        width: 90%;
+        height: auto;
+        margin-bottom: 15%;
+    }
     .input {
-        height: 115px;
+        height: 65px;
         margin-bottom: 15px;
     }
     .formContainer button {
-        height: 115px;
-        width: 100%;
-        color: #010606;
-        background-color: #FAD570;
-        margin-top: 10px;
-        border-style: none;
-        font-size: 1.4rem;
+        height: 65px;
     }
 
     .formContainer .regButton{
-        height: 115px;
+        height: 65px;
         
     }
+    .loginSideBarFormTitle {
+        margin-top: 6%;
+        font-size: 2.5rem;
+    }
+    .loginSideBarFormDescription {
+        width: 95%;
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1.2rem;
+    }
+    .loginSideBoxContainer {
+        width: 85%
+    }
+    
+    .loginSideBoxContainer { 
+        height: auto;
+        margin-top: 10%;
+    }
+    
+    .input {
+        height: 85px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 85px;
+    }
+    .formContainer .regButton {
+        height: 85px;
+    }
+    
 }
 
 @media (max-width: 360px) and (min-width: 320px){
@@ -2880,6 +2890,10 @@
         height: 1400px;
     }
 
+    .contactContainer{
+        height: 1400px;
+    }
+
     .contactWrapper {
         display: flex;
         flex-direction: column;
@@ -2898,39 +2912,83 @@
         
         
     }
+
     .optionsWrapper {
-        width: 95%;
+        width: 90%;
     }
     .titleWrapper {
-        width: 95%;
+        width: 90%;
+        height: 20%;
+        margin-bottom: 5%;
     }
-    .formDescription {
-        margin-top: 2%;
+    
+    .formTitle {
+        display: flex;
+        align-items: center;
     }
-    .boxContainer {
-        width: 95%;
-        height: 55%;
-        margin-top: 4%;
-        margin-bottom: 0;
+    .title_1 {
+        font-size: 1.8rem;
 
     }
+    .title_3 {
+        font-size: 2.2rem;
+    }
+    .title_4 {
+        font-size: 3rem;
+    }
+    .formDescription {
+        font-size: 15px;
+    }
+
+    .formDescription p {
+        margin-top: 3%;
+    }
+  
+    .checkAProduct p {
+        width: 85%;
+    }
+    .boxContainer {
+        width: 90%;
+        height: auto;
+        margin-bottom: 15%;
+    }
     .input {
-        height: 115px;
+        height: 65px;
         margin-bottom: 15px;
     }
     .formContainer button {
-        height: 115px;
-        width: 100%;
-        color: #010606;
-        background-color: #FAD570;
-        margin-top: 10px;
-        border-style: none;
-        font-size: 1.4rem;
+        height: 65px;
     }
 
     .formContainer .regButton{
-        height: 115px;
+        height: 65px;
         
+    }
+    .loginSideBarFormTitle {
+        margin-top: 6%;
+        font-size: 2rem;
+    }
+    .loginSideBarFormDescription {
+        width: 90%;
+    }
+    .loginSideBarFormDescription p {
+        font-size: 1rem;
+    }
+    .loginSideBoxContainer {
+        width: 85%
+    }
+    
+    .loginSideBoxContainer { 
+        height: auto;
+        margin-top: 10%;
+    }
+    
+    .input {
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    .formContainer button {
+        height: 60px;
     }
 }
 

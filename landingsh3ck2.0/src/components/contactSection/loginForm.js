@@ -86,7 +86,7 @@ const LoginForm = ({
                 onClick={toggleRegView}
                 className="regButton"
                 type="submit"
-                >¿No tienes una cuenta? Regístrate</button>
+                >Regístrate</button>
             </form>
 
         </div>
