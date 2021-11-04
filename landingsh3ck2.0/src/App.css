@@ -534,7 +534,8 @@
     justify-content: center;
     align-items: center;
     padding: 0 30px;
-    height: 990px;
+    /* height: 990px; */
+    height: 847px;
     z-index: 1;
 }
 
@@ -803,7 +804,6 @@
     display: flex; 
     width: 100%;
     height: 1000px;
-    /* background-color: #010606; */
     justify-content: space-between;
 }
 
@@ -1161,9 +1161,41 @@
 
  .footerSectionContainer {
      width: 100%;
-     height: 400px;
+     height: 2900px;
      background-color: #010606;
  }
+ .footerWrapper {
+    width: 100%;
+    height: 2900px;
+    background-color: #01bf71;
+ }
+
+ .footerSection1 {
+    width: 100%;
+    height: 2100px;
+    background-color: #eeeeee;
+ }
+ 
+.footerSection1_1 {
+    width: 100%;
+    height: 20%;
+    background-color: aqua;
+}
+.footerSection1_2 {
+    width: 100%;
+    height: 25%;
+    background-color: #ef476f;
+}
+.footerSection1_3 {
+    width: 100%;
+    height: 35%;
+    background-color: #FF810A;
+}
+.footerSection2 {
+    width: 100%;
+    height: 800px;
+    background-color: #232a34;
+}
 
 /* *************** Responsive design ***********************/
 /* ********  Desktop Responsive Design ******************* */
@@ -1881,28 +1913,118 @@
         margin-top: 100px;
     }
 
-    .contactContainer{
-        height: 1400px;
+    /*********** Info *******************  */
+    .contactContainer {
+        width: 100%;
+        height: 2200px;
     }
 
     .contactWrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        height: 2200px;
     }
+ 
+
     .contactInfo {
-        position: unset;
+        justify-content: unset;
+        align-items: unset;
         width: 100%;
-        height: 600px;
+        height: 1400px;
+        background-color: #FAD570;
     }
+    
+    .contactInfoTitleContainer {
+        width: 100%;
+        height: 21%;
+        margin-top: 8%;
+        
+    }
+        
+    
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 8%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 18%;
+    }
+    
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 30%;
+    }
+    
+    .contactInfoImageContainer {
+        width: 100%;
+        height: 40%;
+        margin-top: 10%;
+    }
+    
+    .contactInfoImageContainer img {
+        margin-top: 2%;
+        margin-left: 23%;
+        width: 54%;
+    }
+    .contactInfoDescContainer {
+        margin-top: 6%;
+        margin-left: 2%;
+    } 
+    
+    .contactInfoOption1 {
+        margin-bottom: 4%;
+    }
+    .contactInfoOption1 h3 {
+        font-size: 2rem;
+    }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 30%;
+        margin-bottom: 2.3%;
+        margin-right: 3%;
+        margin-left: 1%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 2rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+    
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 32%;
+        margin-bottom: 2%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 2rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
+
     .contactForms {
         width: 100%;
         height: 800px;
-        position: unset;
-        
-        
+        position: unset; 
     }
+
     .optionsWrapper {
         width: 75%;
         margin-top: 5%;
@@ -1958,138 +2080,6 @@
     .formContainer button {
         height: 115px;
     }
-
-    /*********** Info *******************  */
-
-    .contactContainer {
-        width: 100%;
-        height: 2400px;
-        /* background-color: red; */
-    }
-
-    .contactWrapper {
-        display: flex; 
-        width: 100%;
-        height: 2400px;
-        /* background-color: #010606; */
-        justify-content: space-between;
-    }
-
-    .contactInfo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 1600px;
-        background-color: #FAD570;
-    }
-    
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 30%;
-        /* background-color: #01bf71; */
-    }
-        
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 25%;
-        /* background-color: #01bf71; */
-    }
-    /* .contactInfoTopLine {
-        font-size: 16px;
-        line-height: 16px;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        margin-left: 8%;
-    } */
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 5rem;
-        margin-top: 1%;
-        margin-left: 8%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 5rem;
-        margin-top: 1%;
-        margin-left: 18%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 5rem;
-        margin-top: 1%;
-        margin-left: 30%;
-    }
-    
-    /* .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    } */
-    
-    .contactInfoImageContainer img {
-        margin-top: 2%;
-        margin-left: 19%;
-        width: 54%;
-    }
-    /* .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }  */
-    
-    .contactInfoOption1 {
-        margin-bottom: 4%;
-    }
-    .contactInfoOption1 h3 {
-        font-size: 2rem;
-    }
-    .contactInfoOption1 p {
-        font-size: 1.2rem;
-    }
-     .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-        margin-bottom: 2.3%;
-        margin-right: 3%;
-        margin-left: 1%;
-    }
-    .contactInfoOption2 h3 {
-        font-size: 2rem;
-    }
-    .contactInfoOption2 p {
-        font-size: 1.2rem;
-    }
-    
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 32%;
-        margin-bottom: 2%;
-    } 
-    .contactInfoOption3 h3 {
-        font-size: 2rem;
-    }
-    .contactInfoOption3 p {
-        font-size: 1.2rem;
-    }
-    /******************************  */
-
-    
     
   
 }
@@ -2275,29 +2265,113 @@
         margin-top: 50px;
     }
 
-    .contactWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+     /*********** Info *******************  */
+     .contactContainer {
         width: 100%;
-        height: 700px;
-    }
-
-    .contactContainer{
-        height: 1400px;
+        height: 2000px;
     }
 
     .contactWrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        height: 2000px;
     }
+ 
+
     .contactInfo {
-        position: unset;
+        justify-content: unset;
+        align-items: unset;
         width: 100%;
-        height: 600px;
+        height: 1200px;
+        background-color: #FAD570;
     }
+    
+    .contactInfoTitleContainer {
+        width: 100%;
+        height: 21%;
+        margin-top: 10%;
+        
+    }
+        
+    
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 8%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 14%;
+    }
+    
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 5rem;
+        margin-top: 1%;
+        margin-left: 22%;
+    }
+    
+    .contactInfoImageContainer {
+        width: 100%;
+        height: 40%;
+        margin-top: 10%;
+    }
+    
+    .contactInfoImageContainer img {
+        margin-top: 2%;
+        margin-left: 13%;
+        width: 70%;
+    }
+    .contactInfoDescContainer {
+        margin-left: 2%;
+        margin-top: 9%;
+    } 
+    
+    .contactInfoOption1 {
+        margin-bottom: 2%;
+        margin-left: 2%;
+    }
+    .contactInfoOption1 h3 {
+        font-size: 1.2rem;
+    }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 30%;
+        margin-bottom: 2%;
+        margin-right: 3%;
+        margin-left: 1%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 1.2rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+    
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 32%;
+        margin-bottom: 2%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 1.2rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
+   
     .contactForms {
         width: 100%;
         height: 800px;
@@ -2371,134 +2445,6 @@
         height: 115px;
     }
 
-    /*********** Info *******************  */
-
-    .contactContainer {
-        width: 100%;
-        height: 2400px;
-        /* background-color: red; */
-    }
-
-    .contactWrapper {
-        display: flex; 
-        width: 100%;
-        height: 2400px;
-        /* background-color: #010606; */
-        justify-content: space-between;
-    }
-
-    .contactInfo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 1600px;
-        background-color: #FAD570;
-    }
-    
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 30%;
-        /* background-color: #01bf71; */
-    }
-        
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 25%;
-        /* background-color: #01bf71; */
-    }
-    .contactInfoTopLine {
-        font-size: 1.2rem;
-        margin-left: 7%;
-        
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 5rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 5rem;
-        margin-left: 13%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 5rem;
-        margin-top: 1%;
-        margin-left: 23%;
-    }
-    
-    /* .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    } */
-    
-    .contactInfoImageContainer img {
-        margin-top: 4%;
-        margin-left: 11%;
-        width: 75%;
-    }
-    /* .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }  */
-    
-    .contactInfoOption1 {
-        margin-bottom: 4%;
-        margin-left: 2%;
-    }
-    .contactInfoOption1 h3 {
-        font-size: 1.7rem;
-    }
-    .contactInfoOption1 p {
-        font-size: 1.2rem;
-    }
-     .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-        margin-bottom: 2.3%;
-        margin-right: 3%;
-        margin-left: 1%;
-        margin-top: 2%;
-    }
-    .contactInfoOption2 h3 {
-        font-size: 1.7rem;
-    }
-    .contactInfoOption2 p {
-        font-size: 1.2rem;
-    }
-    
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 32%;
-        margin-bottom: 2%;
-    } 
-    .contactInfoOption3 h3 {
-        font-size: 1.7rem;
-    }
-    .contactInfoOption3 p {
-        font-size: 1.2rem;
-    }
-    /******************************  */
-    
 
 }
 /* ********  Phones Responsive Design ******************* */
@@ -2683,21 +2629,131 @@
         margin-top: 50px;
     }
     
-    .contactContainer{
-        height: 1400px;
+
+    /*********** Info *******************  */
+    .contactContainer {
+        width: 100%;
+        height: 2500px;
+        /* background-color: red; */
     }
 
     .contactWrapper {
         display: flex;
+        flex-direction: column; 
+        width: 100%;
+        height: 2500px;
+        /* background-color: #010606; */
+        justify-content: space-between;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        width: 100%;
+        height: 1700px;
+        background-color: #FAD570;
+    }
+    
+        
+    .contactInfoTitleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 20%;
+        margin-top: 10%;
+        /* background-color: #01bf71; */
+    }
+    .contactInfoTopLine {
+        font-size: 1.2rem;
+        margin-left: 7%;
+        
+    }
+    
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-left: 6%;
+    }
+    
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+    
+    .contactInfoImageContainer {
+        margin-top: 10%;
+        height: 35%;
+    }
+    
+    .contactInfoImageContainer img {
+        margin-top: 4%;
+        margin-left: 2%;
+        width: 96%;
+    }
+    .contactInfoDescContainer {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 29%;
+        margin-left: 6%;
+        margin-top: 10%;
+    } 
+    
+    .contactInfoOption1 {
+        width: 70%;
+        margin-bottom: 4%;
+        
     }
-    .contactInfo {
-        position: unset;
-        width: 100%;
-        height: 600px;
+    .contactInfoOption1 h3 {
+        font-size: 2.5rem;
     }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-bottom: 2.3%;
+        margin-right: 3%;
+        margin-top: 10%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+    
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-top: 10%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
+    
     .contactForms {
         width: 100%;
         height: 800px;
@@ -2777,129 +2833,6 @@
     .formContainer button {
         height: 85px;
     }
-
-    /*********** Info *******************  */
-
-    .contactContainer {
-        width: 100%;
-        height: 2700px;
-        /* background-color: red; */
-    }
-
-    .contactWrapper {
-        display: flex; 
-        width: 100%;
-        height: 2700px;
-        /* background-color: #010606; */
-        justify-content: space-between;
-    }
-
-    .contactInfo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 2100px;
-        background-color: #FAD570;
-    }
-    
-        
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 20%;
-        /* background-color: #01bf71; */
-    }
-    .contactInfoTopLine {
-        font-size: 1.2rem;
-        margin-left: 7%;
-        
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-left: 6%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    
-    .contactInfoImageContainer {
-        /* width: 100%; */
-        height: 28%;
-    }
-    
-    .contactInfoImageContainer img {
-        margin-top: 4%;
-        margin-left: 2%;
-        width: 96%;
-    }
-    .contactInfoDescContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 29%;
-    } 
-    
-    .contactInfoOption1 {
-        width: 70%;
-        margin-bottom: 4%;
-        
-    }
-    .contactInfoOption1 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption1 p {
-        font-size: 1.5rem;
-    }
-     .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-bottom: 2.3%;
-        margin-right: 3%;
-        margin-top: 10%;
-    }
-    .contactInfoOption2 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption2 p {
-        font-size: 1.5rem;
-    }
-    
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-top: 10%;
-    } 
-    .contactInfoOption3 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption3 p {
-        font-size: 1.5rem;
-    }
-    /******************************  */
-
-    
 
 }
 
@@ -3083,17 +3016,127 @@
         margin-top: 70px;
     }
     
+    /*********** Info *******************  */
+    .contactContainer {
+        width: 100%;
+        height: 2500px;
+    }
+
     .contactWrapper {
+        display: flex;
+        flex-direction: column; 
+        width: 100%;
+        height: 2500px;
+        /* background-color: #010606; */
+        justify-content: space-between;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        width: 100%;
+        height: 1700px;
+        background-color: #FAD570;
+    }
+
+
+    .contactInfoTitleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 20%;
+        margin-top: 20%;
+    }
+    .contactInfoTopLine {
+        font-size: 1.2rem;
+        margin-left: 7%;
+
+    }
+
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-left: 6%;
+    }
+
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 3.8rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+
+    .contactInfoImageContainer {
+        margin-top: 10%;
+        height: 30%;
+    }
+
+    .contactInfoImageContainer img {
+        margin-top: 4%;
+        margin-left: 2%;
+        width: 96%;
+    }
+    .contactInfoDescContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 29%;
+        margin-left: 6%;
+        margin-top: 15%;
+    } 
+
+    .contactInfoOption1 {
+        width: 70%;
+        margin-bottom: 4%;
+
     }
-    .contactInfo {
-        position: unset;
-        width: 100%;
-        height: 600px;
+    .contactInfoOption1 h3 {
+        font-size: 2.5rem;
     }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-bottom: 2.3%;
+        margin-right: 3%;
+        margin-top: 10%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-top: 10%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
     .contactForms {
         width: 100%;
         height: 800px;
@@ -3167,127 +3210,6 @@
         height: 85px;
     }
 
-    /*********** Info *******************  */
-
-    .contactContainer {
-        width: 100%;
-        height: 2900px;
-        /* background-color: red; */
-    }
-
-    .contactWrapper {
-        display: flex; 
-        width: 100%;
-        height: 2900px;
-        /* background-color: #010606; */
-        justify-content: space-between;
-    }
-
-    .contactInfo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 2100px;
-        background-color: #FAD570;
-    }
-    
-        
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 20%;
-        /* background-color: #01bf71; */
-    }
-    .contactInfoTopLine {
-        font-size: 1.2rem;
-        margin-left: 7%;
-        
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-left: 6%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.8rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    
-    .contactInfoImageContainer {
-        /* width: 100%; */
-        height: 25%;
-    }
-    
-    .contactInfoImageContainer img {
-        margin-top: 4%;
-        margin-left: 2%;
-        width: 96%;
-    }
-    .contactInfoDescContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 35%;
-    } 
-    
-    .contactInfoOption1 {
-        width: 70%;
-        margin-bottom: 4%;
-        
-    }
-    .contactInfoOption1 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption1 p {
-        font-size: 1.2rem;
-    }
-     .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-bottom: 2.3%;
-        margin-right: 3%;
-        margin-top: 10%;
-    }
-    .contactInfoOption2 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption2 p {
-        font-size: 1.2rem;
-    }
-    
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-top: 10%;
-        margin-bottom: 20%;
-    } 
-    .contactInfoOption3 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption3 p {
-        font-size: 1.2rem;
-    }
-    /******************************  */
    
 }
 
@@ -3468,21 +3390,127 @@
         margin-left: 3%;
         margin-top: 50px;
     }
-    .contactContainer{
-        height: 1400px;
+    /*********** Info *******************  */
+    .contactContainer {
+        width: 100%;
+        height: 2600px;
     }
 
     .contactWrapper {
         display: flex;
+        flex-direction: column; 
+        width: 100%;
+        height: 2600px;
+        /* background-color: #010606; */
+        justify-content: space-between;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        width: 100%;
+        height: 1800px;
+        background-color: #FAD570;
+    }
+
+
+    .contactInfoTitleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 20%;
+        margin-top: 20%;
+    }
+    .contactInfoTopLine {
+        font-size: 1.2rem;
+        margin-left: 7%;
+
+    }
+
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 3.5rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 3.5rem;
+        margin-left: 6%;
+    }
+
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 3.5rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+
+    .contactInfoImageContainer {
+        margin-top: 10%;
+        height: 25%;
+    }
+
+    .contactInfoImageContainer img {
+        margin-top: 4%;
+        margin-left: 2%;
+        width: 96%;
+    }
+    .contactInfoDescContainer {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 36%;
+        margin-left: 6%;
+        margin-top: 15%;
+    } 
+
+    .contactInfoOption1 {
+        width: 70%;
+        margin-bottom: 4%;
+
     }
-    .contactInfo {
-        position: unset;
-        width: 100%;
-        height: 600px;
+    .contactInfoOption1 h3 {
+        font-size: 2.5rem;
     }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-bottom: 2.3%;
+        margin-right: 3%;
+        margin-top: 10%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-top: 10%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 2.5rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
     .contactForms {
         width: 100%;
         height: 800px;
@@ -3572,128 +3600,6 @@
         height: 85px;
     }
 
-    /*********** Info *******************  */
-
-    .contactContainer {
-        width: 100%;
-        height: 2900px;
-        /* background-color: red; */
-    }
-
-    .contactWrapper {
-        display: flex; 
-        width: 100%;
-        height: 2900px;
-        /* background-color: #010606; */
-        justify-content: space-between;
-    }
-
-    .contactInfo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 2100px;
-        background-color: #FAD570;
-    }
-    
-        
-    .contactInfoTitleContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 20%;
-        /* background-color: #01bf71; */
-    }
-    .contactInfoTopLine {
-        font-size: 1.2rem;
-        margin-left: 7%;
-        
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-left: 6%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 6%;
-    }
-    
-    .contactInfoImageContainer {
-        /* width: 100%; */
-        height: 25%;
-    }
-    
-    .contactInfoImageContainer img {
-        margin-top: 4%;
-        margin-left: 8%;
-        width: 85%;
-    }
-    .contactInfoDescContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 35%;
-    } 
-    
-    .contactInfoOption1 {
-        width: 70%;
-        margin-bottom: 4%;
-        
-    }
-    .contactInfoOption1 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption1 p {
-        font-size: 1.2rem;
-    }
-     .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-bottom: 2.3%;
-        margin-right: 3%;
-        margin-top: 10%;
-    }
-    .contactInfoOption2 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption2 p {
-        font-size: 1.2rem;
-    }
-    
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 70%;
-        margin-top: 10%;
-        margin-bottom: 20%;
-    } 
-    .contactInfoOption3 h3 {
-        font-size: 2.5rem;
-    }
-    .contactInfoOption3 p {
-        font-size: 1.2rem;
-    }
-    /******************************  */
-    
     
 }
 
@@ -3872,25 +3778,125 @@
         margin-left: 3%;
         margin-top: 50px;
     }
-    .contactContainer{
-        height: 1400px;
-    }
-
-    .contactContainer{
-        height: 1400px;
+    /*********** Info *******************  */
+    .contactContainer {
+        width: 100%;
+        height: 2400px;
     }
 
     .contactWrapper {
         display: flex;
+        flex-direction: column; 
+        width: 100%;
+        height: 2400px;
+        justify-content: space-between;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        width: 100%;
+        height: 1600px;
+        background-color: #FAD570;
+    }
+
+
+    .contactInfoTitleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 15%;
+        margin-top: 20%;
+    }
+    .contactInfoTopLine {
+        font-size: 1.2rem;
+        margin-left: 7%;
+
+    }
+
+    .contactInfoTitle1 {
+        width: 70%;
+        font-size: 3.1rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+    .contactInfoTitle2 {
+        width: 70%;
+        font-size: 3.1rem;
+        margin-left: 6%;
+    }
+
+    .contactInfoTitle3 {
+        width: 70%;
+        font-size: 3.1rem;
+        margin-top: 1%;
+        margin-left: 6%;
+    }
+
+    .contactInfoImageContainer {
+        margin-top: 10%;
+        height: 22%;
+    }
+
+    .contactInfoImageContainer img {
+        margin-top: 4%;
+        margin-left: 2%;
+        width: 96%;
+    }
+    .contactInfoDescContainer {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        height: 1400px;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 41%;
+        margin-top: 15%;
+    } 
+
+    .contactInfoOption1 {
+        width: 70%;
+        margin-bottom: 4%;
+
     }
-    .contactInfo {
-        position: unset;
-        width: 100%;
-        height: 600px;
+    .contactInfoOption1 h3 {
+        font-size: 2rem;
     }
+    .contactInfoOption1 p {
+        font-size: 1.2rem;
+    }
+     .contactInfoOption2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-bottom: 2.3%;
+        margin-right: 3%;
+        margin-top: 10%;
+    }
+    .contactInfoOption2 h3 {
+        font-size: 2rem;
+    }
+    .contactInfoOption2 p {
+        font-size: 1.2rem;
+    }
+
+    .contactInfoOption3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin-top: 10%;
+    } 
+    .contactInfoOption3 h3 {
+        font-size: 2rem;
+    }
+    .contactInfoOption3 p {
+        font-size: 1.2rem;
+    }
+    /******************************  */
     .contactForms {
         width: 100%;
         height: 800px;
