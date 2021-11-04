@@ -6,6 +6,7 @@ import OptionsForms from './optionsForms'
 import LoginForm from './loginForm'
 import NotificationBox from '../notifications/NotificationBox'
 import axios from 'axios'
+import picture from '../../images/2034873_chat_app_media_mobile_social_icon.svg'
 import FormHeader from './formHeader'
 import { responseDataInterested, responseDataRegister, responseDataLogin } from '../notifications/notificationData'
 
@@ -181,7 +182,37 @@ const togglingResponseData = () => {
         className="contactContainer">
             <div className="contactWrapper">
                 <div className="contactInfo">
-
+                    <div className="contactInfoTitleContainer">
+                        <p className="contactInfoTopLine">
+                            Pronto a nivel nacional
+                        </p>
+                        <h1 className="contactInfoTitle1"> Estamos</h1>
+                        <h1 className="contactInfoTitle2"> construyendo</h1>
+                        <h1 className="contactInfoTitle3"> nuestra App...</h1>
+                    </div>
+                    <div className="contactInfoImageContainer">
+                        <img 
+                        className="contactInfoImage"
+                        src={picture} alt="" />
+                    </div>
+                    <div className="contactInfoDescContainer">
+                        <div className="contactInfoOption1">
+                            <h3>Estamos listos!</h3>
+                            <p className="contactInfoDesc">
+                                Estamos listos para ayudarte. Aún asi estamos listos para ayudarte</p>
+                        </div>
+                        <div className="contactInfoOption2">
+                            <h3><b> Déjanos tus datos. </b></h3>
+                            <p className="contactInfoDesc">Te notificaremos cuando nuestra app esté lista. Queremos saber en que ciudad estás</p>     
+                        </div>
+                        <div className="contactInfoOption3">
+                            <h3><b>Chequea un producto</b></h3>
+                            <p className="contactInfoDesc">Podemos ayudarte desde ya a chequear ese producto que quieres comprar. Compra seguro</p>    
+                        </div>
+                        
+                       
+                        
+                    </div>
                 </div>
                 {/* <motion.div 
                 className="contactInfo" */}
