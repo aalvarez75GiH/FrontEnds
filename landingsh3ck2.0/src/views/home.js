@@ -91,7 +91,7 @@ const Home = () => {
 
     const handlingSubmitLogOutUser = () => {
         localStorage.removeItem('SH3CK_TOKEN')
-        setLogoutSideBarOpen(!logoutSideBarOpen)
+        setMainSideBarOpen(!mainSideBarOpen)
         setLoggedIn(false)
         setLoggedOut(true)
         
@@ -104,12 +104,18 @@ const Home = () => {
     } 
     const toggleLoginSideBar = () => {
         setLoginSideBarOpen(!loginSideBarOpen)
+        // console.log(loggedIn)
+        // console.log(loggedOut)
+        // console.log(loginSideBarOpen)
     }
     const toggleLogoutSideBar = () => {
         setLogoutSideBarOpen(!logoutSideBarOpen)
     }
     const toggleMainSideBar = () => {
         setMainSideBarOpen(!mainSideBarOpen)
+        // console.log(loggedIn)
+        // console.log(loggedOut)
+        // console.log(mainSideBarOpen)
     } 
     const toggleNotification = () => {
         setLoginResponse(null)

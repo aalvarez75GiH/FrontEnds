@@ -16,6 +16,7 @@ const LoginSideBar = ({
 }) => {
     console.log(loggedIn)
     console.log(loggedOut)
+    console.log(loginSideBarOpen)
     if (loggedOut){
         return (
             <aside

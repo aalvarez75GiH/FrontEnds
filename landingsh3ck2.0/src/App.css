@@ -506,23 +506,6 @@
     border-radius: 30px;
 
 }
-/* .logoutSideBarTitleWrapper {
-    height: 18%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-} */
-/* .logoutSideBarFormTitle {
-    display: flex;
-    align-items: center;
-    color: #010606;
-    width: 100%;
-    height: 12%;
-    font-size: 3rem;
-    margin-left: 8%;
-
-} */
 
 /* ************ MainSideBar *******************************/
 .mainSideBarContainer {
@@ -576,50 +559,56 @@
 }
 
 
-.mainSideBarMain {
+.mainSideBarContent {
     display: flex;
     flex-direction: column;
     width: 50%;
-    border: 2px solid #000000;
+    height: 600px;
+    /* border: 2px solid #000000; */
+    padding-top: 2%;
+    padding-left: 5%;
 }
-.mainSideBarFormTitle {
+.mainSideBarContentUser {
     display: flex;
     align-items: center;
     color: #010606;
     width: 100%;
-    height: 12%;
+    height: 20%;
     font-size: 3rem;
     
 }
-.mainSideBarTitle {
+.mainSideBarUserIcon {
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
+    width: 5%;
+}
+.mainSideBarUserName {
     font-size: 2rem;
 }
-/* .mainSideOptionsList {
-
-} */
-.mainSideBarTitleWrapperLoggedIn {
-    height: 19%;
-    width: 35%;
+.mainSideBarContentOptions {
+    margin-left: 5%;
+    height: 50%;
+}
+.mainSideBarContentItems {
+    font-size: 1.8rem;
+    margin-bottom: 1%;
+    border-bottom: 1px solid #eeeeee;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 1%;
+}
+.closeBtn {
     display: flex;
-    flex-direction: column;
-}
-.mainSideBarFormTitleLoggedIn {
-    color: #010606;
-    height: 20%;
-    font-size: 1rem;
-    margin-bottom: 2%;
-}
-.closeSessionBtn {
+    justify-content: center;
+    align-items: center;
+    width: 33%;
     height: 30%;
-    width: 50%;
     background-color: #FAD570;
-    color: #010606;
-    border-style: none;
-    font-size: 1rem;
-    border-radius: 30px;
-
+    margin-top: 3%;
+    border-radius: 65px;
+    font-size: 1.4rem;
 }
-
 
 /*************** heroSection ****************************** */
 .heroContainer {
@@ -1475,11 +1464,7 @@
     .loginSideBoxContainer {
         width: 45%
     }
-    
-    /* .loginSideBoxContainer { 
-        height: 35%;
-    } */
-    
+     
     .input {
         height: 115px;
         font-size: 1.3rem;
@@ -1487,71 +1472,19 @@
     .formContainer button {
         height: 115px;
     }
-    /*********** Info *******************  */
-    /* .contactInfoTopLine {
-        font-size: 16px;
-        line-height: 16px;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        margin-left: 8%;
-    }
     
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 8%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 18%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 35%;
-    }
-    
-    .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    }*/
     
     .contactInfoImageContainer img {
         margin-top: 2%;
         margin-left: 21%;
         width: 48%;
     }
-    /* .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }  */
+    
     
     .contactInfoOption1 {
         margin-bottom: 2%;
     }
-    /* .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    }
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    } */
-    /******************************  */
-
+    
     
   
 }
@@ -1627,68 +1560,18 @@
     }
 
     /*********** Info *******************  */
-    /* .contactInfoTopLine {
-        font-size: 16px;
-        line-height: 16px;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        margin-left: 8%;
-    }
     
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 8%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 18%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 35%;
-    }
-    
-    .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    }*/
     
     .contactInfoImageContainer img {
         margin-top: 2%;
         margin-left: 21%;
         width: 55%;
     }
-    /* .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }  */
-    
+        
     .contactInfoOption1 {
         margin-bottom: 2%;
     }
-    /* .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    }
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    } */
+    
     /******************************  */
 
     
@@ -1748,9 +1631,6 @@
         width: 55%
     }
     
-    /* .loginSideBoxContainer { 
-        height: 35%;
-    } */
     
     .input {
         height: 115px;
@@ -1761,52 +1641,13 @@
     }
 
     /*********** Info *******************  */
-    /* .contactInfoTopLine {
-        font-size: 16px;
-        line-height: 16px;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        margin-left: 8%;
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 8%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 18%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 35%;
-    }
-    
-    .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    }*/
-    
+        
     .contactInfoImageContainer img {
         margin-top: 2%;
         margin-left: 19%;
         width: 59%;
     }
-    /* .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }  */
+    
     
     .contactInfoOption1 {
         margin-bottom: 2%;
@@ -2162,11 +2003,7 @@
     .loginSideBoxContainer {
         width: 65%
     }
-    
-    /* .loginSideBoxContainer { 
-        height: 35%;
-    } */
-    
+
     .input {
         height: 115px;
         font-size: 1.3rem;
@@ -2728,7 +2565,7 @@
     .contactContainer {
         width: 100%;
         height: 2500px;
-        /* background-color: red; */
+        
     }
 
     .contactWrapper {
@@ -2736,7 +2573,6 @@
         flex-direction: column; 
         width: 100%;
         height: 2500px;
-        /* background-color: #010606; */
         justify-content: space-between;
     }
 
@@ -2758,7 +2594,6 @@
         width: 100%;
         height: 20%;
         margin-top: 10%;
-        /* background-color: #01bf71; */
     }
     .contactInfoTopLine {
         font-size: 1.2rem;
@@ -3121,7 +2956,6 @@
         flex-direction: column; 
         width: 100%;
         height: 2500px;
-        /* background-color: #010606; */
         justify-content: space-between;
     }
 
@@ -3235,8 +3069,6 @@
         width: 100%;
         height: 800px;
         position: unset;
-        
-        
     }
 
     .optionsWrapper {
@@ -3495,7 +3327,6 @@
         flex-direction: column; 
         width: 100%;
         height: 2600px;
-        /* background-color: #010606; */
         justify-content: space-between;
     }
 
