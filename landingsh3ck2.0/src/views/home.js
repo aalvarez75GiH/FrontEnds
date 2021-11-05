@@ -4,6 +4,7 @@ import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
 import LogoutSideBar from '../components/logoutSideBar/logoutSideBar'
+import MainSideBar from '../components/mainSideBar/mainSideBar'
 // import StyledSideBar from '../components/sideBar/styledSideBar'
 import HeroSection from '../components/heroSection/heroSection'
 // import StyledNavBar from '../components/navBar/styledNavbar'
@@ -26,6 +27,7 @@ const Home = () => {
     const [currentUser, setCurrentUser ] = useState('')
     const [ loginSideBarOpen, setLoginSideBarOpen ] = useState(false)
     const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
+    const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     
     
@@ -105,6 +107,9 @@ const Home = () => {
     }
     const toggleLogoutSideBar = () => {
         setLogoutSideBarOpen(!logoutSideBarOpen)
+    }
+    const toggleMainSideBar = () => {
+        setMainSideBarOpen(!mainSideBarOpen)
     } 
     const toggleNotification = () => {
         setLoginResponse(null)
@@ -127,9 +132,9 @@ const Home = () => {
             {/* } */}
 
             {/* {!loggedOut && logoutSideBarOpen ? */}
-            <LogoutSideBar
-            logoutSideBarOpen={logoutSideBarOpen}
-            toggleLogoutSideBar={toggleLogoutSideBar}
+            <MainSideBar
+            mainSideBarOpen={mainSideBarOpen}
+            toggleMainSideBar={toggleMainSideBar}
             loggedIn={loggedIn}
             loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
@@ -144,14 +149,14 @@ const Home = () => {
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 
                 toggleLoginSideBar={toggleLoginSideBar}
-                toggleLogoutSideBar={toggleLogoutSideBar}
+                toggleMainSideBar={toggleMainSideBar}
                 toggleSideBar={ toggleSideBar }  
                 username={currentUser}
                 login={ loggedIn }
                 // onLogin={ onLogin }
             /> : <NavBar
             toggleLoginSideBar={toggleLoginSideBar}
-            toggleLogoutSideBar={toggleLogoutSideBar} 
+            toggleMainSideBar={toggleMainSideBar} 
             username={currentUser}
             login={ loggedIn }
             // onLogin={ onLogin }

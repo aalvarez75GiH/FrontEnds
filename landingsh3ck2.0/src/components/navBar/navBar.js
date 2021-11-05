@@ -7,7 +7,7 @@ import { BiUserCheck } from 'react-icons/bi'
 const NavBar = ({  
     login, 
     toggleLoginSideBar,
-    toggleLogoutSideBar
+    toggleMainSideBar
     
 
 }) => {
@@ -68,7 +68,7 @@ const NavBar = ({
                         </li>
                     </ul>
                     <div 
-                    onClick={toggleLogoutSideBar}
+                    onClick={toggleMainSideBar}
                     className="loggedInIconContainer"
                         // style={{
                         //     color: `${scrollNav ? '#ffffff' : 'transparent'}`
