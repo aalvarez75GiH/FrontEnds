@@ -11,7 +11,7 @@ const NavBarMobil = ({
     username, 
     login, 
     toggleLoginSideBar,
-    toggleLogoutSideBar 
+    toggleMainSideBar 
 }) => {
     if (login){
         return(
@@ -22,7 +22,7 @@ const NavBarMobil = ({
                     <div 
                     className="mobileIconMobil">
                         <BiUserCheck 
-                        onClick={toggleLogoutSideBar}
+                        onClick={toggleMainSideBar}
                         className="faUserIcon"/>
                         <FaBars 
                         onClick={toggleSideBar}

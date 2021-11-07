@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { BiUserCheck } from 'react-icons/bi'
+import { BiUserCheck, BiUserCircle, BiHelpCircle, BiQuestionMark } from 'react-icons/bi'
+import { IoMdCart } from 'react-icons/io'
 
 // import LoginForm from '../contactSection/loginForm'
 
@@ -41,15 +42,27 @@ const MainSideBar = ({
                         </div>
                         <div className="mainSideBarContentOptions">
                             <div  className="mainSideBarContentItems">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <BiUserCircle/>
+                                </div>
                                 Mi cuenta
                             </div>
                             <div className="mainSideBarContentItems">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <IoMdCart/>
+                                </div>
                                 Mis chequeos
                             </div>
                             <div className="mainSideBarContentItems">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <BiHelpCircle/>
+                                </div>
                                 Ayuda
                             </div>
                             <div className="mainSideBarContentItems">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <BiQuestionMark/>
+                                </div>
                                 Preguntas y respuestas
                             </div>
                             <div

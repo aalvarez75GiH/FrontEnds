@@ -431,9 +431,11 @@
     cursor: pointer;
     outline: none;
 }
+
 .logoutCloseIcon {
     color:#ffffff;
 }
+
 .logoutSideHeader {    /** Open and Closed **/
     width: 100%;
     height: 80px;
@@ -564,7 +566,6 @@
     flex-direction: column;
     width: 50%;
     height: 600px;
-    /* border: 2px solid #000000; */
     padding-top: 2%;
     padding-left: 5%;
 }
@@ -583,21 +584,30 @@
     margin-right: 1%;
     width: 5%;
 }
+
 .mainSideBarUserName {
     font-size: 2rem;
 }
+
 .mainSideBarContentOptions {
     margin-left: 5%;
     height: 50%;
 }
 .mainSideBarContentItems {
-    font-size: 1.8rem;
+    display: flex;
+    font-size: 1.6rem;
     margin-bottom: 1%;
     border-bottom: 1px solid #eeeeee;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 1%;
 }
+.mainSideBarUserOptionsIcon {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+
 .closeBtn {
     display: flex;
     justify-content: center;
@@ -1406,7 +1416,6 @@
     }
     /******************************  */
     
-    
 }
 
 
@@ -1485,6 +1494,10 @@
         margin-bottom: 2%;
     }
     
+    .closeBtn {
+        width: 38%;
+        height: 22%;
+    }
     
   
 }
@@ -1574,6 +1587,12 @@
     
     /******************************  */
 
+    /* *****  MainSideBar *********** */
+    .closeBtn {
+        
+        width: 38%;
+        height: 22%;
+    }
     
 
 }
@@ -1670,7 +1689,116 @@
     } 
     /******************************  */
 
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
     
+    
+    .mainSideBarContent {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        height: 600px;
+        padding-top: 2%;
+        padding-left: 5%;
+    }
+    /* .mainSideBarContentUser {
+        display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 20%;
+        font-size: 3rem;
+        
+    } */
+    /* .mainSideBarUserIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 1%;
+        width: 5%;
+    } */
+    
+    /* .mainSideBarUserName {
+        font-size: 2rem;
+    } */
+    
+    /* .mainSideBarContentOptions {
+        margin-left: 5%;
+        height: 50%;
+    } */
+    /* .mainSideBarContentItems {
+        display: flex;
+        font-size: 1.6rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 1%;
+    } */
+    /* .mainSideBarUserOptionsIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 2%;
+    } */
+    
+    /* .closeBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 33%;
+        height: 30%;
+        background-color: #FAD570;
+        margin-top: 3%;
+        border-radius: 65px;
+        font-size: 1.4rem;
+    } */
 
     
     
@@ -2012,6 +2140,116 @@
         height: 115px;
     }
     
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
+    
+    
+    .mainSideBarContent {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 600px;
+        padding-top: 2%;
+        padding-left: 5%;
+    }
+    /* .mainSideBarContentUser {
+        display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 20%;
+        font-size: 3rem;
+        
+    } */
+    /* .mainSideBarUserIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 1%;
+        width: 5%;
+    } */
+    
+    /* .mainSideBarUserName {
+        font-size: 2rem;
+    } */
+    
+    /* .mainSideBarContentOptions {
+        margin-left: 5%;
+        height: 50%;
+    } */
+    /* .mainSideBarContentItems {
+        display: flex;
+        font-size: 1.6rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 1%;
+    } */
+    /* .mainSideBarUserOptionsIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 2%;
+    } */
+    
+    .closeBtn {
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        width: 28%;
+        height: 23%;
+        /* background-color: #FAD570;
+        margin-top: 3%;
+        border-radius: 65px;
+        font-size: 1.4rem; */
+    }
   
 }
 
@@ -2095,8 +2333,6 @@
         margin-bottom: 20px;
     }
    
-    
- 
     .heroContainerMobil {
         background-color: #FAD570;
         display: flex;
@@ -2376,6 +2612,119 @@
         height: 115px;
     }
 
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
+    
+    
+    .mainSideBarContent {
+        /* display: flex; */
+        /* flex-direction: column; */
+        width: 95%;
+        height: 100%;
+        padding-top: 2%;
+        padding-left: 0%;
+    }
+    .mainSideBarContentUser {
+        /* display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 20%;
+        font-size: 3rem; */
+        margin-left: 3%;    
+    }
+    /* .mainSideBarUserIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 1%;
+        width: 5%;
+    } */
+    
+    /* .mainSideBarUserName {
+        font-size: 2rem;
+    } */
+    
+    .mainSideBarContentOptions {
+        margin-left: 5%;
+        height: 100%;
+        width: 100%;
+    }
+    .mainSideBarContentItems {
+        display: flex;
+        align-items: center;
+        height: 15%;
+        /* font-size: 1.6rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 1%; */
+    }
+    /* .mainSideBarUserOptionsIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 2%;
+    } */
+    
+    .closeBtn {
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* width: 33%; */
+        height: 10%;
+        /* background-color: #FAD570; */
+        /* margin-top: 3%; */
+        /* border-radius: 65px; */
+        /* font-size: 1.4rem; */
+    }
 
 }
 /* ********  Phones Responsive Design ******************* */
@@ -2763,6 +3112,127 @@
         height: 85px;
     }
 
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
+    
+    
+    .mainSideBarContent {
+        /* display: flex; */
+        /* flex-direction: column; */
+        width: 100%;
+        height: 100%;
+        padding-top: 2%;
+        padding-left: 0%;
+    }
+    .mainSideBarContentUser {
+        display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 10%;
+        font-size: 3rem;
+        margin-left: 0%;
+        margin-top: 2%;  
+        padding-left: 4%;  
+    }
+    .mainSideBarUserIcon {
+        /* display: flex;
+        align-items: center;
+        margin-right: 1%; */
+        width: 7%;
+    }
+    
+    .mainSideBarUserName {
+        margin-left: 3%;
+        font-size: 1.5rem;
+    }
+    
+    .mainSideBarContentOptions {
+        width: 90%;
+        /* margin-left: 0%; */
+        height: 100%;
+    }
+    .mainSideBarContentItems {
+        display: flex;
+        align-items: center;
+        font-size: 1.7rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 3%;
+        width: 90%;
+        height: 16%;
+    }
+    .mainSideBarUserOptionsIcon {
+        /* display: flex;
+        align-items: center; */
+        margin-right: 4%;
+    }
+    
+    .closeBtn {
+        width: 70%;
+        margin-top: 5%;
+        margin-left: 13%;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* width: 33%; */
+        height: 10%;
+        /* background-color: #FAD570; */
+        /* margin-top: 3%; */
+        /* border-radius: 65px; */
+        /* font-size: 1.4rem; */
+    }
+
 }
 
 @media (max-width:480px) and (min-width: 414px){
@@ -3134,6 +3604,127 @@
     }
     .formContainer .regButton {
         height: 85px;
+    }
+
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
+    
+    
+    .mainSideBarContent {
+        /* display: flex; */
+        /* flex-direction: column; */
+        width: 100%;
+        height: 100%;
+        padding-top: 2%;
+        padding-left: 0%;
+    }
+    .mainSideBarContentUser {
+        display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 10%;
+        font-size: 3rem;
+        margin-left: 0%;
+        margin-top: 2%;  
+        padding-left: 4%;  
+    }
+    .mainSideBarUserIcon {
+        /* display: flex;
+        align-items: center;
+        margin-right: 1%; */
+        width: 7%;
+    }
+    
+    .mainSideBarUserName {
+        margin-left: 3%;
+        font-size: 1.5rem;
+    }
+    
+    .mainSideBarContentOptions {
+        width: 90%;
+        /* margin-left: 0%; */
+        height: 100%;
+    }
+    .mainSideBarContentItems {
+        display: flex;
+        align-items: center;
+        font-size: 1.7rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 3%;
+        width: 90%;
+        height: 16%;
+    }
+    .mainSideBarUserOptionsIcon {
+        /* display: flex;
+        align-items: center; */
+        margin-right: 4%;
+    }
+    
+    .closeBtn {
+        width: 70%;
+        margin-top: 5%;
+        margin-left: 13%;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* width: 33%; */
+        height: 10%;
+        /* background-color: #FAD570; */
+        /* margin-top: 3%; */
+        /* border-radius: 65px; */
+        /* font-size: 1.4rem; */
     }
 
    
@@ -3523,6 +4114,127 @@
     }
     .formContainer .regButton {
         height: 85px;
+    }
+
+    /* *****  MainSideBar *********** */
+    /* .mainSideBarContainer {
+        position: fixed;
+        z-index: 999;
+        width: 30%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left:100%;
+        right: 0;
+        transition: 0.6s ease-in-out;
+        opacity:0%;
+    } */
+    /* .mainSideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        right: 0%;
+        transition: 0.6s ease-in-out;
+        opacity: 100%;
+    } */
+    /* .mainSideContactForms {
+        position: relative;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+    } */
+    /* .mainSideBarIcon {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: transparent;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+    } */
+    /* .mainSideCloseIcon {
+        color:#ffffff;
+    } */
+    /* .mainSideHeader {
+        width: 100%;
+        height: 80px;
+        background-color: #010606;
+    } */
+    
+    
+    .mainSideBarContent {
+        /* display: flex; */
+        /* flex-direction: column; */
+        width: 100%;
+        height: 100%;
+        padding-top: 2%;
+        padding-left: 0%;
+    }
+    .mainSideBarContentUser {
+        display: flex;
+        align-items: center;
+        color: #010606;
+        width: 100%;
+        height: 10%;
+        font-size: 3rem;
+        margin-left: 0%;
+        margin-top: 2%;  
+        padding-left: 4%;  
+    }
+    .mainSideBarUserIcon {
+        /* display: flex;
+        align-items: center;
+        margin-right: 1%; */
+        width: 7%;
+    }
+    
+    .mainSideBarUserName {
+        margin-left: 3%;
+        font-size: 1.5rem;
+    }
+    
+    .mainSideBarContentOptions {
+        width: 90%;
+        /* margin-left: 0%; */
+        height: 100%;
+    }
+    .mainSideBarContentItems {
+        display: flex;
+        align-items: center;
+        font-size: 1.7rem;
+        margin-bottom: 1%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 3%;
+        width: 90%;
+        height: 16%;
+    }
+    .mainSideBarUserOptionsIcon {
+        /* display: flex;
+        align-items: center; */
+        margin-right: 4%;
+    }
+    
+    .closeBtn {
+        width: 70%;
+        margin-top: 10%;
+        margin-left: 13%;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* width: 33%; */
+        height: 10%;
+        /* background-color: #FAD570; */
+        /* margin-top: 3%; */
+        /* border-radius: 65px; */
+        /* font-size: 1.4rem; */
     }
 
     
