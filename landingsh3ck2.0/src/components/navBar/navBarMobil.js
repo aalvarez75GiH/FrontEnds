@@ -3,63 +3,15 @@ import { FaBars,FaSign, FaUserPlus } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
-import { BiUser, BiUserCheck } from 'react-icons/bi'
+import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
 
 
 const NavBarMobil = ({ 
     toggleSideBar, 
-    username, 
     login, 
     toggleLoginSideBar,
     toggleMainSideBar 
 }) => {
-    if (login){
-        return(
-        <>
-            <nav className="navMobil" >
-                <div className="navBarContainerMobil">
-                    <LinkR to="/" className="navLogoMobil">sh3ck</LinkR>
-                    <div 
-                    className="mobileIconMobil">
-                        <BiUserCheck 
-                        onClick={toggleMainSideBar}
-                        className="faUserIcon"/>
-                        <FaBars 
-                        onClick={toggleSideBar}
-                        className="faBarsIcon"/>
-                    </div>
-                </div>
-                <div className="navMenuButtonsContainer">
-                    <div className="navMenuButton1">
-                        <LinkS to="about" className="navLinksMobil" >
-                            <div className="iconMobilContainer">
-                                <FaSign className="faIcon"/>
-                            </div>
-                            Notificame
-                        </LinkS>
-                    </div>
-                    <div className="navMenuButton2">
-                        <LinkS to="about" className="navLinksMobil" >
-                            <div className="iconMobilContainer">
-                                    <FaUserPlus className="faIcon"/>
-                            </div>
-                            Registrate
-                        </LinkS>
-                    </div>
-                    <div className="navMenuButtons3">
-                        <LinkS to="about" className="navLinksMobil" >
-                            <div className="iconMobilContainer">
-                                    <IoMdCart className="faIcon"/>
-                            </div>
-                            Chequéa
-                        </LinkS>
-                    </div>
-                    
-                </div>
-            </nav>
-        </>
-        )
-    }else{
         return (
             <>
                 <nav className="navMobil" >
@@ -69,10 +21,15 @@ const NavBarMobil = ({
                     // onClick={ toggleSideBar }
                     className="mobileIconMobil">
                         {/* <FaRegUser className="faIcon"/> */}
+                        {login ?
+                        <BiUserCheck 
+                        onClick={toggleMainSideBar}
+                        className="faUserIcon"/> 
+                         :   
                         <BiUser 
                         onClick={toggleLoginSideBar}
-                        
                         className="faUserIcon" />
+                        }
                         <FaBars 
                         onClick={toggleSideBar}
                         className="faBarsIcon"/>
@@ -91,9 +48,9 @@ const NavBarMobil = ({
                     <div className="navMenuButton">
                         <LinkS to="about" className="navLinksMobil" >
                         <div className="iconMobilContainer">
-                                <FaUserPlus className="faIcon"/>
+                                <BiRun className="faIcon"/>
                         </div>
-                        Registrate
+                        Comienza
                         </LinkS>
                     </div>
                     <div className="navMenuButton">
@@ -109,9 +66,9 @@ const NavBarMobil = ({
             </nav>
             </>
         )
-    }
-    
 }
+    
+
     
     
         
