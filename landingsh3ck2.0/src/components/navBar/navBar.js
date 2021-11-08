@@ -3,6 +3,7 @@ import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
 import { BiUserCheck } from 'react-icons/bi'
+import { OffsetHandlerNavBar } from '../../utils/settingOffsets'
 
 const NavBar = ({  
     login, 
@@ -48,7 +49,7 @@ const NavBar = ({
                             activeClass="active"
                             spy={true}
                             smooth={true}
-                            offset={-90}
+                            offset={OffsetHandlerNavBar('hiwSection')}
                             duration={500}
                             >Como funciona</LinkS>
                         </li>
@@ -62,18 +63,14 @@ const NavBar = ({
                             activeClass="active"
                             spy={true}
                             smooth={true}
-                            offset={-220}
+                            offset={OffsetHandlerNavBar('contactSection')}
                             duration={500}
                             >Quiero chequear</LinkS>
                         </li>
                     </ul>
                     <div 
                     onClick={toggleMainSideBar}
-                    className="loggedInIconContainer"
-                        // style={{
-                        //     color: `${scrollNav ? '#ffffff' : 'transparent'}`
-                        // }}
-                    >
+                    className="loggedInIconContainer">
                         <BiUserCheck 
                         className="loggedInUserIcon"/>
                     </div>    
@@ -103,7 +100,7 @@ const NavBar = ({
                                 activeClass="active"
                                 spy={true}
                                 smooth={true}
-                                offset={-90}
+                                offset={OffsetHandlerNavBar('hiwSection')}
                                 duration={500}
                                 >Como funciona
                                 </LinkS>
@@ -118,7 +115,7 @@ const NavBar = ({
                                 activeClass="active"
                                 spy={true}
                                 smooth={true}
-                                offset={-220}
+                                offset={OffsetHandlerNavBar('contactSection')}
                                 duration={500}
                                 
                                 >Quiero Chequear</LinkS>

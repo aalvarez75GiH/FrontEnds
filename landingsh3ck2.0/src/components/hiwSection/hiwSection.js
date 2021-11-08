@@ -95,7 +95,7 @@ const HiwSection = ({
                     fontBig = { false }
                     buttonLabel={ buttonLabel }
                     linkedTo={linkedTo}
-                    offSet={-170}
+                    offSet={-90}
                     >
                     </Button>
                 </div>

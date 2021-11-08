@@ -60,7 +60,7 @@ const VideoSection = ({
                                     fontBig = { false }
                                     buttonLabel={ buttonLabel }
                                     linkedTo={linkedTo}
-                                    offSet={-212}
+                                    offSet={-100}
                                     >
                                     </Button>
                         </div>
