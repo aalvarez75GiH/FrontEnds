@@ -4,6 +4,8 @@ import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
+import useMobilDetection from '../../utils/mobilDetection'
+import { OffsetHandler } from '../../utils/settingOffsets'
 
 
 const NavBarMobil = ({ 
@@ -12,6 +14,7 @@ const NavBarMobil = ({
     toggleLoginSideBar,
     toggleMainSideBar 
 }) => {
+    
         return (
             <>
                 <nav className="navMobil" >
@@ -37,7 +40,15 @@ const NavBarMobil = ({
                 </div>
                 <div className="navMenuButtonsContainer">
                     <div className="navMenuButton">
-                        <LinkS to="about" className="navLinksMobil" >
+                        <LinkS 
+                        to="contactSection" 
+                        className="navLinksMobil" 
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset= { OffsetHandler('notifyMe')}
+                        duration={1000}
+                        >
                             <div className="iconMobilContainer">
                                 <FaSign className="faIcon"/>
                             </div>
@@ -46,7 +57,15 @@ const NavBarMobil = ({
                         
                     </div>
                     <div className="navMenuButton">
-                        <LinkS to="about" className="navLinksMobil" >
+                        <LinkS 
+                        to="contactSection" 
+                        className="navLinksMobil" 
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={OffsetHandler('startNow')}
+                        duration={1000}
+                        >
                         <div className="iconMobilContainer">
                                 <BiRun className="faIcon"/>
                         </div>
@@ -54,7 +73,15 @@ const NavBarMobil = ({
                         </LinkS>
                     </div>
                     <div className="navMenuButton">
-                        <LinkS to="about" className="navLinksMobil" >
+                        <LinkS 
+                        to="contactSection" 
+                        className="navLinksMobil" 
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={OffsetHandler('checkAProduct')}
+                        duration={1000}
+                        >
                         <div className="iconMobilContainer">
                                 <IoMdCart className="faIcon"/>
                         </div>
