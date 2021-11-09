@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import { useFormik } from 'formik'
+import axios from 'axios'
 import * as yup  from 'yup'
 import { 
     BoxContainer, 
@@ -15,11 +16,20 @@ import { Marginer } from '../marginer/marginer'
 import { AccountContext } from './accountContext'
 
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
+const url_register = 'http://192.168.1.102:5000/api/v1/register'
+// const validationSchema = yup.object({
+//     fullName: yup.string().min(3, 'Please enter your real name').required('Full Name is required'),
+//     email: yup.string().email('Please enter a valid email address').required(),
+//     password: yup.string().matches(PASSWORD_REGEX, "Plaease enter a strong password").required(),
+//     confirmPassword: yup.string().when('password', {
+//         is: val => (val && val.length > 0 ? true : false),
+//         then:  yup.string().oneOf([yup.ref('password')], 'Password does Not match')
+//     })
+// })
 const validationSchema = yup.object({
     fullName: yup.string().min(3, 'Please enter your real name').required('Full Name is required'),
     email: yup.string().email('Please enter a valid email address').required(),
-    password: yup.string().matches(PASSWORD_REGEX, "Plaease enter a strong password").required(),
+    password: yup.string().min(6).max(200).required(),
     confirmPassword: yup.string().when('password', {
         is: val => (val && val.length > 0 ? true : false),
         then:  yup.string().oneOf([yup.ref('password')], 'Password does Not match')
@@ -31,8 +41,15 @@ const SignUpForm = () => {
 
     const { switchToSignIn } = useContext(AccountContext)
     
-    const onSubmit = (values) => {
-        alert(JSON.stringify(values))
+    const onSubmit = async(values) => {
+        console.log('hey...')
+        try {
+            const response = await axios.post(url_register, values)
+            console.log(response)    
+        } catch (error) {
+            console.log(error)
+        }
+         
     }
 
     const formik = useFormik({
@@ -44,12 +61,12 @@ const SignUpForm = () => {
         },
         validateOnBlur: true,
         onSubmit,
-        validationSchema: validationSchema
+        validationSchema: validationSchema,
     })
 
     // console.log(formik.errors)
     // console.log(formik.values)
-
+    // 
     return (
         <BoxContainer>
             <FormContainer onSubmit={formik.handleSubmit}>
@@ -61,7 +78,6 @@ const SignUpForm = () => {
                     value={formik.values.fullName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    // errors = {formik.errors.fullName}
                     />
                         <FieldError>
                             {formik.touched.fullName && formik.errors.fullName ? formik.errors.fullName : ""}
