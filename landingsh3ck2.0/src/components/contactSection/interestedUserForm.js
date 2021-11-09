@@ -1,6 +1,7 @@
 import React from 'react'
-import { useFormik } from 'formik'
-import * as yup from 'yup' 
+import { useFormik, Formik, Field } from 'formik'
+import * as yup from 'yup'
+import SelectCity from './selectCity'
 
 
 
@@ -34,6 +35,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
     return (
         <div className="boxContainer">
+            <Formik>
             <form 
             onSubmit={formik.handleSubmit}
             className="formContainer">
@@ -63,23 +65,17 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                     borderBottom: `${formik.touched.email && formik.errors.email ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                <input
-                className="input"
-                name="city"
-                autoComplete="on"
-                placeholder="Ciudad" 
-                type="text" 
-                value={formik.values.city}
-                onChange={formik.handleChange}                
-                onBlur={formik.handleBlur}
-                style={{
-                    borderBottom: `${formik.touched.city && formik.errors.city ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
-                }}
+                
+                <SelectCity
+                onChange={formik.handleChange}
+                error={formik.errors.city ? formik.errors : null}
                 />
                 <button
                 type="submit"
                 >Enviar</button>
             </form>
+            </Formik>
+            
 
         </div>
     )
