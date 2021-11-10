@@ -6,7 +6,7 @@ export const BoxContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 10px;
 
 `
@@ -80,6 +80,10 @@ export const SubmitButton = styled.button`
         filter: brightness(1.03);
     }
 
+    &:disabled {
+        filter: contrast(0.7);
+    }
+
 `
 
 export const FieldContainer = styled.div`
@@ -94,4 +98,20 @@ export const FieldError =styled.span`
     border-top: 1px solid rgba(200,200,200, 0.3) ;
 
 `
+
+export const FieldSuccess = styled.div`
+    color: green;
+    font-size: 12px;
+    min-height: 20px;
+    font-weight: 600;
+
+`
+export const FieldFailure = styled.div`
+    color: red;
+    font-size: 12px;
+    min-height: 20px;
+    font-weight: 600;
+
+`
+
 

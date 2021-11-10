@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext, useState } from 'react'
 import { useFormik } from 'formik'
 import axios from 'axios'
 import * as yup  from 'yup'
@@ -10,7 +10,9 @@ import {
     SubmitButton,
     BoldLink,
     FieldContainer,
-    FieldError 
+    FieldError, 
+    FieldSuccess,
+    FieldFailure
 } from './common'
 import { Marginer } from '../marginer/marginer'
 import { AccountContext } from './accountContext'
@@ -30,7 +32,7 @@ const validationSchema = yup.object({
     fullName: yup.string().min(3, 'Please enter your real name').required('Full Name is required'),
     email: yup.string().email('Please enter a valid email address').required(),
     password: yup.string().min(6).max(200).required(),
-    confirmPassword: yup.string().when('password', {
+    confirmPassword: yup.string().required("Please confirm your password").when('password', {
         is: val => (val && val.length > 0 ? true : false),
         then:  yup.string().oneOf([yup.ref('password')], 'Password does Not match')
     })
@@ -40,16 +42,21 @@ const validationSchema = yup.object({
 const SignUpForm = () => {
 
     const { switchToSignIn } = useContext(AccountContext)
+    const [ success, setSuccess ] = useState(null)
+    const [ error, setError ] = useState(null)
     
     const onSubmit = async(values) => {
+        const {confirmPassword, ...data } = values
         console.log('hey...')
         try {
-            const response = await axios.post(url_register, values)
-            console.log(response)    
+            const response = await axios.post(url_register, data)
+            console.log(response)
+            setSuccess(response.data.message)
+            formik.resetForm()    
         } catch (error) {
-            console.log(error)
+            setError(error.response.data.message)
+            console.log('Error:', error.data.message)
         }
-         
     }
 
     const formik = useFormik({
@@ -64,11 +71,11 @@ const SignUpForm = () => {
         validationSchema: validationSchema,
     })
 
-    // console.log(formik.errors)
-    // console.log(formik.values)
-    // 
+    console.log(error)
     return (
         <BoxContainer>
+            {!error && <FieldSuccess>{success ? success : "" }</FieldSuccess> }
+            <FieldFailure>{error ? error : "" }</FieldFailure>
             <FormContainer onSubmit={formik.handleSubmit}>
                 <FieldContainer>
                     <Input 
@@ -123,7 +130,9 @@ const SignUpForm = () => {
                         </FieldError>
                 </FieldContainer>
                 <Marginer direction="vertical" margin="1em"/>
-                <SubmitButton type="submit">SignUp</SubmitButton>
+                <SubmitButton
+                disabled={!formik.isValid} 
+                type="submit">SignUp</SubmitButton>
             </FormContainer>
             <Marginer direction="vertical" margin={5}/>
             <MutedLink href="#">Already have an Account?
