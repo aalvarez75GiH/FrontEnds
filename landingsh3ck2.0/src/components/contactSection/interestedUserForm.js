@@ -66,10 +66,10 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 }}
                 />
                 {/* <DropDownList/> */}
-                <SelectCity
+                {/* <SelectCity
                 onChange={formik.handleChange}
                 error={formik.errors.city ? formik.errors : null}
-                />
+                /> */}
                 <button
                 type="submit"
                 >Enviar</button>
