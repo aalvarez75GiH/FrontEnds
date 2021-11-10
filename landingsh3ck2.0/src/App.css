@@ -1115,7 +1115,13 @@
     padding-left: 5%;
     outline: none;
     color:#757575;
+    appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100, 0 50,50" style="fill:%23757575;"/></svg>');
+    background-position: right 5% top 50%;
+    background-repeat:no-repeat;
+    background-size: 3%;
 }
 .form-control .dropDownDefaultOption {
     color:#757575;
@@ -1150,13 +1156,21 @@
     padding-left: 5%;
     outline: none;
     color:#010606;
+    appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100, 0 50,50" style="fill:%238d8d8d;"/></svg>');
+    background-position: right 5% top 50%;
+    background-repeat:no-repeat;
+    background-size: 3%;
+}
+
+.dropDownOption {
+    background-color: #010606;
 }
 
 
 /* ************** dropDownList ************** */
-
-
 
 
 .dropdown {

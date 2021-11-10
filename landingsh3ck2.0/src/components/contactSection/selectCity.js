@@ -44,6 +44,7 @@ const SelectCity = ({ error, onChange }) => {
                     return(
                         <>
                         <option
+                        className="dropDownOption"
                         key={option.id}
                         value={option.value}
                         >

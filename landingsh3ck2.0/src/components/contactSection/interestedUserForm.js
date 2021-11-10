@@ -1,9 +1,8 @@
 import React from 'react'
 import { useFormik, Formik, Field } from 'formik'
 import * as yup from 'yup'
+// import DropDownList from './dropDownList'
 import SelectCity from './selectCity'
-
-
 
 const validationSchema = yup.object({
     fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
@@ -15,7 +14,8 @@ const validationSchema = yup.object({
 const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
     const onSubmit = (values) => {
-        handlingSubmitInterestedUser(values)
+        console.log(values)
+        // handlingSubmitInterestedUser(values)
     }
 
     const formik = useFormik({
@@ -65,7 +65,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                     borderBottom: `${formik.touched.email && formik.errors.email ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                
+                {/* <DropDownList/> */}
                 <SelectCity
                 onChange={formik.handleChange}
                 error={formik.errors.city ? formik.errors : null}
