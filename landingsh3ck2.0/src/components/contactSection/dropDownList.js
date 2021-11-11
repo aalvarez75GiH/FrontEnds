@@ -1,22 +1,42 @@
 import React, { useState } from 'react'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 
-const DropDownList = ({ onChange }) => {
+const DropDownList = ({ 
+    onChange, 
+    city,
+    setCity,
+    options, 
+    cityError,
+    setCityError 
 
+}) => {
+    console.log(cityError)
     const [ isActive, setIsActive ] = useState(false)
-    const [ selected, setSelected ] = useState('') 
-    const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
+    // const [ selected, setSelected ] = useState('') 
+    // const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
     const toggleDropDownList = () => {
         setIsActive(!isActive)
     }
 
-    console.log(selected)
     return (
-        <div className="dropdown">
-            <div className="dropdown-btn"
+        // <div className="dropdown">
+        <div 
+        className="dropdown"
+        style={{
+            borderBottom: `${cityError ? "2px solid red" : "none" }`,
+            // backgroundColor: `${isActive ? "#ffffff" : "#eeeeee" }`
+        }}
+        >
+            <div 
+            className="dropdown-btn"
             onClick={toggleDropDownList}
+            style={{
+                color: `${isActive ? "#010606" : "#8d8d8d" }`,
+                backgroundColor: `${isActive ? "#ffffff" : "#eeeeee" }`,
+                border: `${isActive ? "2px solid #010606" : "none" }`
+            }}
             >
-                {selected}
+                {city}
                 <MdKeyboardArrowDown
                 className="arrowDown"
                 />
@@ -26,8 +46,9 @@ const DropDownList = ({ onChange }) => {
                     {options.map(option => (
                         <div 
                         onClick={ e => { 
-                            setSelected(option)
+                            setCity(option)
                             setIsActive(false)
+                            setCityError(false)
                         }}    
                         className="dropdown-item">
                             {option}

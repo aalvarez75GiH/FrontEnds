@@ -1104,70 +1104,6 @@
     padding-left: 5%;
     outline: none;
 }
-.cityDropDownList{
-    height: 115px;
-    width: 100%;
-    margin-bottom: 25px;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1.3rem;
-    padding-left: 5%;
-    outline: none;
-    color:#757575;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100, 0 50,50" style="fill:%23757575;"/></svg>');
-    background-position: right 5% top 50%;
-    background-repeat:no-repeat;
-    background-size: 3%;
-}
-.form-control .dropDownDefaultOption {
-    color:#757575;
-}
-.form-control-arrowIcon {
-    position: relative;
-    top: 60%;
-    left: 80%;
-    font-size: 2rem;
-    color: #a5a5a5;
-}
-.cityDropDownListError {
-    height: 115px;
-    width: 100%;
-    margin-bottom: 25px;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1.3rem;
-    padding-left: 5%;
-    outline: none;
-    border-bottom: 2px solid red;
-}
-.cityDropDownListActive {
-    height: 115px;
-    width: 100%;
-    margin-bottom: 25px;
-    padding: 10px;
-    background-color: #eeeeee;
-    border-style: none;
-    font-size: 1.3rem;
-    padding-left: 5%;
-    outline: none;
-    color:#010606;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100, 0 50,50" style="fill:%238d8d8d;"/></svg>');
-    background-position: right 5% top 50%;
-    background-repeat:no-repeat;
-    background-size: 3%;
-}
-
-.dropDownOption {
-    background-color: #010606;
-}
 
 
 /* ************** dropDownList ************** */
@@ -1175,33 +1111,44 @@
 
 .dropdown {
     width: 100%;
-    height: 15%;
+    height: 115px;
+    margin: 0px auto;
+    position: relative;
+    user-select: none;
+    z-index: 1;
+}
+.dropdownOnError {
+    width: 100%;
+    height: 115px;
     margin: 100px auto;
     position: relative;
     user-select: none;
+    border-bottom: 2px solid red;
 }
+
 .dropdown .dropdown-btn{
     padding: 15px 20px;
-    background-color: #ffffff;
-    box-shadow: 3px 3px 10px 6px rgba(0,0,0,.06);
-    font-weight: bold;
+    background-color: #eeeeee;
     color: #333;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
+    padding-left: 6%;
+    font-size: 1.3rem;
 }
 .dropdown .dropdown-btn .arrowDown {
     font-size: 25px;
 }
 .dropdown .dropdown-content {
     position: absolute;
-    top: 110%;
+    top: 100%;
     padding: 10px;
     background-color: #ffffff;
     box-shadow: 3px 3px 10px 6px rgba(0,0,0,.06);
     font-weight: 500;
     color: #333;
-    width: 95%;
+    width: 100%;
     left: 0;
 
 }
@@ -1259,6 +1206,7 @@
     justify-content: center;
     background-color:  rgba(0,0,0,.8);
     position: absolute;
+    z-index: 999;
 }
 
 .circles {
@@ -1313,6 +1261,7 @@
     height: 100%;
     background-color: #ffffff;
     position: absolute;
+    z-index: 2;
 }
 
 .closeIconContainer {
@@ -1531,6 +1480,7 @@
         width: 30%;
     }
     /******************************  */
+
     
 }
 
@@ -3001,6 +2951,15 @@
         height: 10%;
     }
 
+    /* ******* DropDownList ************** */
+
+    .dropdown {
+        height: 85px;
+    }
+    .dropdownOnError {
+        height: 85px;
+    }
+    
 }
 
 @media (max-width:480px) and (min-width: 414px){
@@ -3431,6 +3390,18 @@
         height: 10%;
     }
 
+    /* ******* DropDownList ************** */
+
+    .dropdown {
+        
+        height: 85px;
+        
+    }
+    .dropdownOnError {
+        
+        height: 85px;
+        
+    }
    
 }
 
@@ -3881,6 +3852,18 @@
         height: 10%;
     }
 
+    /* ******* DropDownList ************** */
+
+    .dropdown {
+        
+        height: 85px;
+        
+    }
+    .dropdownOnError {
+        
+        height: 85px;
+        
+    }
     
 }
 

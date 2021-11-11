@@ -1,28 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik, Formik, Field } from 'formik'
 import * as yup from 'yup'
-// import DropDownList from './dropDownList'
-import SelectCity from './selectCity'
+import DropDownList from './dropDownList'
+// import SelectCity from './selectCity'
 
 const validationSchema = yup.object({
     fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
     email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),
-    city: yup.string().min(3, 'Por favor introduce la ciudad').max(100).required('No te olvides de colocar la ciudad donde resides'),   
+    // city: yup.string().min(3, 'Por favor introduce la ciudad').max(100).required('No te olvides de colocar la ciudad donde resides'),   
 })
 
 
 const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
+    const [ city, setCity ] = useState('Ciudad')
+    const [ cityError, setCityError ] = useState(false)
+    
+    const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
+    
     const onSubmit = (values) => {
         console.log(values)
+        const interestedUser = {
+            fullName: values.fullName,
+            email: values.email,
+            city: city
+        }
+        console.log(interestedUser)
+        if (interestedUser.city === 'Ciudad'){
+            setCityError(true)
+            console.log(interestedUser.city)
+        }
+        if (interestedUser.city != 'Ciudad'){
+            handlingSubmitInterestedUser(interestedUser)
+        }
+        
         // handlingSubmitInterestedUser(values)
     }
 
     const formik = useFormik({
         initialValues: {
             fullName: "",
-            email: "",
-            city: ""
+            email: ""
         },
         validateOnBlur: true,
         onSubmit,
@@ -32,7 +50,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
     // console.log(formik.values)
     console.log(formik.errors)
-
+    
     return (
         <div className="boxContainer">
             <Formik>
@@ -65,11 +83,17 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                     borderBottom: `${formik.touched.email && formik.errors.email ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                {/* <DropDownList/> */}
-                <SelectCity
+                <DropDownList
+                options={options}
+                city={city}
+                setCity={setCity}
+                cityError={cityError}
+                setCityError={setCityError}
+                />
+                {/* <SelectCity
                 onChange={formik.handleChange}
                 error={formik.errors.city ? formik.errors : null}
-                />
+                /> */}
                 <button
                 type="submit"
                 >Enviar</button>
