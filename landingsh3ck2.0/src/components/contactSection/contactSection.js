@@ -13,71 +13,33 @@ import { responseDataInterested, responseDataRegister, responseDataLogin } from 
 
 const ContactSection = ({
     id,
-    // lightText,
-    // topLine,
-    // headLine,
-    // description,
-    // darkText,
     loggedIn,
     handlingSubmitLoginUser,
     loginResponse,
     toggleNotificationLogin
-    // loginFromNavBar
 
 }) => {
    
     const [ upLoadingUser, setUpLoadingUser ] = useState(false)
     const [ active , setActive ] = useState('interested') 
     const [ regView, setRegView ] = useState(false)
-    // const [errorData, setErrorData ] = useState(null) 
     const [response, setResponse ] = useState(null)
     const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
     const url_users = "http://192.168.1.102:5000/api/users"
 
-        
+
     console.log(loginResponse)
-    // console.log(loggedIn)
-    // const toggleBackDrop = () => {
-    //     setExpansion(true)
-    //     setTimeout(()=>{
-    //         setExpansion(false)
-    //     },expandingTransition.duration * 1000 - 1500)
-    // }
+   
 
     const switchToCheck = () => {
-        // toggleBackDrop()
-        // setTimeout(()=> {
-            setActive('check')
-            setRegView(false)
-        // },400)
-        
+        setActive('check')
+        setRegView(false)
     }
 
     const switchToSignIn = () => {
-        // toggleBackDrop()
-        // console.log('just notifying...')
-        // setTimeout(()=> {
-            setActive('interested')
-        // },400)
-        
+        setActive('interested')
     }
 
-    // const backDropVariants = {
-    //     expanded: {
-    //         width: '100%',
-    //         height: '700px',
-    //     },
-    //     collapsed: {
-    //         width: '50%',
-    //         height: '700px'
-    //     }
-    // }
-
-    // const expandingTransition = {
-    //     type: "spring",
-    //     duration: 2,
-    //     stiffness: 50
-    // }
 
     const toggleRegView = () => {
         setResponse(null)
@@ -99,12 +61,6 @@ const ContactSection = ({
 
     const handlingSubmitInterestedUser = (interestedUser) => {
         
-        // const interestedUser = {
-        //     fullName: values.fullName,
-        //     email: values.email,
-        //     city: values.city
-        // }
-
         setUpLoadingUser(true)
         setTimeout(async()=> {
             try {
@@ -119,14 +75,11 @@ const ContactSection = ({
             } catch (error) {
                 console.log(error.response)
                 setUpLoadingUser(false)
-                // setErrorData(error.response)
                 setResponse(error.response)
             }
         },2000)
         
     }
-
-    // console.log(errorData)
 
     const handlingSubmitUser = (user) => {
         setUpLoadingUser(true)
@@ -220,12 +173,7 @@ const togglingResponseData = () => {
                         
                     </div>
                 </div>
-                {/* <motion.div 
-                className="contactInfo" */}
-               
-                {/* >
-
-                </motion.div> */}
+                
                 <div className="contactForms">
                  
                  {response || loginResponse ?

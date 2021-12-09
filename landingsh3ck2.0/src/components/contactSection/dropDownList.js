@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 
 const DropDownList = ({ 
@@ -10,13 +10,18 @@ const DropDownList = ({
     setCityError 
 
 }) => {
+    
+    // useEffect(()=> {
+    //     window.addEventListener('blur', setIsActive(!isActive))
+    // },[])
+    
     console.log(cityError)
     const [ isActive, setIsActive ] = useState(false)
-    // const [ selected, setSelected ] = useState('') 
-    // const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
+    
     const toggleDropDownList = () => {
         setIsActive(!isActive)
     }
+
 
     return (
         // <div className="dropdown">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useFormik, Formik, Field } from 'formik'
+import { useFormik, Formik } from 'formik'
 import * as yup from 'yup'
 import DropDownList from './dropDownList'
 // import SelectCity from './selectCity'
@@ -15,9 +15,10 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
     const [ city, setCity ] = useState('Ciudad')
     const [ cityError, setCityError ] = useState(false)
-    
     const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
     
+
+
     const onSubmit = (values) => {
         console.log(values)
         const interestedUser = {
@@ -90,10 +91,6 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
                 cityError={cityError}
                 setCityError={setCityError}
                 />
-                {/* <SelectCity
-                onChange={formik.handleChange}
-                error={formik.errors.city ? formik.errors : null}
-                /> */}
                 <button
                 type="submit"
                 >Enviar</button>
