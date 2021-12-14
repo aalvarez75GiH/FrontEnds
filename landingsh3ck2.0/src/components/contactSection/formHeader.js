@@ -13,17 +13,14 @@ const FormHeader = ({ active, loggedIn, regView }) => {
                         </div>
                     </div>
                     : null}
-                    {active === 'check' && loggedIn === true ?
+                    {/* {active === 'check' && loggedIn === true ?
                     <div className="titleWrapper">
                         <div className="formTitle">
                             <h1 className="title">Estas listo para Chequear tu producto? </h1>
                         </div>
-                        <div className="formDescription">
-                            <p>danos la información de tu vendedor</p>
-                        </div>
                     </div>
                     :null
-                    }
+                    } */}
                     {active === 'check' && loggedIn === false ?
                     <div className="titleWrapper">
                         {regView ? 

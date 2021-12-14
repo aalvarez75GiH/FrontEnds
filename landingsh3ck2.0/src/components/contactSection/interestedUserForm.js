@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { useFormik, Formik } from 'formik'
 import * as yup from 'yup'
 import DropDownList from './dropDownList'
-// import SelectCity from './selectCity'
+
 
 const validationSchema = yup.object({
     fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
-    email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),
-    // city: yup.string().min(3, 'Por favor introduce la ciudad').max(100).required('No te olvides de colocar la ciudad donde resides'),   
+    email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),   
 })
 
 
@@ -15,7 +14,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
 
     const [ city, setCity ] = useState('Ciudad')
     const [ cityError, setCityError ] = useState(false)
-    const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo']
+    const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo', 'Athens']
     
 
 
@@ -31,7 +30,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
             setCityError(true)
             console.log(interestedUser.city)
         }
-        if (interestedUser.city != 'Ciudad'){
+        if (interestedUser.city !== 'Ciudad'){
             handlingSubmitInterestedUser(interestedUser)
         }
         

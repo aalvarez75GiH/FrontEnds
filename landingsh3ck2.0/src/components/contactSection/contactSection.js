@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import  { motion } from 'framer-motion'
+
 import InterestedUsersForm from '../contactSection/interestedUserForm'
+import CheckSection from './checkSection'
 import LoadingSpinner from '../../utils/loadingSpinner' 
 import OptionsForms from './optionsForms'
 import LoginForm from './loginForm'
@@ -26,8 +28,8 @@ const ContactSection = ({
     const [response, setResponse ] = useState(null)
     const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
     const url_users = "http://192.168.1.102:5000/api/users"
-
-
+    // const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
+    // const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
     console.log(loginResponse)
    
 
@@ -64,6 +66,7 @@ const ContactSection = ({
         setUpLoadingUser(true)
         setTimeout(async()=> {
             try {
+                // const response = await axios.post(url_interestedUsers, interestedUser)
                 const response = await axios.post(url_interestedUsers, interestedUser)
                     console.log(response)
                     if (response.status === 201){
@@ -81,10 +84,11 @@ const ContactSection = ({
         
     }
 
-    const handlingSubmitUser = (user) => {
+    const handlingSubmitUser = async(user) => {
         setUpLoadingUser(true)
-         setTimeout(async()=> {
+        setTimeout(async()=> {
             try {
+                // const response = await axios.post(url_users, user)
                 const response = await axios.post(url_users, user)
                     console.log(response)
                     if (response.status === 201){
@@ -168,9 +172,6 @@ const togglingResponseData = () => {
                             <h3><b>Chequea un producto</b></h3>
                             <p className="contactInfoDesc">Podemos ayudarte desde ya a chequear ese producto que quieres comprar. Compra seguro</p>    
                         </div>
-                        
-                       
-                        
                     </div>
                 </div>
                 
@@ -185,7 +186,9 @@ const togglingResponseData = () => {
                  />
                  : null
                  }
-                 
+                
+                { !loggedIn  ? 
+                <>
                 <OptionsForms
                 active={active === 'interested' ? 'interested' : 'signUp' } 
                 switchToSignIn={switchToSignIn}
@@ -196,18 +199,21 @@ const togglingResponseData = () => {
                 loggedIn={loggedIn}
                 regView={regView}
                 />
+                </>
+                :
+                null
+                }
                 
-                    
-                { active === 'interested' && loggedIn ? 
+                { loggedIn ? 
                  <>
-                 <InterestedUsersForm 
-                 handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                 />
+                 <CheckSection/>
                  </>
                  
                  :
                  null
                 }
+                
+                    
                 { active === 'interested' && !loggedIn ? 
                  <>
                  <InterestedUsersForm 
@@ -218,16 +224,7 @@ const togglingResponseData = () => {
                  null
                 }
                 
-                { active === 'check' && loggedIn  ? 
-                <>
-                <InterestedUsersForm
-                handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-                />
-                </>
-                :
-                null
-                }
-                { active === 'check' && loggedIn === false  ? 
+                { active === 'check' && !loggedIn  ? 
                 <LoginForm
                 regView={regView}
                 toggleRegView={toggleRegView}

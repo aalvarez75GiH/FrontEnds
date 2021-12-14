@@ -3,7 +3,7 @@ import Button from '../buttons/button'
 import useMobilDetect from '../../utils/mobilHook'
 import useMobilDetection from '../../utils/mobilDetection'
 import Image_2 from '../../images/pexels-chica-triste-medium.jpg'
-import { OffsetHandlerSections } from '../../utils/settingOffsets'
+
 
 const HeroSection = ({ buttonLabel, linkedTo }) => {
 const mobil = useMobilDetect()

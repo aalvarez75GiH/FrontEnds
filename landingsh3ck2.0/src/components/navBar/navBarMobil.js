@@ -1,10 +1,9 @@
 import React from 'react'
-import { FaBars,FaSign, FaUserPlus } from 'react-icons/fa'
+import { FaBars,FaSign } from 'react-icons/fa'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
-import useMobilDetection from '../../utils/mobilDetection'
 import { OffsetHandler } from '../../utils/settingOffsets'
 
 

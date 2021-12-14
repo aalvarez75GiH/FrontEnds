@@ -15,6 +15,8 @@ const NotificationBox = ({
 
 }) => {
     console.log(response)
+    let responseSplitted = response.data.split(' ')
+    console.log('splitting response: ', responseSplitted[0])
     if (response){
         if (response.status === 400){
             return (
@@ -28,7 +30,7 @@ const NotificationBox = ({
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
                         <span className="notificationSpan">
-                            <b>Hola {''}{response.data}</b>    
+                            <b>Hola {''}{responseSplitted[0]}</b>    
                         </span>    
                     </div>
                     <div className="notificationResponse">
@@ -53,7 +55,7 @@ const NotificationBox = ({
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
                         <span className="notificationSpan">
-                            <b>Hola {''}{response.data}</b>    
+                            <b>Hola {''}{responseSplitted[0]}</b>    
                         </span>    
                     </div>
                     <div className="notificationResponse">
@@ -78,7 +80,7 @@ const NotificationBox = ({
                     <img src={successImage} alt="successImage" />
                     <div className="notificationName">
                         <span className="notificationSpan">
-                            <b>Hola {''}{response.data}</b>    
+                            <b>Hola {''}{responseSplitted[0]}</b>    
                         </span>    
                     </div>
                     <div className="notificationResponse">

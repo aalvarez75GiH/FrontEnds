@@ -3,7 +3,6 @@ import axios from 'axios'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
-import LogoutSideBar from '../components/logoutSideBar/logoutSideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
 // import StyledSideBar from '../components/sideBar/styledSideBar'
 import HeroSection from '../components/heroSection/heroSection'
@@ -16,8 +15,8 @@ import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
+import StyledFooterSection from '../components/footerSection/styledFooterSection'
 import FooterSection from '../components/footerSection/footerSection'
-
 
 const Home = () => {
 
@@ -26,7 +25,7 @@ const Home = () => {
     const [ loggedOut, setLoggedOut ] = useState(true)
     const [currentUser, setCurrentUser ] = useState('')
     const [ loginSideBarOpen, setLoginSideBarOpen ] = useState(false)
-    const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
+    // const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     
@@ -108,9 +107,9 @@ const Home = () => {
         // console.log(loggedOut)
         // console.log(loginSideBarOpen)
     }
-    const toggleLogoutSideBar = () => {
-        setLogoutSideBarOpen(!logoutSideBarOpen)
-    }
+    // const toggleLogoutSideBar = () => {
+    //     setLogoutSideBarOpen(!logoutSideBarOpen)
+    // }
     const toggleMainSideBar = () => {
         setMainSideBarOpen(!mainSideBarOpen)
         // console.log(loggedIn)
@@ -179,7 +178,6 @@ const Home = () => {
             toggleNotificationLogin={toggleNotification}
             />
             <FooterSection/>
-            {/* <DataSection {...infoData} /> */}
         </>
     )
 }

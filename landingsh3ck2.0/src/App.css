@@ -1104,8 +1104,42 @@
     padding-left: 5%;
     outline: none;
 }
+/* ************** checkSection ************** */
 
+.checkSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    background-color: #eeeeee;
+}
 
+.checkSection-BtnWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin-top: 7%;
+}
+
+.checkSectionBtn-toCheck {
+    width: 40%;
+    height: 90px;
+    background-color: #010606;
+    border-style: none;
+    border-radius: 60px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-left: 5%;
+}
+
+.checkSection-notNow {
+    margin-left: 7%;
+    margin-top: 3%;
+}
 /* ************** dropDownList ************** */
 
 
@@ -1317,43 +1351,97 @@
 
  /* *************Footer Section ************************* */
 
- .footerSectionContainer {
+ .footerContainer {
      width: 100%;
-     height: 2900px;
-     background-color: #010606;
+     height: 505px;
+     background-color: #232a34;
  }
- .footerWrapper {
+ .footerWrap {
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 1100px; */
+    margin: 0 auto;
+ }
+ .footerLinksContainer {
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
-    height: 2900px;
-    background-color: #01bf71;
+    margin-bottom: 3%;
+    margin-top: 3%;
+ }
+ .footerLinksWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+ }
+ .footerLinkItems {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    text-align: left;
+    width: 33%;
+    box-sizing: border-box;
+    color: #ffffff;
+ }
+ .footerLinkTitle {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+ }
+ .footerLink {
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
  }
 
- .footerSection1 {
+ .socialMedia {
+    max-width: 1000px;
     width: 100%;
-    height: 2100px;
-    background-color: #eeeeee;
  }
- 
-.footerSection1_1 {
-    width: 100%;
-    height: 20%;
-    background-color: aqua;
-}
-.footerSection1_2 {
-    width: 100%;
-    height: 25%;
-    background-color: #ef476f;
-}
-.footerSection1_3 {
-    width: 100%;
-    height: 35%;
-    background-color: #FF810A;
-}
-.footerSection2 {
-    width: 100%;
-    height: 800px;
-    background-color: #232a34;
-}
+
+ .socialMediaWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 49px auto 0 auto;
+ }
+
+ .socialLogo {
+    color: #ffffff;
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: bold;
+ }
+
+ .socialMediaWrap small {
+    color: #ffffff;
+    margin-bottom: 16px;
+ }
+
+ .socialIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+ }
+
+ .socialIconLink {
+    color: #ffffff;
+    font-size: 24px;
+ }
+
+
 
 /* *************** Responsive design ***********************/
 /* ********  Desktop Responsive Design ******************* */
@@ -1401,6 +1489,7 @@
     
     .hiwBtnWrap {
         margin-top: 70px;
+        margin-left: 10px;
     }
     .formTitle {
         font-size: 0.9rem;
@@ -1564,6 +1653,41 @@
         width: 38%;
         height: 22%;
     }
+
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    
+    /* .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    } */
+    
+    /* .checkSectionBtn-toCheck {
+        width: 50%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    } */
+    
+    /* .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    } */
     
   
 }
@@ -1655,6 +1779,46 @@
         
         width: 38%;
         height: 22%;
+    }
+
+    /* *****  checkSection *********** */
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    .checkSection-formTitle {
+        width: 60%;
+        margin-left: 5%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 60%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
     }
     
 
@@ -1761,6 +1925,46 @@
         height: 600px;
         padding-top: 2%;
         padding-left: 5%;
+    }
+
+    /* *****  checkSection *********** */
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    .checkSection-formTitle {
+        margin-left: 15%;
+        width: 70%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 60%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
     }
     
 }
@@ -2508,6 +2712,140 @@
         height: 10%;
     }
 
+    /* *****  checkSection *********** */
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    .checkSection-formTitle {
+        margin-left: 15%;
+        width: 100%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 50%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    }
+
+    /* ************ FooterSection **************************** */
+
+    .footerContainer {
+        width: 100%;
+        height: 605px;
+        background-color: #232a34;
+    }
+    .footerWrap {
+       padding: 48px 24px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* max-width: 1100px; */
+       margin: 0 auto;
+    }
+    .footerLinksContainer {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       width: 100%;
+       margin-bottom: 3%;
+       margin-top: 3%;
+    }
+    .footerLinksWrapper {
+       display: flex;
+       width: 100%;
+       justify-content: space-around;
+   
+    }
+    .footerLinkItems {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       margin: 16px;
+       text-align: left;
+       width: 33%;
+       box-sizing: border-box;
+       color: #ffffff;
+    }
+    .footerLinkTitle {
+       font-size: 1.2rem;
+       margin-bottom: 16px;
+    }
+    .footerLink {
+       color: #ffffff;
+       text-decoration: none;
+       margin-bottom: 0.5rem;
+       font-size: 1rem;
+    }
+   
+    .socialMedia {
+       /* max-width: 1000px; */
+       width: 95%;
+    }
+   
+    .socialMediaWrap {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1100px;
+       margin: 49px auto 0 auto;
+    }
+   
+    .socialLogo {
+       color: #ffffff;
+       justify-self: start;
+       cursor: pointer;
+       text-decoration: none;
+       font-size: 1.5rem;
+       display: flex;
+       align-items: center;
+       margin-bottom: 16px;
+       font-weight: bold;
+    }
+   
+    .socialMediaWrap small {
+        margin-left: 13%;
+       color: #ffffff;
+       margin-bottom: 16px;
+    }
+   
+    .socialIcons {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       width: 200px;
+    }
+   
+    .socialIconLink {
+       color: #ffffff;
+       font-size: 24px;
+    }
+
 }
 /* ********  Phones Responsive Design ******************* */
 @media (max-width:560px) and (min-width: 480px){
@@ -2960,6 +3298,139 @@
         height: 85px;
     }
     
+    /* *****  checkSection *********** */
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    .checkSection-formTitle {
+        margin-left: 15%;
+        width: 100%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 70%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    }
+
+    /* ************ FooterSection **************************** */
+
+    .footerContainer {
+        width: 100%;
+        height: 630px;
+        background-color: #232a34;
+    }
+    .footerWrap {
+       padding: 48px 24px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* max-width: 1100px; */
+       margin: 0 auto;
+    }
+    .footerLinksContainer {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       width: 100%;
+       margin-bottom: 3%;
+       margin-top: 3%;
+    }
+    .footerLinksWrapper {
+       display: flex;
+       width: 100%;
+       justify-content: space-around;
+   
+    }
+    .footerLinkItems {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       margin: 16px;
+       text-align: left;
+       width: 33%;
+       box-sizing: border-box;
+       color: #ffffff;
+    }
+    .footerLinkTitle {
+       font-size: 1.2rem;
+       margin-bottom: 16px;
+    }
+    .footerLink {
+       color: #ffffff;
+       text-decoration: none;
+       margin-bottom: 0.5rem;
+       font-size: 1rem;
+    }
+   
+    .socialMedia {
+       /* max-width: 1000px; */
+       width: 95%;
+    }
+   
+    .socialMediaWrap {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1100px;
+       margin: 49px auto 0 auto;
+    }
+   
+    .socialLogo {
+       color: #ffffff;
+       justify-self: start;
+       cursor: pointer;
+       text-decoration: none;
+       font-size: 1.5rem;
+       display: flex;
+       align-items: center;
+       margin-bottom: 16px;
+       font-weight: bold;
+    }
+   
+    .socialMediaWrap small {
+        margin-left: 13%;
+       color: #ffffff;
+       margin-bottom: 16px;
+    }
+   
+    .socialIcons {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       width: 200px;
+    }
+   
+    .socialIconLink {
+       color: #ffffff;
+       font-size: 24px;
+    }
 }
 
 @media (max-width:480px) and (min-width: 414px){
@@ -3402,6 +3873,140 @@
         height: 85px;
         
     }
+
+    /* *****  checkSection *********** */
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    .checkSection-formTitle {
+        width: 83%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 80%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    }
+
+    /* ************ FooterSection **************************** */
+
+    .footerContainer {
+        width: 100%;
+        height: 1016px;
+        background-color: #232a34;
+    }
+    .footerWrap {
+       padding: 48px 24px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* max-width: 1100px; */
+       margin: 0 auto;
+    }
+    .footerLinksContainer {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       width: 100%;
+       margin-bottom: 3%;
+       margin-top: 3%;
+    }
+    .footerLinksWrapper {
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: space-around;
+   
+    }
+    .footerLinkItems {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       margin: 16px;
+       text-align: left;
+       width: 33%;
+       box-sizing: border-box;
+       color: #ffffff;
+    }
+    .footerLinkTitle {
+       font-size: 1.2rem;
+       margin-bottom: 16px;
+    }
+    .footerLink {
+       color: #ffffff;
+       text-decoration: none;
+       margin-bottom: 0.5rem;
+       font-size: 1rem;
+    }
+   
+    .socialMedia {
+       /* max-width: 1000px; */
+       width: 95%;
+    }
+   
+    .socialMediaWrap {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1100px;
+       margin: 49px auto 0 auto;
+    }
+   
+    .socialLogo {
+       color: #ffffff;
+       justify-self: start;
+       cursor: pointer;
+       text-decoration: none;
+       font-size: 1.5rem;
+       display: flex;
+       align-items: center;
+       margin-bottom: 16px;
+       font-weight: bold;
+    }
+   
+    .socialMediaWrap small {
+        margin-left: 13%;
+       color: #ffffff;
+       margin-bottom: 16px;
+    }
+   
+    .socialIcons {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       width: 200px;
+    }
+   
+    .socialIconLink {
+       color: #ffffff;
+       font-size: 24px;
+    }
    
 }
 
@@ -3708,9 +4313,7 @@
     .contactForms {
         width: 100%;
         height: 800px;
-        position: unset;
-        
-        
+        position: unset;    
     }
 
     .optionsWrapper {
@@ -3750,7 +4353,7 @@
     .boxContainer {
         width: 90%;
         height: auto;
-        margin-bottom: 15%;
+        margin-bottom: 0%;
     }
     .input {
         height: 65px;
@@ -3855,14 +4458,143 @@
     /* ******* DropDownList ************** */
 
     .dropdown {
-        
         height: 85px;
-        
     }
     .dropdownOnError {
-        
         height: 85px;
-        
+    }
+
+    /* *****  checkSection *********** */
+    .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+    }
+    .checkSection-formTitle {
+        width: 86%;
+    }
+    
+    .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    }
+    
+    .checkSectionBtn-toCheck {
+        width: 90%;
+        height: 90px;
+        background-color: #010606;
+        border-style: none;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    }
+    
+    .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    }
+
+    /* ************ FooterSection **************************** */
+
+    .footerContainer {
+        width: 100%;
+        height: 1016px;
+        background-color: #232a34;
+    }
+    .footerWrap {
+       padding: 48px 24px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin: 0 auto;
+    }
+    .footerLinksContainer {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       width: 100%;
+       margin-bottom: 3%;
+       margin-top: 3%;
+    }
+    .footerLinksWrapper {
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: space-around;
+   
+    }
+    .footerLinkItems {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       margin: 16px;
+       text-align: left;
+       width: 85%;
+       box-sizing: border-box;
+       color: #ffffff;
+    }
+    .footerLinkTitle {
+       font-size: 1.2rem;
+       margin-bottom: 16px;
+    }
+    .footerLink {
+       color: #ffffff;
+       text-decoration: none;
+       margin-bottom: 0.5rem;
+       font-size: 1rem;
+    }
+   
+    .socialMedia {
+     
+       width: 95%;
+    }
+   
+    .socialMediaWrap {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1100px;
+       margin: 49px auto 0 auto;
+    }
+   
+    .socialLogo {
+       color: #ffffff;
+       justify-self: start;
+       cursor: pointer;
+       text-decoration: none;
+       font-size: 1.5rem;
+       display: flex;
+       align-items: center;
+       margin-bottom: 16px;
+       font-weight: bold;
+    }
+   
+    .socialMediaWrap small {
+        margin-left: 13%;
+       color: #ffffff;
+       margin-bottom: 16px;
+    }
+   
+    .socialIcons {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       width: 200px;
+    }
+   
+    .socialIconLink {
+       color: #ffffff;
+       font-size: 24px;
     }
     
 }
@@ -4329,6 +5061,100 @@
         margin-top: 10%;
         margin-left: 11%;
         height: 9%;
+    }
+
+    /* ************ FooterSection **************************** */
+
+    .footerContainer {
+        width: 100%;
+        height: 1016px;
+        background-color: #232a34;
+    }
+    .footerWrap {
+       padding: 48px 24px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin: 0 auto;
+    }
+    .footerLinksContainer {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       width: 100%;
+       margin-bottom: 3%;
+       margin-top: 3%;
+    }
+    .footerLinksWrapper {
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: space-around;
+   
+    }
+    .footerLinkItems {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       margin: 16px;
+       text-align: left;
+       width: 85%;
+       box-sizing: border-box;
+       color: #ffffff;
+    }
+    .footerLinkTitle {
+       font-size: 1.2rem;
+       margin-bottom: 16px;
+    }
+    .footerLink {
+       color: #ffffff;
+       text-decoration: none;
+       margin-bottom: 0.5rem;
+       font-size: 1rem;
+    }
+   
+    .socialMedia {
+     
+       width: 95%;
+    }
+   
+    .socialMediaWrap {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1100px;
+       margin: 49px auto 0 auto;
+    }
+   
+    .socialLogo {
+       color: #ffffff;
+       justify-self: start;
+       cursor: pointer;
+       text-decoration: none;
+       font-size: 1.5rem;
+       display: flex;
+       align-items: center;
+       margin-bottom: 16px;
+       font-weight: bold;
+    }
+   
+    .socialMediaWrap small {
+        margin-left: 13%;
+       color: #ffffff;
+       margin-bottom: 16px;
+    }
+   
+    .socialIcons {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       width: 200px;
+    }
+   
+    .socialIconLink {
+       color: #ffffff;
+       font-size: 24px;
     }
 }
 
