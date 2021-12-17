@@ -26,10 +26,10 @@ const ContactSection = ({
     const [ active , setActive ] = useState('interested') 
     const [ regView, setRegView ] = useState(false)
     const [response, setResponse ] = useState(null)
-    const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
-    const url_users = "http://192.168.1.102:5000/api/users"
-    // const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
-    // const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
+    // const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
+    // const url_users = "http://192.168.1.102:5000/api/users"
+    const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
+    const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
     console.log(loginResponse)
    
 
@@ -66,8 +66,7 @@ const ContactSection = ({
         setUpLoadingUser(true)
         setTimeout(async()=> {
             try {
-                // const response = await axios.post(url_interestedUsers, interestedUser)
-                const response = await axios.post(url_interestedUsers, interestedUser)
+                const response = await axios.post(url_interestedUsersInTheCloud, interestedUser)
                     console.log(response)
                     if (response.status === 201){
                         setResponse(response)
@@ -88,8 +87,7 @@ const ContactSection = ({
         setUpLoadingUser(true)
         setTimeout(async()=> {
             try {
-                // const response = await axios.post(url_users, user)
-                const response = await axios.post(url_users, user)
+                const response = await axios.post(url_usersInTheCloud, user)
                     console.log(response)
                     if (response.status === 201){
                         setResponse(response)

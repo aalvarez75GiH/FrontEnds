@@ -17,7 +17,7 @@ import {
 
 } from './footerElements'
 
-const FooterSection = () => {
+const StyledFooterSection = () => {
     return (
         <FooterContainer>
             <FooterWrap>
@@ -100,7 +100,7 @@ const FooterSection = () => {
 }
 
 
-export default FooterSection
+export default StyledFooterSection
         // <div className="footerSectionContainer">
         //     <div className="footerWrapper">
         //         <div className="footerSection2" >

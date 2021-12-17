@@ -15,7 +15,7 @@ import * as yup from 'yup'
 
 const validationSchema = yup.object({
     fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
-    password: yup.string().min(6).max(200).required('No te olvides de colocar tu clave'),
+    // password: yup.string().min(6).max(200).required('No te olvides de colocar tu clave'),
     email: yup.string().email('Por favor introduce una dirección de correo válida').required('No te olvides de colocar tu correo electrónico'),
     phoneNumber: yup.string().length(11).required('No te olvides de colocar tu número de teléfono')
 })
@@ -30,7 +30,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
     const formik = useFormik({
         initialValues: {
             fullName: "",
-            password: "",
+            // password: "",
             email: "",
             phoneNumber: ""
         },
@@ -87,7 +87,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                     borderBottom: `${formik.touched.phoneNumber && formik.errors.phoneNumber ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                <input
+                {/* <input
                 className="input"
                 name="password"
                 placeholder="Contraseña" 
@@ -99,7 +99,7 @@ const RegisterForm = ({ handlingSubmitUser }) => {
                 style={{
                     borderBottom: `${formik.touched.password && formik.errors.password ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
-                />
+                /> */}
                 <button
                 type="submit"
                 >Enviar</button>

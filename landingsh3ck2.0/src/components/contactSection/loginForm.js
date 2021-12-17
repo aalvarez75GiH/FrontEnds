@@ -7,7 +7,7 @@ import RegisterForm from './registerForm'
 
 const validationSchema = yup.object({
     email: yup.string().email('Por favor introduce una dirección de correo válida').required('hola, no te olvídes de colocar tu correo electrónico'),
-    password: yup.string().min(6).max(200).required('No te olvides de colocar tu clave'),   
+    pin: yup.string().min(4).max(4).required('No te olvides de colocar tu PIN de seguridad'),   
 })
 
 
@@ -15,10 +15,7 @@ const LoginForm = ({
     handlingLoginUser,
     regView, 
     toggleRegView,
-    handlingSubmitUser,
-    handlingSubmitLoginUser
-
-
+    handlingSubmitUser
 }) => {
 
     const onSubmit = async(values) => {
@@ -28,7 +25,7 @@ const LoginForm = ({
     const formik = useFormik({
         initialValues: {
             email: "",
-            password: ""
+            pin: ""
         },
         validateOnBlur: true,
         onSubmit,
@@ -68,11 +65,11 @@ const LoginForm = ({
                 />
                 <input
                 className="input"
-                name="password"
+                name="pin"
                 autoComplete="on"
-                placeholder="Contraseña" 
+                placeholder="#PIN (solo 4 dígitos)" 
                 type="password" 
-                value={formik.values.password}
+                value={formik.values.pin}
                 onChange={formik.handleChange}                
                 onBlur={formik.handleBlur}
                 style={{

@@ -15,7 +15,7 @@ import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
-import StyledFooterSection from '../components/footerSection/styledFooterSection'
+// import StyledFooterSection from '../components/footerSection/styledFooterSection'
 import FooterSection from '../components/footerSection/footerSection'
 
 const Home = () => {
@@ -33,12 +33,12 @@ const Home = () => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
     const url_userLogin = "http://192.168.1.102:5000/api/users/login"
-    
+    const url_userLoginITC = "https://intense-atoll-00786.herokuapp.com/api/users/login"
     useEffect(() => {
         const getToken = async() => {
             const token = localStorage.getItem('SH3CK_TOKEN')
             if (token){
-                const response = await axios.get('http://192.168.1.102:5000/api/users/me', {
+                const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
                     headers:{
                         // 'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}` 
@@ -59,11 +59,11 @@ const Home = () => {
 
     const handlingSubmitLoginUser = async(user) => {
             try {
-                const { data } = await axios.post(url_userLogin, user)
+                const { data } = await axios.post(url_userLoginITC, user)
                 console.log(data)
                 localStorage.setItem('SH3CK_TOKEN', data.token)
                 // ******************************************
-                const response = await axios.get('http://192.168.1.102:5000/api/users/me', {
+                const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
                     headers:{
                         // 'Content-Type': 'application/json',
                         Authorization: `Bearer ${data.token}` 
