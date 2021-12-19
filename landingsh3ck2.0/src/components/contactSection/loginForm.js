@@ -73,7 +73,7 @@ const LoginForm = ({
                 onChange={formik.handleChange}                
                 onBlur={formik.handleBlur}
                 style={{
-                    borderBottom: `${formik.touched.city && formik.errors.city ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
+                    borderBottom: `${formik.touched.pin && formik.errors.pin ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
                 <button
