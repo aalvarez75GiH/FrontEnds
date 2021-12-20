@@ -28,6 +28,7 @@ const Home = () => {
     // const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
+    const [ loading, setLoading ] = useState(false)
     
     
     const mobil = useMobilDetect()
@@ -83,9 +84,12 @@ const Home = () => {
     }
 
     const handlingLogin = (user) => {
-        console.log('handling Login...')
-        handlingSubmitLoginUser(user)
-        setLoginSideBarOpen(!loginSideBarOpen)
+        setLoading(true)
+        setTimeout(async() => {
+            handlingSubmitLoginUser(user)
+            setLoading(false)
+            setLoginSideBarOpen(!loginSideBarOpen)
+        }, 2000);
     }
 
     const handlingSubmitLogOutUser = () => {
@@ -132,6 +136,7 @@ const Home = () => {
             loggedIn={loggedIn}
             loggedOut={loggedOut}
             handlingLogin={handlingLogin}
+            loading={loading}
             />
             {/* : null */}
             {/* } */}

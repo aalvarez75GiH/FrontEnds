@@ -1,8 +1,7 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-// import LoginForm from '../contactSection/loginForm'
 import LoginSideBarForm from './loginSideBarForm'
-// import LoadingSpinner from '../../utils/loadingSpinner'
+import LoadingSpinner from '../../utils/loadingSpinner'
 
 
 
@@ -12,11 +11,46 @@ const LoginSideBar = ({
     loginSideBarOpen, 
     handlingLogin,
     loggedIn, 
-    loggedOut
+    loggedOut,
+    loading
 }) => {
     console.log(loggedIn)
     console.log(loggedOut)
     console.log(loginSideBarOpen)
+    
+    if (loading) {
+        return (
+            <>
+            <aside
+            className={`${loginSideBarOpen ? "loginSideBarContainerOpen" : "loginSideBarContainer" }`}>
+                <LoadingSpinner/>
+                <div className="loginContactForms">
+                <div 
+                    className="loginSideBarIcon"
+                    onClick={ toggleLoginSideBar }
+                >
+                    <FaTimes className="loginCloseIcon"/>
+                </div>
+                <div className="loginSideHeader">
+
+                </div>
+                <div className="loginSideBarFormTitle">
+                    <h1 className="loginSideBarTitle">Inicia sesión </h1>
+                </div>
+                <div className="loginSideBarFormDescription">
+                    <p>Para que podamos chequear productos debes hacer inicio de sesión</p>
+                </div>
+                    
+                <LoginSideBarForm
+                handlingLogin={handlingLogin}
+                />
+                    
+            </div>
+            </aside>   
+            </>
+        )   
+    }
+
     if (loggedOut){
         return (
             <aside
