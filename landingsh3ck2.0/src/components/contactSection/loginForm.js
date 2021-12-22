@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import RegisterForm from './registerForm'
+import ForgotPINSection from './forgotPINSection'
 import {MdOutlineVisibility} from 'react-icons/md'
 
 
@@ -16,7 +17,9 @@ const LoginForm = ({
     handlingLoginUser,
     regView, 
     toggleRegView,
-    handlingSubmitUser
+    handlingSubmitUser,
+    toggleForgotSection,
+    forgotPIN
 }) => {
 
     const [ typeOfPIN, setTypeOfPIN ] = useState(false)
@@ -51,6 +54,10 @@ const LoginForm = ({
         )
     }
 
+    if (forgotPIN){
+        return <ForgotPINSection/>
+    }
+
     return (
         <div className="boxContainer">
             <form 
@@ -70,20 +77,7 @@ const LoginForm = ({
                     borderBottom: `${formik.touched.email && formik.errors.email ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                {/* <input
-                className="input"
-                name="pin"
-                autoComplete="on"
-                placeholder="#PIN (solo 4 dígitos)" 
-                type="password" 
-                value={formik.values.pin}
-                onChange={formik.handleChange}                
-                onBlur={formik.handleBlur}
-                style={{
-                    borderBottom: `${formik.touched.pin && formik.errors.pin ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
-                }}
-                /> */}
-                {/* ********** */}
+                
                 <div className="inputWrapper">
                 <input
                 className="inputPassword"
@@ -107,9 +101,8 @@ const LoginForm = ({
                 
                 </div>
 
-                {/* ************* */}
-
                 <button
+                className="sendDataBtn"
                 type="submit"
                 >Enviar</button>
                 <button
@@ -117,6 +110,9 @@ const LoginForm = ({
                 className="regButton"
                 type="submit"
                 >Regístrate</button>
+                <span
+                onClick={toggleForgotSection} 
+                className="forgotPINSpan">Se me olvidó mi número PIN</span>
             </form>
 
         </div>

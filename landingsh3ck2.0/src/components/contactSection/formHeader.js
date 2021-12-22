@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormHeader = ({ active, loggedIn, regView }) => {
+const FormHeader = ({ active, loggedIn, regView, forgotPIN  }) => {
     return (
         <>
         { active === 'interested' && (loggedIn || !loggedIn) ? 
@@ -13,14 +13,7 @@ const FormHeader = ({ active, loggedIn, regView }) => {
             </div>
         </div>
         : null}
-        {/* {active === 'check' && loggedIn === true ?
-        <div className="titleWrapper">
-            <div className="formTitle">
-                <h1 className="title">Estas listo para Chequear tu producto? </h1>
-            </div>
-        </div>
-        :null
-        } */}
+        
         {active === 'check' && loggedIn === false ?
         <div className="titleWrapper">
             {regView ? 
@@ -34,20 +27,32 @@ const FormHeader = ({ active, loggedIn, regView }) => {
             </>
             
             : 
-            <>
-                <div className="formTitle">
-                    <h1 className="title_4">Inicia sesión </h1>
-                </div>
-                <div className="formDescription">
-                    <p>Haz login o regístrate para que podamos chequear productos para ti</p>
-                </div>
-            </>
+            forgotPIN ?
+                <>
+                    <div className="formTitle">
+                        <h1 className="title_4"> Genera PIN </h1>
+                    </div>
+                    <div className="formDescription">
+                        <p>Introduce estos datos y te enviamos un nuevo PIN automáticamente a tu correo</p>
+                    </div>
+                </>
+                :
+                <>
+                    <div className="formTitle">
+                        <h1 className="title_4">Inicia sesión </h1>
+                    </div>
+                    <div className="formDescription">
+                        <p>Haz login o regístrate para que podamos chequear productos para ti</p>
+                    </div>
+                </>
                 
             }
+            
         </div>
         :null
         }
-        </>
+        
+        </> 
     )
 }
 
