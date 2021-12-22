@@ -18,6 +18,7 @@ const LoginForm = ({
     regView, 
     toggleRegView,
     handlingSubmitUser,
+    handlingNewPINRequest,
     toggleForgotSection,
     forgotPIN
 }) => {
@@ -55,7 +56,12 @@ const LoginForm = ({
     }
 
     if (forgotPIN){
-        return <ForgotPINSection/>
+        return (
+            <ForgotPINSection
+            handlingNewPINRequest={handlingNewPINRequest}
+            toggleForgotSection={toggleForgotSection}
+            />
+        )
     }
 
     return (

@@ -15,6 +15,7 @@ const NotificationBox = ({
 
 }) => {
     console.log(response)
+    console.log(responseData)
     let responseSplitted = response.data.split(' ')
     console.log('splitting response: ', responseSplitted[0])
     if (response){
@@ -69,6 +70,33 @@ const NotificationBox = ({
             )
         }
         if (response.status === 201){
+            return (
+            <div className="notificationContainer">
+                <div 
+                onClick={toggleNotification}
+                className="closeIconContainer">
+                    <FaTimes/>
+                </div>
+                <div className="notificationWrapper">
+                    <img src={successImage} alt="successImage" />
+                    <div className="notificationName">
+                        <span className="notificationSpan">
+                            <b>Hola {''}{responseSplitted[0]}</b>    
+                        </span>    
+                    </div>
+                    <div className="notificationResponse">
+                        {responseData.successMessage}
+                    </div>
+                    <button
+                    className="notificationBtn"
+                    onClick={toggleNotification}
+                    >Continuar</button>
+                </div>
+                
+            </div>
+            )
+        }
+        if (response.status === 200){
             return (
             <div className="notificationContainer">
                 <div 

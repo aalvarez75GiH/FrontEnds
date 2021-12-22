@@ -10,7 +10,7 @@ import NotificationBox from '../notifications/NotificationBox'
 import axios from 'axios'
 import picture from '../../images/2034873_chat_app_media_mobile_social_icon.svg'
 import FormHeader from './formHeader'
-import { responseDataInterested, responseDataRegister, responseDataLogin } from '../notifications/notificationData'
+import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
 
 
 const ContactSection = ({
@@ -31,6 +31,7 @@ const ContactSection = ({
     // const url_users = "http://192.168.1.102:5000/api/users"
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
     const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
+    const url_generatePIN_ITC = "https://intense-atoll-00786.herokuapp.com/api/users/newPIN"
     console.log(loginResponse)
    
 
@@ -44,6 +45,7 @@ const ContactSection = ({
         setActive('interested')
     }
 
+    
 
     const toggleRegView = () => {
         setResponse(null)
@@ -53,6 +55,7 @@ const ContactSection = ({
     const toggleNotification = () => {
         setResponse(null)
         setRegView(false)
+        setForgotPIN(!forgotPIN)
     }
 
     const toggleForgotSection = () => {
@@ -110,9 +113,31 @@ const ContactSection = ({
         },2000)
     } 
 
+    const handlingNewPINRequest = async(dataToRequest) => {
+        // console.log(dataToRequest)
+        setUpLoadingUser(true)
+        try {
+            const response = await axios.put(url_generatePIN_ITC, dataToRequest)
+            console.log(response.status)
+            if (response.status === 200){
+                console.log(response)
+                setResponse(response)
+                setUpLoadingUser(false)
+                return response.status
+            }
+        } catch (error) {
+            console.log(error)
+            setUpLoadingUser(false)
+            setResponse(response.error)
+        }
+    }
+
 const togglingResponseData = () => {
     if (response && active === 'interested'){
         return responseDataInterested
+    }
+    if (response && forgotPIN){
+        return responseDataNewPIN
     }
     if (response && active === 'check'){
         return responseDataRegister
@@ -121,7 +146,6 @@ const togglingResponseData = () => {
         return responseDataLogin
     } 
 }
-
     if (upLoadingUser){
         return (
             <div 
@@ -229,13 +253,14 @@ const togglingResponseData = () => {
                  null
                 }
                 
-                { active === 'check' && !loggedIn  ? 
+                { active === 'check'  && !loggedIn  ? 
                 <LoginForm
                 regView={regView}
+                forgotPIN = {forgotPIN}
                 toggleRegView={toggleRegView}
                 handlingSubmitUser={handlingSubmitUser}
                 handlingLoginUser={handlingLoginUser}
-                forgotPIN = {forgotPIN}
+                handlingNewPINRequest={handlingNewPINRequest}
                 toggleForgotSection={toggleForgotSection}
                 />
                 :
