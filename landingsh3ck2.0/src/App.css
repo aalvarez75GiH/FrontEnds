@@ -666,7 +666,7 @@
 
 }
 
-.heroH1 {
+.heroH1, .heroH1_2 {
     color: #000000;
     font-size: 3rem;
     text-align: center;

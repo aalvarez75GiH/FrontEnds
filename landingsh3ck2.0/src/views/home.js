@@ -10,7 +10,7 @@ import HeroSection from '../components/heroSection/heroSection'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
-import { infoHero, infoVideo, infoHIW, infoContact  } from '../utils/data'
+import { infoVideo, infoHIW, infoContact  } from '../utils/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
@@ -25,10 +25,10 @@ const Home = () => {
     const [ loggedOut, setLoggedOut ] = useState(true)
     const [currentUser, setCurrentUser ] = useState('')
     const [ loginSideBarOpen, setLoginSideBarOpen ] = useState(false)
-    // const [ logoutSideBarOpen, setLogoutSideBarOpen ] = useState(false)
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
+    const [ language, setLanguage ] = useState('english')
     
     
     const mobil = useMobilDetect()
@@ -172,7 +172,7 @@ const Home = () => {
             // onLogin={ onLogin }
         />
             }
-            <HeroSection {...infoHero} />
+            <HeroSection language={language} />
             <VideoSection {...infoVideo}/>
             <HiwSection {...infoHIW}/>
             <ContactSection 
