@@ -10,11 +10,12 @@ import NotificationBox from '../notifications/NotificationBox'
 import axios from 'axios'
 import picture from '../../images/2034873_chat_app_media_mobile_social_icon.svg'
 import FormHeader from './formHeader'
+import { infoContact } from '../../utils/data'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
 
 
 const ContactSection = ({
-    id,
+    language,
     loggedIn,
     handlingSubmitLoginUser,
     loginResponse,
@@ -149,7 +150,7 @@ const togglingResponseData = () => {
     if (upLoadingUser){
         return (
             <div 
-            id={id}
+            id={infoContact.id}
             className="contactContainer">
                 <div className="contactWrapper">
                     <motion.div className="contactInfo"></motion.div>
@@ -169,17 +170,17 @@ const togglingResponseData = () => {
     console.log(active)
     return (
         <div 
-        id={id}
+        id={infoContact.id}
         className="contactContainer">
             <div className="contactWrapper">
                 <div className="contactInfo">
                     <div className="contactInfoTitleContainer">
                         <p className="contactInfoTopLine">
-                            Pronto a nivel nacional
+                            {language === 'ES' ? infoContact.contactInfoTopLine : infoContact.contactInfoTopLine_EN}
                         </p>
-                        <h1 className="contactInfoTitle1"> Estamos</h1>
-                        <h1 className="contactInfoTitle2"> construyendo</h1>
-                        <h1 className="contactInfoTitle3"> nuestra App...</h1>
+                        <h1 className="contactInfoTitle1"> {language === 'ES' ? infoContact.contactInfoTitle1 : infoContact.contactInfoTitle1_EN} </h1>
+                        <h1 className="contactInfoTitle2"> {language === 'ES' ? infoContact.contactInfoTitle2 : infoContact.contactInfoTitle2_EN}</h1>
+                        <h1 className="contactInfoTitle3"> {language === 'ES' ? infoContact.contactInfoTitle3 : infoContact.contactInfoTitle3_EN}</h1>
                     </div>
                     <div className="contactInfoImageContainer">
                         <img 
@@ -188,17 +189,17 @@ const togglingResponseData = () => {
                     </div>
                     <div className="contactInfoDescContainer">
                         <div className="contactInfoOption1">
-                            <h3>Estamos listos!</h3>
+                            <h3>{language === 'ES' ? infoContact.contactInfoOption1_h3 : infoContact.contactInfoOption1_h3_EN}</h3>
                             <p className="contactInfoDesc">
-                            A pesar de estar trabajando aún en nuestra app ya estámos listos para ayudarte</p>
+                            {language === 'ES' ? infoContact.contactInfoOption1_desc : infoContact.contactInfoOption1_desc_EN}</p>
                         </div>
                         <div className="contactInfoOption2">
-                            <h3><b> Déjanos tus datos. </b></h3>
-                            <p className="contactInfoDesc">Te notificaremos cuando nuestra app esté lista. Queremos saber en que ciudad estás</p>     
+                            <h3><b> {language === 'ES' ? infoContact.contactInfoOption2_h3 : infoContact.contactInfoOption2_h3_EN} </b></h3>
+                            <p className="contactInfoDesc">{language === 'ES' ? infoContact.contactInfoOption2_desc : infoContact.contactInfoOption2_desc_EN}</p>     
                         </div>
                         <div className="contactInfoOption3">
-                            <h3><b>Chequea un producto</b></h3>
-                            <p className="contactInfoDesc">Podemos ayudarte desde ya a chequear ese producto que quieres comprar. Compra seguro</p>    
+                            <h3><b>{language === 'ES' ? infoContact.contactInfoOption3_h3 : infoContact.contactInfoOption3_h3_EN}</b></h3>
+                            <p className="contactInfoDesc">{language === 'ES' ? infoContact.contactInfoOption3_desc : infoContact.contactInfoOption3_desc_EN}</p>    
                         </div>
                     </div>
                 </div>
