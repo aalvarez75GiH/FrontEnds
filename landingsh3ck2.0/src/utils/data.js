@@ -86,6 +86,7 @@ export const infoContact = {
     id:'contactSection',
     linkedTo: 'hiwSection', 
 
+    // contactInfo
     // Spanish
     contactInfoTopLine:'Pronto a nivel nacional',
     contactInfoTitle1:'Estamos',
@@ -109,5 +110,57 @@ export const infoContact = {
     contactInfoOption2_desc_EN:'We`ll notify you when our app is ready to go. We want to know also the city you are from',
     contactInfoOption3_h3_EN:'Check a product',
     contactInfoOption3_desc_EN:'We can help you from the very begining to check a product that you wanna buy. Buy safe',
+
+
+    // contactForms
+    // Spanish
+    notifyMe: 'Solo notificame',
+    checkAProduct: 'Quiero chequear un producto',
+    intUsers_h1: '¿Quieres saber cuando nuestra app esté lista?',
+    intUsers_p: 'Llena estos datos, sabremos que estas interesado y te notificaremos',
+    users_h1: 'Registrate con nosotros',
+    users_p: 'Con solo estos 3 datos estarás listo para comenzar a chequear tus productos',
+    genPIN_h1: 'Genera PIN',
+    genPIN_p: 'Introduce estos datos y te enviamos un nuevo PIN automáticamente a tu correo',
+    login_h1: 'Inicia sesión',
+    login_p: 'Haz login o regístrate para que podamos chequear productos para ti',
+    intUsersFormPH1: 'Nombre completo',
+    intUsersFormPH2: 'Correo electrónico',
+    intUsersFormPH3: 'Ciudad',
+    intUsersFormBtnLabel: 'Enviar',
+    loginFormPH1: 'Correo electrónico',
+    loginFormPH2: '#PIN (solo 4 dígitos)',
+    loginFormSendBtn: 'Enviar',
+    loginFormRegBtn: 'Regístrate',
+    loginFormSpan: 'Se me olvidó mi número PIN',
+    forgotPINFormPH1: 'Correo electrónico',
+    forgotPINFormPH2: 'Teléfono',
+    forgotPINFormSendBtn: 'Enviar',
+    forgotPINFormBackBtn: 'Volver',
+
+    // English
+    notifyMe_EN:'Just notify me',
+    checkAProduct_EN: 'I want to check a product',
+    intUsers_h1_EN: 'Do you wanna know when our app is ready to go?',
+    intUsers_p_EN: 'Fill in this information, we will know that you are interested and we will notify you',
+    users_h1_EN: 'Sign Up with us',
+    users_p_EN: 'With only these 3 fields you are gonna be ready to go and check products',
+    genPIN_h1_EN: 'New PIN',
+    genPIN_p_EN: 'Enter these info and we`ll send to you a new PIN number to your email address',
+    login_h1_EN: 'Log In',
+    login_p_EN: 'Do login o get an account in order to check products for you',
+    intUsersFormPH1_EN: 'Full Name',
+    intUsersFormPH2_EN: 'Email address',
+    intUsersFormPH3_EN: 'City',
+    intUsersFormBtnLabel_EN: 'Send',
+    loginFormPH1_EN: 'Email address',
+    loginFormPH2_EN: '#PIN (only 4 digits)',
+    loginFormSendBtn_EN: 'Send',
+    loginFormRegBtn_EN: 'Sign Up',
+    loginFormSpan_EN: 'I forgot my PIN number',
+    forgotPINFormPH1_EN: 'Email address',
+    forgotPINFormPH2_EN: 'Phone number',
+    forgotPINFormSendBtn_EN: 'Send',
+    forgotPINFormBackBtn_EN: 'Come back',
 }
 

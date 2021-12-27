@@ -222,12 +222,14 @@ const togglingResponseData = () => {
                 active={active === 'interested' ? 'interested' : 'signUp' } 
                 switchToSignIn={switchToSignIn}
                 switchToCheck={switchToCheck}
+                language={language}
                 />
                 <FormHeader
                 active = {active}
                 loggedIn={loggedIn}
                 regView={regView}
                 forgotPIN = {forgotPIN}
+                language={language}
                 />
                 </>
                 :
@@ -248,6 +250,7 @@ const togglingResponseData = () => {
                  <>
                  <InterestedUsersForm 
                  handlingSubmitInterestedUser={handlingSubmitInterestedUser}
+                 language={language}
                  />
                 </>                     
                  :
@@ -263,6 +266,7 @@ const togglingResponseData = () => {
                 handlingLoginUser={handlingLoginUser}
                 handlingNewPINRequest={handlingNewPINRequest}
                 toggleForgotSection={toggleForgotSection}
+                language={language}
                 />
                 :
                 null

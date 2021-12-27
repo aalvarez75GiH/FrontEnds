@@ -28,7 +28,7 @@ const Home = () => {
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
-    const [ language, setLanguage ] = useState('ES')
+    const [ language, setLanguage ] = useState('EN')
     
     
     const mobil = useMobilDetect()
