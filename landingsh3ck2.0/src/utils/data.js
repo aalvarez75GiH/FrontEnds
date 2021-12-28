@@ -172,3 +172,7 @@ export const infoContact = {
     regUsersFormSendBtn_EN: 'Send',
 }
 
+export const infoSpinner = {
+    customText: 'Espera...',
+    customText_EN: 'Wait...'
+}
