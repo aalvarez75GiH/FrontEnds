@@ -176,3 +176,60 @@ export const infoSpinner = {
     customText: 'Espera...',
     customText_EN: 'Wait...'
 }
+
+export const infoCheck = {
+    checkSectionTitle: '¿Estas listo para Chequear un producto?',
+    checkSectionTitle_EN: 'Are you ready to check a product?',
+    checkSectionBtnLabel: 'Si, Quiero chequear un producto',
+    checkSectionBtnLabel_EN: 'Yes, I wanna check a product',
+    notNowlabel: 'No ahora',
+    notNowlabel_EN: 'Not now'
+}
+
+export const infoNavBarMobil = {
+    option1Copy: 'Comienza',
+    option2Copy: 'Como funciona',
+    option3Copy: 'Notifícame',
+    option4Copy: 'Chequéa',
+    option1Copy_EN: 'Start',
+    option2Copy_EN: 'How it works',
+    option3Copy_EN: 'Notify me',
+    option4Copy_EN: 'Check it',
+}
+
+export const infoMainSideBar = {
+    option1Copy: 'Mi cuenta',
+    option2Copy: 'Mis chequeos',
+    option3Copy: 'Ayúda',
+    option4Copy: 'Preguntas y respuestas',
+    option1Copy_EN: 'My account',
+    option2Copy_EN: 'My checks orders',
+    option3Copy_EN: 'Help',
+    option4Copy_EN: 'Questions & Answers',
+    hola: 'Hola',
+    hello: 'Hello',
+    mainSidebarBtnLabel:'Cerrar sesión',
+    mainSidebarBtnLabel_EN: 'Log out'
+}
+
+export const infoLoginSB = {
+    title: 'Inicia sesión',
+    description: 'Para que podamos chequear productos debes hacer inicio de sesión',
+    title_EN: 'Login',
+    description_EN: 'Log In and check products',
+    loginSBPH1: 'Correo electrónico',
+    loginSBPH2: '#PIN (solo 4 dígitos)',
+    loginSBPH1_EN: 'Email address',
+    loginSBPH2_EN: '#PIN (only 4 digits)',
+    loginSBBtnLabel: 'Enviar',
+    loginSBBtnLabel_EN: 'Send',
+}
+
+export const infoNavBar = {
+    navBarLi1: 'Como funciona',
+    navBarLi2: 'Quiero chequear',
+    navBarNav: 'Inicio de sesión',
+    navBarLi1_EN: 'How it works',
+    navBarLi2_EN: 'I wanna check',
+    navBarNav_EN: 'Log in'
+}

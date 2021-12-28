@@ -2,6 +2,7 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 import LoginSideBarForm from './loginSideBarForm'
 import LoadingSpinner from '../../utils/loadingSpinner'
+import { infoLoginSB } from '../../utils/data'
 
 
 
@@ -36,10 +37,10 @@ const LoginSideBar = ({
 
                 </div>
                 <div className="loginSideBarFormTitle">
-                    <h1 className="loginSideBarTitle">Inicia sesión </h1>
+                    <h1 className="loginSideBarTitle">{language === 'ES' ? infoLoginSB.title : infoLoginSB.title_EN} </h1>
                 </div>
                 <div className="loginSideBarFormDescription">
-                    <p>Para que podamos chequear productos debes hacer inicio de sesión</p>
+                    <p>{language === 'ES' ? infoLoginSB.description : infoLoginSB.description_EN}</p>
                 </div>
                     
                 <LoginSideBarForm
@@ -67,14 +68,15 @@ const LoginSideBar = ({
     
                     </div>
                     <div className="loginSideBarFormTitle">
-                        <h1 className="loginSideBarTitle">Inicia sesión </h1>
+                        <h1 className="loginSideBarTitle">{language === 'ES' ? infoLoginSB.title : infoLoginSB.title_EN}</h1>
                     </div>
                     <div className="loginSideBarFormDescription">
-                        <p>Para que podamos chequear productos debes hacer inicio de sesión</p>
+                        <p>{language === 'ES' ? infoLoginSB.description : infoLoginSB.description_EN}</p>
                     </div>
                         
                     <LoginSideBarForm
                     handlingLogin={handlingLogin}
+                    language={language}
                     />
                         
                 </div>

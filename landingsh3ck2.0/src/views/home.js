@@ -150,6 +150,7 @@ const Home = () => {
             loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
+            language={language}
            
             />
             {/* : null */}
@@ -164,12 +165,14 @@ const Home = () => {
                 toggleSideBar={ toggleSideBar }  
                 username={currentUser}
                 login={ loggedIn }
+                language={language}
                 // onLogin={ onLogin }
             /> : <NavBar
             toggleLoginSideBar={toggleLoginSideBar}
             toggleMainSideBar={toggleMainSideBar} 
             username={currentUser}
             login={ loggedIn }
+            language={language}
             // onLogin={ onLogin }
         />
             }

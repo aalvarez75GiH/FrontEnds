@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useFormik } from 'formik'
 import {MdOutlineVisibility} from 'react-icons/md'
+import { infoLoginSB } from '../../utils/data'
 import * as yup from 'yup' 
 
 
@@ -12,7 +13,8 @@ const validationSchema = yup.object({
 
 
 const LoginSideBarForm = ({ 
-    handlingLogin
+    handlingLogin,
+    language
 }) => {
 
     const [ typeOfPIN, setTypeOfPIN ] = useState(false)
@@ -49,7 +51,7 @@ const LoginSideBarForm = ({
                 className="input"
                 name="email"
                 autoComplete="on"
-                placeholder="Correo electrónico" 
+                placeholder={language === 'ES' ? infoLoginSB.loginSBPH1 : infoLoginSB.loginSBPH1_EN} 
                 type="email" 
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -64,7 +66,7 @@ const LoginSideBarForm = ({
                 className="input"
                 name="pin"
                 autoComplete="on"
-                placeholder="#PIN (solo 4 dígitos)" 
+                placeholder={language === 'ES' ? infoLoginSB.loginSBPH2 : infoLoginSB.loginSBPH2_EN}
                 type={!typeOfPIN ? 'password' : 'text'} 
                 value={formik.values.password}
                 onChange={formik.handleChange}                
@@ -84,7 +86,7 @@ const LoginSideBarForm = ({
                 <button
                 className="sendDataBtn"
                 type="submit"
-                >Enviar</button>
+                >{language === 'ES' ? infoLoginSB.loginSBBtnLabel : infoLoginSB.loginSBBtnLabel_EN}</button>
             </form>
 
         </div>

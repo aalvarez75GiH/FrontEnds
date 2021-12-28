@@ -241,7 +241,7 @@ const togglingResponseData = () => {
                 
                 { loggedIn ? 
                  <>
-                 <CheckSection/>
+                 <CheckSection language={language}/>
                  </>
                  
                  :

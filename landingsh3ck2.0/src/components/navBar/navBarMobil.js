@@ -6,13 +6,15 @@ import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
 import { FaPuzzlePiece } from 'react-icons/fa'
 import { OffsetHandler } from '../../utils/settingOffsets'
+import { infoNavBarMobil } from '../../utils/data'
 
 
 const NavBarMobil = ({ 
     toggleSideBar, 
     login, 
     toggleLoginSideBar,
-    toggleMainSideBar 
+    toggleMainSideBar,
+    language 
 }) => {
     
         return (
@@ -53,7 +55,7 @@ const NavBarMobil = ({
                         <div className="iconMobilContainer">
                                 <BiRun className="faIcon"/>
                         </div>
-                        Comienza
+                        {language === 'ES' ? infoNavBarMobil.option1Copy : infoNavBarMobil.option1Copy_EN}
                         </LinkS>
                     </div>
 
@@ -70,7 +72,7 @@ const NavBarMobil = ({
                         <div className="iconMobilContainer">
                                 <FaPuzzlePiece className="faIcon"/>
                         </div>
-                        Como funciona
+                        {language === 'ES' ? infoNavBarMobil.option2Copy : infoNavBarMobil.option2Copy_EN}
                         </LinkS>
                     </div>
                     
@@ -87,7 +89,7 @@ const NavBarMobil = ({
                             <div className="iconMobilContainer">
                                 <FaSign className="faIcon"/>
                             </div>
-                            Notificame
+                            {language === 'ES' ? infoNavBarMobil.option3Copy : infoNavBarMobil.option3Copy_EN}
                         </LinkS>
                         
                     </div>
@@ -105,7 +107,7 @@ const NavBarMobil = ({
                         <div className="iconMobilContainer">
                                 <IoMdCart className="faIcon"/>
                         </div>
-                        Chequéa
+                        {language === 'ES' ? infoNavBarMobil.option4Copy : infoNavBarMobil.option4Copy_EN}
                         </LinkS>
                     </div>
                     
