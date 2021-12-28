@@ -3,7 +3,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import RegisterForm from './registerForm'
 import ForgotPINForm from './forgotPINForm'
-import {MdOutlineVisibility} from 'react-icons/md'
+import {MdLanguage, MdOutlineVisibility} from 'react-icons/md'
 import { infoContact } from '../../utils/data'
 
 
@@ -53,6 +53,7 @@ const LoginForm = ({
         return(
             <RegisterForm 
             handlingSubmitUser={handlingSubmitUser}
+            language={language}
             />
         )
     }
