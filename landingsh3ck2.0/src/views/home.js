@@ -100,6 +100,16 @@ const Home = () => {
         
     }
  
+    const toggleLanguage = () => {
+        if (language === 'ES') {
+            setLanguage('EN')
+            return
+        }
+        if (language === 'EN'){
+            setLanguage('ES')
+            return
+        } 
+    }
     
     const toggleSideBar = () => {
         setIsOpen(!isOpen)
@@ -157,7 +167,12 @@ const Home = () => {
             {/* } */}
             
             
-            <SideBar isOpen={ isOpen } toggleSideBar={ toggleSideBar }/>
+            <SideBar 
+            isOpen={ isOpen } 
+            toggleSideBar={ toggleSideBar }
+            language={language}
+            toggleLanguage={toggleLanguage}
+            />
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 
                 toggleLoginSideBar={toggleLoginSideBar}
