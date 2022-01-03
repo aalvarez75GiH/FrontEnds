@@ -285,7 +285,7 @@ export const infoSideBar = {
     sideBarLink1_EN: 'Language',
     sideBarLink2_EN: 'Questions & Answers',
     sideBarLink3_EN: 'Help',
-    toggleCopy: '(cambiar a Español)',
+    toggleCopy: '(Cambiar a Español)',
     toggleCopy_EN:'(Switch to English)',
     sideBarBtnLabel: 'Cerrar',
     sideBarBtnLabel_EN: 'Close'
