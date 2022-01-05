@@ -2,23 +2,44 @@ import React from 'react'
 import Google from '../images/google.png'
 import FB from '../images/facebook.png'
 import GH from '../images/github.png'
+import Facebook from '../components/facebook'
 
 
 const Login = () => {
+
+    const handlingGoogleAuth = () => {
+        window.open("http://localhost:5000/auth/google", "_self")
+    }
+
+    const handlingGitHubAuth = () => {
+        window.open("http://localhost:5000/auth/github", "_self")
+    }
+
+    const handlingFacebookAuth = () => {
+        window.open("http://localhost:5000/auth/facebook", "_self")
+    }
+
     return (
         <div className="login">
             <h1 className="loginTitle">Choose a Login Method</h1>
             <div className="wrapper">
                 <div className="left">
-                    <div className="loginButton google">
+                    <div className="loginButton google"
+                    onClick={handlingGoogleAuth}
+                    >
                         <img src={Google} alt="" className="icon"/>
                         Google
                     </div>
-                    <div className="loginButton facebook">
+                    {/* <Facebook /> */}
+                    <div 
+                    onClick={handlingFacebookAuth}
+                    className="loginButton facebook">
                         <img src={FB} alt="" className="icon"/>
                         Facebook
                     </div>
-                    <div className="loginButton github">
+                    <div 
+                    onClick={handlingGitHubAuth}
+                    className="loginButton github">
                         <img src={GH} alt="" className="icon"/>
                         GitHub
                     </div>
