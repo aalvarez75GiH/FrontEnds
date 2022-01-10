@@ -7,8 +7,7 @@ const Post = () => {
     console.log(location.pathname) 
     const path = location.pathname.split("/")[2]
     console.log(path)
-    const post = posts.find(postFound => postFound.id.toString() === path )
-    
+    const post = posts.find(postFound => postFound.id.toString() === path)
     return (
         <div className="post">
             <img src={post.img} alt="" className="postImg" />

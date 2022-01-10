@@ -28,6 +28,10 @@ const RegisterForm = ({ handlingSubmitUser, language }) => {
         handlingSubmitUser(values)
     }
 
+    const handlingFacebook = () => {
+        window.open("http://localhost:5000/extUsersAuth/facebook", "_self")
+    }
+
     const formik = useFormik({
         initialValues: {
             fullName: "",
@@ -92,6 +96,9 @@ const RegisterForm = ({ handlingSubmitUser, language }) => {
                 className="sendDataBtn"
                 type="submit"
                 >{language === 'ES' ? infoContact.regUsersFormSendBtn : infoContact.regUsersFormSendBtn_EN}</button>
+                <span
+                onClick={handlingFacebook} 
+                className="forgotPINSpan">Facebook</span>
             </form>
 
         </div>
