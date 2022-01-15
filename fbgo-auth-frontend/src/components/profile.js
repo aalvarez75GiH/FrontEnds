@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 const Profile = (props) => {
+    console.log(props)
     const [ userData, setUserData ] = useState({
         name: 'loading',
         picture: ""
@@ -10,7 +11,7 @@ const Profile = (props) => {
     useEffect(() => {
         if (props.user) {
             setUserData({
-                name: props.user.username,
+                name: props.user.fullName,
                 picture: props.user.picture
             })
         }
@@ -36,20 +37,19 @@ const Profile = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     console.log('State: ', state.auth)
     return {
         user: state.auth || {
             _id: "5234455jfhfhfg3838",
             googleId: "893855487421",
-            username: "Arnold Alvarez",
+            username: "Chanchito Feliz",
             picture: '',
             __v: 0
-
         }
     }
 }
 
 
 
-export default connect(null, mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
