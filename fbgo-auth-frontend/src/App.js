@@ -8,6 +8,7 @@ import Home from './components/home'
 import Header from './components/header'
 import Profile from './components/profile'
 import { fetchUserAction } from './actions/myActions'
+import './App.css'
 
 
 const App = (props) => {
