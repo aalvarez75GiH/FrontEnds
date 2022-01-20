@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import { infoContact } from '../../utils/data'
+import GoogleLogin from 'react-google-login'
+import GoogleAuthButtons from '../buttons/googleAuthButtons'
 
 
 // const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
@@ -23,15 +25,41 @@ const validationSchema = yup.object({
 
 
 const RegisterForm = ({ handlingSubmitUser, language }) => {
+    const [ loginData, setLoginData ] = useState(null)
 
     const onSubmit = (values) => {
         handlingSubmitUser(values)
     }
 
-    const handlingFacebook = () => {
-        window.open("http://localhost:5000/extUsersAuth/facebook", "_self")
-    }
+    // const handlingFacebook = () => {
+    //     window.open("http://localhost:5000/extUsersAuth/facebook", "_self")
+    // }
 
+    // const handleFailure = () => {
+    //     console.log('handling Failure...')
+    // }
+
+    // const handleLogin = async(googleData) => {
+    //     try {
+    //         console.log('handling Login with Google...')
+    //         console.log(googleData)
+    //         const res = await fetch('http://localhost:5000/api/extUsers/google',{
+    //             method: 'POST',
+    //             body: JSON.stringify({
+    //               token: googleData.tokenId,
+    //             }),
+    //             headers:{
+    //               'Content-Type': 'application/json'
+    //             }
+    //           })
+    //           const data = await res.json()
+    //           setLoginData(data)    
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+        
+    console.log(loginData)
     const formik = useFormik({
         initialValues: {
             fullName: "",
@@ -96,9 +124,10 @@ const RegisterForm = ({ handlingSubmitUser, language }) => {
                 className="sendDataBtn"
                 type="submit"
                 >{language === 'ES' ? infoContact.regUsersFormSendBtn : infoContact.regUsersFormSendBtn_EN}</button>
-                <span
-                onClick={handlingFacebook} 
-                className="forgotPINSpan">Facebook</span>
+                <div className="g-signin">
+                    <GoogleAuthButtons/>
+                </div>
+                
             </form>
 
         </div>
