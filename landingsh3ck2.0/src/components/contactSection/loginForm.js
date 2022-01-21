@@ -22,9 +22,15 @@ const LoginForm = ({
     handlingNewPINRequest,
     toggleForgotSection,
     forgotPIN,
-    language
+    language,
+    handleGoogleLogin,
+    handleGoogleLogout,
+    handleGoogleFailure,
+    showloginButton,
+    showlogoutButton
 }) => {
 
+  
     const [ typeOfPIN, setTypeOfPIN ] = useState(false)
     
     const onSubmit = async(values) => {
@@ -54,6 +60,11 @@ const LoginForm = ({
             <RegisterForm 
             handlingSubmitUser={handlingSubmitUser}
             language={language}
+            handleGoogleLogin={handleGoogleLogin}
+            handleGoogleLogout={handleGoogleLogout}
+            handleGoogleFailure={handleGoogleFailure}
+            showloginButton={showloginButton}
+            showlogoutButton={showlogoutButton}
             />
         )
     }

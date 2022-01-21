@@ -30,6 +30,13 @@ const Home = () => {
     const [ loading, setLoading ] = useState(false)
     const [ language, setLanguage ] = useState('EN')
     
+    // Google OAuth States *****************************************
+    const [GULoggedIn, setGULoggedIn] = useState(false)
+    const [ loginData, setLoginData ] = useState(null)
+    const [showloginButton, setShowloginButton] = useState(true)
+    const [showlogoutButton, setShowlogoutButton] = useState(false)
+    // **************************************************************
+    
     
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
@@ -58,12 +65,12 @@ const Home = () => {
 
     },[])
 
+     // ******* Here we handle login process of regular registered users
     const handlingSubmitLoginUser = async(user) => {
             try {
                 const { data } = await axios.post(url_userLoginITC, user)
                 console.log(data)
                 localStorage.setItem('SH3CK_TOKEN', data.token)
-                // ******************************************
                 const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
                     headers:{
                         // 'Content-Type': 'application/json',
@@ -92,6 +99,7 @@ const Home = () => {
         }, 2000);
     }
 
+    // ******* Here we handle logout process of regular registered users
     const handlingSubmitLogOutUser = () => {
         localStorage.removeItem('SH3CK_TOKEN')
         setMainSideBarOpen(!mainSideBarOpen)
@@ -134,6 +142,56 @@ const Home = () => {
         setLoginResponse(null)
     }
 
+
+    //  ************* Google OAuth Process and functions ****************
+
+    const handleGoogleLogin = async(googleData) => {
+        console.log('Login Success:', googleData.profileObj)
+        setLoginData(googleData.profileObj.name)
+        try {
+            console.log('handling Login with Google...')
+            console.log(googleData.name)
+            const res = await fetch('http://localhost:5000/api/extUsers/google',{
+                method: 'POST',
+                body: JSON.stringify({
+                  token: googleData.tokenId,
+                }),
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+              })
+              const data = await res.json()
+              console.log(data)
+              setLoginData(data)   
+              setShowloginButton(false)
+              setShowlogoutButton(true)
+              setCurrentUser(data.fullName)
+              setLoggedIn(true) 
+              setLoggedOut(false)
+        } catch (error) {
+            console.log(error)
+            setCurrentUser(googleData.profileObj.name)
+            setShowloginButton(false)
+            setShowlogoutButton(true)
+            setLoggedIn(true) 
+            setLoggedOut(false)
+        }
+    }
+
+    console.log(loginData)
+    const handleGoogleFailure = (res) => {
+        console.log('handling Failure...', res)
+    }
+
+    const handleGoogleLogout = () => {
+        alert("You have been logged out successfully");
+        console.clear();
+        setShowloginButton(true);
+        setShowlogoutButton(false);
+    }
+
+
+    //  *****************************************************************
 
   
     
@@ -200,6 +258,11 @@ const Home = () => {
             handlingSubmitLoginUser={ handlingSubmitLoginUser}
             loginResponse={loginResponse}
             toggleNotificationLogin={toggleNotification}
+            handleGoogleLogin={handleGoogleLogin}
+            handleGoogleFailure={handleGoogleFailure}
+            handleGoogleLogout={handleGoogleLogout}
+            showloginButton={showloginButton}
+            showlogoutButton={showlogoutButton}
             />
             <FooterSection language={language}/>
         </>

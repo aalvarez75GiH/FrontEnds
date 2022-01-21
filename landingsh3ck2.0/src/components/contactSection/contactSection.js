@@ -19,7 +19,12 @@ const ContactSection = ({
     loggedIn,
     handlingSubmitLoginUser,
     loginResponse,
-    toggleNotificationLogin
+    toggleNotificationLogin,
+    handleGoogleLogin,
+    handleGoogleLogout,
+    handleGoogleFailure,
+    showloginButton,
+    showlogoutButton
 
 }) => {
    
@@ -33,7 +38,6 @@ const ContactSection = ({
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
     const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
     const url_generatePIN_ITC = "https://intense-atoll-00786.herokuapp.com/api/users/newPIN"
-    console.log(loginResponse)
    
 
     const switchToCheck = () => {
@@ -71,6 +75,7 @@ const ContactSection = ({
         },2000)
     } 
 
+    // ******* Here we handle registering process of interested users
     const handlingSubmitInterestedUser = (interestedUser) => {
         
         setUpLoadingUser(true)
@@ -93,6 +98,7 @@ const ContactSection = ({
         
     }
 
+    // ******* Here we handle registering process of regular users
     const handlingSubmitUser = async(user) => {
         setUpLoadingUser(true)
         setTimeout(async()=> {
@@ -114,6 +120,7 @@ const ContactSection = ({
         },2000)
     } 
 
+    // ******* Here we handle new PIN Requests for regular registered users
     const handlingNewPINRequest = async(dataToRequest) => {
         // console.log(dataToRequest)
         setUpLoadingUser(true)
@@ -132,7 +139,7 @@ const ContactSection = ({
             setResponse(response.error)
         }
     }
-
+console.log(loggedIn)
 const togglingResponseData = () => {
     if (response && active === 'interested'){
         return responseDataInterested
@@ -270,6 +277,11 @@ const togglingResponseData = () => {
                 handlingNewPINRequest={handlingNewPINRequest}
                 toggleForgotSection={toggleForgotSection}
                 language={language}
+                handleGoogleLogin={handleGoogleLogin}
+                handleGoogleLogout={handleGoogleLogout}
+                handleGoogleFailure={handleGoogleFailure}
+                showloginButton={showloginButton}
+                showlogoutButton={showlogoutButton}
                 />
                 :
                 null

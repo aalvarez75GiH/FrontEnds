@@ -24,46 +24,27 @@ const validationSchema = yup.object({
 })
 
 
-const RegisterForm = ({ handlingSubmitUser, language }) => {
+const RegisterForm = ({ 
+    handlingSubmitUser, 
+    language,
+    handleGoogleLogin,
+    handleGoogleLogout,
+    handleGoogleFailure,
+    showloginButton,
+    showlogoutButton
+
+}) => {
     const [ loginData, setLoginData ] = useState(null)
 
     const onSubmit = (values) => {
         handlingSubmitUser(values)
     }
 
-    // const handlingFacebook = () => {
-    //     window.open("http://localhost:5000/extUsersAuth/facebook", "_self")
-    // }
-
-    // const handleFailure = () => {
-    //     console.log('handling Failure...')
-    // }
-
-    // const handleLogin = async(googleData) => {
-    //     try {
-    //         console.log('handling Login with Google...')
-    //         console.log(googleData)
-    //         const res = await fetch('http://localhost:5000/api/extUsers/google',{
-    //             method: 'POST',
-    //             body: JSON.stringify({
-    //               token: googleData.tokenId,
-    //             }),
-    //             headers:{
-    //               'Content-Type': 'application/json'
-    //             }
-    //           })
-    //           const data = await res.json()
-    //           setLoginData(data)    
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
         
     console.log(loginData)
     const formik = useFormik({
         initialValues: {
             fullName: "",
-            // password: "",
             email: "",
             phoneNumber: ""
         },
@@ -125,7 +106,13 @@ const RegisterForm = ({ handlingSubmitUser, language }) => {
                 type="submit"
                 >{language === 'ES' ? infoContact.regUsersFormSendBtn : infoContact.regUsersFormSendBtn_EN}</button>
                 <div className="g-signin">
-                    <GoogleAuthButtons/>
+                    <GoogleAuthButtons
+                    handleGoogleLogin={handleGoogleLogin}
+                    handleGoogleLogout={handleGoogleLogout}
+                    handleGoogleFailure={handleGoogleFailure}
+                    showloginButton={showloginButton}
+                    showlogoutButton={showlogoutButton}
+                    />
                 </div>
                 
             </form>
