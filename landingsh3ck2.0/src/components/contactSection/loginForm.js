@@ -52,7 +52,7 @@ const LoginForm = ({
 
     })
 
-    console.log(formik.errors)
+    // console.log(formik.errors)
 
 
     if (regView){

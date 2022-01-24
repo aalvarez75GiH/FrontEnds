@@ -139,7 +139,7 @@ const ContactSection = ({
             setResponse(response.error)
         }
     }
-console.log(loggedIn)
+// console.log(loggedIn)
 const togglingResponseData = () => {
     if (response && active === 'interested'){
         return responseDataInterested
@@ -176,7 +176,7 @@ const togglingResponseData = () => {
             </div>
         )    
     }
-    console.log(active)
+    // console.log(active)
     return (
         <div 
         id={infoContact.id}

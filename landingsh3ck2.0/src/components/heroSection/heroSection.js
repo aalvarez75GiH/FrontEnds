@@ -8,8 +8,8 @@ import { infoHero } from '../../utils/data'
 const HeroSection = ({language}) => {
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
-console.log(infoHero.heroH1Mobil)
-console.log(language)
+// console.log(infoHero.heroH1Mobil)
+// console.log(language)
 
 // console.log(mobil2.screenWidth)
 

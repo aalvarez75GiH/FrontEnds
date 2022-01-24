@@ -71,7 +71,7 @@ export const OffsetHandler = (option) => {
 
 export const OffsetHandlerNavBar = (option) => {
     const mobil2 = useMobilDetection() 
-    console.log(mobil2)   
+    // console.log(mobil2)   
         if (option === 'hiwSection'){
             if (mobil2.screenWidth <= 1920 && mobil2.screenWidth > 1536){
                 return -100

@@ -58,8 +58,6 @@ const Home = () => {
             }
             setLoggedIn(false)
             setLoggedOut(true)
-            
-            
         }   
         getToken()
 
@@ -134,9 +132,6 @@ const Home = () => {
     // }
     const toggleMainSideBar = () => {
         setMainSideBarOpen(!mainSideBarOpen)
-        // console.log(loggedIn)
-        // console.log(loggedOut)
-        // console.log(mainSideBarOpen)
     } 
     const toggleNotification = () => {
         setLoginResponse(null)
@@ -171,6 +166,7 @@ const Home = () => {
         } catch (error) {
             console.log(error)
             setCurrentUser(googleData.profileObj.name)
+            setLoginData(googleData.profileObj)
             setShowloginButton(false)
             setShowlogoutButton(true)
             setLoggedIn(true) 
@@ -185,9 +181,14 @@ const Home = () => {
 
     const handleGoogleLogout = () => {
         alert("You have been logged out successfully");
-        console.clear();
-        setShowloginButton(true);
-        setShowlogoutButton(false);
+        console.clear()
+        setMainSideBarOpen(!mainSideBarOpen)
+        setLoginData(null)
+        setLoggedIn(false)
+        setLoggedOut(true)
+        setShowloginButton(true)
+        setShowlogoutButton(false)
+
     }
 
 
@@ -219,6 +220,12 @@ const Home = () => {
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
             language={language}
+            loginData={loginData}
+            handleGoogleLogin={handleGoogleLogin}
+            handleGoogleFailure={handleGoogleFailure}
+            handleGoogleLogout={handleGoogleLogout}
+            showloginButton={showloginButton}
+            showlogoutButton={showlogoutButton}
            
             />
             {/* : null */}
