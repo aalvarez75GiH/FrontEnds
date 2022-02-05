@@ -5,11 +5,18 @@ const GoogleAuth2 = () => {
      
     const [isSignedIn,setIsSignedIn] = useState(false) 
 
+    const insertGapiScript = () => {
+        const script = document.createElement('script')
+        script.src = 'https://apis.google.com/js/platform.js'
+        script.onload = () => {
+            initializeGooglesignIn()
+        }
+        document.body.appendChild(script)
+    } 
 
-    useEffect(()=> {
-        console.log('Loading...')
-        window.gapi.load('auth2', () => {
-            window.gapi.auth2.init({
+    const initializeGooglesignIn = () => {
+        window.gapi.load('client:auth2', () => {
+            window.gapi.client.init({
               client_id: '915460618193-dcl1a1f3en6f3h22evu9jqk2aqdh1lcj.apps.googleusercontent.com',
               scope:'profile'
             })
@@ -20,11 +27,15 @@ const GoogleAuth2 = () => {
                     onSucess: () => {
                         console.log('user has finished signing in...')
                     }
-                    
                 }
                 window.gapi.signin2.render('loginButton', params )
             })
         })
+    }
+
+    useEffect(()=> {
+        console.log('Loading...')
+        insertGapiScript()
     })
 
     // const handlingOnClick = () => {
@@ -58,7 +69,7 @@ const GoogleAuth2 = () => {
         <div className="googleAuthContainer">
             <div
             id="loginButton"
-            >Sign In with Google</div>
+            ></div>
         </div>    
         
         </>

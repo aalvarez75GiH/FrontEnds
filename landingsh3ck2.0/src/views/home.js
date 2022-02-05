@@ -4,21 +4,28 @@ import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
+// import MainSideBarTest from '../components/mainSideBar/mainSideBarTest'
 // import StyledSideBar from '../components/sideBar/styledSideBar'
 import HeroSection from '../components/heroSection/heroSection'
 // import StyledNavBar from '../components/navBar/styledNavbar'
 // import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
-import { infoVideo, infoHIW, infoContact  } from '../utils/data'
+// import { infoHero, infoVideo, infoHIW, infoContact  } from '../utils/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
+// import ContactSectionTest from '../components/contactSection/contactSectionTest'
 // import StyledFooterSection from '../components/footerSection/styledFooterSection'
 import FooterSection from '../components/footerSection/footerSection'
+import LoadingSpinner from '../utils/loadingSpinner'
 
-const Home = () => {
+
+// f31c5fee13aef74568ac client id
+// 5029d96a85c6c31586054f0c2d8d3010d8fdae69  client secret
+
+const HomeTest = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ loggedIn, setLoggedIn ] = useState(false)
@@ -28,21 +35,33 @@ const Home = () => {
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
-    const [ language, setLanguage ] = useState('EN')
-    
+    const [ language, setLanguage ] = useState('ES')
+
     // Google OAuth States *****************************************
-    const [GULoggedIn, setGULoggedIn] = useState(false)
+    const [googleUser, setGoogleUser] = useState({
+        fullName: '',
+        email: '',
+        id: '',
+        imageUrl: '',
+        token_id: ''
+    })
     const [ loginData, setLoginData ] = useState(null)
-    const [showloginButton, setShowloginButton] = useState(true)
-    const [showlogoutButton, setShowlogoutButton] = useState(false)
+    const [isSignedIn, setIsSignedIn] = useState(null)
+    // console.log(isSignedIn)
     // **************************************************************
     
     
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
-    const url_userLogin = "http://192.168.1.102:5000/api/users/login"
+    // const url_userLogin = "http://192.168.1.102:5000/api/users/login"
     const url_userLoginITC = "https://intense-atoll-00786.herokuapp.com/api/users/login"
+    let auth
     useEffect(() => {
+        gettingTokenForLocalSignIn()
+        insertGapiScript()
+    },[])
+
+    const gettingTokenForLocalSignIn = () => {
         const getToken = async() => {
             const token = localStorage.getItem('SH3CK_TOKEN')
             if (token){
@@ -58,34 +77,37 @@ const Home = () => {
             }
             setLoggedIn(false)
             setLoggedOut(true)
+            
+            
         }   
         getToken()
+    }
 
-    },[])
+    
 
-     // ******* Here we handle login process of regular registered users
-    const handlingSubmitLoginUser = async(user) => {
-            try {
-                const { data } = await axios.post(url_userLoginITC, user)
-                console.log(data)
-                localStorage.setItem('SH3CK_TOKEN', data.token)
-                const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
-                    headers:{
-                        // 'Content-Type': 'application/json',
-                        Authorization: `Bearer ${data.token}` 
-                    } 
-                })
-                setLoginResponse(response)
-                console.log(response.data)
-                setCurrentUser(response.data)
-                setLoggedIn(true)
-                setLoggedOut(false)
-                console.log('Usuaurio encontrado y hace login')    
-            } catch (error) {
-                console.log(error)
-                setLoginResponse(error.response)
-            }
-        
+    const handlingSubmitLoginUser = async(user) => {    
+        try {
+            const { data } = await axios.post(url_userLoginITC, user)
+            console.log(data)
+            localStorage.setItem('SH3CK_TOKEN', data.token)
+            // ******************************************
+            const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
+                headers:{
+                    // 'Content-Type': 'application/json',
+                    Authorization: `Bearer ${data.token}` 
+                } 
+            })
+            setLoginResponse(response)
+            console.log(response.data)
+            setCurrentUser(response.data)
+            setLoading(false)
+            setLoggedIn(true)
+            setLoggedOut(false)
+            console.log('Usuaurio encontrado y hace login')    
+        } catch (error) {
+            console.log(error)
+            setLoginResponse(error.response)
+        }
     }
 
     const handlingLogin = (user) => {
@@ -97,15 +119,40 @@ const Home = () => {
         }, 2000);
     }
 
-    // ******* Here we handle logout process of regular registered users
-    const handlingSubmitLogOutUser = () => {
-        localStorage.removeItem('SH3CK_TOKEN')
-        setMainSideBarOpen(!mainSideBarOpen)
-        setLoggedIn(false)
-        setLoggedOut(true)
+    const handlingSubmitLogOutUser = async() => {
+        if (isSignedIn) {
+            const auth = window.gapi.auth2.getAuthInstance()
+            await auth.signOut()
+            setIsSignedIn(false)
+            setMainSideBarOpen(!mainSideBarOpen)
+        }
+        if (loggedIn){
+            localStorage.removeItem('SH3CK_TOKEN')
+            setMainSideBarOpen(!mainSideBarOpen)
+            setLoggedIn(false)
+            setLoggedOut(true)
+        }
+        
         
     }
  
+    
+    const toggleSideBar = () => {
+        setIsOpen(!isOpen)
+        
+    } 
+    const toggleLoginSideBar = () => {
+        setLoginSideBarOpen(!loginSideBarOpen)
+        
+    }
+    
+    const toggleMainSideBar = () => {
+        setMainSideBarOpen(!mainSideBarOpen)
+    } 
+    const toggleNotification = () => {
+        setLoginResponse(null)
+    }
+
     const toggleLanguage = () => {
         if (language === 'ES') {
             setLanguage('EN')
@@ -116,88 +163,145 @@ const Home = () => {
             return
         } 
     }
-    
-    const toggleSideBar = () => {
-        setIsOpen(!isOpen)
-        
-    } 
-    const toggleLoginSideBar = () => {
-        setLoginSideBarOpen(!loginSideBarOpen)
-        // console.log(loggedIn)
-        // console.log(loggedOut)
-        // console.log(loginSideBarOpen)
-    }
-    // const toggleLogoutSideBar = () => {
-    //     setLogoutSideBarOpen(!logoutSideBarOpen)
-    // }
-    const toggleMainSideBar = () => {
-        setMainSideBarOpen(!mainSideBarOpen)
-    } 
-    const toggleNotification = () => {
-        setLoginResponse(null)
-    }
-
-
-    //  ************* Google OAuth Process and functions ****************
-
-    const handleGoogleLogin = async(googleData) => {
-        console.log('Login Success:', googleData.profileObj)
-        setLoginData(googleData.profileObj.name)
-        try {
-            console.log('handling Login with Google...')
-            console.log(googleData.name)
-            const res = await fetch('http://localhost:5000/api/extUsers/google',{
-                method: 'POST',
-                body: JSON.stringify({
-                  token: googleData.tokenId,
-                }),
-                headers:{
-                  'Content-Type': 'application/json'
-                }
-              })
-              const data = await res.json()
-              console.log(data)
-              setLoginData(data)   
-              setShowloginButton(false)
-              setShowlogoutButton(true)
-              setCurrentUser(data.fullName)
-              setLoggedIn(true) 
-              setLoggedOut(false)
-        } catch (error) {
-            console.log(error)
-            setCurrentUser(googleData.profileObj.name)
-            setLoginData(googleData.profileObj)
-            setShowloginButton(false)
-            setShowlogoutButton(true)
-            setLoggedIn(true) 
-            setLoggedOut(false)
-        }
-    }
-
-    console.log(loginData)
-    const handleGoogleFailure = (res) => {
-        console.log('handling Failure...', res)
-    }
-
-    const handleGoogleLogout = () => {
-        alert("You have been logged out successfully");
-        console.clear()
-        setMainSideBarOpen(!mainSideBarOpen)
-        setLoginData(null)
-        setLoggedIn(false)
-        setLoggedOut(true)
-        setShowloginButton(true)
-        setShowlogoutButton(false)
-
-    }
-
-
-    //  *****************************************************************
 
   
+  //  ************* Google OAuth Processes and functions ****************
+
+//   const handleGoogleLogin = async(googleData) => {
+//     console.log('Login Success:', googleData.profileObj)
+//     setLoginData(googleData.profileObj.name)
+    // try {
+    //     console.log('handling Login with Google...')
+    //     console.log(googleData.name)
+    //     const res = await fetch('https://intense-atoll-00786.herokuapp.com/api/extUsers/google',{
+    //         method: 'POST',
+    //         body: JSON.stringify({
+    //           token: googleData.tokenId,
+    //         }),
+    //         headers:{
+    //           'Content-Type': 'application/json'
+    //         }
+    //       })
+    //       const data = await res.json()
+    //       console.log(data)
+    //       setLoginData(data)   
+    //       setCurrentUser(data.fullName)
+    //       setLoggedIn(true) 
+    //       setLoggedOut(false)
+    // } catch (error) {
+    //     console.log(error)
+    //     setCurrentUser(googleData.profileObj.name)
+    //     setLoginData(googleData.profileObj)
+    //     setLoggedIn(true) 
+    //     setLoggedOut(false)
+    // }
+// }
+
+// console.log(loginData)
+// const handleGoogleFailure = (res) => {
+//     console.log('handling Failure...', res)
+// }
+
+// const handleGoogleLogout = () => {
+//     alert("You have been logged out successfully");
+//     console.clear()
+//     setMainSideBarOpen(!mainSideBarOpen)
+//     setLoginData(null)
+//     setLoggedIn(false)
+//     setLoggedOut(true)
+// }
+
+
+
+//  *****************************************************************
+//  **********************Google Login New **************************
+
+//   const user = auth.currentUser.get()
+        //   console.log(user)
+        //   const profile = user.getBasicProfile()
+        //   console.log(profile)
+        //   const email = profile.getEmail()
+        //   console.log(email)
+        //   const imageUrl = profile.getImageUrl()
+        //   console.log(imageUrl)
+        const insertGapiScript = () => {
+            const script = document.createElement('script')
+            script.src = "https://apis.google.com/js/platform.js"
+            script.onload = () => {
+                initializeGooglesignIn()
+            }
+            document.body.appendChild(script)
+          } 
+          
+          const initializeGooglesignIn = () => {
+            window.gapi.load('client:auth2', () => {
+              window.gapi.client.init({
+                client_id: '915460618193-dcl1a1f3en6f3h22evu9jqk2aqdh1lcj.apps.googleusercontent.com',
+                scope:'profile'
+              }).then(()=> {
+              console.log('gapi initialized...')
+            //   const response = window.gapi.auth2.getAuthResponse()
+            //   console.log(response)
+              auth = window.gapi.auth2.getAuthInstance()
+              const isSignedIn = auth.isSignedIn.get()
+              {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
+              setIsSignedIn(isSignedIn)
+              console.log(isSignedIn)
+              auth.isSignedIn.listen(isSignedIn => {
+                  setIsSignedIn(auth.isSignedIn.get())
+              })   
+              })
+          })
+          
+        }
+        const googleTest = async(user, token) => {
+            // const test = JSON.parse(user)
+            // *****************************************
+            try {
+                console.log('Sending request to BackEnd api...')
+                console.log(token)
+                const res = await axios.post('https://intense-atoll-00786.herokuapp.com/api/extUsers/google', {
+                    token,
+                    headers:{
+                        'Content-Type': 'application/json',
+                    },
+                })
+                console.log(res)
+                // const res = await axios.post('http://localhost:5000/api/extUsers/google',token)
+                const data = await res.data
+                if (res.status === 201){
+                    console.log(data)
+                    setLoginData(data)   
+                    setCurrentUser(data.fullName)
+                    setLoggedIn(true) 
+                    setLoggedOut(false)
+                    return res.status
+                }
+            } catch (error) {
+                console.log(error)
+                console.log(error.response.data)
+                setCurrentUser(error.response.data.fullName)
+                setLoginData(error.response.data)
+                setLoggedIn(true) 
+                setLoggedOut(false)
+            }
+            // *************************************************
+            
+            // setLoggedIn(true)
+            // setLoggedOut(false)
+            
+        }
+// console.log(googleUser)
+// console.log(loginData)
     
     return (
         <>
+            { loading ?
+            <LoadingSpinner/>
+            :
+            null
+            }
+            
             {/* {!loggedIn && loginSideBarOpen ? */}
             <LoginSideBar
             loginSideBarOpen={ loginSideBarOpen } 
@@ -205,7 +309,7 @@ const Home = () => {
             loggedIn={loggedIn}
             loggedOut={loggedOut}
             handlingLogin={handlingLogin}
-            loading={loading}
+            loading = {loading}
             language={language}
             />
             {/* : null */}
@@ -220,17 +324,10 @@ const Home = () => {
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
             language={language}
-            loginData={loginData}
-            handleGoogleLogin={handleGoogleLogin}
-            handleGoogleFailure={handleGoogleFailure}
-            handleGoogleLogout={handleGoogleLogout}
-            showloginButton={showloginButton}
-            showlogoutButton={showlogoutButton}
-           
+            loginData={loginData}           
             />
             {/* : null */}
             {/* } */}
-            
             
             <SideBar 
             isOpen={ isOpen } 
@@ -238,6 +335,7 @@ const Home = () => {
             language={language}
             toggleLanguage={toggleLanguage}
             />
+            
             { mobil2.screenWidth <= 1098 || mobil ?  
                 <NavBarMobil 
                 toggleLoginSideBar={toggleLoginSideBar}
@@ -257,23 +355,21 @@ const Home = () => {
         />
             }
             <HeroSection language={language} />
-            <VideoSection language={language} />
-            <HiwSection language={language} />
+            <VideoSection language={language}/>
+            <HiwSection language={language}/>
             <ContactSection 
             language={language}
             loggedIn={loggedIn}
+            isSignedIn={isSignedIn}
             handlingSubmitLoginUser={ handlingSubmitLoginUser}
             loginResponse={loginResponse}
             toggleNotificationLogin={toggleNotification}
-            handleGoogleLogin={handleGoogleLogin}
-            handleGoogleFailure={handleGoogleFailure}
-            handleGoogleLogout={handleGoogleLogout}
-            showloginButton={showloginButton}
-            showlogoutButton={showlogoutButton}
+            googleTest={googleTest}
             />
             <FooterSection language={language}/>
         </>
     )
 }
 
-export default Home
+export default HomeTest
+

@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import RegisterForm from './registerForm'
+// import RegisterFormTest from './registerFormTest'
 import ForgotPINForm from './forgotPINForm'
-import {MdLanguage, MdOutlineVisibility} from 'react-icons/md'
+import {MdOutlineVisibility} from 'react-icons/md'
 import { infoContact } from '../../utils/data'
-import GoogleAuthButtons from '../buttons/googleAuthButtons'
+import GoogleAuth3 from '../buttons/googleAuth3'
 
 
 
@@ -15,31 +16,23 @@ const validationSchema = yup.object({
 })
 
 
-const LoginForm = ({ 
+const LoginFormTest = ({ 
     handlingLoginUser,
     regView, 
     toggleRegView,
     handlingSubmitUser,
-    handlingNewPINRequest,
-    toggleForgotSection,
     forgotPIN,
+    toggleForgotSection,
+    handlingNewPINRequest,
     language,
-    handleGoogleLogin,
-    handleGoogleLogout,
-    handleGoogleFailure,
-    showloginButton,
-    showlogoutButton
+    isSignedIn,
+    googleTest
 }) => {
-
-  
-    const [ typeOfPIN, setTypeOfPIN ] = useState(false)
+    console.log(isSignedIn)
+    const [typeOfPIN, setTypeOfPIN ] = useState(false)
     
     const onSubmit = async(values) => {
         handlingLoginUser(values)
-    }
-
-    const togglingPINVisibility = () => {
-        setTypeOfPIN(!typeOfPIN)
     }
 
     const formik = useFormik({
@@ -53,32 +46,34 @@ const LoginForm = ({
 
     })
 
-    // console.log(formik.errors)
+    console.log(formik.errors)
 
+    const togglingPINVisibility = () => {
+        setTypeOfPIN(!typeOfPIN)
+    }
 
     if (regView){
         return(
-            <RegisterForm 
+            <RegisterForm
             handlingSubmitUser={handlingSubmitUser}
             language={language}
-            handleGoogleLogin={handleGoogleLogin}
-            handleGoogleLogout={handleGoogleLogout}
-            handleGoogleFailure={handleGoogleFailure}
-            showloginButton={showloginButton}
-            showlogoutButton={showlogoutButton}
+            isSignedIn={isSignedIn}
             />
         )
     }
 
     if (forgotPIN){
-        return (
+        return(
             <ForgotPINForm
             handlingNewPINRequest={handlingNewPINRequest}
             toggleForgotSection={toggleForgotSection}
             language={language}
             />
-        )
+        ) 
+        
     }
+
+
 
     return (
         <div className="boxContainer">
@@ -90,7 +85,7 @@ const LoginForm = ({
                 className="input"
                 autoComplete="on"
                 name="email"
-                placeholder={language === 'ES' ? infoContact.loginFormPH1 : infoContact.loginFormPH1_EN}
+                placeholder={language === 'ES' ? infoContact.loginFormPH1 : infoContact.loginFormPH1_EN} 
                 type="email" 
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -99,7 +94,6 @@ const LoginForm = ({
                     borderBottom: `${formik.touched.email && formik.errors.email ? '2px solid red' : '1px solid rgba(200,200,200, 0.3 )'}`
                 }}
                 />
-                
                 <div className="inputWrapper">
                 <input
                 className="inputPassword"
@@ -122,7 +116,8 @@ const LoginForm = ({
                     </div>
                 
                 </div>
-
+                
+                
                 <button
                 className="sendDataBtn"
                 type="submit"
@@ -135,19 +130,14 @@ const LoginForm = ({
                 <span
                 onClick={toggleForgotSection} 
                 className="forgotPINSpan">{language === 'ES' ? infoContact.loginFormSpan : infoContact.loginFormSpan_EN}</span>
-                <div className="g-signin">
-                    <GoogleAuthButtons
-                    handleGoogleLogin={handleGoogleLogin}
-                    handleGoogleLogout={handleGoogleLogout}
-                    handleGoogleFailure={handleGoogleFailure}
-                    showloginButton={showloginButton}
-                    showlogoutButton={showlogoutButton}
-                    />
-                </div>
+                <GoogleAuth3
+                isSignedIn={isSignedIn}
+                googleTest={googleTest}
+                />
             </form>
 
         </div>
     )
 }
 
-export default LoginForm
+export default LoginFormTest

@@ -1,20 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import { infoContact } from '../../utils/data'
-import GoogleLogin from 'react-google-login'
-import GoogleAuthButtons from '../buttons/googleAuthButtons'
+import GoogleAuth3 from '../buttons/googleAuth3'
 
-
-// const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
-// const validationSchema = yup.object({
-//     fullName: yup.string().min(3).max(100).required('Debes colocar tu nombre completo'),
-//     password: yup.string().min(6).max(200).matches(PASSWORD_REGEX, "Por favor coloca un password más fuerte").required(),
-//     email: yup.string().email('Por favor introduce una dirección de email válida').required(),
-//     phoneNumber: yup.string().length(11).pattern(/^[0-9]+$/).required()
-       
-// })
 
 const validationSchema = yup.object({
     fullName: yup.string().min(3).max(100).required('hola, no te olvides de colocar tu nombre completo'),
@@ -24,24 +13,17 @@ const validationSchema = yup.object({
 })
 
 
-const RegisterForm = ({ 
+const RegisterFormTest = ({ 
     handlingSubmitUser, 
     language,
-    handleGoogleLogin,
-    handleGoogleLogout,
-    handleGoogleFailure,
-    showloginButton,
-    showlogoutButton
-
+    googleTest,
+    isSignedIn
 }) => {
-    const [ loginData, setLoginData ] = useState(null)
 
     const onSubmit = (values) => {
         handlingSubmitUser(values)
     }
 
-        
-    console.log(loginData)
     const formik = useFormik({
         initialValues: {
             fullName: "",
@@ -54,7 +36,6 @@ const RegisterForm = ({
 
     })
 
-    // console.log(formik.values)
     // console.log(formik.errors)
 
     return (
@@ -78,7 +59,7 @@ const RegisterForm = ({
                 <input
                 className="input"
                 name="email"
-                placeholder={language === 'ES' ? infoContact.regUsersFormPH2 : infoContact.regUsersFormPH2_EN}
+                placeholder={language === 'ES' ? infoContact.regUsersFormPH2 : infoContact.regUsersFormPH2_EN} 
                 type="text" 
                 autoComplete="on"
                 value={formik.values.email}
@@ -91,7 +72,7 @@ const RegisterForm = ({
                 <input
                 className="input"
                 name="phoneNumber"
-                placeholder={language === 'ES' ? infoContact.regUsersFormPH3 : infoContact.regUsersFormPH3_EN}
+                placeholder={language === 'ES' ? infoContact.regUsersFormPH3 : infoContact.regUsersFormPH3_EN} 
                 type="text" 
                 autoComplete="on"
                 value={formik.values.phoneNumber}
@@ -105,20 +86,18 @@ const RegisterForm = ({
                 className="sendDataBtn"
                 type="submit"
                 >{language === 'ES' ? infoContact.regUsersFormSendBtn : infoContact.regUsersFormSendBtn_EN}</button>
-                <div className="g-signin">
-                    <GoogleAuthButtons
-                    handleGoogleLogin={handleGoogleLogin}
-                    handleGoogleLogout={handleGoogleLogout}
-                    handleGoogleFailure={handleGoogleFailure}
-                    showloginButton={showloginButton}
-                    showlogoutButton={showlogoutButton}
-                    />
-                </div>
+
+                <GoogleAuth3
+                googleTest={googleTest}
+                isSignedIn={isSignedIn}
+                />
                 
+                
+            
             </form>
 
         </div>
     )
 }
 
-export default RegisterForm
+export default RegisterFormTest
