@@ -4,15 +4,14 @@ import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
-
 import HeroSection from '../components/heroSection/heroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
-
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
+
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
 
@@ -20,7 +19,7 @@ import LoadingSpinner from '../utils/loadingSpinner'
 // f31c5fee13aef74568ac client id
 // 5029d96a85c6c31586054f0c2d8d3010d8fdae69  client secret
 
-const HomeTest = () => {
+const HomeTest3 = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ loggedIn, setLoggedIn ] = useState(false)
@@ -160,7 +159,7 @@ const HomeTest = () => {
     }
 
   
-  //  ************* Google OAuth Processes and functions (with googleAuth3) ****************
+  //  ************* Google OAuth Processes and functions (with googleAuth5) ****************
 
  
         const insertGapiScript = () => {
@@ -174,24 +173,26 @@ const HomeTest = () => {
           
           const initializeGooglesignIn = () => {
             window.gapi.load('client:auth2', () => {
-            window.gapi.client.init({
-              client_id: '915460618193-dcl1a1f3en6f3h22evu9jqk2aqdh1lcj.apps.googleusercontent.com',
-              scope:'profile'
-            }).then(()=> {
-            console.log('gapi initialized...')
-            auth = window.gapi.auth2.getAuthInstance()
-            const isSignedIn = auth.isSignedIn.get()
-            {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
-            setIsSignedIn(isSignedIn)
-            console.log(isSignedIn)
-            auth.isSignedIn.listen(isSignedIn => {
-                setIsSignedIn(auth.isSignedIn.get())
-            })   
-            })
+              window.gapi.client.init({
+                client_id: '915460618193-dcl1a1f3en6f3h22evu9jqk2aqdh1lcj.apps.googleusercontent.com',
+                scope:'profile'
+              }).then(()=> {
+              console.log('gapi initialized...')
+            //   const response = window.gapi.auth2.getAuthResponse()
+            //   console.log(response)
+              auth = window.gapi.auth2.getAuthInstance()
+              const isSignedIn = auth.isSignedIn.get()
+              {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
+              setIsSignedIn(isSignedIn)
+              console.log(isSignedIn)
+              auth.isSignedIn.listen(isSignedIn => {
+                  setIsSignedIn(auth.isSignedIn.get())
+              })   
+              })
           })
           
         }
-        const googleTest = async(token) => {
+        const googleTest = async(user, token) => {
             // const test = JSON.parse(user)
             // *****************************************
             try {
@@ -294,7 +295,7 @@ const HomeTest = () => {
             <HeroSection language={language} />
             <VideoSection language={language}/>
             <HiwSection language={language}/>
-            <ContactSection 
+            <ContactSection
             language={language}
             loggedIn={loggedIn}
             isSignedIn={isSignedIn}
@@ -308,4 +309,5 @@ const HomeTest = () => {
     )
 }
 
-export default HomeTest
+export default HomeTest3
+

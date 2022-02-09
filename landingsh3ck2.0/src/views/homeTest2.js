@@ -3,16 +3,14 @@ import axios from 'axios'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
-// import MainSideBar from '../components/mainSideBar/mainSideBar'
-import MainSideBarTest from '../components/mainSideBar/mainSideBarTest'
+import MainSideBar from '../components/mainSideBar/mainSideBar'
 import HeroSection from '../components/heroSection/heroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
-// import ContactSection from '../components/contactSection/contactSection'
-import ContactSectionTest from '../components/contactSection/contactSectionTest'
+import ContactSection from '../components/contactSection/contactSection'
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
 
@@ -47,7 +45,6 @@ const HomeTest2 = () => {
     const mobil2 = useMobilDetection()
     // const url_userLogin = "http://192.168.1.102:5000/api/users/login"
     const url_userLoginITC = "https://intense-atoll-00786.herokuapp.com/api/users/login"
-    let auth
     useEffect(() => {
         gettingTokenForLocalSignIn()
         window.onload = function () {
@@ -120,13 +117,16 @@ const HomeTest2 = () => {
 
     const handlingSubmitLogOutUser = async() => {
         if (isSignedIn) {
-            const auth = window.gapi.auth2.getAuthInstance()
-            await auth.signOut()
-            setIsSignedIn(false)
+            // window.google.accounts.id.disableAutoSelect()
+            // const auth = window.gapi.auth2.getAuthInstance()
+            // await auth.signOut()
+            // setIsSignedIn(false)
             setMainSideBarOpen(!mainSideBarOpen)
         }
         if (loggedIn){
-            localStorage.removeItem('SH3CK_TOKEN')
+            console.log('pasando por aqui')
+            localStorage.removeItem('google_token')
+            window.google.accounts.id.disableAutoSelect()
             setMainSideBarOpen(!mainSideBarOpen)
             setLoggedIn(false)
             setLoggedOut(true)
@@ -167,11 +167,13 @@ const HomeTest2 = () => {
 //  ************* Google OAuth Processes and functions (with googleAuth4) ****************
 
         const handleCredentialResponse = async(response) => {
-            console.log("Encoded JWT ID token: " + response.credential)
+            console.log("Encoded JWT ID token: " + response.select_by)
+            response.credential ? setLoggedIn(true) : setLoggedIn(false)
             const token = response.credential
         try {
             console.log('Sending request to BackEnd api...')
             console.log(token)
+            localStorage.setItem('google_token', token)
             const res = await axios.post('https://intense-atoll-00786.herokuapp.com/api/extUsers/google', {
                 token,
                 headers:{
@@ -223,7 +225,7 @@ const HomeTest2 = () => {
             {/* } */}
 
             {/* {!loggedOut && logoutSideBarOpen ? */}
-            <MainSideBarTest
+            <MainSideBar
             mainSideBarOpen={mainSideBarOpen}
             toggleMainSideBar={toggleMainSideBar}
             loggedIn={loggedIn}
@@ -264,14 +266,14 @@ const HomeTest2 = () => {
             <HeroSection language={language} />
             <VideoSection language={language}/>
             <HiwSection language={language}/>
-            <ContactSectionTest 
+            <ContactSection 
             language={language}
             loggedIn={loggedIn}
             isSignedIn={isSignedIn}
             handlingSubmitLoginUser={ handlingSubmitLoginUser}
             loginResponse={loginResponse}
             toggleNotificationLogin={toggleNotification}
-            // googleTest={googleTest}
+            
             />
             <FooterSection language={language}/>
         </>

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import RegisterForm from './registerForm'
-// import RegisterFormTest from './registerFormTest'
 import ForgotPINForm from './forgotPINForm'
 import {MdOutlineVisibility} from 'react-icons/md'
 import { infoContact } from '../../utils/data'
 import GoogleAuth3 from '../buttons/googleAuth3'
+import GoogleAuth4 from '../buttons/googleAuth4'
+import GoogleAuth5 from '../buttons/googleAuth5'
 
 
 
@@ -16,7 +17,7 @@ const validationSchema = yup.object({
 })
 
 
-const LoginFormTest = ({ 
+const LoginForm = ({ 
     handlingLoginUser,
     regView, 
     toggleRegView,
@@ -46,7 +47,7 @@ const LoginFormTest = ({
 
     })
 
-    console.log(formik.errors)
+    // console.log(formik.errors)
 
     const togglingPINVisibility = () => {
         setTypeOfPIN(!typeOfPIN)
@@ -54,7 +55,7 @@ const LoginFormTest = ({
 
     if (regView){
         return(
-            <RegisterForm
+            <RegisterForm 
             handlingSubmitUser={handlingSubmitUser}
             language={language}
             isSignedIn={isSignedIn}
@@ -72,8 +73,6 @@ const LoginFormTest = ({
         ) 
         
     }
-
-
 
     return (
         <div className="boxContainer">
@@ -130,9 +129,10 @@ const LoginFormTest = ({
                 <span
                 onClick={toggleForgotSection} 
                 className="forgotPINSpan">{language === 'ES' ? infoContact.loginFormSpan : infoContact.loginFormSpan_EN}</span>
-                <GoogleAuth3
+                <GoogleAuth4
                 isSignedIn={isSignedIn}
                 googleTest={googleTest}
+                // language={language}
                 />
             </form>
 
@@ -140,4 +140,4 @@ const LoginFormTest = ({
     )
 }
 
-export default LoginFormTest
+export default LoginForm

@@ -6,8 +6,9 @@
     font-family: "Source Sans Pro",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     /* font-size: 62.50%; */
   }
-/* ******************** Google Auth ***************************/
-  .googleAuthContainer {
+
+  /* ******************** Google Auth ***************************/
+.googleAuthContainer {
     width: 100%;
     height: 85px;
     background-color: #eeeeee;
@@ -19,8 +20,11 @@
     margin-top: 2%;
 }
 .googleAuthBtn {
-    width: 80%;
-    /* height: 25%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85px;
     height: 70px;
     font-size: 1.3rem;
     border-style: none;
@@ -28,9 +32,77 @@
     color: #ffffff;
     font-weight: 600;
 }
+/* googleAuth4 */
 #buttonDiv {
+    display: flex;
+    justify-content: center;
+    background-color: #1a73e8;
+    align-items: center;
     margin-top: 4%;
+    height: 115px;
 }
+#googleAuth5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    height: 70px;
+    font-size: 1.1rem;
+    border-style: none;
+    background-color: #1a73e8;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 3%;
+}
+
+.googleIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    margin-right: 6%;
+    border-radius: 10px;
+}
+/* googleAuth 5 */
+/* #loginButton {
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 190px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+}  */
+
+/* #loginButton:hover {
+    cursor: pointer;
+} */
+
+/* span.label {
+    font-family: serif;
+    font-weight: normal;
+  } */
+/* span.icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+} */
+
+/* span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 42px;
+    padding-right: 42px;
+    font-size: 14px;
+    font-weight: bold;
+     font-family: 'Roboto', sans-serif;
+  } */
+
 
 /*************** NavBar ****************************** */
   .nav {
@@ -699,7 +771,7 @@
 
 }
 
-.heroH1, .heroH1_2 {
+.heroH1 {
     color: #000000;
     font-size: 3rem;
     text-align: center;
@@ -1113,10 +1185,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 66%;
+    height: 50%;
     background-color: #ffffff;
     width: 70%;
-    /* margin-bottom: 20%; */
+    margin-bottom: 20%;
 }
 
 .formContainer {
@@ -1176,30 +1248,6 @@
     font-size: 1.4rem;
 
 }
-
-.g-signin {
-    width: 100%;
-    margin-top: 4%;
-}
-.g-signin button {
-    width: 100%;
-    border-style: none;
-    background-color: #FAD570;
-}
-
-.g-signin span {
-    font-size: 1.4rem;
-    margin-left: 20%;
-    
-}
-.g-signin svg {
-    margin-left: 20%;
-}
-
-.g-signin div {
-    background-color: #4285f4;
-}
-
 /* ************** checkSection ************** */
 
 .checkSectionContainer {
@@ -1674,29 +1722,7 @@
         width: 30%;
     }
     /******************************  */
-  
-    .g-signin {
-        width: 100%;
-        margin-top: 4%;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
+
     
 }
 
@@ -1781,29 +1807,40 @@
         height: 22%;
     }
 
-    /* Google Auth Button */
-    .g-signin {
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
+    
+    /* .checkSection-BtnWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        margin-top: 4%;
-    }
-    .g-signin button {
-        width: 100%;
+        height: 100px;
+        margin-top: 7%;
+    } */
+    
+    /* .checkSectionBtn-toCheck {
+        width: 50%;
+        height: 90px;
+        background-color: #010606;
         border-style: none;
-        background-color: #FAD570;
-    }
+        border-radius: 60px;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-left: 5%;
+    } */
     
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
+    /* .checkSection-notNow {
+        margin-left: 7%;
+        margin-top: 3%;
+    } */
     
   
 }
@@ -1898,7 +1935,15 @@
     }
 
     /* *****  checkSection *********** */
-    
+    /* .checkSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        background-color: #eeeeee;
+    } */
     .checkSection-formTitle {
         width: 60%;
         margin-left: 5%;
@@ -1928,30 +1973,7 @@
         margin-left: 7%;
         margin-top: 3%;
     }
-
-    /* Google Auth Button */
-    .g-signin {
-        width: 100%;
-        margin-top: 4%;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-    }
     
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
 
 }
 
@@ -2096,30 +2118,6 @@
     .checkSection-notNow {
         margin-left: 7%;
         margin-top: 3%;
-    }
-
-    /* Google Auth Button */
-    .g-signin {
-        width: 100%;
-        margin-top: 6%;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
     }
     
 }
@@ -2299,7 +2297,7 @@
     /*********** Info *******************  */
     .contactContainer {
         width: 100%;
-        height: 2300px;
+        height: 2200px;
     }
 
     .contactWrapper {
@@ -2404,13 +2402,13 @@
     
     .contactForms {
         width: 100%;
-        height: 950px;
+        height: 800px;
         position: unset; 
     }
 
     .optionsWrapper {
         width: 75%;
-        margin-top: 2%;
+        margin-top: 5%;
 
     }
     .titleWrapper {
@@ -2477,32 +2475,6 @@
     .closeBtn {
         width: 28%;
         height: 23%;
-    }
-
-    /* Google Auth Button */
-    /* Google Auth Button */
-    .g-signin {
-        width: 100%;
-        margin-top: 6%;
-        border-top: 1px solid #eeeeee;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
     }
   
 }
@@ -2689,7 +2661,7 @@
      /*********** Info *******************  */
      .contactContainer {
         width: 100%;
-        height: 2143px;
+        height: 2000px;
     }
 
     .contactWrapper {
@@ -2707,7 +2679,7 @@
         height: 1200px;
         background-color: #FAD570;
     }
-  
+    
     .contactInfoTitleContainer {
         width: 100%;
         height: 21%;
@@ -2795,7 +2767,7 @@
    
     .contactForms {
         width: 100%;
-        height: 920px;
+        height: 800px;
         position: unset;
         
         
@@ -2826,7 +2798,7 @@
     }
     .boxContainer {
         width: 85%;
-        height: 65%;
+        height: 55%;
         margin-top: 4%;
         margin-bottom: 0;
 
@@ -3027,30 +2999,6 @@
        font-size: 24px;
     }
 
-    /* Google Auth Button */
-    .g-signin {
-        width: 100%;
-        margin-top: 6%;
-        border-top: 1px solid #eeeeee;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
 }
 /* ********  Phones Responsive Design ******************* */
 @media (max-width:560px) and (min-width: 480px){
@@ -3239,7 +3187,7 @@
     /*********** Info *******************  */
     .contactContainer {
         width: 100%;
-        height: 2545px;
+        height: 2500px;
         
     }
 
@@ -3452,6 +3400,16 @@
     .forgotPINSpan {
         font-size: 1rem;
     }
+
+    /* GoogleAuth4 */
+    #buttonDiv {
+        display: flex;
+        justify-content: center;
+        background-color: #1a73e8;
+        align-items: center;
+        margin-top: 4%;
+        height: 85px;
+    }
     
 
     /* *****  MainSideBar *********** */
@@ -3652,33 +3610,6 @@
        color: #ffffff;
        font-size: 24px;
     }
-
-    /* Google Auth Button */
-    .g-signin {
-        width: 100%;
-        margin-top: 5%;
-        border-top: unset;
-        height: 85px;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-        height: 100%;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
 }
 
 @media (max-width:480px) and (min-width: 414px){
@@ -3866,7 +3797,7 @@
     /*********** Info *******************  */
     .contactContainer {
         width: 100%;
-        height: 2540px;
+        height: 2500px;
     }
 
     .contactWrapper {
@@ -3985,7 +3916,7 @@
     /******************************  */
     .contactForms {
         width: 100%;
-        height: 916px;
+        height: 800px;
         position: unset;
     }
 
@@ -4025,7 +3956,7 @@
     .boxContainer {
         width: 90%;
         height: auto;
-        /* margin-bottom: 15%; */
+        margin-bottom: 15%;
     }
     
     .loginSideBarFormDescription {
@@ -4066,6 +3997,16 @@
 
     .forgotPINSpan {
         font-size: 1rem;
+    }
+    
+     /* GoogleAuth4 */
+     #buttonDiv {
+        /* display: flex;
+        justify-content: center;
+        background-color: #1a73e8;
+        align-items: center;
+        margin-top: 4%; */
+        height: 85px;
     }
     
 
@@ -4272,37 +4213,6 @@
        font-size: 24px;
     }
 
-    /* Google Auth Button */
-
-    .forgotPINSpan {
-        margin-top: 6%;
-    }
-    .g-signin {
-        width: 100%;
-        margin-top: 5%;
-        border-top: unset;
-        height: 85px;
-    }
-    .g-signin button {
-        width: 100%;
-        border-style: none;
-        background-color: #FAD570;
-        height: 100%;
-    }
-    
-    .g-signin span {
-        font-size: 1.4rem;
-        margin-left: 20%;
-        
-    }
-    .g-signin svg {
-        margin-left: 20%;
-    }
-    
-    .g-signin div {
-        background-color: #4285f4;
-    }
-   
 }
 
 @media (max-width:414px) and (min-width: 360px){
@@ -4387,6 +4297,8 @@
         margin-bottom: 4px;
     
     }
+
+    
 
     .faIcon {
         font-size: 20px;
@@ -4487,7 +4399,7 @@
     /*********** Info *******************  */
     .contactContainer {
         width: 100%;
-        height: 2680px;
+        height: 2600px;
     }
 
     .contactWrapper {
@@ -4695,6 +4607,16 @@
 
     .forgotPINSpan {
         font-size: 1rem;
+    }
+
+      /* GoogleAuth4 */
+      #buttonDiv {
+        display: flex;
+        justify-content: center;
+        background-color: #1a73e8;
+        align-items: center;
+        margin-top: 4%;
+        height: 85px;
     }
 
   
@@ -5413,6 +5335,17 @@
     .forgotPINSpan {
         font-size: 1rem;
     }
+
+    /* GoogleAuth4 */
+    #buttonDiv {
+        display: flex;
+        justify-content: center;
+        background-color: #1a73e8;
+        align-items: center;
+        margin-top: 4%;
+        height: 85px;
+    }
+
     /* *****  MainSideBar *********** */
     
     

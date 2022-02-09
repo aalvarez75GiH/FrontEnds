@@ -14,7 +14,7 @@ import FormHeader from './formHeader'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
 import { infoContact } from '../../utils/data'
 
-const ContactSectionTest = ({
+const ContactSection = ({
     language,
     loggedIn,
     handlingSubmitLoginUser,
@@ -286,4 +286,4 @@ return (
 )
 }
 
-export default ContactSectionTest
+export default ContactSection

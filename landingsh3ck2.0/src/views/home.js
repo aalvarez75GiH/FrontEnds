@@ -4,20 +4,13 @@ import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import LoginSideBar from '../components/loginSideBar/loginSideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
-// import MainSideBarTest from '../components/mainSideBar/mainSideBarTest'
-// import StyledSideBar from '../components/sideBar/styledSideBar'
 import HeroSection from '../components/heroSection/heroSection'
-// import StyledNavBar from '../components/navBar/styledNavbar'
-// import StyledHeroSection from '../components/heroSection/styledHeroSection'
 import VideoSection from '../components/videoSection/videoSection'
 import HiwSection from '../components/hiwSection/hiwSection'
-// import { infoHero, infoVideo, infoHIW, infoContact  } from '../utils/data'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
 import ContactSection from '../components/contactSection/contactSection'
-// import ContactSectionTest from '../components/contactSection/contactSectionTest'
-// import StyledFooterSection from '../components/footerSection/styledFooterSection'
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
 
@@ -25,7 +18,7 @@ import LoadingSpinner from '../utils/loadingSpinner'
 // f31c5fee13aef74568ac client id
 // 5029d96a85c6c31586054f0c2d8d3010d8fdae69  client secret
 
-const HomeTest = () => {
+const Home = () => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     const [ loggedIn, setLoggedIn ] = useState(false)
@@ -165,65 +158,9 @@ const HomeTest = () => {
     }
 
   
-  //  ************* Google OAuth Processes and functions ****************
+  //  ************* Google OAuth Processes and functions (with googleAuth5) ****************
 
-//   const handleGoogleLogin = async(googleData) => {
-//     console.log('Login Success:', googleData.profileObj)
-//     setLoginData(googleData.profileObj.name)
-    // try {
-    //     console.log('handling Login with Google...')
-    //     console.log(googleData.name)
-    //     const res = await fetch('https://intense-atoll-00786.herokuapp.com/api/extUsers/google',{
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //           token: googleData.tokenId,
-    //         }),
-    //         headers:{
-    //           'Content-Type': 'application/json'
-    //         }
-    //       })
-    //       const data = await res.json()
-    //       console.log(data)
-    //       setLoginData(data)   
-    //       setCurrentUser(data.fullName)
-    //       setLoggedIn(true) 
-    //       setLoggedOut(false)
-    // } catch (error) {
-    //     console.log(error)
-    //     setCurrentUser(googleData.profileObj.name)
-    //     setLoginData(googleData.profileObj)
-    //     setLoggedIn(true) 
-    //     setLoggedOut(false)
-    // }
-// }
-
-// console.log(loginData)
-// const handleGoogleFailure = (res) => {
-//     console.log('handling Failure...', res)
-// }
-
-// const handleGoogleLogout = () => {
-//     alert("You have been logged out successfully");
-//     console.clear()
-//     setMainSideBarOpen(!mainSideBarOpen)
-//     setLoginData(null)
-//     setLoggedIn(false)
-//     setLoggedOut(true)
-// }
-
-
-
-//  *****************************************************************
-//  **********************Google Login New **************************
-
-//   const user = auth.currentUser.get()
-        //   console.log(user)
-        //   const profile = user.getBasicProfile()
-        //   console.log(profile)
-        //   const email = profile.getEmail()
-        //   console.log(email)
-        //   const imageUrl = profile.getImageUrl()
-        //   console.log(imageUrl)
+ 
         const insertGapiScript = () => {
             const script = document.createElement('script')
             script.src = "https://apis.google.com/js/platform.js"
@@ -371,5 +308,4 @@ const HomeTest = () => {
     )
 }
 
-export default HomeTest
-
+export default Home

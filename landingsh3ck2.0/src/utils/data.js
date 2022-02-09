@@ -20,6 +20,7 @@ export const infoHero = {
     heroPMobil_EN: 'We check the products you want to buy',
     buttonLabel_EN: 'See Video'
 }
+
 export const infoVideo = {
     id:'videoSection',
     lightBg: true,
@@ -31,12 +32,14 @@ export const infoVideo = {
     videoSrc: video,
     darkText: '#010606', 
     buttonLabel: 'Como funciona',
-    linkedTo: 'hiwSection' ,
+    linkedTo: 'hiwSection', 
+
     // English
     topLine_EN: `Don't miss anything...`,
     headLine_EN: `In this video we explain what our service is about ...`,
     description_EN: `Imagine that you want to buy something at a super good price but fear that it could be a scam or have doubts about the quality of the product. At Sh3ck we have the solution for you ...`,
     buttonLabel_EN:`How it works`
+
 }
 
 export const infoHIW = {
@@ -82,11 +85,10 @@ export const infoHIW = {
     alt5_EN:'Real time video',
 }
 
-export const infoContact = {
+    export const infoContact = {
     id:'contactSection',
     linkedTo: 'hiwSection', 
 
-    // contactInfo
     // Spanish
     contactInfoTopLine:'Pronto a nivel nacional',
     contactInfoTitle1:'Estamos',
@@ -111,8 +113,7 @@ export const infoContact = {
     contactInfoOption3_h3_EN:'Check a product',
     contactInfoOption3_desc_EN:'We can help you from the very begining to check a product that you wanna buy. Buy safe',
 
-
-    // contactForms
+     // contactForms
     // Spanish
     notifyMe: 'Solo notificame',
     checkAProduct: 'Quiero chequear un producto',
@@ -133,6 +134,7 @@ export const infoContact = {
     loginFormSendBtn: 'Enviar',
     loginFormRegBtn: 'Regístrate',
     loginFormSpan: 'Se me olvidó mi número PIN',
+    loginFormGoogleButton: 'Entra con Google',
     forgotPINFormPH1: 'Correo electrónico',
     forgotPINFormPH2: 'Teléfono',
     forgotPINFormSendBtn: 'Enviar',
@@ -141,7 +143,6 @@ export const infoContact = {
     regUsersFormPH2: 'Correo electrónico',
     regUsersFormPH3: 'Teléfono',
     regUsersFormSendBtn: 'Enviar',
-
     // English
     notifyMe_EN:'Just notify me',
     checkAProduct_EN: 'I want to check a product',
@@ -162,6 +163,7 @@ export const infoContact = {
     loginFormSendBtn_EN: 'Send',
     loginFormRegBtn_EN: 'Sign Up',
     loginFormSpan_EN: 'I forgot my PIN number',
+    loginFormGoogleButton_EN: 'Continue with Google',
     forgotPINFormPH1_EN: 'Email address',
     forgotPINFormPH2_EN: 'Phone number',
     forgotPINFormSendBtn_EN: 'Send',
@@ -171,6 +173,7 @@ export const infoContact = {
     regUsersFormPH3_EN: 'Phone number',
     regUsersFormSendBtn_EN: 'Send',
 }
+    
 
 export const infoSpinner = {
     customText: 'Espera...',
@@ -196,6 +199,7 @@ export const infoNavBarMobil = {
     option3Copy_EN: 'Notify me',
     option4Copy_EN: 'Check it',
 }
+
 
 export const infoMainSideBar = {
     option1Copy: 'Mi cuenta',
@@ -285,7 +289,7 @@ export const infoSideBar = {
     sideBarLink1_EN: 'Language',
     sideBarLink2_EN: 'Questions & Answers',
     sideBarLink3_EN: 'Help',
-    toggleCopy: '(Cambiar a Español)',
+    toggleCopy: '(cambiar a Español)',
     toggleCopy_EN:'(Switch to English)',
     sideBarBtnLabel: 'Cerrar',
     sideBarBtnLabel_EN: 'Close'

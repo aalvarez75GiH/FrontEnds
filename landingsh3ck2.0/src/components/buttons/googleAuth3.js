@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+// import '../../bookface.css'
 
 const GoogleAuth3 = ({isSignedIn, googleTest}) => {
     
@@ -10,7 +10,7 @@ const GoogleAuth3 = ({isSignedIn, googleTest}) => {
                     console.log(user)
                     let response = user.getAuthResponse()
                     console.log(response)
-                    googleTest(user, response.id_token)
+                    googleTest(response.id_token)
                 },
                 'theme': 'dark',
                 'width': 370,
@@ -32,7 +32,7 @@ const GoogleAuth3 = ({isSignedIn, googleTest}) => {
         <div className="googleAuthContainer">
             <div
             id="loginButton"
-            >Sign In with Google</div>
+            >Inicia sesion con Google</div>
         </div>    
         
         </>

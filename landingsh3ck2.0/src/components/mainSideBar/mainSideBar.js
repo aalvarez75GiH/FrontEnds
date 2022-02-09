@@ -3,12 +3,12 @@ import { FaTimes } from 'react-icons/fa'
 import { BiUserCheck, BiUserCircle, BiHelpCircle, BiQuestionMark } from 'react-icons/bi'
 import { IoMdCart } from 'react-icons/io'
 import { infoMainSideBar } from '../../utils/data'
-import GoogleAuth3 from '../buttons/googleAuth3'
+
 
 // import LoginForm from '../contactSection/loginForm'
 
 
-const MainSideBarTest = ({ 
+const MainSideBar = ({ 
     toggleMainSideBar, 
     mainSideBarOpen, 
     username,
@@ -106,4 +106,4 @@ const MainSideBarTest = ({
 
 }
 
-export default MainSideBarTest
+export default MainSideBar
