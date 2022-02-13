@@ -30,15 +30,12 @@ const HomeTest4 = () => {
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
     const [ language, setLanguage ] = useState('ES')
+    const [ regView, setRegView ] = useState(false)
+    const [ forgotPIN, setForgotPIN ] = useState(false)
+    const [ active , setActive ] = useState(null) 
+    const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
 
     // Google OAuth States *****************************************
-    const [googleUser, setGoogleUser] = useState({
-        fullName: '',
-        email: '',
-        id: '',
-        imageUrl: '',
-        token_id: ''
-    })
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
     // console.log(isSignedIn)
@@ -77,7 +74,35 @@ const HomeTest4 = () => {
         getToken()
     }
 
-    
+    // **************************************************************
+
+    const handlingInterestedUser = () => {
+        setActive('interested')
+        setContactSectionOpen(true)
+        setRegView(false)
+    }
+
+    const handlingCheckUser = () => {
+        setActive('check')
+        setContactSectionOpen(true)
+        setRegView(false)
+        setForgotPIN(false)
+    }
+
+    const toggleRegView = () => {
+        // setResponse(null)
+        setRegView(true)
+    }
+
+    const settinRegViewAndForgotPINToFalse = () => {
+        setRegView(false)
+        setForgotPIN(false)
+    }
+    const toggleForgotPINState = () => {
+        setForgotPIN(!forgotPIN)
+    }
+    // ***************************************************************
+
 
     const handlingSubmitLoginUser = async(user) => {    
         try {
@@ -240,6 +265,8 @@ const HomeTest4 = () => {
             null
             }
             
+            
+
             {/* {!loggedIn && loginSideBarOpen ? */}
             <LoginSideBar
             loginSideBarOpen={ loginSideBarOpen } 
@@ -295,18 +322,28 @@ const HomeTest4 = () => {
             <HeroSection language={language} />
             <VideoSection language={language}/>
             <HiwSection language={language}/>
-            <NextStepSection 
+            <NextStepSection
+            handlingInterestedUser={handlingInterestedUser}
+            handlingCheckUser={handlingCheckUser} 
             language={language}
             />
             <ContactSectionTest
-            loggedIn={loggedIn}
-            isSignedIn={isSignedIn}
-            handlingSubmitLoginUser={ handlingSubmitLoginUser}
-            loginResponse={loginResponse}
-            toggleNotificationLogin={toggleNotification}
-            googleTest={googleTest}
-            language={language}
-            />
+                active={active}
+                regView={regView}
+                forgotPIN={forgotPIN}
+                loggedIn={loggedIn}
+                isSignedIn={isSignedIn}
+                handlingSubmitLoginUser={ handlingSubmitLoginUser}
+                loginResponse={loginResponse}
+                toggleNotificationLogin={toggleNotification}
+                googleTest={googleTest}
+                language={language}
+                toggleRegView={toggleRegView}
+                settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
+                toggleForgotPINState={toggleForgotPINState}
+                contactSectionOpen={contactSectionOpen}
+                />
+                
             <FooterSection language={language}/>
         </>
     )

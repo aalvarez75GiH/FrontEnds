@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import  { motion } from 'framer-motion'
+import { Link as LinkS } from 'react-scroll'
 
 
 // import LoginFormTest from './loginFormTest'
@@ -13,7 +13,9 @@ import FormHeader from '../contactSection/formHeader'
 import { infoNextStep } from '../../utils/data'
 
 const NextStepSection = ({
-    language
+    language,
+    handlingInterestedUser,
+    handlingCheckUser
 }) => {
    
      
@@ -41,7 +43,7 @@ const NextStepSection = ({
 return (
    
     <div 
-    // id={infoContact.id}
+    id={infoNextStep.id}
     className="nextStepContainer">
         <div className="nextStepWrapper">
             <div className="nextStepInfo">
@@ -50,15 +52,7 @@ return (
                         {language === 'ES' ? infoNextStep.nextStepInfoTopLine : infoNextStep.nextStepInfoTopLine_EN}
                     </p>
                     <h1 className="nextStepInfoTitle1"> {language === 'ES' ? infoNextStep.nextStepInfoTitle1 : infoNextStep.nextStepInfoTitle1_EN} </h1>
-                    {/* <h1 className="nextStepInfoTitle2"> {language === 'ES' ? infoNextStep.nextStepInfoTitle2 : infoNextStep.nextStepInfoTitle2_EN}</h1> */}
-                    {/* <h1 className="nextStepInfoTitle3"> {language === 'ES' ? infoNextStep.nextStepInfoTitle3 : infoNextStep.nextStepInfoTitle3_EN}</h1> */}
                 </div>
-                {/* <div className="nextStepInfoImageContainer">
-                    <img 
-                    className="nextStepInfoImage"
-                    src={picture} alt="" />
-                </div> */}
-                
             </div>
             <div className="NextStepOptionsContainer">
                 <div className="nextStepInfoImageContainer">
@@ -74,12 +68,26 @@ return (
                             className="nextStepInfoIcon"
                             src={icon1} alt="" />
                         </div>
-                        <button
+                        <LinkS
+                        to="contactSectionTest"  
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-130}
+                        duration={500}
                         className="nextStepOption1"
                         type="submit"
+                        onClick={handlingInterestedUser}
+                        >
+                        <span>{language === 'ES' ? infoNextStep.nextStepButtonLabel_1 : infoNextStep.nextStepButtonLabel_1_EN}</span>
+                        </LinkS>
+                        {/* <button
+                        className="nextStepOption1"
+                        type="submit"
+                        onClick={handlingInterestedUser}
                         >
                         <span>Notificame cuando la app este lista</span>
-                        </button>
+                        </button> */}
                         <div className="nextStepOption1_arrow">
                             <img 
                                 className="nextStepInfoArrow"
@@ -92,12 +100,19 @@ return (
                             className="nextStepInfoIcon"
                             src={icon2} alt="" />
                         </div>
-                        <button
+                        <LinkS
+                        to="contactSectionTest"  
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-140}
+                        duration={500}
                         className="nextStepOption2"
                         type="submit"
+                        onClick={handlingCheckUser}
                         >
-                            <span>Quiero chequear un Producto ahora</span>
-                        </button>
+                            <span>{language === 'ES' ? infoNextStep.nextStepButtonLabel_2 : infoNextStep.nextStepButtonLabel_2_EN}</span>
+                        </LinkS>
                         <div className="nextStepOption2_arrow">
                             <img 
                                 className="nextStepInfoArrow"

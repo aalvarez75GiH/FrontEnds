@@ -63,7 +63,7 @@ export const infoHIW = {
     step_description_3: 'Escoge el chequeador que más te guste y que se adapte mejor a ti',
     step_description_4: 'Completa tu orden, ofrece los datos del vendedor del producto',
     step_description_5: 'El chequeador hará el chequeo y te contacta para darte los detalles',
-    buttonLabel:'¿Quieres comenzar?',
+    buttonLabel:'Me interesa...',
     alt1:' Escoge ciudad',
     alt2:'Tipo de producto',
     alt3:'Escoge chequeador',
@@ -77,33 +77,31 @@ export const infoHIW = {
     step_description_3_EN: 'Choose your preferred checker according to your needs',
     step_description_4_EN: 'Complete your check order and enter the seller information',
     step_description_5_EN: 'our checker will complete your check order and will contact to you to give you details of your product',
-    buttonLabel_EN:'¿Do you wanna start?',
+    buttonLabel_EN:'I am interested...',
     alt1_EN:' Choose the city',
     alt2_EN:'Product type',
     alt3_EN:'Choose checker',
     alt4_EN:'Finish the order',
     alt5_EN:'Real time video',
 }
-
 export const infoNextStep = {
     id: 'nextStepSection',
     linkedTo:'',
     // Spanish
     nextStepInfoTopLine:"¿Estas interesad@?",
     nextStepInfoTitle1: "¿Que podemos hacer por ti hoy?",
-    nextStepInfoTitle2: "por ti hoy?",
-    nextStepInfoTitle3: "por ti hoy?",
+    nextStepButtonLabel_1: "Notifícame cuando la app este lista",
+    nextStepButtonLabel_2: "Quiero chequear un producto ahora",
     // Spanish
     nextStepInfoTopLine_EN:"Are you interested?",
-    nextStepInfoTitle1_EN: "What can we",
-    nextStepInfoTitle2_EN: "do for you",
-    nextStepInfoTitle3_EN: "today?"
+    nextStepInfoTitle1_EN: "What can we do for you today?",
+    nextStepButtonLabel_1_EN: "Let me know when the app is ready to go",
+    nextStepButtonLabel_2_EN: "I wanna check a product today"
     
 }
 
-
     export const infoContact = {
-    id:'contactSection',
+    id:'contactSectionTest',
     linkedTo: 'hiwSection', 
 
     // Spanish
@@ -134,9 +132,10 @@ export const infoNextStep = {
     // Spanish
     notifyMe: 'Solo notificame',
     checkAProduct: 'Quiero chequear un producto',
-    intUsers_h1: '¿Quieres saber cuando nuestra app esté lista?',
+    // intUsers_h1: '¿Quieres saber cuando nuestra app esté lista?',
+    intUsers_h1: 'Ing. tus datos',
     intUsers_p: 'Llena estos datos, sabremos que estas interesado y te notificaremos',
-    users_h1: 'Registrate con nosotros',
+    users_h1: 'Registrate',
     users_p: 'Con solo estos 3 datos estarás listo para comenzar a chequear tus productos',
     genPIN_h1: 'Genera PIN',
     genPIN_p: 'Introduce estos datos y te enviamos un nuevo PIN automáticamente a tu correo',
@@ -165,7 +164,7 @@ export const infoNextStep = {
     checkAProduct_EN: 'I want to check a product',
     intUsers_h1_EN: 'Do you wanna know when our app is ready to go?',
     intUsers_p_EN: 'Fill in this information, we will know that you are interested and we will notify you',
-    users_h1_EN: 'Sign Up with us',
+    users_h1_EN: 'Sign Up',
     users_p_EN: 'With only these 3 fields you are gonna be ready to go and check products',
     genPIN_h1_EN: 'New PIN',
     genPIN_p_EN: 'Enter these info and we`ll send to you a new PIN number to your email address',
