@@ -4,7 +4,7 @@ import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
-import { FaPuzzlePiece } from 'react-icons/fa'
+import { FaPuzzlePiece } from 'react-icons/fa' 
 import { OffsetHandler } from '../../utils/settingOffsets'
 import { infoNavBarMobil } from '../../utils/data'
 
@@ -14,7 +14,7 @@ const NavBarMobil = ({
     login, 
     toggleLoginSideBar,
     toggleMainSideBar,
-    language 
+    language
 }) => {
     
         return (
@@ -41,14 +41,14 @@ const NavBarMobil = ({
                     </div>
                 </div>
                 <div className="navMenuButtonsContainer">
-                    
-                    <div className="navMenuButton">
+                <div className="navMenuButton">
                         <LinkS 
-                        to="contactSection" 
+                        to="videoSection" 
                         className="navLinksMobil" 
                         activeClass="active"
                         spy={true}
                         smooth={true}
+                        // offset={100}
                         offset={OffsetHandler('startNow')}
                         duration={1000}
                         >
@@ -61,7 +61,7 @@ const NavBarMobil = ({
 
                     <div className="navMenuButton">
                         <LinkS 
-                        to="contactSection" 
+                        to="hiwSection" 
                         className="navLinksMobil" 
                         activeClass="active"
                         spy={true}
@@ -78,7 +78,7 @@ const NavBarMobil = ({
                     
                     <div className="navMenuButton">
                         <LinkS 
-                        to="contactSection" 
+                        to="nextStepSection" 
                         className="navLinksMobil" 
                         activeClass="active"
                         spy={true}
@@ -96,7 +96,7 @@ const NavBarMobil = ({
                     
                     <div className="navMenuButton">
                         <LinkS 
-                        to="contactSection" 
+                        to="nextStepSection" 
                         className="navLinksMobil" 
                         activeClass="active"
                         spy={true}

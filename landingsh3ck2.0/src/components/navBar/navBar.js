@@ -58,12 +58,12 @@ const NavBar = ({
                             style={{
                                 color: `${scrollNav ? '#ffffff' : 'transparent'}`
                             }} 
-                            to="contactSection" 
+                            to="nextStepSection" 
                             className="navLinks" 
                             activeClass="active"
                             spy={true}
                             smooth={true}
-                            offset={OffsetHandlerNavBar('contactSection')}
+                            offset={OffsetHandlerNavBar('checkAProduct')}
                             duration={500}
                             >{language === 'ES' ? infoNavBar.navBarLi2 : infoNavBar.navBarLi2_EN}</LinkS>
                         </li>
@@ -78,6 +78,8 @@ const NavBar = ({
             </nav>
         </>
         )
+        
+
     }else{
         return (
             <>
@@ -108,12 +110,12 @@ const NavBar = ({
                                 style={{
                                     color: `${scrollNav ? '#ffffff' : 'transparent'}`
                                 }}
-                                to="contactSection" 
+                                to="nextStepSection" 
                                 className="navLinks"  
                                 activeClass="active"
                                 spy={true}
                                 smooth={true}
-                                offset={OffsetHandlerNavBar('contactSection')}
+                                offset={OffsetHandlerNavBar('checkAProduct')}
                                 duration={500}
                                 
                                 >{language === 'ES' ? infoNavBar.navBarLi2 : infoNavBar.navBarLi2_EN}</LinkS>
