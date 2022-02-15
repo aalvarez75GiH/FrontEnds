@@ -4585,44 +4585,59 @@
         height: 85px;
     }
 
-    /* *****  checkSection *********** */
-    .checkSectionContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        background-color: #eeeeee;
-    }
-    .checkSection-formTitle {
-        width: 86%;
-    }
-    
-    .checkSection-BtnWrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100px;
-        margin-top: 7%;
-    }
-    
-    .checkSectionBtn-toCheck {
-        width: 90%;
-        height: 90px;
-        background-color: #010606;
-        border-style: none;
-        border-radius: 60px;
-        font-size: 1.2rem;
-        color: #ffffff;
-        margin-left: 5%;
-    }
-    
-    .checkSection-notNow {
-        margin-left: 7%;
-        margin-top: 3%;
-    }
+  /* *****  checkSection *********** */
+  .checkSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: 100%; */
+    height: 1000px;
+    background-color: #eeeeee;
+}
+.checkSection-formTitle {
+    width: 86%;
+}
+
+.checkSection-BtnWrap {
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: 7%;
+}
+
+.checkSectionBtn-toCheck {
+    width: 90%;
+    height: 90px;
+    background-color: #010606;
+    border-style: none;
+    border-radius: 60px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-left: 5%;
+}
+
+.checkSectionBtn-toLeave {
+    width: 90%;
+    height: 90px;
+    background-color: #FAD570;
+    border-style: none;
+    border-radius: 60px;
+    color: #010606;
+    font-size: 1.2rem;
+    color: #010606;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.checkSection-notNow {
+    margin-left: 7%;
+    margin-top: 3%;
+}
 
     /* ************ FooterSection **************************** */
 

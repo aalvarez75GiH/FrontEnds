@@ -15,6 +15,7 @@ import ContactSectionTest from '../components/contactSection/contactSectionTest'
 import NextStepSection from '../components/nextStepSection.js/nextStepSection'
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
+import CheckSection from '../components/checkSection/checkSection'
 
 
 // Home version for testing separation of NextStepSection and ContactSection
@@ -137,22 +138,42 @@ const HomeTest3 = () => {
     }
 
     const handlingSubmitLogOutUser = async() => {
+        
         if (isSignedIn) {
+            console.log('pasa por isSignedIn')
             const auth = window.gapi.auth2.getAuthInstance()
             await auth.signOut()
+            setLoginData(null)
             setIsSignedIn(false)
+            setActive(null)
             setMainSideBarOpen(!mainSideBarOpen)
+            setLoginResponse(null)
+            setContactSectionOpen(false)
         }
         if (loggedIn){
+            console.log('pasa por loggedIn')
             localStorage.removeItem('SH3CK_TOKEN')
+            setLoginResponse(null)
+            setActive(null)
             setMainSideBarOpen(!mainSideBarOpen)
             setLoggedIn(false)
             setLoggedOut(true)
+            setContactSectionOpen(false)
         }
         
         
     }
  
+    const gettingOutOfCheckApp = async() => {
+        localStorage.removeItem('SH3CK_TOKEN')
+        setIsSignedIn(false)
+        setLoggedIn(false)
+        setActive(null)
+        setContactSectionOpen(false)
+        setRegView(false)
+        setLoginData(null)
+        
+    }
     
     const toggleSideBar = () => {
         setIsOpen(!isOpen)
@@ -208,7 +229,7 @@ const HomeTest3 = () => {
             //   console.log(response)
               auth = window.gapi.auth2.getAuthInstance()
               const isSignedIn = auth.isSignedIn.get()
-              {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
+            //   {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
               setIsSignedIn(isSignedIn)
               console.log(isSignedIn)
               auth.isSignedIn.listen(isSignedIn => {
@@ -232,7 +253,7 @@ const HomeTest3 = () => {
                 })
                 console.log(res)
                 // const res = await axios.post('http://localhost:5000/api/extUsers/google',token)
-                const data = await res.data
+                const data = res.data
                 if (res.status === 201){
                     console.log(data)
                     setLoginData(data)   
@@ -259,39 +280,10 @@ const HomeTest3 = () => {
 // console.log(loginData)
     
     return (
+    <>
+    {
+        loggedIn ?
         <>
-            <LoadingSpinner 
-            loading={loading}
-            language={language}
-            />
-
-            
-            {/* { loading ?
-            <LoadingSpinner
-            language={language}
-            />
-            :
-            null
-            } */}
-            
-            
-
-            {/* {!loggedIn && loginSideBarOpen ? */}
-            <LoginSideBar
-            loginSideBarOpen={loginSideBarOpen}
-            toggleLoginSideBarToClose={ toggleLoginSideBarToClose }
-            loggedIn={loggedIn}
-            loggedOut={loggedOut}
-            // handlingLogin={handlingLogin}
-            loading = {loading}
-            language={language}
-            loginSideBarLoading={loginSideBarLoading}
-            handlingSubmitLoginUser={ handlingSubmitLoginUser}
-            />
-            {/* : null */}
-            {/* } */}
-
-            {/* {!loggedOut && logoutSideBarOpen ? */}
             <MainSideBar
             mainSideBarOpen={mainSideBarOpen}
             toggleMainSideBar={toggleMainSideBar}
@@ -302,8 +294,59 @@ const HomeTest3 = () => {
             language={language}
             loginData={loginData}           
             />
-            {/* : null */}
-            {/* } */}
+            { mobil2.screenWidth <= 1098 || mobil ?  
+                <NavBarMobil 
+                toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
+                toggleMainSideBar={toggleMainSideBar}
+                toggleSideBar={ toggleSideBar }  
+                login={ loggedIn }
+                language={language}
+                
+            /> : <NavBar
+            toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
+            toggleMainSideBar={toggleMainSideBar} 
+            login={ loggedIn }
+            language={language}
+            />
+            }
+
+            <CheckSection 
+            gettingOutOfCheckApp={gettingOutOfCheckApp}
+            language={language}
+            />
+        </>
+    : null
+    }
+      
+    {
+        !loggedIn ?
+        <>
+            <LoadingSpinner 
+            loading={loading}
+            language={language}
+            />
+   
+            <LoginSideBar
+            loginSideBarOpen={loginSideBarOpen}
+            toggleLoginSideBarToClose={ toggleLoginSideBarToClose }
+            loggedIn={loggedIn}
+            loggedOut={loggedOut}
+            loading = {loading}
+            language={language}
+            loginSideBarLoading={loginSideBarLoading}
+            handlingSubmitLoginUser={ handlingSubmitLoginUser}
+            />
+           
+            <MainSideBar
+            mainSideBarOpen={mainSideBarOpen}
+            toggleMainSideBar={toggleMainSideBar}
+            loggedIn={loggedIn}
+            loggedOut={loggedOut}
+            handlingSubmitLogOutUser={handlingSubmitLogOutUser}
+            username={currentUser}
+            language={language}
+            loginData={loginData}           
+            />
             
             <SideBar 
             isOpen={ isOpen } 
@@ -325,8 +368,7 @@ const HomeTest3 = () => {
             toggleMainSideBar={toggleMainSideBar} 
             login={ loggedIn }
             language={language}
-            
-        />
+            />
             }
             <HeroSection language={language} />
             <VideoSection language={language}/>
@@ -336,7 +378,9 @@ const HomeTest3 = () => {
             handlingCheckUser={handlingCheckUser} 
             language={language}
             />
-            <ContactSectionTest
+            {
+                !loggedIn ?
+                <ContactSectionTest
                 active={active}
                 regView={regView}
                 forgotPIN={forgotPIN}
@@ -352,11 +396,19 @@ const HomeTest3 = () => {
                 toggleForgotPINState={toggleForgotPINState}
                 contactSectionOpen={contactSectionOpen}
                 />
-                
+                :
+                null
+            }
             <FooterSection language={language}/>
         </>
+        : null
+            
+    }
+        
+    </>
     )
 }
 
 export default HomeTest3
+
 

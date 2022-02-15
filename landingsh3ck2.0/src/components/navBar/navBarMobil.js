@@ -4,7 +4,7 @@ import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck, BiRun } from 'react-icons/bi'
-import { FaPuzzlePiece } from 'react-icons/fa' 
+import { FaPuzzlePiece, FaVideo } from 'react-icons/fa' 
 import { OffsetHandler } from '../../utils/settingOffsets'
 import { infoNavBarMobil } from '../../utils/data'
 
@@ -12,9 +12,10 @@ import { infoNavBarMobil } from '../../utils/data'
 const NavBarMobil = ({ 
     toggleSideBar, 
     login, 
-    toggleLoginSideBar,
     toggleMainSideBar,
-    language
+    language,
+    toggleLoginSideBarToOpen
+
 }) => {
     
         return (
@@ -32,7 +33,7 @@ const NavBarMobil = ({
                         className="faUserIcon"/> 
                          :   
                         <BiUser 
-                        onClick={toggleLoginSideBar}
+                        onClick={toggleLoginSideBarToOpen}
                         className="faUserIcon" />
                         }
                         <FaBars 
@@ -53,7 +54,7 @@ const NavBarMobil = ({
                         duration={1000}
                         >
                         <div className="iconMobilContainer">
-                                <BiRun className="faIcon"/>
+                                <FaVideo className="faIcon"/>
                         </div>
                         {language === 'ES' ? infoNavBarMobil.option1Copy : infoNavBarMobil.option1Copy_EN}
                         </LinkS>

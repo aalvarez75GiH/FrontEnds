@@ -62,10 +62,10 @@ export const OffsetHandler = (option) => {
                 return -140
             }
             if (mobil1.screenWidth <= 414 && mobil1.screenWidth > 360){
-                return -130
+                return 260
             }
             if (mobil1.screenWidth <= 360 && mobil1.screenWidth > 280){
-                return -140
+                return 260
             }
         }
 
