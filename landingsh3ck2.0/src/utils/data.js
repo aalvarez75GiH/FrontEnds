@@ -145,6 +145,7 @@ export const infoNextStep = {
     intUsersFormPH2: 'Correo electrónico',
     intUsersFormPH3: 'Ciudad',
     intUsersFormBtnLabel: 'Enviar',
+    comeBackLink: 'Cerrar',
     loginFormPH1: 'Correo electrónico',
     loginFormPH2: '#PIN (solo 4 dígitos)',
     loginFormSendBtn: 'Enviar',
@@ -174,6 +175,7 @@ export const infoNextStep = {
     intUsersFormPH2_EN: 'Email address',
     intUsersFormPH3_EN: 'City',
     intUsersFormBtnLabel_EN: 'Send',
+    comeBackLink_EN: 'Close',
     loginFormPH1_EN: 'Email address',
     loginFormPH2_EN: '#PIN (only 4 digits)',
     loginFormSendBtn_EN: 'Send',
@@ -206,13 +208,13 @@ export const infoCheck = {
 }
 
 export const infoNavBarMobil = {
-    option1Copy: 'Comienza',
+    option1Copy: 'Video',
     option2Copy: 'Como funciona',
-    option3Copy: 'Notifícame',
+    option3Copy: 'Inicio',
     option4Copy: 'Chequéa',
-    option1Copy_EN: 'Start',
+    option1Copy_EN: 'Video',
     option2Copy_EN: 'How it works',
-    option3Copy_EN: 'Notify me',
+    option3Copy_EN: 'Home',
     option4Copy_EN: 'Check it',
 }
 

@@ -16,7 +16,8 @@ import NextStepSection from '../components/nextStepSection.js/nextStepSection'
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
 import CheckSection from '../components/checkSection/checkSection'
-
+import NotificationBox from '../components/notifications/NotificationBox'
+import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
 
 // Home version for testing separation of NextStepSection and ContactSection
 
@@ -36,6 +37,8 @@ const HomeTest3 = () => {
     const [ active , setActive ] = useState(null) 
     const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
     const [ loginSideBarLoading, setLoginSideBarLoading ] = useState(false)
+    const [response, setResponse ] = useState(null)
+
 
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
@@ -91,6 +94,11 @@ const HomeTest3 = () => {
         setForgotPIN(false)
     }
 
+    const handlingClosingOfContactSection = () => {
+        setActive(null)
+        setContactSectionOpen(false)
+    }
+
     const toggleRegView = () => {
         // setResponse(null)
         setRegView(true)
@@ -102,6 +110,33 @@ const HomeTest3 = () => {
     }
     const toggleForgotPINState = () => {
         setForgotPIN(!forgotPIN)
+    }
+    
+    // const toggleNotification = () => {
+    //     setResponse(null)
+    // }
+    // const toggleNotificationLogin = () => {
+    //     setLoginResponse(null)
+    // }
+
+
+    const handlingContactSectionResponse = (response) => {
+        setResponse(response)
+    }
+    
+    const togglingResponseData = () => {
+        if (response && active === 'interested'){
+            return responseDataInterested
+        }
+        if (response && forgotPIN){
+            return responseDataNewPIN
+        }
+        if (response && active === 'check'){
+            return responseDataRegister
+        }
+        if (loginResponse && active === 'check'){
+            return responseDataLogin
+        } 
     }
     // ***************************************************************
 
@@ -121,10 +156,11 @@ const HomeTest3 = () => {
                         Authorization: `Bearer ${data.token}` 
                     } 
                 })
-                setLoading(false)
+                console.log(response.data)
                 setLoginResponse(response)
                 // console.log(response.data)
                 setCurrentUser(response.data)
+                setLoading(false)
                 setLoggedIn(true)
                 setLoggedOut(false)
                 console.log('Usuaurio encontrado y hace login')    
@@ -172,6 +208,8 @@ const HomeTest3 = () => {
         setContactSectionOpen(false)
         setRegView(false)
         setLoginData(null)
+        setLoginResponse(null)
+        setResponse(null)
         
     }
     
@@ -191,7 +229,13 @@ const HomeTest3 = () => {
         setMainSideBarOpen(!mainSideBarOpen)
     } 
     const toggleNotification = () => {
+        setResponse(null)
         setLoginResponse(null)
+        // setActive('check')
+        // setLoggedIn(false)
+
+        setActive(null)
+        setContactSectionOpen(false)
     }
 
     const toggleLanguage = () => {
@@ -204,6 +248,23 @@ const HomeTest3 = () => {
             return
         } 
     }
+
+    const workingSpinner = (option) => {
+        console.log(option)
+        switch (option) {
+            case 'activate':
+                setLoading(true)
+                break
+            case 'close':
+                setLoading(false)
+                break
+            default:
+                setLoading(false)
+                break;
+        }
+        
+    } 
+    
 
   
   //  ************* Google OAuth Processes and functions (with googleAuth5) ****************
@@ -278,7 +339,7 @@ const HomeTest3 = () => {
         }
 // console.log(googleUser)
 // console.log(loginData)
-    
+    console.log(loggedIn)
     return (
     <>
     {
@@ -325,6 +386,18 @@ const HomeTest3 = () => {
             loading={loading}
             language={language}
             />
+            {response || loginResponse ?
+            <NotificationBox
+            toggleNotification={toggleNotification} 
+            // response={response ? response : null }
+            response={response ? response : loginResponse }
+            responseData={togglingResponseData()} 
+            language={language}
+             />
+             :
+             null
+            }
+            
    
             <LoginSideBar
             loginSideBarOpen={loginSideBarOpen}
@@ -387,7 +460,7 @@ const HomeTest3 = () => {
                 loggedIn={loggedIn}
                 isSignedIn={isSignedIn}
                 handlingSubmitLoginUser={ handlingSubmitLoginUser}
-                loginResponse={loginResponse}
+                // loginResponse={loginResponse}
                 toggleNotificationLogin={toggleNotification}
                 googleTest={googleTest}
                 language={language}
@@ -395,6 +468,9 @@ const HomeTest3 = () => {
                 settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
                 toggleForgotPINState={toggleForgotPINState}
                 contactSectionOpen={contactSectionOpen}
+                workingSpinner={workingSpinner}
+                handlingClosingOfContactSection={handlingClosingOfContactSection}
+                handlingContactSectionResponse={handlingContactSectionResponse}
                 />
                 :
                 null
@@ -410,5 +486,3 @@ const HomeTest3 = () => {
 }
 
 export default HomeTest3
-
-
