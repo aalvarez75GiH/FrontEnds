@@ -10,6 +10,8 @@ import HiwSection from '../components/hiwSection/hiwSection'
 import useMobilDetection from '../utils/mobilDetection'
 import useMobilDetect from '../utils/mobilHook'
 import NavBarMobil from '../components/navBar/navBarMobil'
+import NavBarForCS from '../components/navBar/navBarForCS'
+import QASideBar from '../components/sideBars/QASideBar'
 // import ContactSection from '../components/contactSection/contactSection'
 import ContactSectionTest from '../components/contactSection/contactSectionTest'
 import NextStepSection from '../components/nextStepSection.js/nextStepSection'
@@ -100,7 +102,6 @@ const HomeTest3 = () => {
     }
 
     const toggleRegView = () => {
-        // setResponse(null)
         setRegView(true)
     }
 
@@ -112,13 +113,6 @@ const HomeTest3 = () => {
         setForgotPIN(!forgotPIN)
     }
     
-    // const toggleNotification = () => {
-    //     setResponse(null)
-    // }
-    // const toggleNotificationLogin = () => {
-    //     setLoginResponse(null)
-    // }
-
 
     const handlingContactSectionResponse = (response) => {
         setResponse(response)
@@ -158,7 +152,6 @@ const HomeTest3 = () => {
                 })
                 console.log(response.data)
                 setLoginResponse(response)
-                // console.log(response.data)
                 setCurrentUser(response.data)
                 setLoading(false)
                 setLoggedIn(true)
@@ -218,22 +211,21 @@ const HomeTest3 = () => {
         
     } 
     const toggleLoginSideBarToOpen = () => {
+        // setIsOpen(!isOpen)
         setLoginSideBarOpen(true)
         
     }
     const toggleLoginSideBarToClose = () => {
+        console.log('tratando de cerrar')
         setLoginSideBarOpen(false)
     }
-    
+
     const toggleMainSideBar = () => {
         setMainSideBarOpen(!mainSideBarOpen)
     } 
     const toggleNotification = () => {
         setResponse(null)
         setLoginResponse(null)
-        // setActive('check')
-        // setLoggedIn(false)
-
         setActive(null)
         setContactSectionOpen(false)
     }
@@ -286,11 +278,8 @@ const HomeTest3 = () => {
                 scope:'profile'
               }).then(()=> {
               console.log('gapi initialized...')
-            //   const response = window.gapi.auth2.getAuthResponse()
-            //   console.log(response)
               auth = window.gapi.auth2.getAuthInstance()
               const isSignedIn = auth.isSignedIn.get()
-            //   {isSignedIn ? setLoggedIn(true) : setLoggedIn(false)}
               setIsSignedIn(isSignedIn)
               console.log(isSignedIn)
               auth.isSignedIn.listen(isSignedIn => {
@@ -301,8 +290,7 @@ const HomeTest3 = () => {
           
         }
         const googleTest = async(user, token) => {
-            // const test = JSON.parse(user)
-            // *****************************************
+            setLoading(true)
             try {
                 console.log('Sending request to BackEnd api...')
                 console.log(token)
@@ -317,6 +305,7 @@ const HomeTest3 = () => {
                 const data = res.data
                 if (res.status === 201){
                     console.log(data)
+                    setLoading(false)
                     setLoginData(data)   
                     setCurrentUser(data.fullName)
                     setLoggedIn(true) 
@@ -326,25 +315,26 @@ const HomeTest3 = () => {
             } catch (error) {
                 console.log(error)
                 console.log(error.response.data)
+                setLoading(false)
                 setCurrentUser(error.response.data.fullName)
                 setLoginData(error.response.data)
                 setLoggedIn(true) 
                 setLoggedOut(false)
             }
-            // *************************************************
+    }
             
-            // setLoggedIn(true)
-            // setLoggedOut(false)
-            
-        }
-// console.log(googleUser)
-// console.log(loginData)
-    console.log(loggedIn)
     return (
     <>
+            
     {
-        loggedIn ?
-        <>
+        loginSideBarOpen && loggedIn ?
+        <QASideBar
+        loginSideBarOpen={loginSideBarOpen}
+        toggleLoginSideBarToClose={toggleLoginSideBarToClose}
+        />
+        : 
+        loggedIn  ?
+        <div className="superContainer">
             <MainSideBar
             mainSideBarOpen={mainSideBarOpen}
             toggleMainSideBar={toggleMainSideBar}
@@ -353,136 +343,133 @@ const HomeTest3 = () => {
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
             language={language}
-            loginData={loginData}           
+            loginData={loginData} 
+            toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}        
             />
-            { mobil2.screenWidth <= 1098 || mobil ?  
-                <NavBarMobil 
-                toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
-                toggleMainSideBar={toggleMainSideBar}
-                toggleSideBar={ toggleSideBar }  
-                login={ loggedIn }
-                language={language}
-                
-            /> : <NavBar
-            toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
-            toggleMainSideBar={toggleMainSideBar} 
+            <NavBarForCS
+            toggleMainSideBar={toggleMainSideBar}
+            toggleSideBar={ toggleSideBar }  
             login={ loggedIn }
             language={language}
-            />
-            }
-
+                
+            /> 
             <CheckSection 
+            toggleMainSideBar={toggleMainSideBar}
+            toggleSideBar={ toggleSideBar }  
+            login={ loggedIn }
             gettingOutOfCheckApp={gettingOutOfCheckApp}
             language={language}
             />
-        </>
+        </div>
     : null
     }
-      
-    {
-        !loggedIn ?
-        <>
-            <LoadingSpinner 
-            loading={loading}
-            language={language}
-            />
-            {response || loginResponse ?
-            <NotificationBox
-            toggleNotification={toggleNotification} 
-            // response={response ? response : null }
-            response={response ? response : loginResponse }
-            responseData={togglingResponseData()} 
-            language={language}
-             />
-             :
-             null
-            }
+            {
+                loginSideBarOpen && !loggedIn ?
+                <QASideBar
+                loginSideBarOpen={loginSideBarOpen}
+                toggleLoginSideBarToClose={toggleLoginSideBarToClose}
+                />
+                : 
+
+                
+                    !loggedIn ? 
+                    <>
+                        <LoadingSpinner 
+                        loading={loading}
+                        language={language}
+                        />
+                        {response || loginResponse ?
+                        <NotificationBox
+                        toggleNotification={toggleNotification} 
+                        // response={response ? response : null }
+                        response={response ? response : loginResponse }
+                        responseData={togglingResponseData()} 
+                        language={language}
+                         />
+                         :
+                         null
+                        }
+                        
+                        {/* <MainSideBar
+                        mainSideBarOpen={mainSideBarOpen}
+                        toggleMainSideBar={toggleMainSideBar}
+                        loggedIn={loggedIn}
+                        loggedOut={loggedOut}
+                        handlingSubmitLogOutUser={handlingSubmitLogOutUser}
+                        username={currentUser}
+                        language={language}
+                        loginData={loginData}           
+                        /> */}
+                        
+                        <SideBar 
+                        isOpen={ isOpen } 
+                        toggleSideBar={ toggleSideBar }
+                        language={language}
+                        toggleLanguage={toggleLanguage}
+                        handlingCheckUser={handlingCheckUser}
+                        toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
+                        toggleLoginSideBarToClose={toggleLoginSideBarToClose}
+                        />
+                        
+                        { mobil2.screenWidth <= 1098 || mobil ?  
+                            <NavBarMobil 
+                            toggleMainSideBar={toggleMainSideBar}
+                            toggleSideBar={ toggleSideBar }  
+                            login={ loggedIn }
+                            language={language}
+                            
+                        /> : <NavBar
+                        toggleSideBar={toggleSideBar}
+                        toggleMainSideBar={toggleMainSideBar} 
+                        login={ loggedIn }
+                        language={language}
+                        />
+                        }
+                        <HeroSection 
+                        handlingCheckUser={handlingCheckUser}
+                        language={language} />
+                        <VideoSection language={language}/>
+                        <HiwSection language={language}/>
+                        <NextStepSection
+                        handlingInterestedUser={handlingInterestedUser}
+                        handlingCheckUser={handlingCheckUser} 
+                        language={language}
+                        />
+                        {
+                            !loggedIn ?
+                            <ContactSectionTest
+                            active={active}
+                            regView={regView}
+                            forgotPIN={forgotPIN}
+                            loggedIn={loggedIn}
+                            isSignedIn={isSignedIn}
+                            handlingSubmitLoginUser={ handlingSubmitLoginUser}
+                            toggleNotificationLogin={toggleNotification}
+                            googleTest={googleTest}
+                            language={language}
+                            toggleRegView={toggleRegView}
+                            settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
+                            toggleForgotPINState={toggleForgotPINState}
+                            contactSectionOpen={contactSectionOpen}
+                            workingSpinner={workingSpinner}
+                            handlingClosingOfContactSection={handlingClosingOfContactSection}
+                            handlingContactSectionResponse={handlingContactSectionResponse}
+                            />
+                            :
+                            null
+                        }
+                        <FooterSection language={language}/>
+                    </>
+                    : null
+                        
+             }
+
             
    
-            <LoginSideBar
-            loginSideBarOpen={loginSideBarOpen}
-            toggleLoginSideBarToClose={ toggleLoginSideBarToClose }
-            loggedIn={loggedIn}
-            loggedOut={loggedOut}
-            loading = {loading}
-            language={language}
-            loginSideBarLoading={loginSideBarLoading}
-            handlingSubmitLoginUser={ handlingSubmitLoginUser}
-            />
-           
-            <MainSideBar
-            mainSideBarOpen={mainSideBarOpen}
-            toggleMainSideBar={toggleMainSideBar}
-            loggedIn={loggedIn}
-            loggedOut={loggedOut}
-            handlingSubmitLogOutUser={handlingSubmitLogOutUser}
-            username={currentUser}
-            language={language}
-            loginData={loginData}           
-            />
-            
-            <SideBar 
-            isOpen={ isOpen } 
-            toggleSideBar={ toggleSideBar }
-            language={language}
-            toggleLanguage={toggleLanguage}
-            />
-            
-            { mobil2.screenWidth <= 1098 || mobil ?  
-                <NavBarMobil 
-                toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
-                toggleMainSideBar={toggleMainSideBar}
-                toggleSideBar={ toggleSideBar }  
-                login={ loggedIn }
-                language={language}
-                
-            /> : <NavBar
-            toggleLoginSideBarToOpen={toggleLoginSideBarToOpen}
-            toggleMainSideBar={toggleMainSideBar} 
-            login={ loggedIn }
-            language={language}
-            />
-            }
-            <HeroSection language={language} />
-            <VideoSection language={language}/>
-            <HiwSection language={language}/>
-            <NextStepSection
-            handlingInterestedUser={handlingInterestedUser}
-            handlingCheckUser={handlingCheckUser} 
-            language={language}
-            />
-            {
-                !loggedIn ?
-                <ContactSectionTest
-                active={active}
-                regView={regView}
-                forgotPIN={forgotPIN}
-                loggedIn={loggedIn}
-                isSignedIn={isSignedIn}
-                handlingSubmitLoginUser={ handlingSubmitLoginUser}
-                // loginResponse={loginResponse}
-                toggleNotificationLogin={toggleNotification}
-                googleTest={googleTest}
-                language={language}
-                toggleRegView={toggleRegView}
-                settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
-                toggleForgotPINState={toggleForgotPINState}
-                contactSectionOpen={contactSectionOpen}
-                workingSpinner={workingSpinner}
-                handlingClosingOfContactSection={handlingClosingOfContactSection}
-                handlingContactSectionResponse={handlingContactSectionResponse}
-                />
-                :
-                null
-            }
-            <FooterSection language={language}/>
-        </>
-        : null
-            
-    }
         
     </>
     )
 }
+
 
 export default HomeTest3

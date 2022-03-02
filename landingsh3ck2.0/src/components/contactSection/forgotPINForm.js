@@ -12,8 +12,8 @@ const validationSchema = yup.object({
 
 const ForgotPINForm = ({ 
     handlingNewPINRequest, 
-    toggleForgotSection, 
-    language  
+    toggleForgotPINState,
+    language 
 }) => {
 
     const onSubmit = (values) => {
@@ -55,7 +55,7 @@ const ForgotPINForm = ({
                 <input
                 className="input"
                 name="phoneNumber"
-                placeholder={language === 'ES' ? infoContact.forgotPINFormPH2 : infoContact.forgotPINFormPH2_EN}
+                placeholder={language === 'ES' ? infoContact.forgotPINFormPH2 : infoContact.forgotPINFormPH2_EN} 
                 type="text" 
                 autoComplete="on"
                 value={formik.values.phoneNumber}
@@ -70,7 +70,7 @@ const ForgotPINForm = ({
                 type="submit"
                 >{language === 'ES' ? infoContact.forgotPINFormSendBtn : infoContact.forgotPINFormSendBtn_EN}</button>
                 <button
-                onClick={toggleForgotSection}
+                onClick={toggleForgotPINState}
                 className="comeBackBtn"
                 type="submit"
                 >{language === 'ES' ? infoContact.forgotPINFormBackBtn : infoContact.forgotPINFormBackBtn_EN}</button>

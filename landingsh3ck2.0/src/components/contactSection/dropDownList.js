@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { MdKeyboardArrowDown } from 'react-icons/md'
-import { infoContact } from '../../utils/data'
 
 const DropDownList = ({ 
     onChange, 
@@ -8,8 +7,7 @@ const DropDownList = ({
     setCity,
     options, 
     cityError,
-    setCityError,
-    language 
+    setCityError 
 
 }) => {
     
@@ -17,7 +15,6 @@ const DropDownList = ({
     //     window.addEventListener('blur', setIsActive(!isActive))
     // },[])
     
-    // console.log(cityError)
     const [ isActive, setIsActive ] = useState(false)
     
     const toggleDropDownList = () => {

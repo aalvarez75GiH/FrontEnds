@@ -61,7 +61,7 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser, language }) => {
                 <input
                 className="input"
                 name="fullName"
-                placeholder={language === 'ES' ? infoContact.intUsersFormPH1 : infoContact.intUsersFormPH1_EN} 
+                placeholder={language === 'ES' ? infoContact.intUsersFormPH1 : infoContact.intUsersFormPH1_EN}
                 type="text" 
                 value={formik.values.fullName}
                 onChange={formik.handleChange}
@@ -90,7 +90,6 @@ const InterestedUserForm = ({ handlingSubmitInterestedUser, language }) => {
                 setCity={setCity}
                 cityError={cityError}
                 setCityError={setCityError}
-                language={language}
                 />
                 <button
                 className="sendDataBtn"

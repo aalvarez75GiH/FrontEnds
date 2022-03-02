@@ -5,19 +5,7 @@ import useMobilDetect from '../../utils/mobilHook'
 import VideoJS from '../../components/video'
 import { infoVideo } from '../../utils/data'
 
-const VideoSection = ({
-    language
-    // id,
-    // lightBg,
-    // topLine,
-    // lightText,
-    // headLine,
-    // darkText,
-    // description,
-    // buttonLabel,
-    // videoSrc,
-    // linkedTo 
-}) => {
+const VideoSection = ({language}) => {
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection() 
     // console.log(mobil2.screenWidth)
@@ -79,9 +67,5 @@ const VideoSection = ({
 }
 
 export default VideoSection
-
-
-
-
 
 

@@ -25,8 +25,10 @@ const NotificationBox = ({
         console.log(str2.split(' ')[0]);
         return str2.split(' ')[0]    
     }
-    const nameSplittedAndCapitalized = capitalizeFirstLetter(response.data)
+
+      
     
+    const nameSplittedAndCapitalized = capitalizeFirstLetter(response.data)
     // console.log('splitting response: ', responseSplitted[0])
     if (response){
         if (response.status === 400){
@@ -48,6 +50,7 @@ const NotificationBox = ({
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
                         <span className="notificationSpan">
+                            {/* <b>{language === 'ES' ? regularCopy.hola : regularCopy.hello} {''}{responseSplitted[0]}</b> */}
                             <b>{language === 'ES' ? regularCopy.hola : regularCopy.hello} {''}{nameSplittedAndCapitalized}</b>    
                         </span>    
                     </div>
@@ -87,7 +90,8 @@ const NotificationBox = ({
                     <img src={foundImage} alt="successImage" />
                     <div className="notificationName"> 
                         <span className="notificationSpan">
-                            <b>{language === 'ES' ? regularCopy.hola : regularCopy.hello} {''}{nameSplittedAndCapitalized}</b>    
+                            <b>{language === 'ES' ? regularCopy.hola : regularCopy.hello} {''}{nameSplittedAndCapitalized}</b>
+                            {/* <b>{language === 'ES' ? regularCopy.hola : regularCopy.hello} {''}{responseSplitted[0]}</b>      */}
                         </span>    
                     </div>
                     <div className="notificationResponse">

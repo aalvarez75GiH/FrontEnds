@@ -2,6 +2,8 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 import { BiUserCheck, BiUserCircle, BiHelpCircle, BiQuestionMark } from 'react-icons/bi'
 import { IoMdCart } from 'react-icons/io'
+import { FiLogOut } from 'react-icons/fi'
+import { MdSaveAlt } from 'react-icons/md'
 import { infoMainSideBar } from '../../utils/data'
 
 
@@ -17,9 +19,11 @@ const MainSideBar = ({
     handlingSubmitLogOutUser, 
     language,
     loginData,
+    toggleLoginSideBarToOpen
 }) => {
     console.log(loginData)
     // console.log(loggedIn)
+    
     const capitalizeFirstLetter = (string) => {
         // const str = 'flexiple';
         const str2 = string.charAt(0).toUpperCase() + string.slice(1)
@@ -27,7 +31,7 @@ const MainSideBar = ({
         return str2.split(' ')[0]    
     }
     const nameSplittedAndCapitalized = capitalizeFirstLetter(username)
-    
+
     if (loggedIn && mainSideBarOpen){
        return (
        <aside
@@ -76,32 +80,34 @@ const MainSideBar = ({
                                 </div>
                                 {language === 'ES' ? infoMainSideBar.option3Copy : infoMainSideBar.option3Copy_EN}
                             </div>
-                            <div className="mainSideBarContentItems">
+                            <div 
+                            onClick={toggleLoginSideBarToOpen}
+                            className="mainSideBarContentItems">
                                 <div className="mainSideBarUserOptionsIcon">
                                     <BiQuestionMark/>
                                 </div>
                                 {language === 'ES' ? infoMainSideBar.option4Copy : infoMainSideBar.option4Copy_EN}
                             </div>
-                            
-                            {/* {
-                                !loginData ?
-                                <div
-                                onClick={handlingSubmitLogOutUser} 
-                                className="closeBtn">
-                                {language === 'ES' ? infoMainSideBar.mainSidebarBtnLabel : infoMainSideBar.mainSidebarBtnLabel_EN}
-                                </div>  
-                                :
-                                <GoogleAuth3/>
-                            } */}
-                            
-                            <div
+                            <div className="mainSideBarContentItems">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <MdSaveAlt/>
+                                </div>
+                                {language === 'ES' ? infoMainSideBar.option5Copy : infoMainSideBar.option5Copy_EN}
+                            </div>
+                            <div 
+                            onClick={handlingSubmitLogOutUser}
+                            className="mainSideBarContentItems exitDiv">
+                                <div className="mainSideBarUserOptionsIcon">
+                                    <FiLogOut/>
+                                </div>
+                                {language === 'ES' ? infoMainSideBar.option6Copy : infoMainSideBar.option6Copy_EN}
+                                
+                            </div>
+                            {/* <div
                             onClick={handlingSubmitLogOutUser} 
                             className="closeBtn">
                             {language === 'ES' ? infoMainSideBar.mainSidebarBtnLabel : infoMainSideBar.mainSidebarBtnLabel_EN}
-                            </div>  
-                                
-                            
-                            
+                            </div>   */}
                         </div>
                     </div>
                 </div>

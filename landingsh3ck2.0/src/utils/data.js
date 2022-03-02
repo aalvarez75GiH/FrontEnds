@@ -1,4 +1,4 @@
-import video from '../videos/sh3ck-1080p-210928.mp4'
+import video from '../videos/Sh3ck_Maqueta_1.mp4'
 import hiwImage1 from '../images/1stStep.png'
 import hiwImage2 from '../images/2ndStep.png'
 import hiwImage3 from '../images/3rdStep.png'
@@ -10,15 +10,26 @@ export const infoHero = {
     heroH1: 'Somos la nueva forma de comprar sin miedo',
     heroH1_2: 'por internet',
     buttonLabel: 'Ver Video',
+    buttonLabel_2: '¿Que hacemos?',
+    explanation_p1: '¿Has escuchado de personas que compran un producto por internet y son estafados, no reciben el producto correcto o no se encuentra en la condición que lo vieron?',
+    explanation_p2:'Nosotros te conectámos con personas que pueden chequear el producto que quieres comprar en la ciudad donde éste se encuentra para que esto no te suceda',    
+    explanation_p2b: '¿Te gustaría chequear un producto con nosotros?',
     linkedTo: 'videoSection',
+    internalLinkedTo:'wwdSection',
     heroH1Mobil: 'Compra sin miedo por internet',
     heroPMobil: 'Nosotros chequeamos los productos que tu quieres comprar...',
+    iwantToCheckBtn:'Si, Quiero chequear',
     // English
     heroH1_EN: 'We are the new way of buying without fear',
     heroH1_2_EN:'online',    
     heroH1Mobil_EN: 'Buy without fear online',
     heroPMobil_EN: 'We check the products you want to buy',
-    buttonLabel_EN: 'See Video'
+    buttonLabel_EN: 'See Video',
+    buttonLabel_2_EN: 'What we do',
+    explanation_p1_EN: 'have you heard of people that buy a product online and they have been scammed, they don`t recieve the correct product or it`s not in the good condition the thought it was?',
+    explanation_p2_EN: 'We connect you with people that will check the product you want to buy at the city where it`s located so that won`t happen to you',
+    explanation_p2b_EN: 'Would you like to check a product with us?',
+    iwantToCheckBtn_EN:'Yes, I want to check',
 }
 
 export const infoVideo = {
@@ -201,10 +212,11 @@ export const infoSpinner = {
 export const infoCheck = {
     checkSectionTitle: '¿Estas listo para Chequear un producto?',
     checkSectionTitle_EN: 'Are you ready to check a product?',
-    checkSectionBtnLabel: 'Si, Quiero chequear un producto',
-    checkSectionBtnLabel_EN: 'Yes, I wanna check a product',
-    notNowlabel: 'No ahora',
-    notNowlabel_EN: 'Not now'
+    checkSectionBtnLabel: 'Comienza',
+    checkSectionBtnLabel_EN: 'Start',
+    checkSectionExitBtn: 'Salir',
+    checkSectionExitBtn_EN: 'Exit'
+    
 }
 
 export const infoNavBarMobil = {
@@ -224,10 +236,14 @@ export const infoMainSideBar = {
     option2Copy: 'Mis chequeos',
     option3Copy: 'Ayúda',
     option4Copy: 'Preguntas y respuestas',
+    option5Copy: 'Salir y guardar',
+    option6Copy: 'Salir',
     option1Copy_EN: 'My account',
     option2Copy_EN: 'My checks orders',
     option3Copy_EN: 'Help',
     option4Copy_EN: 'Questions & Answers',
+    option5Copy_EN: 'Logout and save',
+    option6Copy_EN: 'Logout',
     hola: 'Hola',
     hello: 'Hello',
     mainSidebarBtnLabel:'Cerrar sesión',
@@ -301,15 +317,21 @@ export const infoFooter = {
 }
 
 export const infoSideBar = {
-    sideBarLink1: 'Idioma',
+    sideBarLink0_EN: 'Check a product',
+    sideBarLink1: 'Ir al inicio',
     sideBarLink2: 'Preguntas y Respuestas',
     sideBarLink3: 'Ayuda',
-    sideBarLink1_EN: 'Language',
+    sideBarLink4: 'idioma',
+    sideBarLink5: 'Atrás',
+    sideBarLink0: 'Chequéa un producto',
+    sideBarLink1_EN: 'Home',
     sideBarLink2_EN: 'Questions & Answers',
     sideBarLink3_EN: 'Help',
+    sideBarLink4_EN: 'Language',
+    sideBarLink5_EN: 'Exit',
     toggleCopy: '(cambiar a Español)',
     toggleCopy_EN:'(Switch to English)',
-    sideBarBtnLabel: 'Cerrar',
+    sideBarBtnLabel: 'Cerrar esta ventana',
     sideBarBtnLabel_EN: 'Close'
 
 }

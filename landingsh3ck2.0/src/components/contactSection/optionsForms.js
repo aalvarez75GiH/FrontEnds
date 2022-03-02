@@ -1,7 +1,6 @@
 import React from 'react'
 import { infoContact } from '../../utils/data'
 
-
 const OptionsForms = ({ switchToSignIn, switchToCheck, active, language  }) => {
     return (
         <>
