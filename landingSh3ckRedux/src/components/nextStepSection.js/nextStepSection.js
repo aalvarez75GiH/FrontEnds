@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link as LinkS } from 'react-scroll'
 
 
@@ -8,16 +9,16 @@ import picture from '../../images/2034873_chat_app_media_mobile_social_icon.svg'
 import icon1 from '../../images/1783048_content_mobile_notification_push_icon.svg'
 import icon2 from '../../images/7681162_courier_delivery_scooter_box_icon.svg'
 import arrow from '../../images/3927254_arrow_arrow right_caret_caret right_chevron_icon.svg'
-import FormHeader from '../contactSection/formHeader'
+
 
 import { infoNextStep } from '../../utils/data'
 
 const NextStepSection = ({
-    language,
     handlingInterestedUser,
     handlingCheckUser
 }) => {
-   
+    const language = useSelector((state) => state.sideBarState.language)
+       
 return (
    
     <div 

@@ -16,7 +16,7 @@ const NotificationBox = ({
     console.log(response)
     console.log(response.config)
     const url = response.config.url
-    const url_regUsers = "https://intense-atoll-00786.herokuapp.com/api/users"
+    // const url_regUsers = "https://intense-atoll-00786.herokuapp.com/api/users"
     const url_interestedUsers = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
 
     const capitalizeFirstLetter = (string) => {

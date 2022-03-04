@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import InterestedUsersForm from '../contactSection/interestedUserForm'
 import LoginForm from './loginForm'
 import axios from 'axios'
 import FormHeader from './formHeader'
-import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
+// import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
 import { infoContact } from '../../utils/data'
+import { useSelector } from 'react-redux'
 
 const ContactSection = ({
-    language,
     loggedIn,
     handlingSubmitLoginUser,
     // loginResponse,
@@ -27,6 +27,7 @@ const ContactSection = ({
 
 }) => {
    
+    const language = useSelector((state) => state.sideBarState.language)
     // const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
     // const url_users = "http://192.168.1.102:5000/api/users"
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"

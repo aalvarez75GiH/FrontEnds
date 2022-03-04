@@ -2,7 +2,6 @@ import React from 'react'
 import { infoSpinner } from './data'
 
 const LoadingSpinner = ({language, loading}) => {
-    console.log('Spinner running...')
     return (
         <div className={loading ? 'loadingSpinnerContainer_open' : 'loadingSpinnerContainer'}>
             <div className="circles">

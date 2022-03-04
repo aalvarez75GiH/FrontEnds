@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useSelector, useDispatch } from 'react-redux'
-import { bindActionCreators } from '@reduxjs/toolkit'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
@@ -14,7 +12,6 @@ import NavBarMobil from '../components/navBar/navBarMobil'
 import NavBarForCS from '../components/navBar/navBarForCS'
 import QASideBar from '../components/sideBars/QASideBar'
 import ContactSection from '../components/contactSection/contactSection'
-// import ContactSectionTest from '../components/contactSection/contactSectionTest'
 import NextStepSection from '../components/nextStepSection.js/nextStepSection'
 import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
@@ -22,11 +19,15 @@ import CheckSection from '../components/checkSection/checkSection'
 import NotificationBox from '../components/notifications/NotificationBox'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
 import { actionCreators } from '../state'
-// Home version for testing separation of NextStepSection and ContactSection
+
+// ************************* Redux imports
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
+// ***************************************************
+
 
 const Home = () => {
 
-    // const [ isOpen, setIsOpen ] = useState(false)
     const [ loggedIn, setLoggedIn ] = useState(false)
     const [ loggedOut, setLoggedOut ] = useState(true)
     const [currentUser, setCurrentUser ] = useState('')
@@ -34,7 +35,6 @@ const Home = () => {
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
-    const [ language, setLanguage ] = useState('ES')
     const [ regView, setRegView ] = useState(false)
     const [ forgotPIN, setForgotPIN ] = useState(false)
     const [ active , setActive ] = useState(null) 
@@ -42,10 +42,8 @@ const Home = () => {
     const [response, setResponse ] = useState(null)
 
 
-    const isOpen = useSelector((state) => state.sideBarState.isOpen )
-    const dispatch = useDispatch()
-    const {openingSideBar, closingSideBar} = bindActionCreators(actionCreators, dispatch)
-    console.log(isOpen)
+  
+    
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
@@ -210,14 +208,10 @@ const Home = () => {
         
     }
     
-    const toggleSideBar = () => {
-        openingSideBar(!isOpen) //action
-        
-    }
+ 
  
     const toggleQASideBarToOpen = () => {
-        setQASideBarOpen(true)
-        
+        setQASideBarOpen(true) 
     }
     const toggleQASideBarToClose = () => {
         console.log('tratando de cerrar')
@@ -233,18 +227,8 @@ const Home = () => {
         setActive(null)
         setContactSectionOpen(false)
     }
-
-    const toggleLanguage = () => {
-        if (language === 'ES') {
-            setLanguage('EN')
-            return
-        }
-        if (language === 'EN'){
-            setLanguage('ES')
-            return
-        } 
-    }
-
+     
+ 
     const workingSpinner = (option) => {
         console.log(option)
         switch (option) {
@@ -281,11 +265,10 @@ const Home = () => {
                 client_id: '915460618193-dcl1a1f3en6f3h22evu9jqk2aqdh1lcj.apps.googleusercontent.com',
                 scope:'profile'
               }).then(()=> {
-              console.log('gapi initialized...')
               auth = window.gapi.auth2.getAuthInstance()
               const isSignedIn = auth.isSignedIn.get()
               setIsSignedIn(isSignedIn)
-              console.log(isSignedIn)
+            //   console.log(isSignedIn)
               auth.isSignedIn.listen(isSignedIn => {
                   setIsSignedIn(auth.isSignedIn.get())
               })   
@@ -326,6 +309,21 @@ const Home = () => {
                 setLoggedOut(false)
             }
     }
+
+    // ************* Redux Handlers and Helpers ***************\
+    // const dispatch = useDispatch()
+    // const { changeLanguage } = bindActionCreators(actionCreators, dispatch)
+    // const isOpen = useSelector((state) => state.sideBarState.isOpen )
+    
+    // const toggleSideBar = () => {
+    //     // openingSideBar(!isOpen) //action
+    // }
+
+    // const toggleLanguage = () => {
+    //     changeLanguage('ES') 
+    // }
+
+    // *********************************************************
             
     return (
     <>
@@ -346,23 +344,18 @@ const Home = () => {
             loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
-            language={language}
             loginData={loginData} 
             toggleQASideBarToOpen={toggleQASideBarToOpen}        
             />
             <NavBarForCS
-            toggleMainSideBar={toggleMainSideBar}
-            toggleSideBar={ toggleSideBar }  
+            toggleMainSideBar={toggleMainSideBar} 
             login={ loggedIn }
-            language={language}
-                
             /> 
             <CheckSection 
             toggleMainSideBar={toggleMainSideBar}
-            toggleSideBar={ toggleSideBar }  
+            // toggleSideBar={ toggleSideBar }  
             login={ loggedIn }
             gettingOutOfCheckApp={gettingOutOfCheckApp}
-            language={language}
             />
         </div>
     : null
@@ -380,7 +373,7 @@ const Home = () => {
                     <>
                         <LoadingSpinner 
                         loading={loading}
-                        language={language}
+                        
                         />
                         {response || loginResponse ?
                         <NotificationBox
@@ -388,18 +381,14 @@ const Home = () => {
                         // response={response ? response : null }
                         response={response ? response : loginResponse }
                         responseData={togglingResponseData()} 
-                        language={language}
+                        
                          />
                          :
                          null
                         }
                             
                         <SideBar 
-                        // isOpen={ isOpen } 
-                        toggleSideBar={ toggleSideBar }
                         toggleQASideBarToClose={toggleQASideBarToClose}
-                        language={language}
-                        toggleLanguage={toggleLanguage}
                         handlingCheckUser={handlingCheckUser}
                         toggleQASideBarToOpen={toggleQASideBarToOpen}
                         />
@@ -407,26 +396,27 @@ const Home = () => {
                         { mobil2.screenWidth <= 1098 || mobil ?  
                             <NavBarMobil 
                             toggleMainSideBar={toggleMainSideBar}
-                            toggleSideBar={ toggleSideBar }  
+                            // toggleSideBar={ toggleSideBar }  
                             login={ loggedIn }
-                            language={language}
+                            
                             
                         /> : <NavBar
-                        toggleSideBar={toggleSideBar}
+                        // toggleSideBar={toggleSideBar}
                         toggleMainSideBar={toggleMainSideBar} 
                         login={ loggedIn }
-                        language={language}
+                        
                         />
                         }
                         <HeroSection 
                         handlingCheckUser={handlingCheckUser}
-                        language={language} />
-                        <VideoSection language={language}/>
-                        <HiwSection language={language}/>
+                      
+                         />
+                         <VideoSection />
+                        <HiwSection />
                         <NextStepSection
                         handlingInterestedUser={handlingInterestedUser}
                         handlingCheckUser={handlingCheckUser} 
-                        language={language}
+                        
                         />
                         {
                             !loggedIn ?
@@ -439,7 +429,6 @@ const Home = () => {
                             handlingSubmitLoginUser={ handlingSubmitLoginUser}
                             toggleNotificationLogin={toggleNotification}
                             googleTest={googleTest}
-                            language={language}
                             toggleRegView={toggleRegView}
                             settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
                             toggleForgotPINState={toggleForgotPINState}
@@ -451,7 +440,8 @@ const Home = () => {
                             :
                             null
                         }
-                        <FooterSection language={language}/>
+                        <FooterSection/> 
+                        
                     </>
                     : null
                         

@@ -8,24 +8,29 @@ import { infoHero } from '../../utils/data'
 import { FaTimes } from 'react-icons/fa'
 import wwd_icon_1 from '../../images/4229080_criminal_robber_robbery_theft_thief_icon.svg'
 import wwd_icon_2 from '../../images/ok_success_icon.svg'
-import { OffsetHandler } from '../../utils/settingOffsets'
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
+import { actionCreators } from '../../state'
 
 
 
-
-const HeroSection = ({ language, handlingCheckUser }) => {
+const HeroSection = ({ handlingCheckUser }) => {
+const dispatch = useDispatch()
+const { openingHeroSection_WWD, heroSection_curtain } = bindActionCreators(actionCreators, dispatch)
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
 const screenWidth = mobil2.screenWidth
 
-const [ WWD, setWWD ] = useState(false)
-const [ curtain, setCurtain ] = useState(false)
+const language = useSelector((state) => state.sideBarState.language)
+const curtain_open = useSelector((state) => state.heroSection.curtain_active)
+const isOpen = useSelector((state) => state.heroSection.WWD_Open)
+
+
 
 // console.log(mobil2.screenWidth)
 const internalOpening = () => {
-    setWWD(!WWD)
-    setCurtain(!curtain)
-    console.log('i am internal')
+    openingHeroSection_WWD(!isOpen)
+    heroSection_curtain(!curtain_open)
 }
 const handlingContactSection = () => {
     internalOpening()
@@ -33,7 +38,7 @@ const handlingContactSection = () => {
 }
 
  const detectingOffset = () => {
-     console.log(screenWidth)
+     
      if (screenWidth <= 1098 && screenWidth > 768){
         return 100
     }
@@ -55,7 +60,6 @@ const handlingContactSection = () => {
 }
 
 if (mobil2.screenWidth < 768 || mobil) {
-        console.log(WWD)
         return ( 
             <div 
             id="heroSection"
@@ -100,7 +104,7 @@ if (mobil2.screenWidth < 768 || mobil) {
                 </div>
                 <div 
                 id="wwdSection"
-                className={ !WWD ? 'heroSection_WWD' : 'heroSection_WWD_open'}>
+                className={ !isOpen ? 'heroSection_WWD' : 'heroSection_WWD_open'}>
                     <LinkS
                     to={'heroSection'}  
                     activeClass="active"
@@ -111,9 +115,7 @@ if (mobil2.screenWidth < 768 || mobil) {
                     onClick={internalOpening}
                     >
                         <FaTimes
-                        className="heroSection_WWD_CloseIcon"
-                        
-                        />
+                        className="heroSection_WWD_CloseIcon"/>
                     </LinkS>
                     <div className="wwdSection_explanation">
                         <div className='icons_containers'>
@@ -154,7 +156,7 @@ if (mobil2.screenWidth < 768 || mobil) {
                     
                 </div>
                 <div className="heroBGMobil">
-                    <div className={!curtain ? 'hero_Curtain' : 'hero_Curtain_active'}>
+                    <div className={!curtain_open ? 'hero_Curtain' : 'hero_Curtain_active'}>
 
                     </div>
                     <img

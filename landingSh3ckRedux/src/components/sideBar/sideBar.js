@@ -1,47 +1,45 @@
 import React from 'react'
+import { bindActionCreators } from '@reduxjs/toolkit'
 import { FaTimes } from 'react-icons/fa'
 import { BiHelpCircle, BiQuestionMark } from 'react-icons/bi'
-import {FiLogIn} from 'react-icons/fi'
 import { GrLanguage } from 'react-icons/gr'
-import { FaHome } from 'react-icons/fa'
 import { FiHome } from 'react-icons/fi'
 import { BsBox } from 'react-icons/bs'
-import { CgCloseO } from 'react-icons/cg'
 import { infoSideBar } from '../../utils/data'
 import {HiArrowLeft} from 'react-icons/hi'
 import { Link as LinkS } from 'react-scroll'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { actionCreators } from '../../state'
 
 const SideBar = ({ 
-    toggleSideBar, 
-    // isOpen, 
-    language, 
-    toggleLanguage,
     handlingCheckUser,
     toggleQASideBarToOpen,
-    toggleSideBarToClose,
 }) => {
 
     const isOpen = useSelector((state) => state.sideBarState.isOpen)
-    const isClosed = useSelector((state) => state.sideBarState.isClosed)
-    console.log(isOpen)
-    console.log(isClosed)
-
+    const language = useSelector((state) => state.sideBarState.language)
+    
     const togglingLanguage = () => {
-        toggleLanguage()
-        toggleSideBar()
+        changeLanguage('ES')
+        openingSideBar(!isOpen)
     }
 
     const handlingContactSection = () => {
-        toggleSideBar()
+        openingSideBar(!isOpen)
         handlingCheckUser()
     }
+    
+    const dispatch = useDispatch()
+    const { openingSideBar, changeLanguage } = bindActionCreators(actionCreators, dispatch)
+     
+
     return ( 
         <aside
         className={`${isOpen ? "sideBarContainerOpen" : "sideBarContainer" }`}>
             <div 
             className="sideBarIcon"
-            onClick={ toggleSideBar }
+            onClick={ () => openingSideBar(!isOpen) }
             >
                 <FaTimes className="closeIcon"/>
             </div>
@@ -56,7 +54,7 @@ const SideBar = ({
                     duration={1000}
                     >
                     <div 
-                    onClick={ toggleSideBar }
+                    onClick={() => openingSideBar(!isOpen) }
                     to="discover" 
                     className="sideBarLink" >
                         <div className="mainSideBarUserOptionsIcon">
@@ -109,6 +107,7 @@ const SideBar = ({
                         </div>
                         {language === 'ES' ? infoSideBar.sideBarLink4 : infoSideBar.sideBarLink4_EN} 
                         <div 
+                        // onClick={togglingLanguage}
                         onClick={togglingLanguage}
                         className="changeLanDiv">
                             {language === 'ES' ? infoSideBar.toggleCopy_EN : infoSideBar.toggleCopy}
@@ -116,7 +115,7 @@ const SideBar = ({
                     </div>
                     <div 
                     to="discover"
-                    onClick={toggleSideBar} 
+                    onClick={() => openingSideBar(!isOpen)} 
                     className="sideBarLink" >
                         <div className="mainSideBarUserOptionsIcon">
                             <HiArrowLeft/>

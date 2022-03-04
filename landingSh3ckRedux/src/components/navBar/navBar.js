@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
@@ -6,14 +7,15 @@ import { BiUserCheck } from 'react-icons/bi'
 import { OffsetHandlerNavBar } from '../../utils/settingOffsets'
 import { infoNavBar } from '../../utils/data'
 
+
 const NavBar = ({  
     login, 
     toggleLoginSideBarToOpen,
     toggleMainSideBar,
-    language,
     toggleSideBar
 }) => {
     
+    const language = useSelector((state) => state.sideBarState.language)
     
     const [scrollNav, setScrollNav ] = useState(false)
 

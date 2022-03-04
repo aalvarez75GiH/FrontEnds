@@ -5,8 +5,6 @@ import RegisterForm from './registerForm'
 import ForgotPINForm from './forgotPINForm'
 import {MdOutlineVisibility} from 'react-icons/md'
 import { infoContact } from '../../utils/data'
-import GoogleAuth3 from '../buttons/googleAuth3'
-import GoogleAuth4 from '../buttons/googleAuth4'
 import GoogleAuth5 from '../buttons/googleAuth5'
 
 

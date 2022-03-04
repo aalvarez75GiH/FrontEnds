@@ -1,9 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import { infoContact } from '../../utils/data'
-import GoogleAuth3 from '../buttons/googleAuth3'
-import GoogleAuth4 from '../buttons/googleAuth4'
 import GoogleAuth5 from '../buttons/googleAuth5'
 
 

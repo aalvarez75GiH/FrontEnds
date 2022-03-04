@@ -1,11 +1,11 @@
 import React from 'react'
 import { infoCheck } from '../../utils/data'
-import NavBarForCS from '../navBar/navBarForCS'
+import { useSelector } from 'react-redux'
 
 const CheckSection = ({
-    language, 
     gettingOutOfCheckApp
 }) => {
+    const language = useSelector((state) => state.sideBarState.language)
     return (
         <div className="checkSectionContainer">
             <div className="checkSectionWrapper">
@@ -22,18 +22,6 @@ const CheckSection = ({
                 </div>
             </div>
         </div>
-        // <div className="checkSectionTestContainer">
-        //     <div className="checkSectionTestWrapper">
-        //         <div className="checkSectionTest-BtnWrap">
-
-        //         </div>
-        //     </div>
-        //     <div className="checkSectionTestWrapper">
-        //         <div className="checkSectionTest-BtnWrap">
-
-        //         </div>
-        //     </div>
-        // </div>
     )   
 }
 
