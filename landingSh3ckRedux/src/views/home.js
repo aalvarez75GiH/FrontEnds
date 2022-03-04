@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
 import MainSideBar from '../components/mainSideBar/mainSideBar'
@@ -19,12 +21,12 @@ import LoadingSpinner from '../utils/loadingSpinner'
 import CheckSection from '../components/checkSection/checkSection'
 import NotificationBox from '../components/notifications/NotificationBox'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
-
+import { actionCreators } from '../state'
 // Home version for testing separation of NextStepSection and ContactSection
 
 const Home = () => {
 
-    const [ isOpen, setIsOpen ] = useState(false)
+    // const [ isOpen, setIsOpen ] = useState(false)
     const [ loggedIn, setLoggedIn ] = useState(false)
     const [ loggedOut, setLoggedOut ] = useState(true)
     const [currentUser, setCurrentUser ] = useState('')
@@ -40,6 +42,10 @@ const Home = () => {
     const [response, setResponse ] = useState(null)
 
 
+    const isOpen = useSelector((state) => state.sideBarState.isOpen )
+    const dispatch = useDispatch()
+    const {openingSideBar, closingSideBar} = bindActionCreators(actionCreators, dispatch)
+    console.log(isOpen)
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
@@ -205,9 +211,10 @@ const Home = () => {
     }
     
     const toggleSideBar = () => {
-        setIsOpen(!isOpen)
+        openingSideBar(!isOpen) //action
         
-    } 
+    }
+ 
     const toggleQASideBarToOpen = () => {
         setQASideBarOpen(true)
         
@@ -388,13 +395,13 @@ const Home = () => {
                         }
                             
                         <SideBar 
-                        isOpen={ isOpen } 
+                        // isOpen={ isOpen } 
                         toggleSideBar={ toggleSideBar }
+                        toggleQASideBarToClose={toggleQASideBarToClose}
                         language={language}
                         toggleLanguage={toggleLanguage}
                         handlingCheckUser={handlingCheckUser}
                         toggleQASideBarToOpen={toggleQASideBarToOpen}
-                        toggleQASideBarToClose={toggleQASideBarToClose}
                         />
                         
                         { mobil2.screenWidth <= 1098 || mobil ?  

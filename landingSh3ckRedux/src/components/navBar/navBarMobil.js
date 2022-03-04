@@ -6,6 +6,7 @@ import { IoMdCart } from 'react-icons/io'
 import { BiUser, BiUserCheck } from 'react-icons/bi'
 import { OffsetHandler } from '../../utils/settingOffsets'
 import { infoNavBarMobil } from '../../utils/data'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 const NavBarMobil = ({ 
@@ -15,6 +16,8 @@ const NavBarMobil = ({
     language,
     toggleLoginSideBarToOpen
 }) => {
+    const state = useSelector((state) => state.isOpen )
+    console.log(state)
         return (
             <>
                 <nav 

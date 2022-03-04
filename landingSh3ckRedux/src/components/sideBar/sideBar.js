@@ -10,15 +10,22 @@ import { CgCloseO } from 'react-icons/cg'
 import { infoSideBar } from '../../utils/data'
 import {HiArrowLeft} from 'react-icons/hi'
 import { Link as LinkS } from 'react-scroll'
+import { useSelector } from 'react-redux'
 
 const SideBar = ({ 
     toggleSideBar, 
-    isOpen, 
+    // isOpen, 
     language, 
     toggleLanguage,
     handlingCheckUser,
-    toggleQASideBarToOpen
+    toggleQASideBarToOpen,
+    toggleSideBarToClose,
 }) => {
+
+    const isOpen = useSelector((state) => state.sideBarState.isOpen)
+    const isClosed = useSelector((state) => state.sideBarState.isClosed)
+    console.log(isOpen)
+    console.log(isClosed)
 
     const togglingLanguage = () => {
         toggleLanguage()
