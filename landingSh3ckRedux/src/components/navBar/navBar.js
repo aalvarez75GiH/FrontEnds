@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 import { FaRegUser } from 'react-icons/fa'
 import { BiUserCheck } from 'react-icons/bi'
 import { OffsetHandlerNavBar } from '../../utils/settingOffsets'
 import { infoNavBar } from '../../utils/data'
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
 
 
 const NavBar = ({  
     login, 
-    toggleLoginSideBarToOpen,
-    toggleMainSideBar,
-    toggleSideBar
 }) => {
-    
+    const isOpen = useSelector((state) => state.sideBarState.isOpen )
     const language = useSelector((state) => state.sideBarState.language)
+    const dispatch = useDispatch()
+    const { openingSideBar } = bindActionCreators(actionCreators, dispatch)
+    
     
     const [scrollNav, setScrollNav ] = useState(false)
 
@@ -72,7 +74,7 @@ const NavBar = ({
                         </li>
                     </ul>
                     <div 
-                    onClick={toggleSideBar}
+                    onClick={() => openingSideBar(!isOpen)} 
                     className="loggedInIconContainer">
                         <BiUserCheck 
                         className="loggedInUserIcon"/>
@@ -128,7 +130,7 @@ const NavBar = ({
                         className="navBtn">
                             <LinkS
                             to="loginSession"
-                            onClick={toggleSideBar} 
+                            onClick={() => openingSideBar(!isOpen)} 
                             style={{
                                 border: `${scrollNav ? '2px solid #ffffff' : 'none'}`,
                                 padding: `${language === 'ES' ? '10px 22px' : '10px 60px'}`

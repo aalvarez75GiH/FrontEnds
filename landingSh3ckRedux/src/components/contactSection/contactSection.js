@@ -5,29 +5,27 @@ import axios from 'axios'
 import FormHeader from './formHeader'
 // import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../notifications/notificationData'
 import { infoContact } from '../../utils/data'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
+import { actionCreators } from '../../state'
+
 
 const ContactSection = ({
     loggedIn,
     handlingSubmitLoginUser,
-    // loginResponse,
-    // toggleNotificationLogin,
     isSignedIn,
     googleTest,
-    active,
-    regView,
-    forgotPIN,
-    toggleRegView,
-    settinRegViewAndForgotPINToFalse,
-    toggleForgotPINState,
-    contactSectionOpen,
+    // settinRegViewAndForgotPINToFalse,
     workingSpinner,
     handlingClosingOfContactSection,
-    handlingContactSectionResponse
-
+    handlingContactSectionResponse,
 }) => {
-   
+    const dispatch = useDispatch()
+    const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
     const language = useSelector((state) => state.sideBarState.language)
+    const isContactSectionOpen = useSelector((state) => state.contactSectionState.isContactSectionOpen)
+    const active = useSelector((state) => state.contactSectionState.active)
+    const regView = useSelector((state) => state.contactSectionState.regView)
     // const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
     // const url_users = "http://192.168.1.102:5000/api/users"
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
@@ -56,6 +54,11 @@ const ContactSection = ({
             }
         },2000)
         
+    }
+
+    const settinRegViewAndForgotPINToFalse = () => {
+        openingRegView(false) //action creator
+        openingForgotPINView(false) //action creator
     }
 
     const handlingSubmitUser = async(user) => {
@@ -100,11 +103,12 @@ const ContactSection = ({
 
 
 
+
 return (
     <div 
     id={infoContact.id}
-    className={contactSectionOpen ? 'contactContainer_open' : 'contactContainer' }>
-        <div className={contactSectionOpen ? 'contactWrapper_open' : 'contactWrapper' }>
+    className={isContactSectionOpen ? 'contactContainer_open' : 'contactContainer' }>
+        <div className={ isContactSectionOpen ? 'contactWrapper_open' : 'contactWrapper' }>
             <div className="contactForms">
              
              {/* {response || loginResponse ?
@@ -122,8 +126,6 @@ return (
             <FormHeader
             active = {active}
             loggedIn={loggedIn}
-            regView={regView}
-            forgotPIN = {forgotPIN}
             language={language}
             handlingClosingOfContactSection={handlingClosingOfContactSection}
             />
@@ -145,10 +147,6 @@ return (
             
             { active === 'check'  && !loggedIn  ? 
             <LoginForm
-            regView={regView}
-            forgotPIN = {forgotPIN}
-            toggleRegView={toggleRegView}
-            toggleForgotPINState={toggleForgotPINState}
             handlingSubmitUser={handlingSubmitUser}
             handlingSubmitLoginUser={handlingSubmitLoginUser}
             handlingNewPINRequest={handlingNewPINRequest}

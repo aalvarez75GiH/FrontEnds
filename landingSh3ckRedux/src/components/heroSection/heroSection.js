@@ -1,4 +1,4 @@
-import React, {useState}   from 'react'
+import React from 'react'
 import { Link as LinkS } from 'react-scroll'
 import Button from '../buttons/button'
 import useMobilDetect from '../../utils/mobilHook'
@@ -16,7 +16,7 @@ import { actionCreators } from '../../state'
 
 const HeroSection = ({ handlingCheckUser }) => {
 const dispatch = useDispatch()
-const { openingHeroSection_WWD, heroSection_curtain } = bindActionCreators(actionCreators, dispatch)
+const { openingHeroSection_WWD, heroSection_curtain, openingContactSection, activatingForm } = bindActionCreators(actionCreators, dispatch)
 const mobil = useMobilDetect()
 const mobil2 = useMobilDetection()  
 const screenWidth = mobil2.screenWidth
@@ -34,7 +34,8 @@ const internalOpening = () => {
 }
 const handlingContactSection = () => {
     internalOpening()
-    handlingCheckUser()
+    openingContactSection(true)
+    activatingForm('check')
 }
 
  const detectingOffset = () => {

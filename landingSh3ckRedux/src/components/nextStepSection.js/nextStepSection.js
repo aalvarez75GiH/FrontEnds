@@ -1,6 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link as LinkS } from 'react-scroll'
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
+import { actionCreators } from '../../state'
+
 
 
 // import LoginFormTest from './loginFormTest'
@@ -11,15 +14,33 @@ import icon2 from '../../images/7681162_courier_delivery_scooter_box_icon.svg'
 import arrow from '../../images/3927254_arrow_arrow right_caret_caret right_chevron_icon.svg'
 
 
+
 import { infoNextStep } from '../../utils/data'
 
 const NextStepSection = ({
     handlingInterestedUser,
     handlingCheckUser
 }) => {
+    const dispatch = useDispatch()
+    const { openingContactSection, activatingForm, openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
     const language = useSelector((state) => state.sideBarState.language)
        
-return (
+        
+    const renderingInterestedUsersForm = () => {
+        openingContactSection(true)
+        activatingForm('interested')
+        openingRegView(false)
+    }
+
+
+    const renderingRegUsersForm = () => {
+        openingContactSection(true)
+        activatingForm('check')
+        openingRegView(false)
+        openingForgotPINView(false)
+    }
+
+    return (
    
     <div 
     id={infoNextStep.id}
@@ -56,17 +77,10 @@ return (
                         duration={500}
                         className="nextStepOption1"
                         type="submit"
-                        onClick={handlingInterestedUser}
+                        onClick={renderingInterestedUsersForm}
                         >
                         <span>{language === 'ES' ? infoNextStep.nextStepButtonLabel_1 : infoNextStep.nextStepButtonLabel_1_EN}</span>
                         </LinkS>
-                        {/* <button
-                        className="nextStepOption1"
-                        type="submit"
-                        onClick={handlingInterestedUser}
-                        >
-                        <span>Notificame cuando la app este lista</span>
-                        </button> */}
                         <div className="nextStepOption1_arrow">
                             <img 
                                 className="nextStepInfoArrow"
@@ -88,7 +102,7 @@ return (
                         duration={500}
                         className="nextStepOption2"
                         type="submit"
-                        onClick={handlingCheckUser}
+                        onClick={renderingRegUsersForm}
                         >
                             <span>{language === 'ES' ? infoNextStep.nextStepButtonLabel_2 : infoNextStep.nextStepButtonLabel_2_EN}</span>
                         </LinkS>

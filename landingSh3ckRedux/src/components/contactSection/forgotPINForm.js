@@ -2,6 +2,9 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import { infoContact } from '../../utils/data'
+import { useSelector, useDispatch } from 'react-redux'
+import { actionCreators } from '../../state'
+import { bindActionCreators } from '@reduxjs/toolkit'
 
 
 const validationSchema = yup.object({
@@ -12,9 +15,12 @@ const validationSchema = yup.object({
 
 const ForgotPINForm = ({ 
     handlingNewPINRequest, 
-    toggleForgotPINState,
     language 
 }) => {
+
+    const dispatch = useDispatch()
+    const {   openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
 
     const onSubmit = (values) => {
         handlingNewPINRequest(values)
@@ -70,7 +76,7 @@ const ForgotPINForm = ({
                 type="submit"
                 >{language === 'ES' ? infoContact.forgotPINFormSendBtn : infoContact.forgotPINFormSendBtn_EN}</button>
                 <button
-                onClick={toggleForgotPINState}
+                onClick={() => openingForgotPINView(!forgotPIN)}
                 className="comeBackBtn"
                 type="submit"
                 >{language === 'ES' ? infoContact.forgotPINFormBackBtn : infoContact.forgotPINFormBackBtn_EN}</button>

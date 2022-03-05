@@ -18,9 +18,9 @@ import LoadingSpinner from '../utils/loadingSpinner'
 import CheckSection from '../components/checkSection/checkSection'
 import NotificationBox from '../components/notifications/NotificationBox'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
-import { actionCreators } from '../state'
 
 // ************************* Redux imports
+import { actionCreators } from '../state'
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from '@reduxjs/toolkit'
 // ***************************************************
@@ -35,15 +35,14 @@ const Home = () => {
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
     const [ loading, setLoading ] = useState(false)
-    const [ regView, setRegView ] = useState(false)
     const [ forgotPIN, setForgotPIN ] = useState(false)
-    const [ active , setActive ] = useState(null) 
     const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
     const [response, setResponse ] = useState(null)
 
-
+    const dispatch = useDispatch()
+    const {  activatingForm, openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const active = useSelector((state) => state.contactSectionState.active)
   
-    
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
@@ -84,37 +83,6 @@ const Home = () => {
     }
 
     // **************************************************************
-
-    const handlingInterestedUser = () => {
-        setActive('interested')
-        setContactSectionOpen(true)
-        setRegView(false)
-    }
-
-    const handlingCheckUser = () => {
-        setActive('check')
-        setContactSectionOpen(true)
-        setRegView(false)
-        setForgotPIN(false)
-    }
-
-    const handlingClosingOfContactSection = () => {
-        setActive(null)
-        setContactSectionOpen(false)
-    }
-
-    const toggleRegView = () => {
-        setRegView(true)
-    }
-
-    const settinRegViewAndForgotPINToFalse = () => {
-        setRegView(false)
-        setForgotPIN(false)
-    }
-    const toggleForgotPINState = () => {
-        setForgotPIN(!forgotPIN)
-    }
-    
 
     const handlingContactSectionResponse = (response) => {
         setResponse(response)
@@ -176,7 +144,7 @@ const Home = () => {
             await auth.signOut()
             setLoginData(null)
             setIsSignedIn(false)
-            setActive(null)
+            activatingForm(null)
             setMainSideBarOpen(!mainSideBarOpen)
             setLoginResponse(null)
             setContactSectionOpen(false)
@@ -185,7 +153,7 @@ const Home = () => {
             console.log('pasa por loggedIn')
             localStorage.removeItem('SH3CK_TOKEN')
             setLoginResponse(null)
-            setActive(null)
+            activatingForm(null)
             setMainSideBarOpen(!mainSideBarOpen)
             setLoggedIn(false)
             setLoggedOut(true)
@@ -199,9 +167,9 @@ const Home = () => {
         localStorage.removeItem('SH3CK_TOKEN')
         setIsSignedIn(false)
         setLoggedIn(false)
-        setActive(null)
+        activatingForm(null)
         setContactSectionOpen(false)
-        setRegView(false)
+        openingRegView(false) //action creator
         setLoginData(null)
         setLoginResponse(null)
         setResponse(null)
@@ -224,7 +192,7 @@ const Home = () => {
     const toggleNotification = () => {
         setResponse(null)
         setLoginResponse(null)
-        setActive(null)
+        activatingForm(null)
         setContactSectionOpen(false)
     }
      
@@ -378,7 +346,6 @@ const Home = () => {
                         {response || loginResponse ?
                         <NotificationBox
                         toggleNotification={toggleNotification} 
-                        // response={response ? response : null }
                         response={response ? response : loginResponse }
                         responseData={togglingResponseData()} 
                         
@@ -389,52 +356,33 @@ const Home = () => {
                             
                         <SideBar 
                         toggleQASideBarToClose={toggleQASideBarToClose}
-                        handlingCheckUser={handlingCheckUser}
                         toggleQASideBarToOpen={toggleQASideBarToOpen}
                         />
                         
                         { mobil2.screenWidth <= 1098 || mobil ?  
                             <NavBarMobil 
-                            toggleMainSideBar={toggleMainSideBar}
-                            // toggleSideBar={ toggleSideBar }  
+                            toggleMainSideBar={toggleMainSideBar} 
                             login={ loggedIn }
                             
                             
                         /> : <NavBar
-                        // toggleSideBar={toggleSideBar}
-                        toggleMainSideBar={toggleMainSideBar} 
-                        login={ loggedIn }
-                        
-                        />
+                        toggleMainSideBar={toggleMainSideBar}
+                        // toggleSideBar={toggleSideBar} 
+                        login={ loggedIn }/>
                         }
-                        <HeroSection 
-                        handlingCheckUser={handlingCheckUser}
-                      
-                         />
+                        <HeroSection />
                          <VideoSection />
                         <HiwSection />
-                        <NextStepSection
-                        handlingInterestedUser={handlingInterestedUser}
-                        handlingCheckUser={handlingCheckUser} 
-                        
-                        />
+                        <NextStepSection/>
                         {
                             !loggedIn ?
                             <ContactSection
-                            active={active}
-                            regView={regView}
-                            forgotPIN={forgotPIN}
                             loggedIn={loggedIn}
                             isSignedIn={isSignedIn}
                             handlingSubmitLoginUser={ handlingSubmitLoginUser}
                             toggleNotificationLogin={toggleNotification}
                             googleTest={googleTest}
-                            toggleRegView={toggleRegView}
-                            settinRegViewAndForgotPINToFalse={settinRegViewAndForgotPINToFalse}
-                            toggleForgotPINState={toggleForgotPINState}
-                            contactSectionOpen={contactSectionOpen}
                             workingSpinner={workingSpinner}
-                            handlingClosingOfContactSection={handlingClosingOfContactSection}
                             handlingContactSectionResponse={handlingContactSectionResponse}
                             />
                             :

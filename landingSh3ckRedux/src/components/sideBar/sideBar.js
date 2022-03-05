@@ -1,5 +1,4 @@
 import React from 'react'
-import { bindActionCreators } from '@reduxjs/toolkit'
 import { FaTimes } from 'react-icons/fa'
 import { BiHelpCircle, BiQuestionMark } from 'react-icons/bi'
 import { GrLanguage } from 'react-icons/gr'
@@ -8,8 +7,8 @@ import { BsBox } from 'react-icons/bs'
 import { infoSideBar } from '../../utils/data'
 import {HiArrowLeft} from 'react-icons/hi'
 import { Link as LinkS } from 'react-scroll'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import { bindActionCreators } from '@reduxjs/toolkit'
+import { useSelector, useDispatch } from 'react-redux'
 import { actionCreators } from '../../state'
 
 const SideBar = ({ 
@@ -27,11 +26,12 @@ const SideBar = ({
 
     const handlingContactSection = () => {
         openingSideBar(!isOpen)
-        handlingCheckUser()
+        activatingForm('check')
+        openingContactSection(true)
     }
     
     const dispatch = useDispatch()
-    const { openingSideBar, changeLanguage } = bindActionCreators(actionCreators, dispatch)
+    const { openingSideBar, changeLanguage, openingContactSection, activatingForm } = bindActionCreators(actionCreators, dispatch)
      
 
     return ( 

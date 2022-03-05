@@ -6,6 +6,9 @@ import ForgotPINForm from './forgotPINForm'
 import {MdOutlineVisibility} from 'react-icons/md'
 import { infoContact } from '../../utils/data'
 import GoogleAuth5 from '../buttons/googleAuth5'
+import { useSelector, useDispatch } from 'react-redux'
+import { actionCreators } from '../../state'
+import { bindActionCreators } from '@reduxjs/toolkit'
 
 
 
@@ -16,19 +19,18 @@ const validationSchema = yup.object({
 
 
 const LoginForm = ({ 
-    // handlingLoginUser,
-    regView, 
-    toggleRegView,
     handlingSubmitUser,
-    forgotPIN,
     handlingNewPINRequest,
     language,
     isSignedIn,
     googleTest,
-    toggleForgotPINState,
     handlingSubmitLoginUser,
 }) => {
-    // console.log(isSignedIn)
+    const dispatch = useDispatch()
+    const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const regView = useSelector((state) => state.contactSectionState.regView)
+    const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
+
     const [typeOfPIN, setTypeOfPIN ] = useState(false)
     
     const onSubmit = async(values) => {
@@ -67,7 +69,6 @@ const LoginForm = ({
             <ForgotPINForm
             handlingNewPINRequest={handlingNewPINRequest}
             language={language}
-            toggleForgotPINState={toggleForgotPINState}
             />
         ) 
         
@@ -121,12 +122,12 @@ const LoginForm = ({
                 type="submit"
                 >{language === 'ES' ? infoContact.loginFormSendBtn : infoContact.loginFormSendBtn_EN}</button>
                 <button
-                onClick={toggleRegView}
+                onClick={() => openingRegView(!regView)}
                 className="regButton"
                 type="submit"
                 >{language === 'ES' ? infoContact.loginFormRegBtn : infoContact.loginFormRegBtn_EN}</button>
                 <span
-                onClick={toggleForgotPINState} 
+                onClick={() => openingForgotPINView(!forgotPIN)} 
                 className="forgotPINSpan">{language === 'ES' ? infoContact.loginFormSpan : infoContact.loginFormSpan_EN}</span>
                 <GoogleAuth5
                 isSignedIn={isSignedIn}

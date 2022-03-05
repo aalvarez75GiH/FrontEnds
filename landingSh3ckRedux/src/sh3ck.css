@@ -1717,76 +1717,6 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", en
     .formContainer button {
         height: 115px;
     }
-
-
-
-/*********** Info *******************  */
-    /* .contactInfoTopLine {
-        font-size: 16px;
-        line-height: 16px;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        margin-left: 8%;
-    }
-    
-    .contactInfoTitle1 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 8%;
-    }
-    .contactInfoTitle2 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 18%;
-    }
-    
-    .contactInfoTitle3 {
-        width: 70%;
-        font-size: 3.6rem;
-        margin-top: 1%;
-        margin-left: 35%;
-    }
-    
-    .contactInfoImageContainer {
-        width: 100%;
-        height: 40%;
-    }
-    
-    .contactInfoImageContainer img {
-        margin-top: 3%;
-        margin-left: 29%;
-        width: 37%;
-    }
-    .contactInfoDescContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 96%;
-        height: 20%;
-    }
-    
-    .contactInfoOption1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    }
-    .contactInfoOption2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    }
-    .contactInfoOption3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-    } */
-    /* ContactContainer */
   
     
 }
@@ -1907,7 +1837,19 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", en
         margin-left: 30%;
     }
   
-  
+    .sideBarContainerOpen {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: #eeeeee;
+        display: grid;
+        align-items: center;
+        left: 0;
+        transition: 0.6s ease-in-out;
+        top: 0%;
+        opacity: 1;
+    }
 }
 
 @media (max-width:1366px) and (min-width:1280px){
