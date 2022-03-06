@@ -16,6 +16,14 @@ export const changeLanguage = () => {
         })
     }
 }
+export const openingQASideBar = (status) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'QASideBarOpen',
+            payload: status
+        })
+    }
+}
 // ****************** End ****************************
 
 // ****** heroSections Actions creators ***************
@@ -68,6 +76,17 @@ export const openingForgotPINView = (value) => {
     return(dispatch) => {
         dispatch({
             type: 'forgotPIN',
+            payload: value
+        })
+    }
+}
+
+// ****** Home Actions creators ***************
+
+export const activatingSpinner = (value) => {
+    return(dispatch) => {
+        dispatch({
+            type: 'loading',
             payload: value
         })
     }

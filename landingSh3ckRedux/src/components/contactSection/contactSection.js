@@ -15,7 +15,6 @@ const ContactSection = ({
     handlingSubmitLoginUser,
     isSignedIn,
     googleTest,
-    // settinRegViewAndForgotPINToFalse,
     workingSpinner,
     handlingClosingOfContactSection,
     handlingContactSectionResponse,
@@ -111,16 +110,6 @@ return (
         <div className={ isContactSectionOpen ? 'contactWrapper_open' : 'contactWrapper' }>
             <div className="contactForms">
              
-             {/* {response || loginResponse ?
-            <NotificationBox
-             toggleNotification={response ? toggleNotification : toggleNotificationLogin} 
-             response={response ? response : loginResponse }
-             responseData={togglingResponseData()} 
-             language={language}
-             />
-             : null
-             } */}
-            
             { !loggedIn  ? 
             <>
             <FormHeader

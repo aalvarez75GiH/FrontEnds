@@ -31,22 +31,21 @@ const Home = () => {
     const [ loggedIn, setLoggedIn ] = useState(false)
     const [ loggedOut, setLoggedOut ] = useState(true)
     const [currentUser, setCurrentUser ] = useState('')
-    const [ QASideBarOpen, setQASideBarOpen ] = useState(false)
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
     const [ loginResponse, setLoginResponse ] = useState(null)
-    const [ loading, setLoading ] = useState(false)
     const [ forgotPIN, setForgotPIN ] = useState(false)
     const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
     const [response, setResponse ] = useState(null)
 
+    //  ****************Redux Actions and State Consumption **********************
     const dispatch = useDispatch()
-    const {  activatingForm, openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const {  activatingForm, openingRegView, activatingSpinner, openingQASideBar  } = bindActionCreators(actionCreators, dispatch)
     const active = useSelector((state) => state.contactSectionState.active)
-  
+    const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
+    
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
-    // console.log(isSignedIn)
     // **************************************************************
     
     
@@ -106,8 +105,8 @@ const Home = () => {
 
 
     const handlingSubmitLoginUser = async(user) => {
-        setQASideBarOpen(false)   
-        setLoading(true)
+        openingQASideBar(false) //action  
+        activatingSpinner(true) //action
         setTimeout(async() => {
             try {
                 const { data } = await axios.post(url_userLoginITC, user)
@@ -123,14 +122,14 @@ const Home = () => {
                 console.log(response.data)
                 setLoginResponse(response)
                 setCurrentUser(response.data)
-                setLoading(false)
+                activatingSpinner(false) //action
                 setLoggedIn(true)
                 setLoggedOut(false)
                 console.log('Usuaurio encontrado y hace login')    
             } catch (error) {
                 console.log(error)
                 setLoginResponse(error.response)
-                setLoading(false)
+                activatingSpinner(false) //action
             }
         },3000)
         
@@ -144,7 +143,7 @@ const Home = () => {
             await auth.signOut()
             setLoginData(null)
             setIsSignedIn(false)
-            activatingForm(null)
+            activatingForm(null) //action
             setMainSideBarOpen(!mainSideBarOpen)
             setLoginResponse(null)
             setContactSectionOpen(false)
@@ -153,7 +152,7 @@ const Home = () => {
             console.log('pasa por loggedIn')
             localStorage.removeItem('SH3CK_TOKEN')
             setLoginResponse(null)
-            activatingForm(null)
+            activatingForm(null) //action
             setMainSideBarOpen(!mainSideBarOpen)
             setLoggedIn(false)
             setLoggedOut(true)
@@ -167,7 +166,7 @@ const Home = () => {
         localStorage.removeItem('SH3CK_TOKEN')
         setIsSignedIn(false)
         setLoggedIn(false)
-        activatingForm(null)
+        activatingForm(null) //action
         setContactSectionOpen(false)
         openingRegView(false) //action creator
         setLoginData(null)
@@ -176,19 +175,10 @@ const Home = () => {
         
     }
     
- 
- 
-    const toggleQASideBarToOpen = () => {
-        setQASideBarOpen(true) 
-    }
-    const toggleQASideBarToClose = () => {
-        console.log('tratando de cerrar')
-        setQASideBarOpen(false)
-    }
-
     const toggleMainSideBar = () => {
         setMainSideBarOpen(!mainSideBarOpen)
     } 
+
     const toggleNotification = () => {
         setResponse(null)
         setLoginResponse(null)
@@ -201,13 +191,13 @@ const Home = () => {
         console.log(option)
         switch (option) {
             case 'activate':
-                setLoading(true)
+                activatingSpinner(true) //action
                 break
             case 'close':
-                setLoading(false)
+                activatingSpinner(false) //action
                 break
             default:
-                setLoading(false)
+                activatingSpinner(false) //action
                 break;
         }
         
@@ -236,7 +226,6 @@ const Home = () => {
               auth = window.gapi.auth2.getAuthInstance()
               const isSignedIn = auth.isSignedIn.get()
               setIsSignedIn(isSignedIn)
-            //   console.log(isSignedIn)
               auth.isSignedIn.listen(isSignedIn => {
                   setIsSignedIn(auth.isSignedIn.get())
               })   
@@ -244,39 +233,40 @@ const Home = () => {
           })
           
         }
+
         const googleTest = async(user, token) => {
-            setLoading(true)
-            try {
-                console.log('Sending request to BackEnd api...')
-                console.log(token)
-                const res = await axios.post('https://intense-atoll-00786.herokuapp.com/api/extUsers/google', {
-                    token,
-                    headers:{
-                        'Content-Type': 'application/json',
-                    },
-                })
-                console.log(res)
-                // const res = await axios.post('http://localhost:5000/api/extUsers/google',token)
-                const data = res.data
-                if (res.status === 201){
-                    console.log(data)
-                    setLoading(false)
-                    setLoginData(data)   
-                    setCurrentUser(data.fullName)
-                    setLoggedIn(true) 
-                    setLoggedOut(false)
-                    return res.status
-                }
-            } catch (error) {
-                console.log(error)
-                console.log(error.response.data)
-                setLoading(false)
-                setCurrentUser(error.response.data.fullName)
-                setLoginData(error.response.data)
+        activatingSpinner(true)
+        try {
+            console.log('Sending request to BackEnd api...')
+            console.log(token)
+            const res = await axios.post('https://intense-atoll-00786.herokuapp.com/api/extUsers/google', {
+                token,
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+            })
+            console.log(res)
+            // const res = await axios.post('http://localhost:5000/api/extUsers/google',token)
+            const data = res.data
+            if (res.status === 201){
+                console.log(data)
+                activatingSpinner(false) //action
+                setLoginData(data)   
+                setCurrentUser(data.fullName)
                 setLoggedIn(true) 
                 setLoggedOut(false)
+                return res.status
             }
-    }
+        } catch (error) {
+            console.log(error)
+            console.log(error.response.data)
+            activatingSpinner(false) //action
+            setCurrentUser(error.response.data.fullName)
+            setLoginData(error.response.data)
+            setLoggedIn(true) 
+            setLoggedOut(false)
+        }
+}
 
     // ************* Redux Handlers and Helpers ***************\
     // const dispatch = useDispatch()
@@ -298,10 +288,7 @@ const Home = () => {
             
     {
         QASideBarOpen && loggedIn ?
-        <QASideBar
-        QASideBarOpen={QASideBarOpen}
-        toggleQASideBarToClose={toggleQASideBarToClose}
-        />
+        <QASideBar/>
         : 
         loggedIn  ?
         <div className="superContainer">
@@ -312,8 +299,7 @@ const Home = () => {
             loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
             username={currentUser}
-            loginData={loginData} 
-            toggleQASideBarToOpen={toggleQASideBarToOpen}        
+            loginData={loginData}       
             />
             <NavBarForCS
             toggleMainSideBar={toggleMainSideBar} 
@@ -321,7 +307,6 @@ const Home = () => {
             /> 
             <CheckSection 
             toggleMainSideBar={toggleMainSideBar}
-            // toggleSideBar={ toggleSideBar }  
             login={ loggedIn }
             gettingOutOfCheckApp={gettingOutOfCheckApp}
             />
@@ -330,19 +315,12 @@ const Home = () => {
     }
             {
                 QASideBarOpen && !loggedIn ?
-                <QASideBar
-                QASideBarOpen={QASideBarOpen}
-                toggleQASideBarToClose={toggleQASideBarToClose}
-                />
+                <QASideBar />
                 : 
-
-                
                     !loggedIn ? 
                     <>
-                        <LoadingSpinner 
-                        loading={loading}
-                        
-                        />
+                        <LoadingSpinner/>
+
                         {response || loginResponse ?
                         <NotificationBox
                         toggleNotification={toggleNotification} 
@@ -354,10 +332,7 @@ const Home = () => {
                          null
                         }
                             
-                        <SideBar 
-                        toggleQASideBarToClose={toggleQASideBarToClose}
-                        toggleQASideBarToOpen={toggleQASideBarToOpen}
-                        />
+                        <SideBar />
                         
                         { mobil2.screenWidth <= 1098 || mobil ?  
                             <NavBarMobil 

@@ -21,7 +21,6 @@ const validationSchema = yup.object({
 const LoginForm = ({ 
     handlingSubmitUser,
     handlingNewPINRequest,
-    language,
     isSignedIn,
     googleTest,
     handlingSubmitLoginUser,
@@ -30,6 +29,7 @@ const LoginForm = ({
     const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
     const regView = useSelector((state) => state.contactSectionState.regView)
     const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
+    const language = useSelector((state) => state.sideBarState.language)
 
     const [typeOfPIN, setTypeOfPIN ] = useState(false)
     
@@ -58,7 +58,6 @@ const LoginForm = ({
         return(
             <RegisterForm 
             handlingSubmitUser={handlingSubmitUser}
-            language={language}
             isSignedIn={isSignedIn}
             />
         )
@@ -68,7 +67,6 @@ const LoginForm = ({
         return(
             <ForgotPINForm
             handlingNewPINRequest={handlingNewPINRequest}
-            language={language}
             />
         ) 
         

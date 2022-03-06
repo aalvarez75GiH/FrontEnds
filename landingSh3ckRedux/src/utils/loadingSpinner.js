@@ -1,7 +1,10 @@
 import React from 'react'
 import { infoSpinner } from './data'
+import { useSelector } from 'react-redux'
 
-const LoadingSpinner = ({language, loading}) => {
+const LoadingSpinner = () => {
+    const loading = useSelector((state) => state.homeState.loading)
+    const language = useSelector((state) => state.sideBarState.language)
     return (
         <div className={loading ? 'loadingSpinnerContainer_open' : 'loadingSpinnerContainer'}>
             <div className="circles">

@@ -11,11 +11,16 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 import { useSelector, useDispatch } from 'react-redux'
 import { actionCreators } from '../../state'
 
-const SideBar = ({ 
-    handlingCheckUser,
-    toggleQASideBarToOpen,
-}) => {
+const SideBar = ( ) => {
 
+    const dispatch = useDispatch()
+    const { 
+        openingSideBar, 
+        changeLanguage, 
+        openingContactSection, 
+        activatingForm,
+        openingQASideBar, 
+    } = bindActionCreators(actionCreators, dispatch)
     const isOpen = useSelector((state) => state.sideBarState.isOpen)
     const language = useSelector((state) => state.sideBarState.language)
     
@@ -29,9 +34,11 @@ const SideBar = ({
         activatingForm('check')
         openingContactSection(true)
     }
+
+    const toggleQASideBarToOpen = () => {
+        openingQASideBar(true)
+    }
     
-    const dispatch = useDispatch()
-    const { openingSideBar, changeLanguage, openingContactSection, activatingForm } = bindActionCreators(actionCreators, dispatch)
      
 
     return ( 

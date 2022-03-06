@@ -1,13 +1,14 @@
 const sideBarReducer = (
     state={
         isOpen: false,
-        language: 'ES'
+        language: 'ES',
+        QASideBarOpen: false
     }, action) => {
     
         switch (action.type) {
         case 'isOpen':
             return  {...state, isOpen: action.payload}
-            
+
         case 'language':
             if (state.language === 'ES'){
                 return {...state, language:'EN'}
@@ -16,6 +17,9 @@ const sideBarReducer = (
                 return {...state, language:'ES'}
             }
             break
+        case 'QASideBarOpen': 
+            return {...state, QASideBarOpen: action.payload}
+
         default:
             return state    
     }
