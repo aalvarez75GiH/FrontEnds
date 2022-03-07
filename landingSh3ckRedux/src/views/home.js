@@ -30,19 +30,25 @@ const Home = () => {
 
     const [ loggedIn, setLoggedIn ] = useState(false)
     const [ loggedOut, setLoggedOut ] = useState(true)
-    const [currentUser, setCurrentUser ] = useState('')
+    // const [currentUser, setCurrentUser ] = useState('')
     const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
-    const [ loginResponse, setLoginResponse ] = useState(null)
+    // const [ loginResponse, setLoginResponse ] = useState(null)
     const [ forgotPIN, setForgotPIN ] = useState(false)
     const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
     const [response, setResponse ] = useState(null)
 
     //  ****************Redux Actions and State Consumption **********************
     const dispatch = useDispatch()
-    const {  activatingForm, openingRegView, activatingSpinner, openingQASideBar  } = bindActionCreators(actionCreators, dispatch)
+    const {  
+        activatingForm, openingRegView, 
+        activatingSpinner, openingQASideBar, 
+        fetchToken, fetchTokenForLoginUser, handlingLoginResponse  
+    } = bindActionCreators(actionCreators, dispatch)
     const active = useSelector((state) => state.contactSectionState.active)
     const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
-    
+    const currentUser = useSelector((state) => state.homeState.currentUser)
+    const verifying_token = useSelector((state) => state.homeState.verifying_token)
+    const loginResponse = useSelector((state) => state.homeState.loginResponse)
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
@@ -63,14 +69,8 @@ const Home = () => {
         const getToken = async() => {
             const token = localStorage.getItem('SH3CK_TOKEN')
             if (token){
-                const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
-                    headers:{
-                        // 'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}` 
-                    } 
-                })
+                const response = fetchToken(token)  //action
                 console.log(response.data)
-                setCurrentUser(response.data)
                 return setLoggedIn(true)
             }
             setLoggedIn(false)
@@ -112,23 +112,16 @@ const Home = () => {
                 const { data } = await axios.post(url_userLoginITC, user)
                 console.log(data)
                 localStorage.setItem('SH3CK_TOKEN', data.token)
-                // ******************************************
-                const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
-                    headers:{
-                        // 'Content-Type': 'application/json',
-                        Authorization: `Bearer ${data.token}` 
-                    } 
-                })
-                console.log(response.data)
-                setLoginResponse(response)
-                setCurrentUser(response.data)
+                const response = fetchTokenForLoginUser(data.token) //action
+                console.log(response)
+                handlingLoginResponse(verifying_token)
                 activatingSpinner(false) //action
                 setLoggedIn(true)
                 setLoggedOut(false)
                 console.log('Usuaurio encontrado y hace login')    
             } catch (error) {
                 console.log(error)
-                setLoginResponse(error.response)
+                handlingLoginResponse(error.response)
                 activatingSpinner(false) //action
             }
         },3000)
@@ -145,13 +138,13 @@ const Home = () => {
             setIsSignedIn(false)
             activatingForm(null) //action
             setMainSideBarOpen(!mainSideBarOpen)
-            setLoginResponse(null)
+            handlingLoginResponse(null) //action
             setContactSectionOpen(false)
         }
         if (loggedIn){
             console.log('pasa por loggedIn')
             localStorage.removeItem('SH3CK_TOKEN')
-            setLoginResponse(null)
+            handlingLoginResponse(null) //action
             activatingForm(null) //action
             setMainSideBarOpen(!mainSideBarOpen)
             setLoggedIn(false)
@@ -168,9 +161,9 @@ const Home = () => {
         setLoggedIn(false)
         activatingForm(null) //action
         setContactSectionOpen(false)
-        openingRegView(false) //action creator
+        openingRegView(false) //action 
         setLoginData(null)
-        setLoginResponse(null)
+        handlingLoginResponse(null) //action
         setResponse(null)
         
     }
@@ -181,7 +174,7 @@ const Home = () => {
 
     const toggleNotification = () => {
         setResponse(null)
-        setLoginResponse(null)
+        handlingLoginResponse(null)
         activatingForm(null)
         setContactSectionOpen(false)
     }
@@ -252,7 +245,7 @@ const Home = () => {
                 console.log(data)
                 activatingSpinner(false) //action
                 setLoginData(data)   
-                setCurrentUser(data.fullName)
+                // setCurrentUser(data.fullName)
                 setLoggedIn(true) 
                 setLoggedOut(false)
                 return res.status
@@ -261,7 +254,7 @@ const Home = () => {
             console.log(error)
             console.log(error.response.data)
             activatingSpinner(false) //action
-            setCurrentUser(error.response.data.fullName)
+            // setCurrentUser(error.response.data.fullName)
             setLoginData(error.response.data)
             setLoggedIn(true) 
             setLoggedOut(false)

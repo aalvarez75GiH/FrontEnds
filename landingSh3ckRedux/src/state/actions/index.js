@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 // ****** sideBar Actions creators ***************
 export const openingSideBar = (status) => {
     return (dispatch) => {
@@ -91,3 +93,38 @@ export const activatingSpinner = (value) => {
         })
     }
 }
+
+
+
+export const fetchToken = (token) => async dispatch => {   
+    const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
+        headers:{
+            Authorization: `Bearer ${token}` 
+        }})
+    dispatch({
+        type: 'currentUser', 
+        payload: response.data
+    })
+}
+
+export const fetchTokenForLoginUser = (token) => async dispatch => {   
+    const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
+        headers:{
+            Authorization: `Bearer ${token}` 
+        }})
+        dispatch({
+            type: 'verifying_token', 
+            payload: response
+        })
+        
+}
+export const handlingLoginResponse = (value) => {
+    return(dispatch) => {
+        dispatch({
+            type: 'loginResponse',
+            payload: value
+        })
+    }
+}
+
+
