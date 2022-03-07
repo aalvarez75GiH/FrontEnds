@@ -18,7 +18,7 @@ import LoadingSpinner from '../utils/loadingSpinner'
 import CheckSection from '../components/checkSection/checkSection'
 import NotificationBox from '../components/notifications/NotificationBox'
 import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
-
+import { verifyingTokenRequest } from '../requestsToApi'
 // ************************* Redux imports
 import { actionCreators } from '../state'
 import { useSelector, useDispatch } from 'react-redux'
@@ -28,32 +28,29 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 
 const Home = () => {
 
-    const [ loggedIn, setLoggedIn ] = useState(false)
-    const [ loggedOut, setLoggedOut ] = useState(true)
-    // const [currentUser, setCurrentUser ] = useState('')
-    const [ mainSideBarOpen, setMainSideBarOpen ] = useState(false)
-    // const [ loginResponse, setLoginResponse ] = useState(null)
-    const [ forgotPIN, setForgotPIN ] = useState(false)
-    const [ contactSectionOpen, setContactSectionOpen ] = useState(false)
+    
     const [response, setResponse ] = useState(null)
-
-    //  ****************Redux Actions and State Consumption **********************
-    const dispatch = useDispatch()
-    const {  
-        activatingForm, openingRegView, 
-        activatingSpinner, openingQASideBar, 
-        fetchToken, fetchTokenForLoginUser, handlingLoginResponse  
-    } = bindActionCreators(actionCreators, dispatch)
-    const active = useSelector((state) => state.contactSectionState.active)
-    const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
-    const currentUser = useSelector((state) => state.homeState.currentUser)
-    const verifying_token = useSelector((state) => state.homeState.verifying_token)
-    const loginResponse = useSelector((state) => state.homeState.loginResponse)
     // Google OAuth States *****************************************
     const [ loginData, setLoginData ] = useState(null)
     const [isSignedIn, setIsSignedIn] = useState(null)
     // **************************************************************
     
+    //  ****************Redux Actions and State Consumption **********************
+    const dispatch = useDispatch()
+    const {  
+        activatingForm, openingRegView, 
+        activatingSpinner, openingQASideBar, 
+        gettingCurrentUser, gettingLoginResponseData,
+        openingContactSection,handlingIsLoggedIn,handlingIsLoggedOut,
+        openingMainSideBar,  
+    } = bindActionCreators(actionCreators, dispatch)
+    const active = useSelector((state) => state.contactSectionState.active)
+    const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
+    const loginResponse = useSelector((state) => state.homeState.loginResponse)
+    const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
+    const loggedIn = useSelector((state) => state.homeState.loggedIn)
+    const mainSideBarOpen = useSelector((state) => state.homeState.mainSideBarOpen)
+    // const loggedOut = useSelector((state) => state.homeState.loggedOut)
     
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
@@ -69,14 +66,13 @@ const Home = () => {
         const getToken = async() => {
             const token = localStorage.getItem('SH3CK_TOKEN')
             if (token){
-                const response = fetchToken(token)  //action
+                const response = await verifyingTokenRequest(token)
                 console.log(response.data)
-                return setLoggedIn(true)
+                gettingCurrentUser(response.data)
+                return handlingIsLoggedIn(true)
             }
-            setLoggedIn(false)
-            setLoggedOut(true)
-            
-            
+            handlingIsLoggedIn(false)
+            handlingIsLoggedOut(true) 
         }   
         getToken()
     }
@@ -112,16 +108,16 @@ const Home = () => {
                 const { data } = await axios.post(url_userLoginITC, user)
                 console.log(data)
                 localStorage.setItem('SH3CK_TOKEN', data.token)
-                const response = fetchTokenForLoginUser(data.token) //action
+                const response = await verifyingTokenRequest(data.token)
                 console.log(response)
-                handlingLoginResponse(verifying_token)
+                gettingLoginResponseData(response)  //action
                 activatingSpinner(false) //action
-                setLoggedIn(true)
-                setLoggedOut(false)
+                handlingIsLoggedIn(true)
+                handlingIsLoggedOut(false)
                 console.log('Usuaurio encontrado y hace login')    
             } catch (error) {
                 console.log(error)
-                handlingLoginResponse(error.response)
+                gettingLoginResponseData(error.response)
                 activatingSpinner(false) //action
             }
         },3000)
@@ -137,19 +133,19 @@ const Home = () => {
             setLoginData(null)
             setIsSignedIn(false)
             activatingForm(null) //action
-            setMainSideBarOpen(!mainSideBarOpen)
-            handlingLoginResponse(null) //action
-            setContactSectionOpen(false)
+            openingMainSideBar(!mainSideBarOpen)  //action
+            gettingLoginResponseData(null) //action
+            openingContactSection(false) //action
         }
         if (loggedIn){
             console.log('pasa por loggedIn')
             localStorage.removeItem('SH3CK_TOKEN')
-            handlingLoginResponse(null) //action
+            gettingLoginResponseData(null) //action
             activatingForm(null) //action
-            setMainSideBarOpen(!mainSideBarOpen)
-            setLoggedIn(false)
-            setLoggedOut(true)
-            setContactSectionOpen(false)
+            openingMainSideBar(!mainSideBarOpen) //action
+            handlingIsLoggedIn(false)
+            handlingIsLoggedOut(true)
+            openingContactSection(false) //action
         }
         
         
@@ -158,25 +154,25 @@ const Home = () => {
     const gettingOutOfCheckApp = async() => {
         localStorage.removeItem('SH3CK_TOKEN')
         setIsSignedIn(false)
-        setLoggedIn(false)
+        handlingIsLoggedIn(false)
         activatingForm(null) //action
-        setContactSectionOpen(false)
+        openingContactSection(false) //action
         openingRegView(false) //action 
         setLoginData(null)
-        handlingLoginResponse(null) //action
+        gettingLoginResponseData(null) //action
         setResponse(null)
         
     }
     
-    const toggleMainSideBar = () => {
-        setMainSideBarOpen(!mainSideBarOpen)
-    } 
+    // const toggleMainSideBar = () => {
+    //     openingMainSideBar(!mainSideBarOpen) //action
+    // } 
 
     const toggleNotification = () => {
         setResponse(null)
-        handlingLoginResponse(null)
-        activatingForm(null)
-        setContactSectionOpen(false)
+        gettingLoginResponseData(null) //action
+        activatingForm(null) //action
+        openingContactSection(false) //action
     }
      
  
@@ -245,37 +241,22 @@ const Home = () => {
                 console.log(data)
                 activatingSpinner(false) //action
                 setLoginData(data)   
-                // setCurrentUser(data.fullName)
-                setLoggedIn(true) 
-                setLoggedOut(false)
+                gettingCurrentUser(data.fullName)
+                handlingIsLoggedIn(true) 
+                handlingIsLoggedOut(false)
                 return res.status
             }
         } catch (error) {
             console.log(error)
             console.log(error.response.data)
             activatingSpinner(false) //action
-            // setCurrentUser(error.response.data.fullName)
+            gettingCurrentUser(error.response.data.fullName)
             setLoginData(error.response.data)
-            setLoggedIn(true) 
-            setLoggedOut(false)
+            handlingIsLoggedIn(true) 
+            handlingIsLoggedOut(false)
         }
 }
 
-    // ************* Redux Handlers and Helpers ***************\
-    // const dispatch = useDispatch()
-    // const { changeLanguage } = bindActionCreators(actionCreators, dispatch)
-    // const isOpen = useSelector((state) => state.sideBarState.isOpen )
-    
-    // const toggleSideBar = () => {
-    //     // openingSideBar(!isOpen) //action
-    // }
-
-    // const toggleLanguage = () => {
-    //     changeLanguage('ES') 
-    // }
-
-    // *********************************************************
-            
     return (
     <>
             
@@ -286,21 +267,11 @@ const Home = () => {
         loggedIn  ?
         <div className="superContainer">
             <MainSideBar
-            mainSideBarOpen={mainSideBarOpen}
-            toggleMainSideBar={toggleMainSideBar}
-            loggedIn={loggedIn}
-            loggedOut={loggedOut}
             handlingSubmitLogOutUser={handlingSubmitLogOutUser}
-            username={currentUser}
             loginData={loginData}       
             />
-            <NavBarForCS
-            toggleMainSideBar={toggleMainSideBar} 
-            login={ loggedIn }
-            /> 
+            <NavBarForCS /> 
             <CheckSection 
-            toggleMainSideBar={toggleMainSideBar}
-            login={ loggedIn }
             gettingOutOfCheckApp={gettingOutOfCheckApp}
             />
         </div>
@@ -328,15 +299,8 @@ const Home = () => {
                         <SideBar />
                         
                         { mobil2.screenWidth <= 1098 || mobil ?  
-                            <NavBarMobil 
-                            toggleMainSideBar={toggleMainSideBar} 
-                            login={ loggedIn }
-                            
-                            
-                        /> : <NavBar
-                        toggleMainSideBar={toggleMainSideBar}
-                        // toggleSideBar={toggleSideBar} 
-                        login={ loggedIn }/>
+                            <NavBarMobil /> 
+                        : <NavBar />
                         }
                         <HeroSection />
                          <VideoSection />
@@ -345,7 +309,6 @@ const Home = () => {
                         {
                             !loggedIn ?
                             <ContactSection
-                            loggedIn={loggedIn}
                             isSignedIn={isSignedIn}
                             handlingSubmitLoginUser={ handlingSubmitLoginUser}
                             toggleNotificationLogin={toggleNotification}

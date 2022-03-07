@@ -94,37 +94,49 @@ export const activatingSpinner = (value) => {
     }
 }
 
-
-
-export const fetchToken = (token) => async dispatch => {   
-    const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
-        headers:{
-            Authorization: `Bearer ${token}` 
-        }})
-    dispatch({
-        type: 'currentUser', 
-        payload: response.data
-    })
-}
-
-export const fetchTokenForLoginUser = (token) => async dispatch => {   
-    const response = await axios.get('https://intense-atoll-00786.herokuapp.com/api/users/me', {
-        headers:{
-            Authorization: `Bearer ${token}` 
-        }})
-        dispatch({
-            type: 'verifying_token', 
-            payload: response
-        })
-        
-}
-export const handlingLoginResponse = (value) => {
+export const gettingCurrentUser = (currentUserName) => {   
     return(dispatch) => {
         dispatch({
-            type: 'loginResponse',
-            payload: value
+            type: 'currentUser',
+            payload: currentUserName
         })
     }
 }
+export const gettingLoginResponseData = (logginUserData) => {   
+    return(dispatch) => {
+        dispatch({
+            type: 'loginResponse',
+            payload: logginUserData
+        })
+    }
+}
+
+export const handlingIsLoggedIn  = (status) => {   
+    return(dispatch) => {
+        dispatch({
+            type: 'loggedIn',
+            payload: status
+        })
+    }
+}
+export const handlingIsLoggedOut  = (status) => {   
+    return(dispatch) => {
+        dispatch({
+            type: 'loggedOut',
+            payload: status
+        })
+    }
+}
+
+export const openingMainSideBar  = (status) => {   
+    return(dispatch) => {
+        dispatch({
+            type: ' mainSideBarOpen',
+            payload: status
+        })
+    }
+}
+
+
 
 

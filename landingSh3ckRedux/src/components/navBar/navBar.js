@@ -10,13 +10,12 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state'
 
 
-const NavBar = ({  
-    login, 
-}) => {
-    const isOpen = useSelector((state) => state.sideBarState.isOpen )
-    const language = useSelector((state) => state.sideBarState.language)
+const NavBar = () => {
     const dispatch = useDispatch()
     const { openingSideBar } = bindActionCreators(actionCreators, dispatch)
+    const isOpen = useSelector((state) => state.sideBarState.isOpen )
+    const language = useSelector((state) => state.sideBarState.language)
+    const loggedIn = useSelector((state) => state.homeState.loggedIn)
     
     
     const [scrollNav, setScrollNav ] = useState(false)
@@ -34,7 +33,7 @@ const NavBar = ({
     },[])
 
       
-    if (login){
+    if (loggedIn){
         return(
         <>
             <nav 

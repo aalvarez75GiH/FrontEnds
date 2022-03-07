@@ -7,9 +7,7 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 import useMobilDetection from '../../utils/mobilDetection'
 
 
-const FormHeader = ({  
-    loggedIn,  
-}) => {
+const FormHeader = () => {
     const mobil1 = useMobilDetection()
     const dispatch = useDispatch()
     const {  openingContactSection, activatingForm, openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
@@ -18,6 +16,7 @@ const FormHeader = ({
     const language = useSelector((state) => state.sideBarState.language)
     const regView = useSelector((state) => state.contactSectionState.regView)
     const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
+    const loggedIn = useSelector((state) => state.homeState.loggedIn)
     
     const handlingClosingOfContactSection = () => {
         console.log('What is going on...')

@@ -11,7 +11,6 @@ import { actionCreators } from '../../state'
 
 
 const ContactSection = ({
-    loggedIn,
     handlingSubmitLoginUser,
     isSignedIn,
     googleTest,
@@ -24,7 +23,7 @@ const ContactSection = ({
     const language = useSelector((state) => state.sideBarState.language)
     const isContactSectionOpen = useSelector((state) => state.contactSectionState.isContactSectionOpen)
     const active = useSelector((state) => state.contactSectionState.active)
-    const regView = useSelector((state) => state.contactSectionState.regView)
+    const loggedIn = useSelector((state) => state.homeState.loggedIn)
     // const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
     // const url_users = "http://192.168.1.102:5000/api/users"
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
@@ -114,7 +113,6 @@ return (
             <>
             <FormHeader
             active = {active}
-            loggedIn={loggedIn}
             language={language}
             handlingClosingOfContactSection={handlingClosingOfContactSection}
             />
