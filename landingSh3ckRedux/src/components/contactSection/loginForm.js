@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import RegisterForm from './registerForm'
@@ -9,7 +10,7 @@ import GoogleAuth5 from '../buttons/googleAuth5'
 import { useSelector, useDispatch } from 'react-redux'
 import { actionCreators } from '../../state'
 import { bindActionCreators } from '@reduxjs/toolkit'
-
+import { verifyingTokenRequest } from '../../requestsToApi'
 
 
 const validationSchema = yup.object({
@@ -18,22 +19,49 @@ const validationSchema = yup.object({
 })
 
 
-const LoginForm = ({ 
-    handlingSubmitUser,
-    handlingNewPINRequest,
-    googleTest,
-    handlingSubmitLoginUser,
-}) => {
+const LoginForm = ({ googleTest }) => {
     const dispatch = useDispatch()
-    const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const {   
+        openingRegView, openingForgotPINView,   
+        activatingSpinner,openingQASideBar,
+        settingCurrentUser, gettingLoginResponseData, 
+        handlingIsLoggedIn, handlingIsLoggedOut,
+} = bindActionCreators(actionCreators, dispatch)
     const regView = useSelector((state) => state.contactSectionState.regView)
     const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
     const language = useSelector((state) => state.sideBarState.language)
 
     const [typeOfPIN, setTypeOfPIN ] = useState(false)
+    const url_userLoginITC = "https://intense-atoll-00786.herokuapp.com/api/users/login"
     
+
     const onSubmit = async(values) => {
         handlingSubmitLoginUser(values)
+    }
+
+    const handlingSubmitLoginUser = async(user) => {
+        openingQASideBar(false) //action  
+        activatingSpinner(true) //action
+        setTimeout(async() => {
+            try {
+                const { data } = await axios.post(url_userLoginITC, user)
+                console.log(data)
+                localStorage.setItem('SH3CK_TOKEN', data.token)
+                const response = await verifyingTokenRequest(data.token)
+                console.log(response)
+                settingCurrentUser(response.data) //action
+                gettingLoginResponseData(response)  //action
+                activatingSpinner(false) //action
+                handlingIsLoggedIn(true)
+                handlingIsLoggedOut(false) //action
+                console.log('Usuaurio encontrado y hace login')    
+            } catch (error) {
+                console.log(error)
+                gettingLoginResponseData(error.response)
+                activatingSpinner(false) //action
+            }
+        },3000)
+        
     }
 
     const formik = useFormik({
@@ -55,17 +83,13 @@ const LoginForm = ({
 
     if (regView){
         return(
-            <RegisterForm 
-            handlingSubmitUser={handlingSubmitUser}
-            />
+            <RegisterForm />
         )
     }
 
     if (forgotPIN){
         return(
-            <ForgotPINForm
-            handlingNewPINRequest={handlingNewPINRequest}
-            />
+            <ForgotPINForm />
         ) 
         
     }
@@ -127,7 +151,6 @@ const LoginForm = ({
                 className="forgotPINSpan">{language === 'ES' ? infoContact.loginFormSpan : infoContact.loginFormSpan_EN}</span>
                 <GoogleAuth5
                 googleTest={googleTest}
-                language={language}
                 />
             </form>
 

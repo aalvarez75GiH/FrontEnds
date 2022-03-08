@@ -10,119 +10,42 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 import { actionCreators } from '../../state'
 
 
-const ContactSection = ({
-    handlingSubmitLoginUser,
-    googleTest,
-    handlingClosingOfContactSection,
-   
-}) => {
+const ContactSection = ({ googleTest }) => {
     const dispatch = useDispatch()
-    const {   
-        openingRegView, 
-        openingForgotPINView, 
-        settingResponse,
-        openingContactSection,
-        activatingSpinner  
+    const {    
+        settingResponse, openingContactSection,
+        activatingSpinner,
         } = bindActionCreators(actionCreators, dispatch)
-    const language = useSelector((state) => state.sideBarState.language)
     const isContactSectionOpen = useSelector((state) => state.contactSectionState.isContactSectionOpen)
     const active = useSelector((state) => state.contactSectionState.active)
     const loggedIn = useSelector((state) => state.homeState.loggedIn)
-    // const url_interestedUsers = "http://192.168.1.102:5000/api/interestedUsers"
-    // const url_users = "http://192.168.1.102:5000/api/users"
     const url_interestedUsersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"
-    const url_usersInTheCloud = "https://intense-atoll-00786.herokuapp.com/api/users"
-    const url_generatePIN_ITC = "https://intense-atoll-00786.herokuapp.com/api/users/newPIN"
     
-
-    const workingSpinner = (option) => {
-        console.log(option)
-        switch (option) {
-            case 'activate':
-                activatingSpinner(true) //action
-                break
-            case 'close':
-                activatingSpinner(false) //action
-                break
-            default:
-                activatingSpinner(false) //action
-                break;
-        }
-        
-    } 
-    
+ 
+  
     const handlingSubmitInterestedUser = (interestedUser) => {
-        
-        workingSpinner('activate')
+        activatingSpinner(true)
         setTimeout(async()=> {
             try {
                 const response = await axios.post(url_interestedUsersInTheCloud, interestedUser)
                     console.log(response)
                     if (response.status === 201){
                         settingResponse(response)
-                        workingSpinner('close')
+                        activatingSpinner(false)
                         openingContactSection(false)
                         console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                         return response.status
                     }
             } catch (error) {
                 console.log(error.response)
-                workingSpinner('close')
+                activatingSpinner(false)
                 settingResponse(error.response)
             }
         },2000)
         
     }
 
-    const settinRegViewAndForgotPINToFalse = () => {
-        openingRegView(false) //action creator
-        openingForgotPINView(false) //action creator
-    }
-
-    const handlingSubmitUser = async(user) => {
-        workingSpinner('activate')
-        setTimeout(async()=> {
-            try {
-                const response = await axios.post(url_usersInTheCloud, user)
-                    console.log(response)
-                    if (response.status === 201){
-                        settingResponse(response)
-                        workingSpinner('close')
-                        openingContactSection(false)
-                        settinRegViewAndForgotPINToFalse()
-                        console.log('Gracias por registrarte')
-                        return response.status
-                    }
-            } catch (error) {
-                console.log(error)
-                workingSpinner('close')
-                settingResponse(error.response)
-            }
-        },2000)
-    } 
-
-    const handlingNewPINRequest = async(dataToRequest) => {
-        // console.log(dataToRequest)
-        workingSpinner('activate')
-        try {
-            const response = await axios.put(url_generatePIN_ITC, dataToRequest)
-            console.log(response.status)
-            if (response.status === 200){
-                console.log(response)
-                settingResponse(response)
-                workingSpinner('close')
-                return response.status
-            }
-        } catch (error) {
-            console.log(error)
-            workingSpinner('close')
-            settingResponse(error.response)
-        }
-    }
-
-
-
-
+    
 return (
     <div 
     id={infoContact.id}
@@ -132,9 +55,7 @@ return (
              
             { !loggedIn  ? 
             <>
-            <FormHeader
-            handlingClosingOfContactSection={handlingClosingOfContactSection}
-            />
+            <FormHeader />
             </>
             :
             null
@@ -144,7 +65,6 @@ return (
              <>
              <InterestedUsersForm 
              handlingSubmitInterestedUser={handlingSubmitInterestedUser}
-             language={language}
              />
             </>                     
              :
@@ -153,10 +73,6 @@ return (
             
             { active === 'check'  && !loggedIn  ? 
             <LoginForm
-            handlingSubmitUser={handlingSubmitUser}
-            handlingSubmitLoginUser={handlingSubmitLoginUser}
-            handlingNewPINRequest={handlingNewPINRequest}
-            language={language}
             googleTest={googleTest}
             />
             :

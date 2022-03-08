@@ -24,12 +24,14 @@ const NotificationBox = ({
     } = bindActionCreators(actionCreators, dispatch)
 
     const language = useSelector((state) => state.sideBarState.language)
-    const response = useSelector((state) => state.contactSectionState.response)
     const active = useSelector((state) => state.contactSectionState.active)
     const loginResponse = useSelector((state) => state.homeState.loginResponse)
+    // const response = useSelector((state) => state.contactSectionState.response)
+    const response = useSelector((state) => loginResponse ? loginResponse : state.contactSectionState.response)
     const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
     console.log(response)
     console.log(response.config)
+    console.log(loginResponse)
     const url = response.config.url
     // const url_regUsers = "https://intense-atoll-00786.herokuapp.com/api/users"
     const url_interestedUsers = "https://intense-atoll-00786.herokuapp.com/api/interestedUsers"

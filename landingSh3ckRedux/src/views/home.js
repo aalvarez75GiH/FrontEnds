@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import NavBar from '../components/navBar/navBar'
 import SideBar from '../components/sideBar/sideBar'
@@ -28,24 +28,19 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 
 const Home = () => {
 
-    
-    // Google OAuth States *****************************************
-    // const [ loginData, setLoginData ] = useState(null)
-    // **************************************************************
-    
-    //  ****************Redux Actions and State Consumption **********************
+ 
+    //  **************** Redux Actions and State Consumption **********************
     const dispatch = useDispatch()
     const {  
-        activatingForm, openingRegView, 
-        activatingSpinner, openingQASideBar, 
-        settingCurrentUser, gettingLoginResponseData,
-        openingContactSection,handlingIsLoggedIn,handlingIsLoggedOut, 
-        handlingIsSignedInGoogle, settingResponse, gettingGoogleLoginData,  
+         activatingSpinner,  
+        settingCurrentUser, handlingIsLoggedIn,handlingIsLoggedOut, 
+        handlingIsSignedInGoogle, gettingGoogleLoginData,  
     } = bindActionCreators(actionCreators, dispatch)
     
     const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
     const loggedIn = useSelector((state) => state.homeState.loggedIn)
     const response = useSelector((state) => state.contactSectionState.response)
+    const loginResponse = useSelector((state) => state.homeState.loginResponse)
     
     
     const mobil = useMobilDetect()
@@ -59,6 +54,7 @@ const Home = () => {
     },[])
 
     const gettingTokenForLocalSignIn = () => {
+        console.log('inicializando token...')
         const getToken = async() => {
             const token = localStorage.getItem('SH3CK_TOKEN')
             if (token){
@@ -74,48 +70,7 @@ const Home = () => {
     }
 
 
-
-    const handlingSubmitLoginUser = async(user) => {
-        openingQASideBar(false) //action  
-        activatingSpinner(true) //action
-        setTimeout(async() => {
-            try {
-                const { data } = await axios.post(url_userLoginITC, user)
-                console.log(data)
-                localStorage.setItem('SH3CK_TOKEN', data.token)
-                const response = await verifyingTokenRequest(data.token)
-                console.log(response)
-                settingCurrentUser(response.data) //action
-                gettingLoginResponseData(response)  //action
-                activatingSpinner(false) //action
-                handlingIsLoggedIn(true)
-                handlingIsLoggedOut(false) //action
-                console.log('Usuaurio encontrado y hace login')    
-            } catch (error) {
-                console.log(error)
-                gettingLoginResponseData(error.response)
-                activatingSpinner(false) //action
-            }
-        },3000)
-        
-    }
- 
-    const gettingOutOfCheckApp = async() => {
-        localStorage.removeItem('SH3CK_TOKEN')
-        handlingIsSignedInGoogle(false) //action
-        handlingIsLoggedIn(false) //action
-        activatingForm(null) //action
-        openingContactSection(false) //action
-        openingRegView(false) //action 
-        gettingGoogleLoginData(null)
-        gettingLoginResponseData(null) //action
-        settingResponse(null)
-        settingCurrentUser(null) //action
-    }
-    
-
-
-  
+   
   //  ************* Google OAuth Processes and functions (with googleAuth5) ****************
 
  
@@ -187,13 +142,9 @@ console.log(response)
         : 
         loggedIn  ?
         <div className="superContainer">
-            <MainSideBar
-            // handlingSubmitLogOutUser={handlingSubmitLogOutUser}       
-            />
+            <MainSideBar />
             <NavBarForCS /> 
-            <CheckSection 
-            gettingOutOfCheckApp={gettingOutOfCheckApp}
-            />
+            <CheckSection />
         </div>
     : null
     }
@@ -201,36 +152,35 @@ console.log(response)
         QASideBarOpen && !loggedIn ?
         <QASideBar />
         : 
-            !loggedIn ? 
+        !loggedIn ? 
             <>
-                <LoadingSpinner/>
+            <LoadingSpinner/>
+            
+            {response || loginResponse  ?
+            <NotificationBox />
+             :
+             null
+            }
                 
-                {response  ?
-                <NotificationBox />
-                 :
-                 null
-                }
-                    
-                <SideBar />
-                
-                { mobil2.screenWidth <= 1098 || mobil ?  
-                    <NavBarMobil /> 
-                : <NavBar />
-                }
-                <HeroSection />
-                 <VideoSection />
-                <HiwSection />
-                <NextStepSection/>
-                {
-                    !loggedIn ?
-                    <ContactSection
-                    handlingSubmitLoginUser={ handlingSubmitLoginUser}
-                    googleTest={googleTest}
-                    />
-                    :
-                    null
-                }
-                <FooterSection/> 
+            <SideBar />
+            
+            { mobil2.screenWidth <= 1098 || mobil ?  
+            <NavBarMobil /> 
+            : <NavBar />
+            }
+            <HeroSection />
+             <VideoSection />
+            <HiwSection />
+            <NextStepSection/>
+            {
+            !loggedIn ?
+            <ContactSection
+            googleTest={googleTest}
+            />
+            :
+            null
+            }
+            <FooterSection/> 
                 
             </>
             : null

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { infoContact } from '../../utils/data'
-// import '../../bookface.css'
+import { useSelector } from 'react-redux'
 
-const GoogleAuth5 = ({googleTest, language}) => {
+const GoogleAuth5 = ({ googleTest }) => {
 
+    const language = useSelector((state) => state.sideBarState.language)
     // var googleUser = {}
     
     useEffect(()=> {

@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
 import { infoContact } from '../../utils/data'
@@ -14,16 +15,34 @@ const validationSchema = yup.object({
 
 
 const ForgotPINForm = ({ 
-    handlingNewPINRequest, 
     language 
 }) => {
-
+    const url_generatePIN_ITC = "https://intense-atoll-00786.herokuapp.com/api/users/newPIN"
     const dispatch = useDispatch()
-    const {   openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const {   openingForgotPINView, activatingSpinner, settingResponse  } = bindActionCreators(actionCreators, dispatch)
     const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
 
     const onSubmit = (values) => {
         handlingNewPINRequest(values)
+    }
+
+    const handlingNewPINRequest = async(dataToRequest) => {
+        // console.log(dataToRequest)
+        activatingSpinner(true)
+        try {
+            const response = await axios.put(url_generatePIN_ITC, dataToRequest)
+            console.log(response.status)
+            if (response.status === 200){
+                console.log(response)
+                settingResponse(response)
+                activatingSpinner(false)
+                return response.status
+            }
+        } catch (error) {
+            console.log(error)
+            activatingSpinner(false)
+            settingResponse(error.response)
+        }
     }
 
     const formik = useFormik({
