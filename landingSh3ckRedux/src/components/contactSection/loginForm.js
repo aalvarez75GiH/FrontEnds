@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useFormik } from 'formik'
 import * as yup from 'yup' 
@@ -140,7 +141,11 @@ const LoginForm = ({ googleTest }) => {
                 <button
                 className="sendDataBtn"
                 type="submit"
-                >{language === 'ES' ? infoContact.loginFormSendBtn : infoContact.loginFormSendBtn_EN}</button>
+                >
+                    {/* <Link to={`/app`}> */}
+                        {language === 'ES' ? infoContact.loginFormSendBtn : infoContact.loginFormSendBtn_EN}
+                    {/* </Link> */}
+                </button>
                 <button
                 onClick={() => openingRegView(!regView)}
                 className="regButton"
