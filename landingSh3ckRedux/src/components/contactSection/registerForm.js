@@ -17,7 +17,6 @@ const RegisterForm = ({
     handlingSubmitUser, 
     language,
     googleTest,
-    isSignedIn
 }) => {
 
     // useEffect(() => {
@@ -94,7 +93,6 @@ const RegisterForm = ({
 
                 <GoogleAuth5
                 googleTest={googleTest}
-                isSignedIn={isSignedIn}
                 language={language}
                 />
                 

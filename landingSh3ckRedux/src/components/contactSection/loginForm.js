@@ -21,7 +21,6 @@ const validationSchema = yup.object({
 const LoginForm = ({ 
     handlingSubmitUser,
     handlingNewPINRequest,
-    isSignedIn,
     googleTest,
     handlingSubmitLoginUser,
 }) => {
@@ -58,7 +57,6 @@ const LoginForm = ({
         return(
             <RegisterForm 
             handlingSubmitUser={handlingSubmitUser}
-            isSignedIn={isSignedIn}
             />
         )
     }
@@ -128,7 +126,6 @@ const LoginForm = ({
                 onClick={() => openingForgotPINView(!forgotPIN)} 
                 className="forgotPINSpan">{language === 'ES' ? infoContact.loginFormSpan : infoContact.loginFormSpan_EN}</span>
                 <GoogleAuth5
-                isSignedIn={isSignedIn}
                 googleTest={googleTest}
                 language={language}
                 />

@@ -3,7 +3,8 @@ const contactSectionReducer = (
         isContactSectionOpen: false,
         active: null,
         regView: false,
-        forgotPIN: false
+        forgotPIN: false,
+        response: null
     }, action) => {
         switch (action.type) {
         case 'isContactSectionOpen':
@@ -15,6 +16,8 @@ const contactSectionReducer = (
             return {...state, regView: action.payload}
         case 'forgotPIN':
             return {...state, forgotPIN: action.payload}
+        case 'response':
+            return {...state, response: action.payload}
         default:
             return state    
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as LinkR } from 'react-router-dom'
-import { BiUser, BiUserCheck } from 'react-icons/bi'
+import { BiUserCheck } from 'react-icons/bi'
 import { actionCreators } from '../../state'
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from '@reduxjs/toolkit'
@@ -9,6 +9,7 @@ const NavBarForCS = ({ toggleMainSideBar }) => {
     const dispatch = useDispatch()
     const {  openingMainSideBar } = bindActionCreators(actionCreators, dispatch)
     const mainSideBarOpen = useSelector((state) => state.homeState.mainSideBarOpen)
+    console.log(mainSideBarOpen)
     
     return (
         <>

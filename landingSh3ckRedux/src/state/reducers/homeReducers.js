@@ -5,7 +5,9 @@ const homeReducers = (
         loginResponse: null,
         loggedIn: false,
         loggedOut: true,
-        mainSideBarOpen: false
+        mainSideBarOpen: false,
+        isSignedIn: null,
+        loginData: null
     }, action) => {
 
         switch (action.type) {
@@ -21,8 +23,12 @@ const homeReducers = (
             return {...state, loggedIn: action.payload}
         case 'loggedOut': 
             return {...state, loggedOut: action.payload}
-        case ' mainSideBarOpen': 
+        case 'mainSideBarOpen': 
             return {...state, mainSideBarOpen: action.payload}
+        case 'isSignedIn': 
+            return {...state, isSignedIn: action.payload}
+        case 'loginData': 
+            return {...state, loginData: action.payload}
                 
         default:
             return state    

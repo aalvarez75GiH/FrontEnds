@@ -3,6 +3,9 @@ import { useFormik, Formik } from 'formik'
 import * as yup from 'yup'
 import DropDownList from './dropDownList'
 import { infoContact } from '../../utils/data'
+import { useSelector, useDispatch } from 'react-redux'
+import { actionCreators } from '../../state'
+import { bindActionCreators } from '@reduxjs/toolkit'
 
 
 const validationSchema = yup.object({
@@ -11,8 +14,13 @@ const validationSchema = yup.object({
 })
 
 
-const InterestedUserForm = ({ handlingSubmitInterestedUser, language }) => {
-
+const InterestedUserForm = ({ handlingSubmitInterestedUser }) => {
+    
+    
+    // const dispatch = useDispatch()
+    // const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const language = useSelector((state) => state.sideBarState.language)
+    
     const [ city, setCity ] = useState(language === 'ES' ? infoContact.intUsersFormPH3 : infoContact.intUsersFormPH3_EN)
     const [ cityError, setCityError ] = useState(false)
     const options = ['Caracas', 'Barquisimeto', 'Valencia', 'Maracaibo', 'Athens']

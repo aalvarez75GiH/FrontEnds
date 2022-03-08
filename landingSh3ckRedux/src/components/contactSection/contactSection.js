@@ -12,14 +12,18 @@ import { actionCreators } from '../../state'
 
 const ContactSection = ({
     handlingSubmitLoginUser,
-    isSignedIn,
     googleTest,
-    workingSpinner,
     handlingClosingOfContactSection,
-    handlingContactSectionResponse,
+   
 }) => {
     const dispatch = useDispatch()
-    const {   openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const {   
+        openingRegView, 
+        openingForgotPINView, 
+        settingResponse,
+        openingContactSection,
+        activatingSpinner  
+        } = bindActionCreators(actionCreators, dispatch)
     const language = useSelector((state) => state.sideBarState.language)
     const isContactSectionOpen = useSelector((state) => state.contactSectionState.isContactSectionOpen)
     const active = useSelector((state) => state.contactSectionState.active)
@@ -31,6 +35,21 @@ const ContactSection = ({
     const url_generatePIN_ITC = "https://intense-atoll-00786.herokuapp.com/api/users/newPIN"
     
 
+    const workingSpinner = (option) => {
+        console.log(option)
+        switch (option) {
+            case 'activate':
+                activatingSpinner(true) //action
+                break
+            case 'close':
+                activatingSpinner(false) //action
+                break
+            default:
+                activatingSpinner(false) //action
+                break;
+        }
+        
+    } 
     
     const handlingSubmitInterestedUser = (interestedUser) => {
         
@@ -40,15 +59,16 @@ const ContactSection = ({
                 const response = await axios.post(url_interestedUsersInTheCloud, interestedUser)
                     console.log(response)
                     if (response.status === 201){
-                        handlingContactSectionResponse(response)
+                        settingResponse(response)
                         workingSpinner('close')
+                        openingContactSection(false)
                         console.log('Gracias por enviarnos tus datos, estaremos en contacto...')
                         return response.status
                     }
             } catch (error) {
                 console.log(error.response)
                 workingSpinner('close')
-                handlingContactSectionResponse(error.response)
+                settingResponse(error.response)
             }
         },2000)
         
@@ -66,8 +86,9 @@ const ContactSection = ({
                 const response = await axios.post(url_usersInTheCloud, user)
                     console.log(response)
                     if (response.status === 201){
-                        handlingContactSectionResponse(response)
+                        settingResponse(response)
                         workingSpinner('close')
+                        openingContactSection(false)
                         settinRegViewAndForgotPINToFalse()
                         console.log('Gracias por registrarte')
                         return response.status
@@ -75,7 +96,7 @@ const ContactSection = ({
             } catch (error) {
                 console.log(error)
                 workingSpinner('close')
-                handlingContactSectionResponse(error.response)
+                settingResponse(error.response)
             }
         },2000)
     } 
@@ -88,14 +109,14 @@ const ContactSection = ({
             console.log(response.status)
             if (response.status === 200){
                 console.log(response)
-                handlingContactSectionResponse(response)
+                settingResponse(response)
                 workingSpinner('close')
                 return response.status
             }
         } catch (error) {
             console.log(error)
             workingSpinner('close')
-            handlingContactSectionResponse(error.response)
+            settingResponse(error.response)
         }
     }
 
@@ -112,8 +133,6 @@ return (
             { !loggedIn  ? 
             <>
             <FormHeader
-            active = {active}
-            language={language}
             handlingClosingOfContactSection={handlingClosingOfContactSection}
             />
             </>
@@ -138,7 +157,6 @@ return (
             handlingSubmitLoginUser={handlingSubmitLoginUser}
             handlingNewPINRequest={handlingNewPINRequest}
             language={language}
-            isSignedIn={isSignedIn}
             googleTest={googleTest}
             />
             :

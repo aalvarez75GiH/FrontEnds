@@ -15,16 +15,24 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 
 
 const MainSideBar = ({ 
-    handlingSubmitLogOutUser, 
-    loginData,
+    // handlingSubmitLogOutUser 
 }) => {
     const dispatch = useDispatch()
-    const {  openingMainSideBar, openingQASideBar } = bindActionCreators(actionCreators, dispatch)
+    // const {  openingMainSideBar, openingQASideBar } = bindActionCreators(actionCreators, dispatch)
+    const {  
+        openingMainSideBar, openingQASideBar,
+        handlingIsSignedInGoogle, activatingForm,
+        gettingLoginResponseData, handlingIsLoggedIn,
+        handlingIsLoggedOut, openingContactSection,
+        settingCurrentUser,
+    } = bindActionCreators(actionCreators, dispatch)
     const mainSideBarOpen = useSelector((state) => state.homeState.mainSideBarOpen)
     const username = useSelector((state) => state.homeState.currentUser)
     const language = useSelector((state) => state.sideBarState.language)
     const loginResponse = useSelector((state) => state.homeState.loginResponse)
     const loggedIn = useSelector((state) => state.homeState.loggedIn)
+    const loginData = useSelector((state) => state.homeState.loginData)
+    const isSignedIn = useSelector((state) => state.homeState.isSignedIn)
     
     const capitalizeFirstLetter = (string) => {
         // const str = 'flexiple';
@@ -34,6 +42,33 @@ const MainSideBar = ({
     }
     const nameSplittedAndCapitalized = capitalizeFirstLetter(username ? username : loginResponse.data )
 
+    const handlingSubmitLogOutUser = async() => {
+        
+        if (isSignedIn) {
+            console.log('pasa por isSignedIn')
+            const auth = window.gapi.auth2.getAuthInstance()
+            await auth.signOut()
+            
+            handlingIsSignedInGoogle(false) //action
+            activatingForm(null) //action
+            openingMainSideBar(!mainSideBarOpen)  //action
+            gettingLoginResponseData(null) //action
+            openingContactSection(false) //action
+        }
+        if (loggedIn){
+            console.log('pasa por loggedIn')
+            localStorage.removeItem('SH3CK_TOKEN')
+            gettingLoginResponseData(null) //action
+            activatingForm(null) //action
+            openingMainSideBar(!mainSideBarOpen) //action
+            handlingIsLoggedIn(false) //action
+            handlingIsLoggedOut(true) //action
+            openingContactSection(false) //action
+            settingCurrentUser(null) //action
+        }
+        
+        
+    }
 
     if (loggedIn && mainSideBarOpen){
        return (

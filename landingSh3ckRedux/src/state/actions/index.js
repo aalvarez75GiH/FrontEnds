@@ -83,6 +83,16 @@ export const openingForgotPINView = (value) => {
     }
 }
 
+export const settingResponse = (dataResponse) => {   
+    return(dispatch) => {
+        dispatch({
+            type: 'response',
+            payload: dataResponse
+        })
+    }
+}
+
+
 // ****** Home Actions creators ***************
 
 export const activatingSpinner = (value) => {
@@ -94,7 +104,7 @@ export const activatingSpinner = (value) => {
     }
 }
 
-export const gettingCurrentUser = (currentUserName) => {   
+export const settingCurrentUser = (currentUserName) => {   
     return(dispatch) => {
         dispatch({
             type: 'currentUser',
@@ -131,11 +141,30 @@ export const handlingIsLoggedOut  = (status) => {
 export const openingMainSideBar  = (status) => {   
     return(dispatch) => {
         dispatch({
-            type: ' mainSideBarOpen',
+            type: 'mainSideBarOpen',
             payload: status
         })
     }
 }
+
+export const handlingIsSignedInGoogle  = (status) => {   
+    return(dispatch) => {
+        dispatch({
+            type: 'isSignedIn',
+            payload: status
+        })
+    }
+}
+
+export const gettingGoogleLoginData = (value) => {
+    return(dispatch) => {
+        dispatch({
+            type: 'loginData',
+            payload: value
+        })
+    }
+} 
+
 
 
 

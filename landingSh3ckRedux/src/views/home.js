@@ -17,7 +17,7 @@ import FooterSection from '../components/footerSection/footerSection'
 import LoadingSpinner from '../utils/loadingSpinner'
 import CheckSection from '../components/checkSection/checkSection'
 import NotificationBox from '../components/notifications/NotificationBox'
-import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
+// import { responseDataInterested, responseDataRegister, responseDataLogin, responseDataNewPIN } from '../components/notifications/notificationData'
 import { verifyingTokenRequest } from '../requestsToApi'
 // ************************* Redux imports
 import { actionCreators } from '../state'
@@ -29,10 +29,8 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 const Home = () => {
 
     
-    const [response, setResponse ] = useState(null)
     // Google OAuth States *****************************************
-    const [ loginData, setLoginData ] = useState(null)
-    const [isSignedIn, setIsSignedIn] = useState(null)
+    // const [ loginData, setLoginData ] = useState(null)
     // **************************************************************
     
     //  ****************Redux Actions and State Consumption **********************
@@ -40,17 +38,15 @@ const Home = () => {
     const {  
         activatingForm, openingRegView, 
         activatingSpinner, openingQASideBar, 
-        gettingCurrentUser, gettingLoginResponseData,
-        openingContactSection,handlingIsLoggedIn,handlingIsLoggedOut,
-        openingMainSideBar,  
+        settingCurrentUser, gettingLoginResponseData,
+        openingContactSection,handlingIsLoggedIn,handlingIsLoggedOut, 
+        handlingIsSignedInGoogle, settingResponse, gettingGoogleLoginData,  
     } = bindActionCreators(actionCreators, dispatch)
-    const active = useSelector((state) => state.contactSectionState.active)
+    
     const QASideBarOpen = useSelector((state) => state.sideBarState.QASideBarOpen)
-    const loginResponse = useSelector((state) => state.homeState.loginResponse)
-    const forgotPIN = useSelector((state) => state.contactSectionState.forgotPIN)
     const loggedIn = useSelector((state) => state.homeState.loggedIn)
-    const mainSideBarOpen = useSelector((state) => state.homeState.mainSideBarOpen)
-    // const loggedOut = useSelector((state) => state.homeState.loggedOut)
+    const response = useSelector((state) => state.contactSectionState.response)
+    
     
     const mobil = useMobilDetect()
     const mobil2 = useMobilDetection()
@@ -68,36 +64,15 @@ const Home = () => {
             if (token){
                 const response = await verifyingTokenRequest(token)
                 console.log(response.data)
-                gettingCurrentUser(response.data)
-                return handlingIsLoggedIn(true)
+                settingCurrentUser(response.data) //action
+                return handlingIsLoggedIn(true) //action
             }
-            handlingIsLoggedIn(false)
-            handlingIsLoggedOut(true) 
+            handlingIsLoggedIn(false) //action
+            handlingIsLoggedOut(true) //action
         }   
         getToken()
     }
 
-    // **************************************************************
-
-    const handlingContactSectionResponse = (response) => {
-        setResponse(response)
-    }
-    
-    const togglingResponseData = () => {
-        if (response && active === 'interested'){
-            return responseDataInterested
-        }
-        if (response && forgotPIN){
-            return responseDataNewPIN
-        }
-        if (response && active === 'check'){
-            return responseDataRegister
-        }
-        if (loginResponse && active === 'check'){
-            return responseDataLogin
-        } 
-    }
-    // ***************************************************************
 
 
     const handlingSubmitLoginUser = async(user) => {
@@ -110,10 +85,11 @@ const Home = () => {
                 localStorage.setItem('SH3CK_TOKEN', data.token)
                 const response = await verifyingTokenRequest(data.token)
                 console.log(response)
+                settingCurrentUser(response.data) //action
                 gettingLoginResponseData(response)  //action
                 activatingSpinner(false) //action
                 handlingIsLoggedIn(true)
-                handlingIsLoggedOut(false)
+                handlingIsLoggedOut(false) //action
                 console.log('Usuaurio encontrado y hace login')    
             } catch (error) {
                 console.log(error)
@@ -123,75 +99,21 @@ const Home = () => {
         },3000)
         
     }
-
-    const handlingSubmitLogOutUser = async() => {
-        
-        if (isSignedIn) {
-            console.log('pasa por isSignedIn')
-            const auth = window.gapi.auth2.getAuthInstance()
-            await auth.signOut()
-            setLoginData(null)
-            setIsSignedIn(false)
-            activatingForm(null) //action
-            openingMainSideBar(!mainSideBarOpen)  //action
-            gettingLoginResponseData(null) //action
-            openingContactSection(false) //action
-        }
-        if (loggedIn){
-            console.log('pasa por loggedIn')
-            localStorage.removeItem('SH3CK_TOKEN')
-            gettingLoginResponseData(null) //action
-            activatingForm(null) //action
-            openingMainSideBar(!mainSideBarOpen) //action
-            handlingIsLoggedIn(false)
-            handlingIsLoggedOut(true)
-            openingContactSection(false) //action
-        }
-        
-        
-    }
  
     const gettingOutOfCheckApp = async() => {
         localStorage.removeItem('SH3CK_TOKEN')
-        setIsSignedIn(false)
-        handlingIsLoggedIn(false)
+        handlingIsSignedInGoogle(false) //action
+        handlingIsLoggedIn(false) //action
         activatingForm(null) //action
         openingContactSection(false) //action
         openingRegView(false) //action 
-        setLoginData(null)
+        gettingGoogleLoginData(null)
         gettingLoginResponseData(null) //action
-        setResponse(null)
-        
+        settingResponse(null)
+        settingCurrentUser(null) //action
     }
     
-    // const toggleMainSideBar = () => {
-    //     openingMainSideBar(!mainSideBarOpen) //action
-    // } 
 
-    const toggleNotification = () => {
-        setResponse(null)
-        gettingLoginResponseData(null) //action
-        activatingForm(null) //action
-        openingContactSection(false) //action
-    }
-     
- 
-    const workingSpinner = (option) => {
-        console.log(option)
-        switch (option) {
-            case 'activate':
-                activatingSpinner(true) //action
-                break
-            case 'close':
-                activatingSpinner(false) //action
-                break
-            default:
-                activatingSpinner(false) //action
-                break;
-        }
-        
-    } 
-    
 
   
   //  ************* Google OAuth Processes and functions (with googleAuth5) ****************
@@ -214,13 +136,12 @@ const Home = () => {
               }).then(()=> {
               auth = window.gapi.auth2.getAuthInstance()
               const isSignedIn = auth.isSignedIn.get()
-              setIsSignedIn(isSignedIn)
-              auth.isSignedIn.listen(isSignedIn => {
-                  setIsSignedIn(auth.isSignedIn.get())
+              handlingIsSignedInGoogle(isSignedIn) //action(isSignedIn)
+              auth.isSignedIn.listen( () => {
+                handlingIsSignedInGoogle(auth.isSignedIn.get())
               })   
               })
           })
-          
         }
 
         const googleTest = async(user, token) => {
@@ -240,23 +161,23 @@ const Home = () => {
             if (res.status === 201){
                 console.log(data)
                 activatingSpinner(false) //action
-                setLoginData(data)   
-                gettingCurrentUser(data.fullName)
-                handlingIsLoggedIn(true) 
-                handlingIsLoggedOut(false)
+                gettingGoogleLoginData(data)    //action
+                settingCurrentUser(data.fullName) //action
+                handlingIsLoggedIn(true)  //action
+                handlingIsLoggedOut(false) //action
                 return res.status
             }
         } catch (error) {
             console.log(error)
             console.log(error.response.data)
             activatingSpinner(false) //action
-            gettingCurrentUser(error.response.data.fullName)
-            setLoginData(error.response.data)
-            handlingIsLoggedIn(true) 
-            handlingIsLoggedOut(false)
+            settingCurrentUser(error.response.data.fullName) //action
+            gettingGoogleLoginData(error.response.data) //action
+            handlingIsLoggedIn(true)  //action
+            handlingIsLoggedOut(false) //action
         }
 }
-
+console.log(response)
     return (
     <>
             
@@ -267,8 +188,7 @@ const Home = () => {
         loggedIn  ?
         <div className="superContainer">
             <MainSideBar
-            handlingSubmitLogOutUser={handlingSubmitLogOutUser}
-            loginData={loginData}       
+            // handlingSubmitLogOutUser={handlingSubmitLogOutUser}       
             />
             <NavBarForCS /> 
             <CheckSection 
@@ -277,54 +197,45 @@ const Home = () => {
         </div>
     : null
     }
-            {
-                QASideBarOpen && !loggedIn ?
-                <QASideBar />
-                : 
-                    !loggedIn ? 
-                    <>
-                        <LoadingSpinner/>
-
-                        {response || loginResponse ?
-                        <NotificationBox
-                        toggleNotification={toggleNotification} 
-                        response={response ? response : loginResponse }
-                        responseData={togglingResponseData()} 
-                        
-                         />
-                         :
-                         null
-                        }
-                            
-                        <SideBar />
-                        
-                        { mobil2.screenWidth <= 1098 || mobil ?  
-                            <NavBarMobil /> 
-                        : <NavBar />
-                        }
-                        <HeroSection />
-                         <VideoSection />
-                        <HiwSection />
-                        <NextStepSection/>
-                        {
-                            !loggedIn ?
-                            <ContactSection
-                            isSignedIn={isSignedIn}
-                            handlingSubmitLoginUser={ handlingSubmitLoginUser}
-                            toggleNotificationLogin={toggleNotification}
-                            googleTest={googleTest}
-                            workingSpinner={workingSpinner}
-                            handlingContactSectionResponse={handlingContactSectionResponse}
-                            />
-                            :
-                            null
-                        }
-                        <FooterSection/> 
-                        
-                    </>
-                    : null
-                        
-             }
+    {
+        QASideBarOpen && !loggedIn ?
+        <QASideBar />
+        : 
+            !loggedIn ? 
+            <>
+                <LoadingSpinner/>
+                
+                {response  ?
+                <NotificationBox />
+                 :
+                 null
+                }
+                    
+                <SideBar />
+                
+                { mobil2.screenWidth <= 1098 || mobil ?  
+                    <NavBarMobil /> 
+                : <NavBar />
+                }
+                <HeroSection />
+                 <VideoSection />
+                <HiwSection />
+                <NextStepSection/>
+                {
+                    !loggedIn ?
+                    <ContactSection
+                    handlingSubmitLoginUser={ handlingSubmitLoginUser}
+                    googleTest={googleTest}
+                    />
+                    :
+                    null
+                }
+                <FooterSection/> 
+                
+            </>
+            : null
+                
+     }
 
             
    

@@ -10,7 +10,7 @@ import useMobilDetection from '../../utils/mobilDetection'
 const FormHeader = () => {
     const mobil1 = useMobilDetection()
     const dispatch = useDispatch()
-    const {  openingContactSection, activatingForm, openingRegView, openingForgotPINView  } = bindActionCreators(actionCreators, dispatch)
+    const {  openingContactSection, activatingForm, openingRegView } = bindActionCreators(actionCreators, dispatch)
 
     const active = useSelector((state) => state.contactSectionState.active)
     const language = useSelector((state) => state.sideBarState.language)
